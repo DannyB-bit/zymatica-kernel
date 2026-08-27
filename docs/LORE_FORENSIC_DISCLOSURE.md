@@ -21,13 +21,17 @@ Across the loft, Milo hauled two heavy Pelican cases onto the steel worktable, u
 
 Inside sat a custom-machined, anodized aluminum field chassis: an air-gapped, dual-socket workstation wired into five software-defined radio antennas and an array of hardware cryptographic accelerators.
 
-Kofi walked over, smelling of river mud, and sweat. He wiped a streak of sweat from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
+Kofi walked over, smelling of river mud. He wiped a streak of sweat from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
 
 "Alright, explain it to me again a guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that helicopter know our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads if GPS was blocked?"
 
 Milo didn’t look up. His fingers blurred across a mechanical keyboard, compiling a native Rust payload with sub-microsecond execution hooks.
 
-"Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run ZK-LoRaWAN."
+"Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run **ZK-LoRaWAN**."
+
+Milo glanced over his shoulder, throwing a crooked grin at Kofi.
+
+"Think of standard corporate radio like a guy standing in the dark with a megaphone yelling, *'Hey, my name is Jae and I'm standing right under this streetlight!'* It broadcasts your name, your device IMEI, and your exact GPS coordinates. But ZK-LoRaWAN? It's a secret rhythmic knock on a steel rebar pipe that blends into the ambient rumble of the river. The rescue chopper hears the vibration, checks the mathematical zero-knowledge proof to confirm it's family, and knows exactly which quadrant to drop the winch cable—while CONSIDER's orbital searchlights sweep across pitch-black water and see nothing."
 
 Jae leaned over Milo’s shoulder, his eyes instantly locking onto the open terminal source:
 
