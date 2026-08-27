@@ -4,14 +4,16 @@ Version 1.0 (2026) — Zymatica.space
 Copyright (c) 2026 Danny Bouldiez & Devs One
 Official Website: https://zymatica.space
 Literature Reference: "200 AMSTERDAM: THE VERTICAL CITY" (ZYMATICA A TRILOGY)
+Availability: Available Worldwide on Amazon.com (Paperback, Hardcover, & Kindle eBook)
 
 ================================================================================
-1. GRANT OF LICENSE THROUGH NOVEL OWNERSHIP
+1. GRANT OF LICENSE THROUGH NOVEL OWNERSHIP (AMAZON.COM)
 ================================================================================
 Permission is hereby granted, free of charge, to any person or entity who:
-  (a) Holds a valid, purchased copy (digital or physical) of the novel
-      "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez & Devs One, OR
-  (b) Holds an explicit commercial enterprise license from zymatica.space,
+  (a) Holds a valid, purchased copy (Kindle eBook, Paperback, or Hardcover) of
+      the novel "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez & Devs One
+      (Available on Amazon.com), OR
+  (b) Holds an explicit commercial enterprise license from https://zymatica.space,
 
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 of the Software (including all Language-U modules, ZK-LoRaWAN Groth16 circuits,
@@ -22,19 +24,20 @@ following conditions:
 2. COVENANT OF OWNERSHIP & FORKING CONDITIONS
 ================================================================================
 For all forks, derivative projects, and commercial distributions:
-  1. The above copyright notice, this permission notice, and reference to
-     https://zymatica.space and the novel "200 AMSTERDAM: THE VERTICAL CITY"
-     must be included in all copies or substantial portions of the Software.
+  1. The above copyright notice, this permission notice, reference to
+     https://zymatica.space, and notice of the novel "200 AMSTERDAM: THE VERTICAL CITY"
+     (available on Amazon.com) must be included in all copies or substantial
+     portions of the Software.
   2. Developers and organizations deploying derivative works must maintain proof
-     of ownership of the novel or hold a direct commercial license from
-     zymatica.space.
+     of purchase/ownership of the novel on Amazon.com or hold a direct commercial
+     license from zymatica.space.
 
 ================================================================================
 3. DISCLAIMER OF FICTION & TECHNICAL NATURE
 ================================================================================
 "200 AMSTERDAM: THE VERTICAL CITY" is a work of fiction. Names, characters,
 organizations, places, events, and incidents depicted in the narrative are
-either products of the authors' imaginations or used fictitious context.
+either products of the authors' imaginations or used in a fictitious context.
 
 The mathematical frameworks, zero-knowledge circuits, and communication
 algorithms contained in this repository are real, functioning open-source

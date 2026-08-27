@@ -10,13 +10,14 @@
 
 <p align="center">
   <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Official_Website-ZYMATICA.SPACE-FFD700?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Zymatica Space"></a>
+  <a href="https://www.amazon.com"><img src="https://img.shields.io/badge/Available_on-AMAZON.COM-FF9900?style=for-the-badge&logo=amazon&logoColor=white" alt="Available on Amazon"></a>
   <a href="https://github.com/DannyB-bit/zymatica.space"><img src="https://img.shields.io/badge/Flagship_Repo-zymatica.space-181717?style=for-the-badge&logo=github" alt="Flagship Repo"></a>
   <a href="https://github.com/DannyB-bit/zymatica-kernel"><img src="https://img.shields.io/badge/Kernel_Repo-zymatica--kernel-24292e?style=for-the-badge&logo=github" alt="Kernel Repo"></a>
   <a href="https://huggingface.co/TheAiCollectiveART"><img src="https://img.shields.io/badge/HuggingFace-Neural_Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face"></a>
 </p>
 
 <p align="center">
-  <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
+  <a href="https://www.amazon.com"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
   <img src="https://img.shields.io/badge/Zero--Knowledge-Groth16_BN254-00C7B7?style=for-the-badge" alt="Zero-Knowledge">
   <img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U">
   <img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native">
@@ -34,6 +35,7 @@
 
 | Hub | Repository / Link | Description |
 | :--- | :--- | :--- |
+| 📚 **The Novel on Amazon** | **[Available on Amazon.com](https://www.amazon.com)** | *200 Amsterdam: The Vertical City* (Paperback, Hardcover, & Kindle eBook). |
 | 🌌 **Flagship Monorepo** | **[github.com/DannyB-bit/zymatica.space](https://github.com/DannyB-bit/zymatica.space)** | Primary domain-matched master repository for the entire platform. |
 | 📦 **Kernel Monorepo** | **[github.com/DannyB-bit/zymatica-kernel](https://github.com/DannyB-bit/zymatica-kernel)** | Cryptographic root router and native Rust execution kernel. |
 | 🌐 **Official Platform** | **[zymatica.space](https://zymatica.space)** | Live web application, architecture documentation, and whitepapers. |
@@ -44,7 +46,7 @@
 ## ⚡ THIS IS ZYMATICA SOURCE CODE
 
 > **CRITICAL ARCHIVAL DISCLOSURE:**  
-> This repository houses the operational cryptographic, mathematical, and computational source code revealed in the hard science-fiction novel **200 Amsterdam: The Vertical City** (*Book One of ZYMATICA A TRILOGY*).
+> This repository houses the operational cryptographic, mathematical, and computational source code revealed in the hard science-fiction novel **200 Amsterdam: The Vertical City** (*Book One of ZYMATICA A TRILOGY*), **available worldwide on Amazon.com**.
 > 
 > **CHARACTER FICTION DISCLAIMER:**  
 > *"200 Amsterdam: The Vertical City" is a work of fiction. Names, characters, organizations, places, events, and incidents depicted in the story are products of the authors’ imaginations or used in a fictitious manner. The mathematical frameworks, zero-knowledge circuits, 6D semantic hypercube tensors, and native engines contained in this codebase are real, functioning open-source and proprietary software.*
@@ -261,13 +263,13 @@ python run_proof.py
 
 This codebase is protected under the **ZYMATICA Commercial & Novel-Holder Covenant License**:
 
-1. **Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** by Danny Bouldiez & Devs One and retaining ownership is granted a personal and commercial license to compile, execute, fork, and build upon all source code in this repository.
+1. **Amazon Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** by Danny Bouldiez & Devs One (available on **Amazon.com** in Kindle eBook, Paperback, or Hardcover) and retaining ownership is granted a perpetual personal and commercial license to compile, execute, fork, and build upon all source code in this repository.
 2. **Commercial Enterprise License**: Available directly via [zymatica.space](https://zymatica.space).
-3. **Attribution**: All derivative works and forks must retain copyright notices and reference **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City"**.
+3. **Attribution**: All derivative works and forks must retain copyright notices and reference **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City" (available on Amazon.com)**.
 
 ---
 
 <p align="center">
   <b>© 2026 Danny Bouldiez & Devs One | <a href="https://zymatica.space">zymatica.space</a></b><br>
-  <i>All rights reserved across all 28 Figure Skater Zones.</i>
+  <i>"200 AMSTERDAM: THE VERTICAL CITY" is available worldwide on <a href="https://www.amazon.com">Amazon.com</a>.</i>
 </p>
