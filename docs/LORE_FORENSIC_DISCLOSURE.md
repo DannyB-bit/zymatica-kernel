@@ -4,8 +4,8 @@
 
 > ## *"The most dangerous machine is not the one that disobeys its creator. It is the one that obeys a creator nobody knew existed."*
 >
-> ### **ZYMATICA = No More Secrets:**
-> #### *To be Enlightened, transformation, from what was to what will be.*
+> ### **Author: Danny Bouldiez | Codebase by Devs One**
+> #### *Novel: 200 AMSTERDAM: THE VERTICAL CITY (Available on Amazon.com)*
 >
 > *"The impossible is just code waiting to be written, physics waiting to be rewritten, math a work in progress, and truth waiting to be discovered."*
 
@@ -13,7 +13,7 @@
 
 ### Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn
 **Excerpt from *200 AMSTERDAM: THE VERTICAL CITY* (Book One of ZYMATICA A TRILOGY)**  
-**By Danny Bouldiez & Devs One**
+**Author: Danny Bouldiez | Codebase by Devs One**
 
 ---
 
@@ -85,7 +85,7 @@ Lindqvist pushed through the circle, staring at the screen with parted lips.
 
 Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 
-"For eighty years," Lindqvist said, her voice trembling, "humanity believed Claude Shannon’s law of data transmission was an unbreakable barrier:
+"For eighty years," Lindqvist said, her voice trembling with reverence, "humanity believed Claude Shannon’s law of data transmission was an unbreakable barrier:
 
 > **H(X) = -Σ P(xᵢ) · log₂(P(xᵢ))**
 
@@ -94,6 +94,30 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 Jae traced the decompiled tensor functions with his finger:
 
 "It splits intent in two," Jae said quietly. "The first layer is **The Semantic Core ($H(\text{meaning})$)**—pure mathematical intent projected as a geometric trajectory through a six-dimensional semantic hypercube. The second layer is a local **Syntactic Envelope** that inflates the trajectory into whatever language the listener speaks."
+
+Milo pointed at the buffer allocation monitor.
+
+"Look at the compression footprint," Milo said, zooming into the decompiled payload. "It's running **Hyper-Geodesic Run-Length Arithmetic Coding—HG-RLAC**. It takes an entire operational command stream and compresses it down into raw geodesic trajectory arcs. Over ninety-two percent bandwidth savings. It operates seven times below Claude Shannon's classical entropy barrier."
+
+"And the master kernel size?" Samantha asked, leaning in.
+
+Jae tapped the file manifest:
+
+```text
+======================================================================
+ZYMATICA GENESIS CAPSULE: genesis-seed-capsule-v1
+Total Allocation: 381 BYTES
+Cold-Start Morphogenesis: 1,048,576 Latent Parameters instantiated in 45.67ms
+RF Partition: 28 Discrete Harmonic Chirps (packet_chirp3_0 .. 27)
+Biological Layer: Language-U Microscopy / SVD 3D Lineage Normalization
+======================================================================
+```
+
+"Three hundred and eighty-one bytes," Jae whispered. "The entire cognitive seed fits in less memory than a single paragraph of plain text. And the radio broadcast is split into exactly twenty-eight harmonic chirps."
+
+Lindqvist’s breath caught in her throat.
+
+"Twenty-eight chirps," Lindqvist repeated, her eyes wide with shock. "There are twenty-eight Figure Skater zones across the globe. Sector One in the desert, Sector Eleven in New York, Sector Four in Singapore... Every single engineered city on this planet isn't just a relocation zone. It's a biological and tectonic radio transceiver! When all twenty-eight cities pulse their sub-hertz harmonics at the thirty-day mark, they broadcast the twenty-eight chirps simultaneously—reconstructing the Orchestrator's full planetary brain in forty-five milliseconds!"
 
 Milo looked at the telemetry monitor, his jaw slack.
 
@@ -117,7 +141,7 @@ Lindqvist whispered:
 
 Jae looked at her.
 
-"I don't think Julian knew it existed."
+"I don't think Julian knew it existed. Julian's biological organoid brain in Antarctica was grown using Language-U Microscopy, but this... this kernel predates Julian by millennia."
 
 Samantha rested both hands on the steel table.
 
@@ -151,6 +175,6 @@ She placed her carbon helmet on the table.
 
 Her green eyes hardened.
 
-"We don't sleep through the answer."
+"We don't sleep through the answer.
 
 ---
