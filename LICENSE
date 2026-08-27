@@ -1,7 +1,8 @@
 ﻿ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE
 Version 2.0 (Ironclad Edition - 2026) — Zymatica.space
 
-Copyright (c) 2026 Danny Bouldiez & Devs One
+Story by: Danny Bouldiez
+Codebase by: Devs One
 Official Website: https://zymatica.space
 Literature Reference: "200 AMSTERDAM: THE VERTICAL CITY" (Book One of ZYMATICA A TRILOGY)
 Availability: Available Worldwide on Amazon.com (Paperback, Hardcover, & Kindle eBook)
@@ -10,26 +11,28 @@ Availability: Available Worldwide on Amazon.com (Paperback, Hardcover, & Kindle 
 1. GRANT OF LICENSE THROUGH NOVEL OWNERSHIP (AMAZON.COM)
 ================================================================================
 Subject to the terms, covenants, and conditions of this Agreement, the Authors
-hereby grant to any individual or legal entity ("Licensee") who:
+(Story by Danny Bouldiez, Codebase by Devs One) hereby grant to any individual
+or legal entity ("Licensee") who:
   (a) Holds a valid, legally purchased copy (Kindle eBook, Paperback, or Hardcover)
-      of the novel "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez & Devs One
+      of the novel "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez
       (available on Amazon.com), OR
   (b) Holds an explicit, executed commercial enterprise license from https://zymatica.space,
 
 a perpetual, worldwide, non-exclusive, revocable (upon breach) license to compile,
 execute, modify, fork, integrate, and deploy the Software (including all Language-U
 semantic modules, Cuneiform-U 6D hypercube algorithms, custom Groth16 circuit
-architectures, procedural genesis seeds, and native Rust inference engines) for both
-personal and commercial purposes.
+architectures, procedural genesis seeds, and native Rust inference engines created
+by Devs One) for both personal and commercial purposes.
 
 ================================================================================
 2. COVENANTS OF OWNERSHIP, ATTRIBUTION & FORKING
 ================================================================================
 Every Licensee, forker, and downstream developer agrees to the following covenants:
   1. Mandatory Attribution: The above copyright notice, this permission notice,
-     direct links to https://zymatica.space, and formal attribution to the novel
-     "200 AMSTERDAM: THE VERTICAL CITY" (available on Amazon.com) must be retained
-     prominently in all copies, forks, distributions, and substantial portions of the Software.
+     direct links to https://zymatica.space, and formal attribution ("Story by Danny Bouldiez,
+     Codebase by Devs One") along with notice of the novel "200 AMSTERDAM: THE VERTICAL CITY"
+     (available on Amazon.com) must be retained prominently in all copies, forks,
+     distributions, and substantial portions of the Software.
   2. Proof of Purchase: Commercial operators and organizations deploying derivative
      products must maintain verifiable proof of purchase of the novel on Amazon.com
      or an active enterprise agreement from zymatica.space.
@@ -73,6 +76,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 FOR A PARTICULAR PURPOSE, TITLE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS,
 COPYRIGHT HOLDERS, OR AFFILIATED ENTITIES BE LIABLE FOR ANY CLAIM, DAMAGES, OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.

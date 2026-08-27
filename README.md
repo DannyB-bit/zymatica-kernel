@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <b>Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</b>
+</p>
+
+<p align="center">
   <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Official_Website-ZYMATICA.SPACE-FFD700?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Zymatica Space"></a>
   <a href="https://www.amazon.com"><img src="https://img.shields.io/badge/Available_on-AMAZON.COM-FF9900?style=for-the-badge&logo=amazon&logoColor=white" alt="Available on Amazon"></a>
   <a href="https://github.com/DannyB-bit/zymatica.space"><img src="https://img.shields.io/badge/Flagship_Repo-zymatica.space-181717?style=for-the-badge&logo=github" alt="Flagship Repo"></a>
@@ -27,7 +31,8 @@
 
 > *"The impossible is just code waiting to be written, physics waiting to be rewritten, math a work in progress, and truth waiting to be discovered."*
 > 
-> — **Danny Bouldiez & Devs One** | *200 Amsterdam: The Vertical City*
+> — **Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One** <br>
+> *200 Amsterdam: The Vertical City*
 
 ---
 
@@ -35,9 +40,9 @@
 
 | Hub | Repository / Link | Description |
 | :--- | :--- | :--- |
-| 📚 **The Novel on Amazon** | **[Available on Amazon.com](https://www.amazon.com)** | *200 Amsterdam: The Vertical City* (Paperback, Hardcover, & Kindle eBook). |
+| 📚 **The Novel on Amazon** | **[Available on Amazon.com](https://www.amazon.com)** | *200 Amsterdam: The Vertical City* by Danny Bouldiez (Paperback, Hardcover, & Kindle eBook). |
 | 🌌 **Flagship Monorepo** | **[github.com/DannyB-bit/zymatica.space](https://github.com/DannyB-bit/zymatica.space)** | Primary domain-matched master repository for the entire platform. |
-| 📦 **Kernel Monorepo** | **[github.com/DannyB-bit/zymatica-kernel](https://github.com/DannyB-bit/zymatica-kernel)** | Cryptographic root router and native Rust execution kernel. |
+| 📦 **Kernel Monorepo** | **[github.com/DannyB-bit/zymatica-kernel](https://github.com/DannyB-bit/zymatica-kernel)** | Cryptographic root router and native Rust execution kernel by Devs One. |
 | 🌐 **Official Platform** | **[zymatica.space](https://zymatica.space)** | Live web application, architecture documentation, and whitepapers. |
 | 🧬 **Hugging Face Hub** | **[huggingface.co/TheAiCollectiveART](https://huggingface.co/TheAiCollectiveART)** | 65 neural models, DNA-GROW capsules, 28-chirp weights, and Sumerian tokenizers. |
 
@@ -46,16 +51,17 @@
 ## ⚡ THIS IS ZYMATICA SOURCE CODE
 
 > **CRITICAL ARCHIVAL DISCLOSURE:**  
-> This repository houses the operational cryptographic, mathematical, and computational source code revealed in the hard science-fiction novel **200 Amsterdam: The Vertical City** (*Book One of ZYMATICA A TRILOGY*), **available worldwide on Amazon.com**.
+> This repository houses the operational cryptographic, mathematical, and computational source code revealed in the hard science-fiction novel **200 Amsterdam: The Vertical City** (*Book One of ZYMATICA A TRILOGY*), **written by Danny Bouldiez with codebase engineered by Devs One**, available worldwide on **Amazon.com**.
 > 
 > **CHARACTER FICTION DISCLAIMER:**  
-> *"200 Amsterdam: The Vertical City" is a work of fiction. Names, characters, organizations, places, events, and incidents depicted in the story are products of the authors’ imaginations or used in a fictitious manner. The mathematical frameworks, zero-knowledge circuits, 6D semantic hypercube tensors, and native engines contained in this codebase are real, functioning open-source and proprietary software.*
+> *"200 Amsterdam: The Vertical City" is a work of fiction. Names, characters, organizations, places, events, and incidents depicted in the story are products of the author’s imagination or used in a fictitious manner. The mathematical frameworks, zero-knowledge circuits, 6D semantic hypercube tensors, and native engines contained in this codebase are real, functioning open-source and proprietary software.*
 
 ---
 
 ## 📖 The In-Universe Discovery: Forensic Decompilation
 
 ### Novel: *200 Amsterdam: The Vertical City* (Book One of ZYMATICA A TRILOGY)
+### Author: *Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One*
 ### Chapter: *CHAPTER 11: The Confession*
 ### Section: *Section XII — The Iron Door*
 **Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn**
@@ -263,13 +269,14 @@ python run_proof.py
 
 This codebase is protected under the **ZYMATICA Commercial & Novel-Holder Covenant License**:
 
-1. **Amazon Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** by Danny Bouldiez & Devs One (available on **Amazon.com** in Kindle eBook, Paperback, or Hardcover) and retaining ownership is granted a perpetual personal and commercial license to compile, execute, fork, and build upon all source code in this repository.
+1. **Amazon Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** (Story by Danny Bouldiez, available on **Amazon.com** in Kindle eBook, Paperback, or Hardcover) and retaining ownership is granted a perpetual personal and commercial license to compile, execute, fork, and build upon all source code in this repository engineered by **Devs One**.
 2. **Commercial Enterprise License**: Available directly via [zymatica.space](https://zymatica.space).
-3. **Attribution**: All derivative works and forks must retain copyright notices and reference **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City" (available on Amazon.com)**.
+3. **Attribution**: All derivative works and forks must retain copyright notices and formal attribution: **Story by Danny Bouldiez | Codebase by Devs One** with reference to **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City" (available on Amazon.com)**.
 
 ---
 
 <p align="center">
-  <b>© 2026 Danny Bouldiez & Devs One | <a href="https://zymatica.space">zymatica.space</a></b><br>
+  <b>Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</b><br>
+  <b>Official Portal: <a href="https://zymatica.space">zymatica.space</a></b><br>
   <i>"200 AMSTERDAM: THE VERTICAL CITY" is available worldwide on <a href="https://www.amazon.com">Amazon.com</a>.</i>
 </p>
