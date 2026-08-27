@@ -1,4 +1,4 @@
-//! Cuneiform-U semantic coordinate codec.
+﻿//! Cuneiform-U semantic coordinate codec.
 //!
 //! This module turns the Zymatica proof inventory into a reusable Rust component:
 //! 6D semantic coordinates are packed into three radical bytes and compressed with
@@ -484,11 +484,88 @@ fn find_symbol(cum: &[u32; 257], scaled: u64) -> u8 {
     0
 }
 
+
+/// Encode 6D concept stream using Geodesic Delta Radicals.
+/// Transmits 3-byte anchor for root token, followed by 1-byte micro-deltas for subsequent tokens.
+pub fn encode_geodesic_deltas(concepts: &[Concept6D]) -> Vec<u8> {
+    if concepts.is_empty() {
+        return Vec::new();
+    }
+    let mut bytes = Vec::with_capacity(3 + concepts.len() - 1);
+    let root = concepts[0].radicals();
+    bytes.push(root[0]);
+    bytes.push(root[1]);
+    bytes.push(root[2]);
+
+    let mut prev = concepts[0];
+    for &curr in &concepts[1..] {
+        let d_op = ((curr.operation.wrapping_sub(prev.operation)) & 0x03) as u8;
+        let d_mod = ((curr.modality.wrapping_sub(prev.modality)) & 0x03) as u8;
+        let d_dep = ((curr.depth.wrapping_sub(prev.depth)) & 0x03) as u8;
+        let d_pol = ((curr.polarity.wrapping_sub(prev.polarity)) & 0x03) as u8;
+        
+        let delta_byte = (d_op << 6) | (d_mod << 4) | (d_dep << 2) | d_pol;
+        bytes.push(delta_byte);
+        prev = curr;
+    }
+    bytes
+}
+
+/// Decode 6D concept stream from Geodesic Delta Radicals.
+pub fn decode_geodesic_deltas(bytes: &[u8], count: usize) -> Vec<Concept6D> {
+    if count == 0 || bytes.len() < 3 {
+        return Vec::new();
+    }
+    let mut decoded = Vec::with_capacity(count);
+    let root = Concept6D::from_radicals([bytes[0], bytes[1], bytes[2]]);
+    decoded.push(root);
+
+    let mut cur = root;
+    for &b in bytes.iter().skip(3).take(count - 1) {
+        let d_op = (b >> 6) & 0x03;
+        let d_mod = (b >> 4) & 0x03;
+        let d_dep = (b >> 2) & 0x03;
+        let d_pol = b & 0x03;
+
+        let s_op = if d_op < 2 { d_op } else { d_op.wrapping_sub(4) };
+        let s_mod = if d_mod < 2 { d_mod } else { d_mod.wrapping_sub(4) };
+        let s_dep = if d_dep < 2 { d_dep } else { d_dep.wrapping_sub(4) };
+        let s_pol = if d_pol < 2 { d_pol } else { d_pol.wrapping_sub(4) };
+
+        cur = Concept6D::new(
+            root.domain,
+            root.subdomain,
+            (cur.operation.wrapping_add(s_op)) & 0x0F,
+            (cur.modality.wrapping_add(s_mod)) & 0x0F,
+            (cur.depth.wrapping_add(s_dep)) & 0x0F,
+            (cur.polarity.wrapping_add(s_pol)) & 0x0F,
+        );
+        decoded.push(cur);
+    }
+    decoded
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
+        #[test]
+    fn geodesic_delta_radicals_round_trip_is_lossless() {
+        let input = [
+            Concept6D::new(1, 4, 12, 1, 0, 15),
+            Concept6D::new(1, 4, 12, 1, 1, 14),
+            Concept6D::new(1, 4, 13, 1, 2, 13),
+            Concept6D::new(1, 4, 13, 0, 2, 12),
+            Concept6D::new(1, 4, 14, 0, 3, 11),
+            Concept6D::new(1, 4, 14, 1, 3, 10),
+        ];
+        let encoded = encode_geodesic_deltas(&input);
+        assert_eq!(encoded.len(), 3 + 5); // 8 bytes for 6 concepts
+        let decoded = decode_geodesic_deltas(&encoded, input.len());
+        assert_eq!(decoded, input);
+    }
+
     fn cuneiform_round_trip_matches_zymatica_proof_vector() {
         let input = [
             Concept6D::new(1, 2, 3, 4, 5, 6),

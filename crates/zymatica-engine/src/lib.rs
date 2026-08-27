@@ -1,4 +1,4 @@
-pub mod agent_acp;
+﻿pub mod agent_acp;
 pub mod agent_claw_migration;
 pub mod agent_compression;
 pub mod agent_consensus;
@@ -73,3 +73,9 @@ pub mod weights;
 pub use model::{
     AnyKvCache, GemmaConfig, NativeGemma, QuantMode, QuantizedGemma, QuantizedGemmaQ8,
 };
+
+pub mod flash_attention;
+pub mod hyper_cuneiform_bridge;
+pub mod jit_fusion;
+pub mod morphogenesis;
+pub mod zk_barrier;

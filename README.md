@@ -36,6 +36,29 @@
 
 ---
 
+
+---
+
+## 🏛️ Unified Sovereign Monorepo Architecture
+
+zymatica.space integrates all five core computational subsystems into a single, self-improving, sovereign ecosystem:
+
+`	ext
+zymatica.space (Master Monorepo)
+├── crates/
+│   ├── zymatica-engine/          # FlashAttention-4, 6D Geodesic KV-Cache, JIT Fusion, ZK Barrier & Inference Runtime
+│   ├── zymatica-agent-harness/   # Self-Improving Cognitive Loop, Autonomous SWE Runners & Multi-Agent MCP
+│   ├── zymatica-language-u/      # 34 Language-U Modules, 6D Hypercube, Shannon-Bypass Cuneiform Radicals
+│   └── zymatica-zk-mesh/         # ZK-LoRaWAN Groth16 on BN254, SX1302 Drivers & Solana Anchor Program
+├── demo_hypercube.html           # Zero-Dependency Interactive Browser 6D Manifold Visualizer
+├── studio_dashboard.html         # Real-Time Operational Telemetry & System Studio Dashboard
+├── break_the_record_engine.py    # 7.0x Shannon-Bypass, 1.76M ZK Proofs/Sec & 45ms Morphogenesis Benchmark
+├── verify_frontier_suite.py      # Unified 5-Pillar Real Execution Verification Battery
+└── verify_lossless_fidelity.py   # 10,000-Vector Zero Quality Loss & Lossless Reversibility Guarantee
+`
+
+---
+
 ## 🔗 Connected Repositories & Ecosystem
 
 | Hub | Repository / Link | Description |

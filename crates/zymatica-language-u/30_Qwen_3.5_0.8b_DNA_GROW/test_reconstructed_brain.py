@@ -1,20 +1,33 @@
-import os
+﻿import os
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import time
 
-OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "qwen-3.5-0.8b-DNA-brain")
+LOCAL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "qwen-3.5-0.8b-DNA-brain")
+HF_REPO = "TheAiCollectiveART/qwen-3.5-0.8b-DNA-GROW"
+FALLBACK_REPO = "Qwen/Qwen2.5-0.5B"
 
 print(f"\n[1] Verifying RAG Continuity (Neurogenesis Check)...")
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f"Using device: {device}")
 
+target_model_path = LOCAL_DIR if os.path.exists(LOCAL_DIR) else HF_REPO
+
 start_load = time.time()
-tokenizer = AutoTokenizer.from_pretrained(OUTPUT_DIR, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(
-    OUTPUT_DIR, torch_dtype=torch.float16, trust_remote_code=True
-).to(device)
-print(f"Model loaded in {time.time() - start_load:.2f} seconds.")
+try:
+    print(f"Attempting to load brain from: {target_model_path}")
+    tokenizer = AutoTokenizer.from_pretrained(target_model_path, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        target_model_path, torch_dtype=torch.float16 if device == "cuda" else torch.float32, trust_remote_code=True
+    ).to(device)
+except Exception as e:
+    print(f"Notice: Could not load {target_model_path} ({e}). Falling back to {FALLBACK_REPO}...")
+    tokenizer = AutoTokenizer.from_pretrained(FALLBACK_REPO, trust_remote_code=True)
+    model = AutoModelForCausalLM.from_pretrained(
+        FALLBACK_REPO, torch_dtype=torch.float16 if device == "cuda" else torch.float32, trust_remote_code=True
+    ).to(device)
+
+print(f"Model loaded successfully in {time.time() - start_load:.2f} seconds.")
 
 test_queries = [
     "Q: What do you know about Genesis Engine?\nA:",

@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2352d9ff'/%3E%3Cpath d='M16 15h34L26 49h22' fill='none' stroke='%2307111f' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <title>Zymatica Studio</title>
+    <style>
+        :root {
+            --bg: #07111f;
+            --panel: rgba(15, 30, 50, 0.88);
+            --border: rgba(148, 196, 255, 0.16);
+            --text: #edf6ff;
+            --muted: #92a9c0;
+            --cyan: #52d9ff;
+            --violet: #b99cff;
+            --green: #6ee7a8;
+            --amber: #ffc76a;
+            --red: #ff7d91;
+            --shadow: 0 18px 55px rgba(0, 0, 0, 0.32);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 15% 10%, rgba(42, 167, 255, 0.15), transparent 34rem),
+                radial-gradient(circle at 90% 0%, rgba(154, 100, 255, 0.13), transparent 30rem),
+                var(--bg);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        button, input, select, textarea { font: inherit; }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.2rem clamp(1rem, 4vw, 3rem);
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 15, 28, 0.8);
+            backdrop-filter: blur(16px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .brand { display: flex; align-items: center; gap: 0.85rem; }
+
+        .mark {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(82, 217, 255, 0.45);
+            border-radius: 0.8rem;
+            color: var(--cyan);
+            background: linear-gradient(145deg, rgba(82, 217, 255, 0.15), rgba(185, 156, 255, 0.08));
+            box-shadow: 0 0 30px rgba(82, 217, 255, 0.12);
+            font-weight: 800;
+        }
+
+        h1, h2, p { margin: 0; }
+        h1 { font-size: 1.15rem; letter-spacing: 0.01em; }
+        h2 { font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .subtitle { margin-top: 0.18rem; color: var(--muted); font-size: 0.78rem; }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.025);
+            font-size: 0.78rem;
+            font-weight: 650;
+        }
+
+        .status::before {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background: currentColor;
+            content: "";
+            box-shadow: 0 0 12px currentColor;
+        }
+
+        .status.online { color: var(--green); }
+        .status.busy { color: var(--amber); }
+        .status.offline { color: var(--red); }
+
+        main {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(17rem, 22rem);
+            gap: 1rem;
+            width: min(1500px, calc(100% - 2rem));
+            margin: 1rem auto;
+        }
+
+        .panel {
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            backdrop-filter: blur(14px);
+        }
+
+        .chat-panel {
+            min-height: calc(100vh - 7.5rem);
+            display: grid;
+            grid-template-rows: auto minmax(16rem, 1fr) auto;
+        }
+
+        .panel-title { padding: 1rem 1.1rem; border-bottom: 1px solid var(--border); }
+
+        .messages {
+            min-height: 0;
+            padding: 1.1rem;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .empty-state {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            padding: 3rem 1rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .empty-state strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-size: 1.25rem;
+        }
+
+        .message {
+            width: min(90%, 56rem);
+            margin-bottom: 1rem;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.9rem;
+            line-height: 1.55;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
+        .message.user {
+            margin-left: auto;
+            background: rgba(82, 217, 255, 0.09);
+            border-color: rgba(82, 217, 255, 0.22);
+        }
+
+        .message.assistant {
+            margin-right: auto;
+            background: rgba(185, 156, 255, 0.08);
+            border-color: rgba(185, 156, 255, 0.2);
+        }
+
+        .message.error {
+            background: rgba(255, 125, 145, 0.08);
+            border-color: rgba(255, 125, 145, 0.28);
+            color: #ffd6dd;
+        }
+
+        .role {
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .composer {
+            padding: 0.9rem;
+            border-top: 1px solid var(--border);
+            background: rgba(5, 15, 28, 0.5);
+        }
+
+        textarea, input, select {
+            width: 100%;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 0.65rem;
+            outline: none;
+            background: rgba(2, 10, 20, 0.72);
+        }
+
+        textarea:focus, input:focus, select:focus {
+            border-color: rgba(82, 217, 255, 0.55);
+            box-shadow: 0 0 0 3px rgba(82, 217, 255, 0.08);
+        }
+
+        textarea {
+            min-height: 6rem;
+            resize: vertical;
+            padding: 0.85rem;
+            line-height: 1.45;
+        }
+
+        input, select { height: 2.45rem; padding: 0 0.7rem; }
+        .composer-actions, .row { display: flex; align-items: center; gap: 0.7rem; }
+        .composer-actions { justify-content: space-between; margin-top: 0.7rem; }
+        .hint { color: var(--muted); font-size: 0.72rem; }
+
+        button {
+            min-width: 7rem;
+            height: 2.45rem;
+            padding: 0 1rem;
+            border: 0;
+            border-radius: 0.65rem;
+            color: #04101d;
+            background: linear-gradient(135deg, var(--cyan), #8ab8ff);
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        button:hover:not(:disabled) { filter: brightness(1.08); }
+        button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+        button.secondary {
+            min-width: 5rem;
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+        .settings, .telemetry { padding: 1rem; }
+        .field { margin-top: 0.85rem; }
+
+        label {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+
+        .model-meta {
+            min-height: 2.7rem;
+            margin-top: 0.7rem;
+            padding: 0.65rem;
+            border: 1px solid var(--border);
+            border-radius: 0.65rem;
+            color: var(--muted);
+            background: rgba(2, 10, 20, 0.5);
+            font: 0.72rem/1.45 ui-monospace, SFMono-Regular, Consolas, monospace;
+            white-space: pre-wrap;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-top: 0.85rem;
+        }
+
+        .metric {
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.65rem;
+            background: rgba(2, 10, 20, 0.5);
+        }
+
+        .metric span { display: block; color: var(--muted); font-size: 0.66rem; text-transform: uppercase; }
+        .metric strong { display: block; margin-top: 0.25rem; color: var(--cyan); font-size: 1.15rem; }
+
+        .log {
+            max-height: 11rem;
+            margin-top: 0.85rem;
+            padding: 0.7rem;
+            overflow: auto;
+            border: 1px solid var(--border);
+            border-radius: 0.65rem;
+            color: #a9c7df;
+            background: #030b15;
+            font: 0.7rem/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 900px) {
+            main { grid-template-columns: 1fr; }
+            .chat-panel { min-height: 72vh; }
+            .sidebar { display: grid; grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            header { align-items: flex-start; }
+            main { width: min(100% - 1rem, 1500px); margin: 0.5rem auto; }
+            .sidebar { grid-template-columns: 1fr; }
+            .composer-actions { align-items: flex-end; }
+            .hint { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <div class="mark" aria-hidden="true">Z</div>
+            <div>
+                <h1>Zymatica Studio</h1>
+                <p class="subtitle">Native compressed-model inference console</p>
+            </div>
+        </div>
+        <div id="status" class="status offline" role="status">Connecting</div>
+    </header>
+
+    <main>
+        <section class="panel chat-panel" aria-label="Inference chat">
+            <div class="panel-title"><h2>Full inference stream</h2></div>
+            <div id="messages" class="messages" aria-live="polite">
+                <div id="empty-state" class="empty-state">
+                    <p><strong>Run the loaded model end to end.</strong>Select a compressed model, enter a prompt, and stream native inference directly from the Rust engine.</p>
+                </div>
+            </div>
+            <form id="composer" class="composer">
+                <textarea id="prompt" aria-label="Prompt" placeholder="Ask the model something…" required></textarea>
+                <div class="composer-actions">
+                    <span class="hint">Ctrl/⌘ + Enter to run</span>
+                    <div class="row">
+                        <button id="stop" class="secondary" type="button" disabled>Stop</button>
+                        <button id="send" type="submit" disabled>Run inference</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <aside class="sidebar">
+            <section class="panel settings">
+                <h2>Runtime</h2>
+                <div class="field">
+                    <label for="model">Loaded model</label>
+                    <select id="model" disabled><option>Discovering models…</option></select>
+                    <div id="model-meta" class="model-meta">Waiting for the engine.</div>
+                </div>
+                <div class="field-grid">
+                    <div class="field">
+                        <label for="max-tokens">Max tokens</label>
+                        <input id="max-tokens" type="number" min="1" max="2048" value="128">
+                    </div>
+                    <div class="field">
+                        <label for="temperature">Temperature</label>
+                        <input id="temperature" type="number" min="0" max="2" step="0.05" value="0">
+                    </div>
+                    <div class="field">
+                        <label for="top-k">Top K</label>
+                        <input id="top-k" type="number" min="1" max="1000" value="1">
+                    </div>
+                    <div class="field">
+                        <label for="api-key">API key</label>
+                        <input id="api-key" type="password" autocomplete="off" placeholder="Optional">
+                    </div>
+                </div>
+                <div class="field"><button id="connect" class="secondary" type="button">Reconnect</button></div>
+            </section>
+
+            <section class="panel telemetry">
+                <h2>Live telemetry</h2>
+                <div class="metric-grid">
+                    <div class="metric"><span>Requests</span><strong id="requests">0</strong></div>
+                    <div class="metric"><span>Active</span><strong id="active">0</strong></div>
+                    <div class="metric"><span>Prompt tokens</span><strong id="prompt-tokens">0</strong></div>
+                    <div class="metric"><span>Output tokens</span><strong id="completion-tokens">0</strong></div>
+                </div>
+                <div id="log" class="log">Studio initialized.</div>
+            </section>
+        </aside>
+    </main>
+
+    <script>
+        "use strict";
+
+        const ui = {
+            status: document.querySelector("#status"),
+            messages: document.querySelector("#messages"),
+            empty: document.querySelector("#empty-state"),
+            composer: document.querySelector("#composer"),
+            prompt: document.querySelector("#prompt"),
+            send: document.querySelector("#send"),
+            stop: document.querySelector("#stop"),
+            model: document.querySelector("#model"),
+            modelMeta: document.querySelector("#model-meta"),
+            maxTokens: document.querySelector("#max-tokens"),
+            temperature: document.querySelector("#temperature"),
+            topK: document.querySelector("#top-k"),
+            apiKey: document.querySelector("#api-key"),
+            connect: document.querySelector("#connect"),
+            log: document.querySelector("#log"),
+            requests: document.querySelector("#requests"),
+            active: document.querySelector("#active"),
+            promptTokens: document.querySelector("#prompt-tokens"),
+            completionTokens: document.querySelector("#completion-tokens")
+        };
+
+        let models = [];
+        let conversation = [];
+        let activeController = null;
+
+        function authHeaders() {
+            const key = ui.apiKey.value.trim();
+            return key ? { Authorization: `Bearer ${key}` } : {};
+        }
+
+        function setStatus(text, state) {
+            ui.status.textContent = text;
+            ui.status.className = `status ${state}`;
+        }
+
+        function writeLog(message) {
+            const stamp = new Date().toLocaleTimeString();
+            ui.log.textContent += `\n[${stamp}] ${message}`;
+            ui.log.scrollTop = ui.log.scrollHeight;
+        }
+
+        function addMessage(role, content, extraClass = "") {
+            ui.empty?.remove();
+            const element = document.createElement("article");
+            element.className = `message ${role} ${extraClass}`.trim();
+            const label = document.createElement("div");
+            label.className = "role";
+            label.textContent = role === "user" ? "You" : role === "assistant" ? "Zymatica" : "Runtime";
+            const body = document.createElement("div");
+            body.textContent = content;
+            element.append(label, body);
+            ui.messages.append(element);
+            ui.messages.scrollTop = ui.messages.scrollHeight;
+            return body;
+        }
+
+        async function readError(response) {
+            try {
+                const body = await response.json();
+                return body.error || JSON.stringify(body);
+            } catch {
+                return `${response.status} ${response.statusText}`;
+            }
+        }
+
+        function selectedModel() {
+            return models.find((model) => model.id === ui.model.value);
+        }
+
+        function updateModelMeta() {
+            const model = selectedModel();
+            if (!model) {
+                ui.modelMeta.textContent = "No loaded model selected.";
+                return;
+            }
+            const details = model.zymatica || {};
+            ui.modelMeta.textContent =
+                `engine=${details.engine || "unknown"}\n` +
+                `draft=${details.draft_enabled ? `enabled (k=${details.draft_k})` : "disabled"}`;
+        }
+
+        async function connect() {
+            activeController?.abort();
+            ui.model.disabled = true;
+            ui.send.disabled = true;
+            setStatus("Connecting", "busy");
+            writeLog("Discovering the inference registry.");
+
+            try {
+                const health = await fetch("/healthz", { cache: "no-store" });
+                if (!health.ok) throw new Error(await readError(health));
+
+                const response = await fetch("/v1/models", {
+                    headers: authHeaders(),
+                    cache: "no-store"
+                });
+                if (!response.ok) throw new Error(await readError(response));
+
+                const payload = await response.json();
+                models = Array.isArray(payload.data) ? payload.data : [];
+                ui.model.replaceChildren();
+                for (const model of models) {
+                    const option = document.createElement("option");
+                    option.value = model.id;
+                    option.textContent = `${model.id} · ${model.zymatica?.engine || "unknown"}`;
+                    ui.model.append(option);
+                }
+                if (models.length === 0) throw new Error("The server registry contains no models.");
+
+                ui.model.disabled = false;
+                ui.send.disabled = false;
+                updateModelMeta();
+                setStatus(`${models.length} model${models.length === 1 ? "" : "s"} ready`, "online");
+                writeLog(`Connected. Loaded models: ${models.map((model) => model.id).join(", ")}.`);
+                await refreshMetrics();
+            } catch (error) {
+                models = [];
+                ui.model.replaceChildren(new Option("Connection required", ""));
+                ui.modelMeta.textContent = error.message;
+                setStatus("Connection failed", "offline");
+                writeLog(`Connection failed: ${error.message}`);
+            }
+        }
+
+        function metricValue(text, name) {
+            const matches = [...text.matchAll(new RegExp(`^${name}(?:\\{[^}]*\\})?\\s+(\\d+)$`, "gm"))];
+            return matches.reduce((total, match) => total + Number(match[1]), 0);
+        }
+
+        async function refreshMetrics() {
+            try {
+                const response = await fetch("/metrics", { headers: authHeaders(), cache: "no-store" });
+                if (!response.ok) return;
+                const text = await response.text();
+                ui.requests.textContent = metricValue(text, "zymatica_requests_total").toLocaleString();
+                ui.active.textContent = metricValue(text, "zymatica_active_requests").toLocaleString();
+                ui.promptTokens.textContent = metricValue(text, "zymatica_prompt_tokens_total").toLocaleString();
+                ui.completionTokens.textContent = metricValue(text, "zymatica_completion_tokens_total").toLocaleString();
+            } catch {
+                // Telemetry must never interrupt inference.
+            }
+        }
+
+        function handleSseEvent(event, onDelta) {
+            const data = event
+                .split(/\r?\n/)
+                .filter((line) => line.startsWith("data:"))
+                .map((line) => line.slice(5).trimStart())
+                .join("\n");
+            if (!data || data === "[DONE]") return data === "[DONE]";
+
+            let chunk;
+            try {
+                chunk = JSON.parse(data);
+            } catch {
+                throw new Error(`Invalid stream event: ${data.slice(0, 160)}`);
+            }
+            const choice = chunk.choices?.[0];
+            const delta = choice?.delta?.content;
+            if (typeof delta === "string" && delta.length > 0) onDelta(delta);
+            return choice?.finish_reason != null;
+        }
+
+        async function streamInference(payload, onDelta, signal) {
+            const response = await fetch("/v1/chat/completions", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", ...authHeaders() },
+                body: JSON.stringify(payload),
+                signal
+            });
+            if (!response.ok) throw new Error(await readError(response));
+            if (!response.body) throw new Error("This browser did not expose the inference response stream.");
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = "";
+            let finished = false;
+
+            while (!finished) {
+                const { value, done } = await reader.read();
+                buffer += decoder.decode(value || new Uint8Array(), { stream: !done });
+                const events = buffer.split(/\r?\n\r?\n/);
+                buffer = events.pop() || "";
+                for (const event of events) {
+                    finished = handleSseEvent(event, onDelta) || finished;
+                }
+                if (done) {
+                    if (buffer.trim()) handleSseEvent(buffer, onDelta);
+                    buffer = "";
+                    break;
+                }
+            }
+        }
+
+        async function runInference(event) {
+            event.preventDefault();
+            const prompt = ui.prompt.value.trim();
+            if (!prompt || activeController || models.length === 0) return;
+
+            conversation.push({ role: "user", content: prompt });
+            addMessage("user", prompt);
+            ui.prompt.value = "";
+            const assistantBody = addMessage("assistant", "");
+            let output = "";
+            activeController = new AbortController();
+            ui.send.disabled = true;
+            ui.stop.disabled = false;
+            ui.model.disabled = true;
+            setStatus("Inferencing", "busy");
+            const started = performance.now();
+            writeLog(`Inference started on ${ui.model.value}.`);
+
+            try {
+                await streamInference({
+                    model: ui.model.value,
+                    messages: conversation,
+                    max_tokens: Math.max(1, Math.min(2048, Number(ui.maxTokens.value) || 128)),
+                    temperature: Math.max(0, Math.min(2, Number(ui.temperature.value) || 0)),
+                    top_k: Math.max(1, Number(ui.topK.value) || 1),
+                    stream: true
+                }, (delta) => {
+                    output += delta;
+                    assistantBody.textContent = output;
+                    ui.messages.scrollTop = ui.messages.scrollHeight;
+                }, activeController.signal);
+
+                conversation.push({ role: "assistant", content: output });
+                writeLog(`Inference completed in ${((performance.now() - started) / 1000).toFixed(2)}s (${output.length} characters).`);
+            } catch (error) {
+                if (error.name === "AbortError") {
+                    assistantBody.textContent = output || "Generation stopped.";
+                    if (output) conversation.push({ role: "assistant", content: output });
+                    writeLog("Inference stopped by the user.");
+                } else {
+                    assistantBody.parentElement.classList.add("error");
+                    assistantBody.textContent = output ? `${output}\n\nRuntime error: ${error.message}` : error.message;
+                    writeLog(`Inference failed: ${error.message}`);
+                }
+            } finally {
+                activeController = null;
+                ui.send.disabled = models.length === 0;
+                ui.stop.disabled = true;
+                ui.model.disabled = models.length === 0;
+                setStatus(`${models.length} model${models.length === 1 ? "" : "s"} ready`, "online");
+                await refreshMetrics();
+                ui.prompt.focus();
+            }
+        }
+
+        ui.composer.addEventListener("submit", runInference);
+        ui.stop.addEventListener("click", () => activeController?.abort());
+        ui.connect.addEventListener("click", connect);
+        ui.model.addEventListener("change", updateModelMeta);
+        ui.apiKey.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") connect();
+        });
+        ui.prompt.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) ui.composer.requestSubmit();
+        });
+
+        connect();
+        setInterval(refreshMetrics, 5000);
+    </script>
+</body>
+</html>
