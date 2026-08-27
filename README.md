@@ -9,7 +9,8 @@
 </p>
 
 <p align="center">
-  <b>Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</b>
+  <b>(Danny Bouldiez & Devs One)</b><br>
+  <i>Novel by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</i>
 </p>
 
 <p align="center">
@@ -31,7 +32,7 @@
 
 > *"The impossible is just code waiting to be written, physics waiting to be rewritten, math a work in progress, and truth waiting to be discovered."*
 > 
-> — **Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One** <br>
+> — **(Danny Bouldiez & Devs One)** <br>
 > *200 Amsterdam: The Vertical City*
 
 ---
@@ -61,7 +62,7 @@
 ## 📖 The In-Universe Discovery: Forensic Decompilation
 
 ### Novel: *200 Amsterdam: The Vertical City* (Book One of ZYMATICA A TRILOGY)
-### Author: *Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One*
+### Author: *Danny Bouldiez (Codebase by Devs One)*
 ### Chapter: *CHAPTER 11: The Confession*
 ### Section: *Section XII — The Iron Door*
 **Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn**
@@ -269,14 +270,15 @@ python run_proof.py
 
 This codebase is protected under the **ZYMATICA Commercial & Novel-Holder Covenant License**:
 
-1. **Amazon Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** (Story by Danny Bouldiez, available on **Amazon.com** in Kindle eBook, Paperback, or Hardcover) and retaining ownership is granted a perpetual personal and commercial license to compile, execute, fork, and build upon all source code in this repository engineered by **Devs One**.
+1. **Amazon Novel-Holder Grant**: Any individual or entity holding a purchased copy of **"200 Amsterdam: The Vertical City"** (written by **Danny Bouldiez**, available on **Amazon.com** in Kindle eBook, Paperback, or Hardcover) and retaining ownership is granted a perpetual personal and commercial license to compile, execute, fork, and build upon all source code in this repository engineered by **Devs One**.
 2. **Commercial Enterprise License**: Available directly via [zymatica.space](https://zymatica.space).
-3. **Attribution**: All derivative works and forks must retain copyright notices and formal attribution: **Story by Danny Bouldiez | Codebase by Devs One** with reference to **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City" (available on Amazon.com)**.
+3. **Attribution**: All derivative works and forks must retain copyright notices and formal attribution: **(Danny Bouldiez & Devs One)** with reference to **https://zymatica.space** and the novel **"200 Amsterdam: The Vertical City" by Danny Bouldiez (available on Amazon.com)**.
 
 ---
 
 <p align="center">
-  <b>Story by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</b><br>
+  <b>(Danny Bouldiez & Devs One)</b><br>
+  <b>Novel by Danny Bouldiez &nbsp;|&nbsp; Codebase by Devs One</b><br>
   <b>Official Portal: <a href="https://zymatica.space">zymatica.space</a></b><br>
   <i>"200 AMSTERDAM: THE VERTICAL CITY" is available worldwide on <a href="https://www.amazon.com">Amazon.com</a>.</i>
 </p>
