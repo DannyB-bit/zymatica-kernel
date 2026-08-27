@@ -11,13 +11,20 @@ Availability: Available Worldwide on Amazon.com (Paperback, Hardcover, & Kindle 
 ================================================================================
 Subject to the terms, covenants, and conditions of this Agreement, the Authors
 (Book Author: Danny Bouldiez | Codebase Author: Devs One) hereby grant to any individual
-or legal entity ("Licensee") who:
-  (a) Holds a valid, legally purchased copy (Kindle eBook, Paperback, or Hardcover)
-      of the novel "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez
-      (available on Amazon.com), OR
-  (b) Holds an explicit, executed commercial enterprise license from https://zymatica.space,
+or legal entity ("Licensee"):
 
-a perpetual, worldwide, non-exclusive, revocable (upon breach) license to compile,
+  (a) Individual Developers, Academic Researchers, and Solo Creators:
+      Holds a valid, legally purchased copy (Kindle eBook, Paperback, or Hardcover)
+      of the novel "200 AMSTERDAM: THE VERTICAL CITY" by Danny Bouldiez
+      (available on Amazon.com).
+
+  (b) Commercial Companies, AI Labs, and Enterprise Organizations:
+      Holds verifiable proof of purchase of novel copies on Amazon.com equivalent
+      to AT LEAST 10% (TEN PERCENT) of their total active workforce (including full-time
+      employees and direct technical contractors), OR holds an explicit, executed
+      commercial enterprise agreement directly from https://zymatica.space.
+
+A perpetual, worldwide, non-exclusive, revocable (upon breach) license to compile,
 execute, modify, fork, integrate, and deploy the Software (including all Language-U
 semantic modules, Cuneiform-U 6D hypercube algorithms, custom Groth16 circuit
 architectures, procedural genesis seeds, and native Rust inference engines created
@@ -28,13 +35,14 @@ by Devs One) for both personal and commercial purposes.
 ================================================================================
 Every Licensee, forker, and downstream developer agrees to the following covenants:
   1. Mandatory Attribution: The above copyright notice, this permission notice,
-     direct links to https://zymatica.space, and formal attribution ("Author: Danny Bouldiez |
-     Codebase by Devs One") along with notice of the novel "200 AMSTERDAM: THE VERTICAL CITY"
+     direct links to https://zymatica.space, and formal attribution ("Book Author: Danny Bouldiez |
+     Codebase Author: Devs One") along with notice of the novel "200 AMSTERDAM: THE VERTICAL CITY"
      (available on Amazon.com) must be retained prominently in all copies, forks,
      distributions, and substantial portions of the Software.
-  2. Proof of Purchase: Commercial operators and organizations deploying derivative
-     products must maintain verifiable proof of purchase of the novel on Amazon.com
-     or an active enterprise agreement from zymatica.space.
+  2. Proof of Purchase: Commercial operators and AI labs deploying derivative
+     products must maintain verifiable Amazon.com receipts or purchase records
+     satisfying the 10% workforce threshold or an active enterprise agreement
+     from zymatica.space.
   3. Non-Circumvention: Licensees shall not remove, obscure, or alter any copyright,
      trademark, or authorship notices embedded within the source files or documentation.
 
@@ -46,18 +54,18 @@ libraries (such as the Arkworks SNARK ecosystem, including ark-groth16, ark-bn25
 and ark-relations), which are independently licensed under their respective MIT and/or
 Apache 2.0 licenses. 
   - Nothing in this Covenant restricts, diminishes, or overrides the rights granted
-    to the public under those specific upstream MIT/Apache open-source licenses for
-    their respective library components.
+     to the public under those specific upstream MIT/Apache open-source licenses for
+     their respective library components.
   - This Covenant governs all original Zymatica architecture, custom circuit designs,
-    Language-U 6D tensor algorithms, seed formats, and native execution runtimes.
+     Language-U 6D tensor algorithms, seed formats, and native execution runtimes.
 
 ================================================================================
 4. TERMINATION & AUTOMATIC REVOCATION
 ================================================================================
 Any breach of this Agreement—including unauthorized commercial deployment without
-novel purchase/enterprise license, removal of required attribution, or intellectual
-property infringement—shall result in the immediate and automatic termination of all
-rights granted hereunder without prior notice.
+the required 10% workforce novel purchases or active enterprise license, removal of
+required attribution, or intellectual property infringement—shall result in the
+immediate and automatic termination of all rights granted hereunder without prior notice.
 
 ================================================================================
 5. DISCLAIMER OF FICTION & TECHNICAL NATURE
