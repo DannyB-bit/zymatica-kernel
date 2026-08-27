@@ -1,0 +1,6 @@
+[package]
+name = "chirp_packetization_and_fec_scheme"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

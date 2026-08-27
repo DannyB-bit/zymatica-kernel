@@ -1,0 +1,14 @@
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\bin\Debug\net8.0\tmp_cs.exe
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\bin\Debug\net8.0\tmp_cs.deps.json
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\bin\Debug\net8.0\tmp_cs.runtimeconfig.json
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\bin\Debug\net8.0\tmp_cs.dll
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\bin\Debug\net8.0\tmp_cs.pdb
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.GeneratedMSBuildEditorConfig.editorconfig
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.AssemblyInfoInputs.cache
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.AssemblyInfo.cs
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.csproj.CoreCompileInputs.cache
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.dll
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\refint\tmp_cs.dll
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.pdb
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\tmp_cs.genruntimeconfig.cache
+j:\Language-U\zymatica.space_repo\02_Cuneiform_U_Hypercube\src\csharp\tmp_cs\obj\Debug\net8.0\ref\tmp_cs.dll

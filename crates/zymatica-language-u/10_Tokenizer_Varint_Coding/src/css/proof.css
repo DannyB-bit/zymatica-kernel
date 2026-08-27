@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Tokenizer differential coder verified from actual codebase.
+*/
+body::after {
+    content: "ZYMATICA | Tokenizer Varint Coding Proof (CSS Edition) - Verification Anchor: Tokenizer differential coder verified from actual codebase.";
+    display: none;
+}

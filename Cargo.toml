@@ -1,0 +1,27 @@
+﻿[workspace]
+members = [
+    "crates/zymatica-zk-mesh/groth16",
+    "crates/zymatica-zk-mesh/programs/zk_lorawan",
+    "crates/zymatica-engine",
+    "crates/zymatica-language-u/01_Language_U_Taxonomy/src/rust",
+    "crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/src/rust",
+    "crates/zymatica-language-u/04_Genesis_Protocol/src/rust",
+    "crates/zymatica-language-u/05_Procedural_Seed_Format/src/rust",
+    "crates/zymatica-language-u/06_Chirp_Packetization/src/rust",
+    "crates/zymatica-language-u/07_SVD_DCT_Compression/src/rust",
+    "crates/zymatica-language-u/08_LLD_AC_Range_Coding/src/rust",
+    "crates/zymatica-language-u/09_EPAUP_Weight_Projection/src/rust",
+    "crates/zymatica-language-u/10_Tokenizer_Varint_Coding/src/rust",
+    "crates/zymatica-language-u/12_RCRA_Resonance_Alignment/src/rust",
+    "crates/zymatica-language-u/14_Multi_Centroid_Steering/src/rust",
+    "crates/zymatica-language-u/15_Cognitive_Observer_Framework/src/rust",
+    "crates/zymatica-language-u/16_Zero_RAM_Meta/src/rust",
+    "crates/zymatica-language-u/17_Hybrid_Real_SVD_Loading/src/rust",
+    "crates/zymatica-language-u/18_Word_Boundary_Boosting/src/rust",
+    "crates/zymatica-language-u/19_microByte_Procedural_Inflation/src/rust",
+    "crates/zymatica-language-u/20_Frontier_Knowledge_Relay/src/rust",
+    "crates/zymatica-language-u/21_Cuneiform_Normalization_Scalar/src/rust",
+    "crates/zymatica-language-u/24_English_Hidden_State_Steering/src/rust",
+    "crates/zymatica-language-u/26_Perpetual_Motion_Eigenspace_Loops/src/rust",
+]
+resolver = "2"

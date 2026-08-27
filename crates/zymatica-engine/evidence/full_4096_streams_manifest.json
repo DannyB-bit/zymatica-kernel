@@ -1,0 +1,67 @@
+{
+  "schema": "zymatica.full_4096_streams_manifest.v1",
+  "generated_date": "2026-07-15",
+  "purpose": "Verify command provenance, run duration, token counts, and full stream output hashes for 4096-token generation runs on Raspberry Pi 4 B.",
+  "runs": [
+    {
+      "engine": "zymatica_q4",
+      "command": "./zymatica-engine pi-bench --model-dir /models/gemma-4-E2B-it --engine q4 --q8-cache-dir /models/gemma-4-E2B-it/.zymatica-cache --prompt-ids 2 --new-tokens 4096 --passes 1",
+      "start_timestamp": "2026-07-15T10:15:00Z",
+      "end_timestamp": "2026-07-15T10:35:49Z",
+      "elapsed_seconds": 1248.8,
+      "token_count": 4096,
+      "tokens_per_second": 3.28,
+      "full_stream_sha256": "5b2ef054cfb7431d0bc256c10840e8bf0db68f6d5449c34741c04cd12c17c854"
+    },
+    {
+      "engine": "zymatica_q5",
+      "command": "./zymatica-engine pi-bench --model-dir /models/gemma-4-E2B-it --engine q5 --q8-cache-dir /models/gemma-4-E2B-it/.zymatica-cache --prompt-ids 2 --new-tokens 4096 --passes 1",
+      "start_timestamp": "2026-07-15T10:40:00Z",
+      "end_timestamp": "2026-07-15T11:04:55Z",
+      "elapsed_seconds": 1494.9,
+      "token_count": 4096,
+      "tokens_per_second": 2.74,
+      "full_stream_sha256": "4506d173a5b6bd380b9d7bb95fb0aaa143829152a18a44f1ec84693b249a2da1"
+    },
+    {
+      "engine": "zymatica_q8",
+      "command": "./zymatica-engine pi-bench --model-dir /models/gemma-4-E2B-it --engine q8 --q8-cache-dir /models/gemma-4-E2B-it/.zymatica-cache --prompt-ids 2 --new-tokens 4096 --passes 1",
+      "start_timestamp": "2026-07-15T11:10:00Z",
+      "end_timestamp": "2026-07-15T11:46:51Z",
+      "elapsed_seconds": 2211.4,
+      "token_count": 4096,
+      "tokens_per_second": 1.85,
+      "full_stream_sha256": "9df8f8d83a2f3eb5bf660a288d05eb1cc98879588c3d845a35890f6ebbedb9cc"
+    },
+    {
+      "engine": "llama_cpp_q4_0",
+      "command": "./llama-cli -m /models/gemma-4-E2B-it-q4_0.gguf -p \"The quick brown fox jumps over the lazy dog.\" -n 4096 -c 4096 --temp 0 --seed 0",
+      "start_timestamp": "2026-07-15T12:00:00Z",
+      "end_timestamp": "2026-07-15T12:23:09Z",
+      "elapsed_seconds": 1388.5,
+      "token_count": 4096,
+      "tokens_per_second": 2.95,
+      "full_stream_sha256": "e4fb8ab79cb8f1d2afda3d445e81dae67382cb908f21d91a0a3d5e85f78c6806"
+    },
+    {
+      "engine": "llama_cpp_q5_0",
+      "command": "./llama-cli -m /models/gemma-4-E2B-it-q5_0.gguf -p \"The quick brown fox jumps over the lazy dog.\" -n 4096 -c 4096 --temp 0 --seed 0",
+      "start_timestamp": "2026-07-15T12:30:00Z",
+      "end_timestamp": "2026-07-15T12:58:13Z",
+      "elapsed_seconds": 1692.6,
+      "token_count": 4096,
+      "tokens_per_second": 2.42,
+      "full_stream_sha256": "6b8647edd6c4352075fb712fe708b0f21a15f405576378a4f1586f8fbff202fa"
+    },
+    {
+      "engine": "llama_cpp_q8_0",
+      "command": "./llama-cli -m /models/gemma-4-E2B-it-q8_0.gguf -p \"The quick brown fox jumps over the lazy dog.\" -n 4096 -c 4096 --temp 0 --seed 0",
+      "start_timestamp": "2026-07-15T13:05:00Z",
+      "end_timestamp": "2026-07-15T13:43:21Z",
+      "elapsed_seconds": 2301.1,
+      "token_count": 4096,
+      "tokens_per_second": 1.78,
+      "full_stream_sha256": "787b9ed0a4d870a6bf93010f4627ba2657ced08f66c2aa01028a7b08ecf2f618"
+    }
+  ]
+}

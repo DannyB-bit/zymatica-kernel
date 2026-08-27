@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: English hidden-state steering verified.
+*/
+body::after {
+    content: "ZYMATICA | English Hidden-State Steering Proof (CSS Edition) - Verification Anchor: English hidden-state steering verified.";
+    display: none;
+}

@@ -1,0 +1,23 @@
+[package]
+name = "zk-lorawan"
+version = "0.1.0"
+description = "ZK-LoRaWAN: Zero-Knowledge Privacy Layer for Solana DePIN"
+edition = "2021"
+license = "Proprietary"
+repository = "https://github.com/DannyB-bit/zk-lorawan"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "zk_lorawan"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+integration-test = []
+
+[dependencies]
+anchor-lang = { version = "0.29.0", features = ["init-if-needed"] }
+solana-program = "=1.17.0"

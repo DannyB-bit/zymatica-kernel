@@ -1,0 +1,63 @@
+{
+  "schema": "zymatica.model_and_quant_artifact_hashes.v3",
+  "direct_sha256_checksums": {
+    "purpose": "Verify exact bitwise identity of files physically hashed on the build/run environment.",
+    "binaries": {
+      "zymatica-engine-aarch64-unknown-linux-gnu": "bb2691b9145064868c4630dbe283cb94c444bb7e0b6af02d8f86591c9cbd9af9",
+      "zymatica-engine-x86_64-unknown-linux-gnu": "b715ce1e83561c1b4900e58849bfcf8336aeed3800af43385e05fe5055ae53b8"
+    },
+    "original_hf_model": {
+      "model.safetensors": "2db5482b20d746879bb3ef79b5203e9075a2e2b98f54ec7c2f281c1477ddc550",
+      "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+      "config.json": "1b28f3d2c3100f6c594754b81107428bd7b822a7f48272ca681dae9d2ec38330"
+    },
+    "zymatica_quant_manifests": {
+      "q4_manifest.json": "d8563f2d433380abd9c6097b50e0c0fbe47c62ce5676522035a1dc0f2af99f5a",
+      "q5_manifest.json": "b07fa83aa63175e70beab4a282092bbfda14b68a7080bdad186b267421309a6d",
+      "q8_manifest.json": "54bd4d7548dd2c4ba6147a5f94ebf6bc69ada2b5ca19f7e055e781aa41dddea3"
+    },
+    "gguf_files": {
+      "gemma-4-E2B-it-q4_0.gguf": {
+        "label": "gemma-4-E2B-it-q4_0.gguf",
+        "path": "\\\\?\\I:\\cache\\zymatica-artifacts\\gguf\\google-gemma-4-E2B-it-qat-q4_0-gguf\\gemma-4-E2B_q4_0-it.gguf",
+        "bytes": 3349515840,
+        "magic": "GGUF",
+        "sha256": "25194efbf8a53268241e5ffa6d5490edc08b3faaa6ead24478c8b025a986d556",
+        "source_repo": "google/gemma-4-E2B-it-qat-q4_0-gguf",
+        "source_revision": "02078d687ddc1fdb1af29400364bdca7ee2b6062",
+        "source_file": "gemma-4-E2B_q4_0-it.gguf",
+        "hash_method": "target/debug/zymatica-engine.exe hash-gguf"
+      },
+      "gemma-4-E2B-it-q5_0.gguf": {
+        "label": "gemma-4-E2B-it-q5_0.gguf",
+        "path": "\\\\?\\I:\\cache\\zymatica-artifacts\\gguf\\generated\\gemma-4-E2B-it-q5_0.gguf",
+        "bytes": 3595400000,
+        "magic": "GGUF",
+        "sha256": "2003799b3a02ad40f367f88f305af288158cd602135bf663ae0792cd7e9da7e1",
+        "source_file": "I:\\cache\\zymatica-artifacts\\gguf\\lmstudio-gemma-4-E2B-it-GGUF\\gemma-4-E2B-it-Q8_0.gguf",
+        "generation_command": "C:\\Users\\DannyB\\experiments\\llama.cpp\\build\\bin\\llama-quantize.exe --allow-requantize I:\\cache\\zymatica-artifacts\\gguf\\lmstudio-gemma-4-E2B-it-GGUF\\gemma-4-E2B-it-Q8_0.gguf I:\\cache\\zymatica-artifacts\\gguf\\generated\\gemma-4-E2B-it-q5_0.gguf Q5_0 8",
+        "llama_cpp_commit": "788e07dc91d266ad3162a1ce9037665656269689",
+        "hash_method": "target/debug/zymatica-engine.exe hash-gguf",
+        "note": "Generated locally from a physical Q8_0 GGUF with llama.cpp --allow-requantize because no exact public Q5_0 Gemma 4 E2B file was available in the searched repositories."
+      },
+      "gemma-4-E2B-it-q8_0.gguf": {
+        "label": "gemma-4-E2B-it-q8_0.gguf",
+        "path": "\\\\?\\I:\\cache\\zymatica-artifacts\\gguf\\lmstudio-gemma-4-E2B-it-GGUF\\gemma-4-E2B-it-Q8_0.gguf",
+        "bytes": 4967494464,
+        "magic": "GGUF",
+        "sha256": "6febf73c7c6b44c550ba857ceca3788262ce2272603ca16b1f2609556205dea3",
+        "source_repo": "lmstudio-community/gemma-4-E2B-it-GGUF",
+        "source_file": "gemma-4-E2B-it-Q8_0.gguf",
+        "hash_method": "target/debug/zymatica-engine.exe hash-gguf"
+      }
+    }
+  },
+  "derived_fingerprints": {
+    "purpose": "Track expected fingerprints calculated deterministically from direct assets where the target file was not physically present or hashed directly.",
+    "gguf_files": {
+      "gemma-4-E2B-it-q4_0.gguf": "fecf978eb82935c9ac43b3a02903c356b4fe39ffdfa5d3c1e648346ff1688b90",
+      "gemma-4-E2B-it-q5_0.gguf": "e50b0ddf90717c33acd9ccf28c1fbb2993d6bd5af018ec75e2b0631714b0c0a8",
+      "gemma-4-E2B-it-q8_0.gguf": "79959e7aea3e3dc9b3d8d042844e28b765ec0d3ae4086135a1c66d58581c12d7"
+    }
+  }
+}

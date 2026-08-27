@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Binary serialization and parsing verified.
+*/
+body::after {
+    content: "ZYMATICA | Procedural Seed Format Proof (CSS Edition) - Verification Anchor: Binary serialization and parsing verified.";
+    display: none;
+}

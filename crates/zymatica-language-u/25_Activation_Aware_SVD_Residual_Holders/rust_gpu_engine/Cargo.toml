@@ -1,0 +1,13 @@
+[package]
+name = "run_gemma4_cuda_hybrid"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "run_gemma4_cuda_hybrid"
+path = "run_gemma4_cuda_hybrid.rs"
+
+[dependencies]
+tch = "0.18"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

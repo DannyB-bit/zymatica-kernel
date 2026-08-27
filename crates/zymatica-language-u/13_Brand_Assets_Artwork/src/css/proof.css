@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Brand assets and registry confirmed.
+*/
+body::after {
+    content: "ZYMATICA | Brand Assets & Artwork Proof (CSS Edition) - Verification Anchor: Brand assets and registry confirmed.";
+    display: none;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "multi_language_runtimes",
+  "version": "1.0.0",
+  "description": "Zymatica TypeScript Proof",
+  "main": "proof.js",
+  "scripts": {
+    "build": "tsc proof.ts",
+    "start": "tsc proof.ts && node proof.js"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.0"
+  }
+}

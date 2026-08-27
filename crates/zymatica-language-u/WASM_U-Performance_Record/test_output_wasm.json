@@ -1,0 +1,802 @@
+[
+  {
+    "domain": 13,
+    "subdomain": 10,
+    "operation": 5,
+    "modality": 5,
+    "depth": 13,
+    "polarity": 0
+  },
+  {
+    "domain": 4,
+    "subdomain": 5,
+    "operation": 2,
+    "modality": 13,
+    "depth": 15,
+    "polarity": 1
+  },
+  {
+    "domain": 10,
+    "subdomain": 8,
+    "operation": 15,
+    "modality": 0,
+    "depth": 14,
+    "polarity": 15
+  },
+  {
+    "domain": 13,
+    "subdomain": 1,
+    "operation": 3,
+    "modality": 6,
+    "depth": 3,
+    "polarity": 11
+  },
+  {
+    "domain": 0,
+    "subdomain": 1,
+    "operation": 2,
+    "modality": 6,
+    "depth": 3,
+    "polarity": 7
+  },
+  {
+    "domain": 9,
+    "subdomain": 5,
+    "operation": 4,
+    "modality": 3,
+    "depth": 15,
+    "polarity": 15
+  },
+  {
+    "domain": 11,
+    "subdomain": 5,
+    "operation": 8,
+    "modality": 13,
+    "depth": 4,
+    "polarity": 15
+  },
+  {
+    "domain": 15,
+    "subdomain": 11,
+    "operation": 12,
+    "modality": 14,
+    "depth": 3,
+    "polarity": 3
+  },
+  {
+    "domain": 14,
+    "subdomain": 1,
+    "operation": 5,
+    "modality": 0,
+    "depth": 6,
+    "polarity": 5
+  },
+  {
+    "domain": 7,
+    "subdomain": 9,
+    "operation": 2,
+    "modality": 15,
+    "depth": 11,
+    "polarity": 8
+  },
+  {
+    "domain": 9,
+    "subdomain": 14,
+    "operation": 9,
+    "modality": 4,
+    "depth": 14,
+    "polarity": 5
+  },
+  {
+    "domain": 12,
+    "subdomain": 10,
+    "operation": 7,
+    "modality": 7,
+    "depth": 2,
+    "polarity": 9
+  },
+  {
+    "domain": 8,
+    "subdomain": 13,
+    "operation": 1,
+    "modality": 13,
+    "depth": 4,
+    "polarity": 12
+  },
+  {
+    "domain": 9,
+    "subdomain": 15,
+    "operation": 9,
+    "modality": 5,
+    "depth": 11,
+    "polarity": 12
+  },
+  {
+    "domain": 10,
+    "subdomain": 2,
+    "operation": 10,
+    "modality": 13,
+    "depth": 11,
+    "polarity": 9
+  },
+  {
+    "domain": 14,
+    "subdomain": 3,
+    "operation": 2,
+    "modality": 13,
+    "depth": 4,
+    "polarity": 12
+  },
+  {
+    "domain": 7,
+    "subdomain": 6,
+    "operation": 0,
+    "modality": 2,
+    "depth": 9,
+    "polarity": 13
+  },
+  {
+    "domain": 7,
+    "subdomain": 2,
+    "operation": 6,
+    "modality": 15,
+    "depth": 10,
+    "polarity": 0
+  },
+  {
+    "domain": 9,
+    "subdomain": 3,
+    "operation": 3,
+    "modality": 12,
+    "depth": 9,
+    "polarity": 15
+  },
+  {
+    "domain": 3,
+    "subdomain": 1,
+    "operation": 6,
+    "modality": 0,
+    "depth": 7,
+    "polarity": 14
+  },
+  {
+    "domain": 12,
+    "subdomain": 4,
+    "operation": 13,
+    "modality": 2,
+    "depth": 5,
+    "polarity": 13
+  },
+  {
+    "domain": 3,
+    "subdomain": 2,
+    "operation": 13,
+    "modality": 3,
+    "depth": 11,
+    "polarity": 2
+  },
+  {
+    "domain": 11,
+    "subdomain": 12,
+    "operation": 6,
+    "modality": 11,
+    "depth": 1,
+    "polarity": 1
+  },
+  {
+    "domain": 14,
+    "subdomain": 13,
+    "operation": 15,
+    "modality": 3,
+    "depth": 9,
+    "polarity": 10
+  },
+  {
+    "domain": 3,
+    "subdomain": 3,
+    "operation": 15,
+    "modality": 8,
+    "depth": 0,
+    "polarity": 10
+  },
+  {
+    "domain": 9,
+    "subdomain": 10,
+    "operation": 4,
+    "modality": 9,
+    "depth": 3,
+    "polarity": 11
+  },
+  {
+    "domain": 3,
+    "subdomain": 10,
+    "operation": 8,
+    "modality": 13,
+    "depth": 9,
+    "polarity": 4
+  },
+  {
+    "domain": 13,
+    "subdomain": 9,
+    "operation": 6,
+    "modality": 13,
+    "depth": 5,
+    "polarity": 7
+  },
+  {
+    "domain": 9,
+    "subdomain": 6,
+    "operation": 8,
+    "modality": 8,
+    "depth": 4,
+    "polarity": 0
+  },
+  {
+    "domain": 2,
+    "subdomain": 0,
+    "operation": 4,
+    "modality": 3,
+    "depth": 2,
+    "polarity": 8
+  },
+  {
+    "domain": 6,
+    "subdomain": 3,
+    "operation": 11,
+    "modality": 6,
+    "depth": 12,
+    "polarity": 15
+  },
+  {
+    "domain": 1,
+    "subdomain": 9,
+    "operation": 5,
+    "modality": 8,
+    "depth": 13,
+    "polarity": 13
+  },
+  {
+    "domain": 14,
+    "subdomain": 7,
+    "operation": 7,
+    "modality": 8,
+    "depth": 6,
+    "polarity": 5
+  },
+  {
+    "domain": 12,
+    "subdomain": 10,
+    "operation": 0,
+    "modality": 7,
+    "depth": 1,
+    "polarity": 11
+  },
+  {
+    "domain": 2,
+    "subdomain": 3,
+    "operation": 11,
+    "modality": 15,
+    "depth": 3,
+    "polarity": 8
+  },
+  {
+    "domain": 15,
+    "subdomain": 6,
+    "operation": 13,
+    "modality": 5,
+    "depth": 8,
+    "polarity": 7
+  },
+  {
+    "domain": 6,
+    "subdomain": 5,
+    "operation": 9,
+    "modality": 6,
+    "depth": 12,
+    "polarity": 15
+  },
+  {
+    "domain": 0,
+    "subdomain": 15,
+    "operation": 9,
+    "modality": 10,
+    "depth": 2,
+    "polarity": 4
+  },
+  {
+    "domain": 14,
+    "subdomain": 1,
+    "operation": 14,
+    "modality": 15,
+    "depth": 12,
+    "polarity": 3
+  },
+  {
+    "domain": 14,
+    "subdomain": 15,
+    "operation": 10,
+    "modality": 6,
+    "depth": 2,
+    "polarity": 14
+  },
+  {
+    "domain": 3,
+    "subdomain": 9,
+    "operation": 5,
+    "modality": 9,
+    "depth": 14,
+    "polarity": 7
+  },
+  {
+    "domain": 14,
+    "subdomain": 0,
+    "operation": 9,
+    "modality": 15,
+    "depth": 13,
+    "polarity": 6
+  },
+  {
+    "domain": 3,
+    "subdomain": 0,
+    "operation": 4,
+    "modality": 9,
+    "depth": 3,
+    "polarity": 3
+  },
+  {
+    "domain": 7,
+    "subdomain": 1,
+    "operation": 12,
+    "modality": 3,
+    "depth": 13,
+    "polarity": 12
+  },
+  {
+    "domain": 13,
+    "subdomain": 8,
+    "operation": 14,
+    "modality": 6,
+    "depth": 7,
+    "polarity": 0
+  },
+  {
+    "domain": 3,
+    "subdomain": 10,
+    "operation": 8,
+    "modality": 3,
+    "depth": 8,
+    "polarity": 0
+  },
+  {
+    "domain": 9,
+    "subdomain": 7,
+    "operation": 6,
+    "modality": 11,
+    "depth": 0,
+    "polarity": 10
+  },
+  {
+    "domain": 3,
+    "subdomain": 7,
+    "operation": 1,
+    "modality": 5,
+    "depth": 7,
+    "polarity": 14
+  },
+  {
+    "domain": 9,
+    "subdomain": 12,
+    "operation": 13,
+    "modality": 8,
+    "depth": 6,
+    "polarity": 8
+  },
+  {
+    "domain": 4,
+    "subdomain": 7,
+    "operation": 1,
+    "modality": 2,
+    "depth": 8,
+    "polarity": 0
+  },
+  {
+    "domain": 5,
+    "subdomain": 14,
+    "operation": 13,
+    "modality": 5,
+    "depth": 2,
+    "polarity": 5
+  },
+  {
+    "domain": 3,
+    "subdomain": 1,
+    "operation": 2,
+    "modality": 12,
+    "depth": 15,
+    "polarity": 13
+  },
+  {
+    "domain": 8,
+    "subdomain": 6,
+    "operation": 6,
+    "modality": 15,
+    "depth": 4,
+    "polarity": 3
+  },
+  {
+    "domain": 13,
+    "subdomain": 13,
+    "operation": 0,
+    "modality": 3,
+    "depth": 14,
+    "polarity": 0
+  },
+  {
+    "domain": 12,
+    "subdomain": 5,
+    "operation": 12,
+    "modality": 14,
+    "depth": 6,
+    "polarity": 6
+  },
+  {
+    "domain": 5,
+    "subdomain": 1,
+    "operation": 4,
+    "modality": 13,
+    "depth": 13,
+    "polarity": 14
+  },
+  {
+    "domain": 7,
+    "subdomain": 5,
+    "operation": 14,
+    "modality": 13,
+    "depth": 11,
+    "polarity": 2
+  },
+  {
+    "domain": 3,
+    "subdomain": 3,
+    "operation": 13,
+    "modality": 11,
+    "depth": 15,
+    "polarity": 8
+  },
+  {
+    "domain": 14,
+    "subdomain": 8,
+    "operation": 11,
+    "modality": 4,
+    "depth": 12,
+    "polarity": 13
+  },
+  {
+    "domain": 15,
+    "subdomain": 12,
+    "operation": 3,
+    "modality": 2,
+    "depth": 9,
+    "polarity": 12
+  },
+  {
+    "domain": 7,
+    "subdomain": 12,
+    "operation": 0,
+    "modality": 9,
+    "depth": 8,
+    "polarity": 13
+  },
+  {
+    "domain": 11,
+    "subdomain": 7,
+    "operation": 10,
+    "modality": 1,
+    "depth": 4,
+    "polarity": 11
+  },
+  {
+    "domain": 0,
+    "subdomain": 15,
+    "operation": 3,
+    "modality": 1,
+    "depth": 1,
+    "polarity": 5
+  },
+  {
+    "domain": 1,
+    "subdomain": 1,
+    "operation": 6,
+    "modality": 6,
+    "depth": 13,
+    "polarity": 8
+  },
+  {
+    "domain": 15,
+    "subdomain": 0,
+    "operation": 15,
+    "modality": 1,
+    "depth": 12,
+    "polarity": 3
+  },
+  {
+    "domain": 11,
+    "subdomain": 2,
+    "operation": 0,
+    "modality": 8,
+    "depth": 4,
+    "polarity": 8
+  },
+  {
+    "domain": 13,
+    "subdomain": 2,
+    "operation": 13,
+    "modality": 15,
+    "depth": 14,
+    "polarity": 6
+  },
+  {
+    "domain": 3,
+    "subdomain": 7,
+    "operation": 5,
+    "modality": 6,
+    "depth": 7,
+    "polarity": 12
+  },
+  {
+    "domain": 0,
+    "subdomain": 8,
+    "operation": 15,
+    "modality": 13,
+    "depth": 4,
+    "polarity": 2
+  },
+  {
+    "domain": 15,
+    "subdomain": 4,
+    "operation": 15,
+    "modality": 8,
+    "depth": 7,
+    "polarity": 13
+  },
+  {
+    "domain": 15,
+    "subdomain": 5,
+    "operation": 9,
+    "modality": 14,
+    "depth": 7,
+    "polarity": 15
+  },
+  {
+    "domain": 8,
+    "subdomain": 8,
+    "operation": 6,
+    "modality": 6,
+    "depth": 12,
+    "polarity": 12
+  },
+  {
+    "domain": 4,
+    "subdomain": 11,
+    "operation": 8,
+    "modality": 1,
+    "depth": 2,
+    "polarity": 15
+  },
+  {
+    "domain": 0,
+    "subdomain": 11,
+    "operation": 4,
+    "modality": 6,
+    "depth": 13,
+    "polarity": 8
+  },
+  {
+    "domain": 12,
+    "subdomain": 8,
+    "operation": 8,
+    "modality": 13,
+    "depth": 7,
+    "polarity": 2
+  },
+  {
+    "domain": 15,
+    "subdomain": 13,
+    "operation": 6,
+    "modality": 6,
+    "depth": 0,
+    "polarity": 10
+  },
+  {
+    "domain": 13,
+    "subdomain": 5,
+    "operation": 9,
+    "modality": 0,
+    "depth": 3,
+    "polarity": 7
+  },
+  {
+    "domain": 9,
+    "subdomain": 4,
+    "operation": 14,
+    "modality": 14,
+    "depth": 13,
+    "polarity": 3
+  },
+  {
+    "domain": 3,
+    "subdomain": 4,
+    "operation": 0,
+    "modality": 6,
+    "depth": 0,
+    "polarity": 2
+  },
+  {
+    "domain": 3,
+    "subdomain": 6,
+    "operation": 1,
+    "modality": 4,
+    "depth": 10,
+    "polarity": 8
+  },
+  {
+    "domain": 8,
+    "subdomain": 5,
+    "operation": 7,
+    "modality": 5,
+    "depth": 10,
+    "polarity": 11
+  },
+  {
+    "domain": 11,
+    "subdomain": 11,
+    "operation": 5,
+    "modality": 7,
+    "depth": 14,
+    "polarity": 15
+  },
+  {
+    "domain": 1,
+    "subdomain": 8,
+    "operation": 12,
+    "modality": 10,
+    "depth": 8,
+    "polarity": 5
+  },
+  {
+    "domain": 13,
+    "subdomain": 13,
+    "operation": 15,
+    "modality": 8,
+    "depth": 10,
+    "polarity": 0
+  },
+  {
+    "domain": 12,
+    "subdomain": 3,
+    "operation": 1,
+    "modality": 0,
+    "depth": 10,
+    "polarity": 14
+  },
+  {
+    "domain": 1,
+    "subdomain": 0,
+    "operation": 11,
+    "modality": 15,
+    "depth": 7,
+    "polarity": 15
+  },
+  {
+    "domain": 12,
+    "subdomain": 1,
+    "operation": 9,
+    "modality": 5,
+    "depth": 1,
+    "polarity": 5
+  },
+  {
+    "domain": 5,
+    "subdomain": 15,
+    "operation": 8,
+    "modality": 6,
+    "depth": 0,
+    "polarity": 4
+  },
+  {
+    "domain": 4,
+    "subdomain": 10,
+    "operation": 7,
+    "modality": 0,
+    "depth": 1,
+    "polarity": 0
+  },
+  {
+    "domain": 11,
+    "subdomain": 4,
+    "operation": 7,
+    "modality": 13,
+    "depth": 3,
+    "polarity": 11
+  },
+  {
+    "domain": 14,
+    "subdomain": 3,
+    "operation": 4,
+    "modality": 14,
+    "depth": 2,
+    "polarity": 12
+  },
+  {
+    "domain": 15,
+    "subdomain": 4,
+    "operation": 2,
+    "modality": 10,
+    "depth": 1,
+    "polarity": 10
+  },
+  {
+    "domain": 0,
+    "subdomain": 4,
+    "operation": 3,
+    "modality": 5,
+    "depth": 13,
+    "polarity": 1
+  },
+  {
+    "domain": 1,
+    "subdomain": 12,
+    "operation": 8,
+    "modality": 5,
+    "depth": 4,
+    "polarity": 5
+  },
+  {
+    "domain": 0,
+    "subdomain": 7,
+    "operation": 14,
+    "modality": 1,
+    "depth": 10,
+    "polarity": 2
+  },
+  {
+    "domain": 5,
+    "subdomain": 3,
+    "operation": 2,
+    "modality": 6,
+    "depth": 9,
+    "polarity": 7
+  },
+  {
+    "domain": 10,
+    "subdomain": 9,
+    "operation": 9,
+    "modality": 14,
+    "depth": 13,
+    "polarity": 2
+  },
+  {
+    "domain": 8,
+    "subdomain": 3,
+    "operation": 1,
+    "modality": 4,
+    "depth": 4,
+    "polarity": 12
+  },
+  {
+    "domain": 14,
+    "subdomain": 0,
+    "operation": 4,
+    "modality": 2,
+    "depth": 8,
+    "polarity": 13
+  },
+  {
+    "domain": 2,
+    "subdomain": 0,
+    "operation": 11,
+    "modality": 10,
+    "depth": 14,
+    "polarity": 7
+  }
+]

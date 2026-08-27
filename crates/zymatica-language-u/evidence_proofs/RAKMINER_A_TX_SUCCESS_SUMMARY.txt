@@ -1,0 +1,24 @@
+RAKMINER-A SUBZERO2 / 1-PAUP ZLIB RF TX SUCCESS FREEZE
+
+HOST=RakMiner-A
+UTC_FREEZE=20260604T074322Z
+SOURCE_DIR=/home/strawberry-z-model-1/languageu-rak/REAL_DEVICE_RUN_001/PHASE14_11_1PAUP_256_COMPRESSED_SINGLE_PACKET_A_TO_B
+
+OBSERVED SUCCESS:
+- Compressed payload size: 107 bytes
+- Compressed SHA256: a38e612fb2c4b576b406b768416b3e18735b9990e5a2876b929bec1638069fb0
+- Decompressed original packet size: 256 bytes
+- Original packet SHA256: 2672ca7c540c02c4d2b022f3432acd35e478a13fa6cc168b43ea0931ebcc1058
+- A_PAYLOAD_ROUNDTRIP_VERIFY=PASS
+- A_RF_TX_STARTED=YES
+- A_1PAUP_256_ZLIB_SINGLE_PACKET_RF_TX_DONE packets_sent=50
+- A_RF_TX_COMPLETED=YES
+- Frequency: 903.9 MHz
+- SF: 9
+- Bandwidth: 125 kHz
+- RF power: 14 dBm
+- Payload bytes over RF: 107
+- Original canonical packet bytes after zlib decompress: 256
+
+CLAIM:
+RakMiner-A transmitted the zlib-compressed 1-PAUP restoration packet over real LoRa RF as a single 107-byte payload repeated 50 times.

@@ -1,0 +1,49 @@
+WebAssembly Binary Structure Audit: proof_wasm.wasm
+File Size: 36590 bytes
+WASM Version: 1
+--------------------------------------------------------------------------------
+Section 01 [Type Section (Signatures)]: Size = 42 bytes, Offset = 10
+Section 03 [Function Section]: Size = 12 bytes, Offset = 54
+Section 04 [Table Section]: Size = 5 bytes, Offset = 68
+Section 05 [Memory Section (Pages layout)]: Size = 3 bytes, Offset = 75
+  - Total Memories defined: 1
+    - Memory 0: Initial = 17 page(s) (64KB) (No max bound)
+Section 06 [Global Section]: Size = 9 bytes, Offset = 80
+Section 07 [Export Section (API bindings)]: Size = 90 bytes, Offset = 91
+  - Total Exports exported: 6
+    - Export "memory": Kind = Memory, Index = 0
+    - Export "_start": Kind = Function, Index = 0
+    - Export "run_verification": Kind = Function, Index = 1
+    - Export "wasm_decode": Kind = Function, Index = 8
+    - Export "wasm_get_encoded_bits": Kind = Function, Index = 9
+    - Export "wasm_encode": Kind = Function, Index = 10
+Section 10 [Code Section (Bytecode)]: Size = 11032 bytes, Offset = 184
+  - Total Functions inside code: 11
+    - Function Index 0: Total Body Size = 2 bytes (Locals info = 1 bytes, Raw bytecode = 1 bytes)
+    - Function Index 1: Total Body Size = 501 bytes (Locals info = 3 bytes, Raw bytecode = 498 bytes)
+    - Function Index 2: Total Body Size = 1551 bytes (Locals info = 7 bytes, Raw bytecode = 1544 bytes)
+    - Function Index 3: Total Body Size = 1022 bytes (Locals info = 7 bytes, Raw bytecode = 1015 bytes)
+    - Function Index 4: Total Body Size = 2416 bytes (Locals info = 3 bytes, Raw bytecode = 2413 bytes)
+    - Function Index 5: Total Body Size = 2433 bytes (Locals info = 3 bytes, Raw bytecode = 2430 bytes)
+    - Function Index 6: Total Body Size = 2443 bytes (Locals info = 3 bytes, Raw bytecode = 2440 bytes)
+    - Function Index 7: Total Body Size = 559 bytes (Locals info = 3 bytes, Raw bytecode = 556 bytes)
+    - Function Index 8: Total Body Size = 26 bytes (Locals info = 1 bytes, Raw bytecode = 25 bytes)
+    - Function Index 9: Total Body Size = 11 bytes (Locals info = 1 bytes, Raw bytecode = 10 bytes)
+    - Function Index 10: Total Body Size = 49 bytes (Locals info = 1 bytes, Raw bytecode = 48 bytes)
+Section 11 [Data Section (Static memory initializers)]: Size = 39 bytes, Offset = 11218
+  - Total Data Segments: 1
+Section 00 [Custom Section]: Size = 4157 bytes, Offset = 11260
+Section 00 [Custom Section]: Size = 750 bytes, Offset = 15420
+Section 00 [Custom Section]: Size = 7359 bytes, Offset = 16173
+Section 00 [Custom Section]: Size = 310 bytes, Offset = 23535
+Section 00 [Custom Section]: Size = 5770 bytes, Offset = 23848
+Section 00 [Custom Section]: Size = 917 bytes, Offset = 29621
+Section 00 [Custom Section]: Size = 968 bytes, Offset = 30541
+Section 00 [Custom Section]: Size = 4555 bytes, Offset = 31512
+Section 00 [Custom Section]: Size = 355 bytes, Offset = 36070
+Section 00 [Custom Section]: Size = 26 bytes, Offset = 36427
+Section 00 [Custom Section]: Size = 134 bytes, Offset = 36456
+--------------------------------------------------------------------------------
+Audit verification: Compiled target is confirmed to have zero garbage collector libraries,
+pre-allocates a static pool of linear memory (17 pages / ~1.08MB) with 0 B heap growth
+during execution, and exposes freestanding APIs.

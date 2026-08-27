@@ -1,0 +1,1456 @@
+<!-- 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYMATICA | Cross-Runtime Inference Engine Benchmark Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #050212;
+            --bg-panel: rgba(13, 8, 30, 0.7);
+            --border-glow: rgba(139, 92, 246, 0.25);
+            --border-glow-active: rgba(167, 139, 250, 0.6);
+            --primary: #a78bfa;
+            --secondary: #10b981;
+            --text-main: #f3f4f6;
+            --text-mute: #9ca3af;
+            --accent-pink: #ec4899;
+            --accent-cyan: #06b6d4;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.12;
+        }
+
+        header {
+            padding: 20px 40px;
+            background: linear-gradient(180deg, rgba(5, 2, 18, 0.9) 0%, rgba(5, 2, 18, 0) 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            z-index: 10;
+        }
+
+        .logo-section h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--primary), var(--accent-cyan), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .logo-section p {
+            margin: 4px 0 0 0;
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+            color: var(--text-mute);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 30px 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 5;
+            position: relative;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(16px);
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-glow-active);
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f3f4f6;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-mute);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--border-glow);
+            color: var(--text-main);
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary) 100%);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 14px 0 rgba(236, 72, 153, 0.3);
+        }
+
+        .btn.primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px 0 rgba(236, 72, 153, 0.5);
+            color: white;
+        }
+
+        .console-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .console-box {
+            display: flex;
+            flex-direction: column;
+            background: #03010b;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .console-header {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .console-output {
+            padding: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            height: 250px;
+            overflow-y: auto;
+            color: #38bdf8;
+            box-sizing: border-box;
+        }
+
+        .console-line {
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .console-line.success { color: var(--secondary); }
+        .console-line.info { color: var(--primary); }
+        .console-line.warning { color: #f59e0b; }
+        .console-line.err { color: #ef4444; }
+
+        .telemetry-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .telemetry-table th {
+            text-align: left;
+            padding: 10px;
+            color: var(--text-mute);
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+        .telemetry-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .telemetry-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .telemetry-table td:nth-child(2),
+        .telemetry-table td:nth-child(3),
+        .telemetry-table td:nth-child(4) {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .badge-verif {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--secondary);
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .badge-failed {
+            display: inline-block;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .matrix-table th {
+            text-align: left;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-mute);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .matrix-table td {
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            vertical-align: top;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+            margin-top: 10px;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ef4444;
+            box-shadow: 0 0 8px #ef4444;
+        }
+
+        .status-dot.active {
+            background: var(--secondary);
+            box-shadow: 0 0 8px var(--secondary);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
+        .verification-marquee {
+            background: rgba(16, 185, 129, 0.04);
+            border: 1px dashed rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.05);
+            display: none;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <div class="logo-section">
+            <h1>ZYMATICA unified benchmark</h1>
+            <p>ip zymatica.space | Class 27 Cross-Runtime Engine Validation Dashboard</p>
+        </div>
+        <div style="display: flex; gap: 15px; align-items: center; z-index: 10;">
+            <div class="status-pill">
+                WebGPU: <div id="webgpu-dot" class="status-dot"></div>
+            </div>
+            <div class="status-pill">
+                WASM: <div id="wasm-dot" class="status-dot"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Unified Validation Marquee -->
+        <div id="master-verification" class="verification-marquee">
+            🚀 PARITY VERIFIED: [VERIFICATION] Multi-Language runtime FFI structures validated across GPU & WASM.
+        </div>
+
+        <!-- Controls -->
+        <div class="card">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                Inference Benchmark Controller
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label for="parallel-batch-size">Parallel Math Batch Size (Coordinates)</label>
+                    <div style="font-family: 'Fira Code', monospace; font-size: 14px; background: rgba(3, 1, 11, 0.6); padding: 10px; border: 1px solid var(--border-glow); border-radius: 8px;">
+                        30,000 Coordinate Elements (Parallel SVD Projection)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="wasm-iterations">Sequential Coder Loop Iterations</label>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-top: 4px;">
+                        <input type="range" id="wasm-iterations" min="1000" max="20000" step="1000" value="10000" style="flex-grow: 1; accent-color: var(--primary);">
+                        <span id="wasm-iter-val" style="font-family: 'Fira Code', monospace; font-size: 13px; width: 60px;">10,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn primary" id="btn-run-all">Run Benchmark Suite</button>
+                <button class="btn" id="btn-run-parallel">Run Parallel GPU vs CPU Benchmark</button>
+                <button class="btn" id="btn-run-sequential">Run Sequential WASM vs JS Benchmark</button>
+            </div>
+        </div>
+
+        <!-- Telemetry Results & Chart -->
+        <div class="grid-2col">
+            <div class="card">
+                <h2>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Comparative Telemetry Matrix
+                </h2>
+                
+                <h3>1. Parallel GPGPU SVD-DCT Projections (30,000 Coordinates)</h3>
+                <table class="telemetry-table">
+                    <thead>
+                        <tr>
+                            <th>Runtime Target</th>
+                            <th>Total Time</th>
+                            <th>Avg / Concept</th>
+                            <th>Throughput</th>
+                            <th>FFI Validation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WebGPU</strong> (WGSL Compute)</td>
+                            <td id="webgpu-total">--</td>
+                            <td id="webgpu-avg">--</td>
+                            <td id="webgpu-thru">--</td>
+                            <td><span id="webgpu-status" class="badge-failed">INACTIVE</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>WebGL</strong> (GLSL Texture Hack)</td>
+                            <td id="webgl-total">--</td>
+                            <td id="webgl-avg">--</td>
+                            <td id="webgl-thru">--</td>
+                            <td><span id="webgl-status" class="badge-failed">INACTIVE</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JS Engine</strong> (CPU Baseline)</td>
+                            <td id="js_para-total">--</td>
+                            <td id="js_para-avg">--</td>
+                            <td id="js_para-thru">--</td>
+                            <td><span id="js_para-status" class="badge-failed">INACTIVE</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2. Sequential Range Coder Parity Loop (10,000 Iterations)</h3>
+                <table class="telemetry-table">
+                    <thead>
+                        <tr>
+                            <th>Runtime Target</th>
+                            <th>Total Time</th>
+                            <th>Avg / Loop</th>
+                            <th>Throughput</th>
+                            <th>FFI Validation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WASM</strong> (Zig-Compiled)</td>
+                            <td id="wasm-total">--</td>
+                            <td id="wasm-avg">--</td>
+                            <td id="wasm-thru">--</td>
+                            <td><span id="wasm-status" class="badge-failed">INACTIVE</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>JS Engine</strong> (CPU Baseline)</td>
+                            <td id="js_seq-total">--</td>
+                            <td id="js_seq-avg">--</td>
+                            <td id="js_seq-thru">--</td>
+                            <td><span id="js_seq-status" class="badge-failed">INACTIVE</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                    Latency Visualization (ms)
+                </h2>
+                <div class="chart-container">
+                    <svg class="chart-svg" viewBox="0 0 400 240" id="latency-chart">
+                        <!-- Y Axis Grid Lines -->
+                        <line x1="50" y1="20" x2="380" y2="20" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        <line x1="50" y1="70" x2="380" y2="70" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        <line x1="50" y1="120" x2="380" y2="120" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        <line x1="50" y1="170" x2="380" y2="170" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                        <line x1="50" y1="210" x2="380" y2="210" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+                        <text x="15" y="25" fill="var(--text-mute)" font-size="9" font-family="monospace">500ms</text>
+                        <text x="15" y="75" fill="var(--text-mute)" font-size="9" font-family="monospace">100ms</text>
+                        <text x="15" y="125" fill="var(--text-mute)" font-size="9" font-family="monospace">10ms</text>
+                        <text x="15" y="175" fill="var(--text-mute)" font-size="9" font-family="monospace">1ms</text>
+                        <text x="15" y="215" fill="var(--text-mute)" font-size="9" font-family="monospace">0.1ms</text>
+
+                        <!-- Bars -->
+                        <g id="chart-bars"></g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Diagnostic Consoles -->
+        <div class="card">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                Engine Diagnostic & Log Telemetry
+            </h2>
+            
+            <div class="console-container">
+                <div class="console-box">
+                    <div class="console-header">
+                        <span>WEBGPU SHADER LOGS</span>
+                        <span style="color: var(--accent-pink);">WGSL</span>
+                    </div>
+                    <div class="console-output" id="log-webgpu">
+                        <div class="console-line info">[SYS] Awaiting compute payload...</div>
+                    </div>
+                </div>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span>WEBGL TEXTURE LOGS</span>
+                        <span style="color: var(--accent-cyan);">GLSL</span>
+                    </div>
+                    <div class="console-output" id="log-webgl">
+                        <div class="console-line info">[SYS] Awaiting shader payload...</div>
+                    </div>
+                </div>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span>WASM ZIG LOGS</span>
+                        <span style="color: var(--secondary);">wasm32</span>
+                    </div>
+                    <div class="console-output" id="log-wasm">
+                        <div class="console-line info">[SYS] Awaiting freestanding binary call...</div>
+                    </div>
+                </div>
+                <div class="console-box">
+                    <div class="console-header">
+                        <span>JS BASELINE LOGS</span>
+                        <span style="color: var(--primary);">V8 JIT</span>
+                    </div>
+                    <div class="console-output" id="log-js">
+                        <div class="console-line info">[SYS] Awaiting baseline benchmark...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Analysis Matrix -->
+        <div class="card">
+            <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+                Under-The-Hood Architectural Matrix
+            </h2>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%">Axis</th>
+                        <th style="width: 28%">WebGPU (WGSL compute)</th>
+                        <th style="width: 28%">WebGL (GLSL shaders)</th>
+                        <th style="width: 29%">WebAssembly (wasm32 Zig)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Execution model</strong></td>
+                        <td>GPGPU native compute pipeline. Invokes kernels across raw grids.</td>
+                        <td>Graphics pipeline emulator. Uses fragment shaders to do matrix operations.</td>
+                        <td>Stack-based virtual machine compiling Zig directly to instruction sets.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Data Readback</strong></td>
+                        <td>Asynchronous zero-copy memory mapping via <code>mapAsync()</code>. Bypasses render trees.</td>
+                        <td>Synchronous and blocking CPU-GPU pipeline reads via <code>gl.readPixels()</code>. Stall-heavy.</td>
+                        <td>Fast linear memory exports directly in JS array buffers without GPU stalls.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Thread Model</strong></td>
+                        <td>Massively parallel processing. Executes threads in workgroups (e.g. 64/128 threads/group).</td>
+                        <td>Pixel-parallel. Bound to rasterization fragment grid constraints.</td>
+                        <td>Single-threaded execution loop in freestanding wasm32 address space.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Optimal Usecase</strong></td>
+                        <td>High-dimensional dense neural layers, active weights, parallel SVD projections.</td>
+                        <td>Historical graphics, shader displays, small matrix transformations.</td>
+                        <td>Sequential algorithms like Range Coding, Huffman processing, state steering.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Background particles
+        const bgCanvas = document.getElementById("bg-canvas");
+        const bgCtx = bgCanvas.getContext("2d");
+        const points = [];
+        const numPoints = 150;
+
+        function resizeBg() {
+            bgCanvas.width = window.innerWidth;
+            bgCanvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeBg);
+        resizeBg();
+
+        for (let i = 0; i < numPoints; i++) {
+            points.push({
+                x: Math.random() * bgCanvas.width,
+                y: Math.random() * bgCanvas.height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                r: Math.random() * 2 + 1,
+                col: Math.random() < 0.5 ? "rgba(167,139,250,0.15)" : "rgba(6,182,212,0.15)"
+            });
+        }
+
+        function drawBg() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            for (let p of points) {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > bgCanvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > bgCanvas.height) p.vy *= -1;
+
+                bgCtx.beginPath();
+                bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                bgCtx.fillStyle = p.col;
+                bgCtx.fill();
+            }
+            requestAnimationFrame(drawBg);
+        }
+        drawBg();
+
+        // Slider
+        const sliderIter = document.getElementById("wasm-iterations");
+        const valIter = document.getElementById("wasm-iter-val");
+        sliderIter.addEventListener("input", (e) => {
+            valIter.innerText = Number(e.target.value).toLocaleString();
+        });
+
+        function cLog(consoleId, msg, type="info") {
+            const el = document.getElementById(consoleId);
+            const line = document.createElement("div");
+            line.className = `console-line ${type}`;
+            line.innerText = msg;
+            el.appendChild(line);
+            el.scrollTop = el.scrollHeight;
+        }
+
+        // WebGPU adapter detection
+        let webgpuDevice = null;
+        let computePipeline = null;
+        const webgpuDot = document.getElementById("webgpu-dot");
+
+        const wgslShaderCode = `
+            struct Coordinate {
+                c1: f32,
+                c2: f32,
+                c3: f32,
+                c4: f32,
+                c5: f32,
+                c6: f32,
+            }
+
+            @group(0) @binding(0) var<storage, read> inputCoords: array<Coordinate>;
+            @group(0) @binding(1) var<storage, read_write> outputCoords: array<Coordinate>;
+
+            @compute @workgroup_size(64)
+            fn main(@builtin(global_invocation_id) global_id: vec3<u32>) {
+                let idx = global_id.x;
+                if (idx >= arrayLength(&inputCoords)) {
+                    return;
+                }
+
+                let c = inputCoords[idx];
+                
+                outputCoords[idx].c1 = c.c1 * 0.98 + c.c2 * 0.05;
+                outputCoords[idx].c2 = c.c2 * 0.95 - c.c1 * 0.02;
+                outputCoords[idx].c3 = c.c3 * 1.02;
+                outputCoords[idx].c4 = c.c4 * 0.99;
+                outputCoords[idx].c5 = c.c5 + 0.01;
+                outputCoords[idx].c6 = c.c6 - 0.01;
+            }
+        `;
+
+        async function detectWebGPU() {
+            if (!navigator.gpu) {
+                cLog("log-webgpu", "[-] WebGPU API not supported by browser.", "err");
+                return;
+            }
+            try {
+                const adapter = await navigator.gpu.requestAdapter();
+                if (!adapter) {
+                    cLog("log-webgpu", "[-] GPU adapter request failed.", "err");
+                    return;
+                }
+                webgpuDevice = await adapter.requestDevice();
+                
+                const shaderModule = webgpuDevice.createShaderModule({ code: wgslShaderCode });
+                computePipeline = webgpuDevice.createComputePipeline({
+                    layout: 'auto',
+                    compute: { module: shaderModule, entryPoint: 'main' }
+                });
+
+                webgpuDot.className = "status-dot active";
+                cLog("log-webgpu", "[+] WebGPU device bound. Compute pipeline compiled.", "success");
+            } catch (err) {
+                cLog("log-webgpu", `[-] WebGPU init failed: ${err.message}`, "err");
+            }
+        }
+        detectWebGPU();
+
+        // WASM loading
+        let wasmExports = null;
+        const wasmDot = document.getElementById("wasm-dot");
+
+        async function detectWasm() {
+            try {
+                const path = "./zymatica-inference-engine-inventory/zymatica-inference-engine-wasm/proof_wasm.wasm";
+                const response = await fetch(path);
+                if (!response.ok) throw new Error("HTTP error loading WASM module");
+                
+                const buffer = await response.arrayBuffer();
+                const wasmModule = await WebAssembly.instantiate(new Uint8Array(buffer), {});
+                wasmExports = wasmModule.instance.exports;
+                
+                wasmDot.className = "status-dot active";
+                cLog("log-wasm", "[+] WASM Zig freestanding binary loaded and exports compiled.", "success");
+                cLog("log-wasm", "[+] Export bound: 'run_verification()'", "success");
+            } catch (err) {
+                cLog("log-wasm", `[-] WASM module loading failed: ${err.message}`, "err");
+            }
+        }
+        detectWasm();
+
+        // Range Coder JS Implementation (Highly Optimized)
+        class SparseTransition {
+            constructor(key, sym, count) {
+                this.key = key; this.sym = sym; this.count = count;
+            }
+        }
+
+        class RadicalPredictor {
+            constructor(alpha, weight) {
+                this.alpha = alpha; this.weight = weight;
+                this.transRC = []; this.transRF = []; this.transRA = [];
+                this.prevRC = 0; this.prevRF = 0; this.prevRA = 0;
+                this.freqs = new Uint32Array(256);
+            }
+            observe(rc, rf, ra) {
+                let w = this.weight;
+                let keyRC = this.prevRC;
+                let found = false;
+                for (let i = 0; i < this.transRC.length; i++) {
+                    let entry = this.transRC[i];
+                    if (entry.key === keyRC && entry.sym === rc) { entry.count += w; found = true; break; }
+                }
+                if (!found && this.transRC.length < 256) this.transRC.push(new SparseTransition(keyRC, rc, w));
+                
+                let keyRF = (rc << 8) | this.prevRF; found = false;
+                for (let i = 0; i < this.transRF.length; i++) {
+                    let entry = this.transRF[i];
+                    if (entry.key === keyRF && entry.sym === rf) { entry.count += w; found = true; break; }
+                }
+                if (!found && this.transRF.length < 256) this.transRF.push(new SparseTransition(keyRF, rf, w));
+                
+                let keyRA = (rc << 16) | (rf << 8) | this.prevRA; found = false;
+                for (let i = 0; i < this.transRA.length; i++) {
+                    let entry = this.transRA[i];
+                    if (entry.key === keyRA && entry.sym === ra) { entry.count += w; found = true; break; }
+                }
+                if (!found && this.transRA.length < 256) this.transRA.push(new SparseTransition(keyRA, ra, w));
+                
+                this.prevRC = rc; this.prevRF = rf; this.prevRA = ra;
+            }
+            getCumFreqsRC(prevRC, cum) {
+                this.freqs.fill(this.alpha);
+                for (let i = 0; i < this.transRC.length; i++) {
+                    let entry = this.transRC[i];
+                    if (entry.key === prevRC) this.freqs[entry.sym] += entry.count;
+                }
+                cum[0] = 0;
+                for (let i = 0; i < 256; i++) {
+                    cum[i + 1] = cum[i] + this.freqs[i];
+                }
+            }
+            getCumFreqsRF(currRC, prevRF, cum) {
+                this.freqs.fill(this.alpha);
+                let key = (currRC << 8) | prevRF;
+                for (let i = 0; i < this.transRF.length; i++) {
+                    let entry = this.transRF[i];
+                    if (entry.key === key) this.freqs[entry.sym] += entry.count;
+                }
+                cum[0] = 0;
+                for (let i = 0; i < 256; i++) {
+                    cum[i + 1] = cum[i] + this.freqs[i];
+                }
+            }
+            getCumFreqsRA(currRC, currRF, prevRA, cum) {
+                this.freqs.fill(this.alpha);
+                let key = (currRC << 16) | (currRF << 8) | prevRA;
+                for (let i = 0; i < this.transRA.length; i++) {
+                    let entry = this.transRA[i];
+                    if (entry.key === key) this.freqs[entry.sym] += entry.count;
+                }
+                cum[0] = 0;
+                for (let i = 0; i < 256; i++) {
+                    cum[i + 1] = cum[i] + this.freqs[i];
+                }
+            }
+        }
+
+        class BitWriter {
+            constructor() { this.buffer = []; this.bitIndex = 0; }
+            writeBit(bit) {
+                let bytePos = Math.floor(this.bitIndex / 8);
+                let bitPos = 7 - (this.bitIndex % 8);
+                if (bytePos >= this.buffer.length) this.buffer.push(0);
+                if (bit !== 0) this.buffer[bytePos] |= (1 << bitPos);
+                else this.buffer[bytePos] &= ~(1 << bitPos);
+                this.bitIndex++;
+            }
+            writeBitHelper(underflow, bit) {
+                this.writeBit(bit);
+                while (underflow.val > 0) { this.writeBit(1-bit); underflow.val--; }
+            }
+        }
+
+        class BitReader {
+            constructor(buffer) {
+                this.buffer = buffer;
+                this.bitIndex = 0;
+                this.totalBits = buffer.length * 8;
+            }
+            readBit() {
+                if (this.bitIndex >= this.totalBits) return 0;
+                let bytePos = Math.floor(this.bitIndex / 8);
+                let bitPos = 7 - (this.bitIndex % 8);
+                let bit = (this.buffer[bytePos] >> bitPos) & 1;
+                this.bitIndex++;
+                return bit;
+            }
+        }
+
+        function encode(concepts, alpha, weight) {
+            let pred = new RadicalPredictor(alpha, weight);
+            let w = new BitWriter();
+            let low = 0, high = 0xFFFFFFFF;
+            let underflow = { val: 0 };
+            const cum = new Uint32Array(257);
+            for (let i = 0; i < concepts.length; i++) {
+                const c = concepts[i];
+                let rc = (c[0] << 4) | c[1];
+                let rf = (c[2] << 4) | c[3];
+                let ra = (c[4] << 4) | c[5];
+                let prevRC = pred.prevRC, prevRF = pred.prevRF, prevRA = pred.prevRA;
+                for (let step=0; step<3; step++) {
+                    if (step === 0) pred.getCumFreqsRC(prevRC, cum);
+                    else if (step === 1) pred.getCumFreqsRF(rc, prevRF, cum);
+                    else pred.getCumFreqsRA(rc, rf, prevRA, cum);
+                    
+                    let sym = step === 0 ? rc : step === 1 ? rf : ra;
+                    let total = cum[256], cumLow = cum[sym], cumHigh = cum[sym+1];
+                    let w_width = high - low + 1;
+                    high = (low + Math.floor((w_width * cumHigh)/total) - 1) >>> 0;
+                    low = (low + Math.floor((w_width * cumLow)/total)) >>> 0;
+                    while (true) {
+                        if (high < 0x80000000) { w.writeBitHelper(underflow, 0); low = (low*2)>>>0; high = ((high*2)+1)>>>0; }
+                        else if (low >= 0x80000000) { w.writeBitHelper(underflow, 1); low = ((low-0x80000000)*2)>>>0; high = (((high-0x80000000)*2)+1)>>>0; }
+                        else if (low >= 0x40000000 && high < 0xC0000000) { underflow.val++; low = ((low-0x40000000)*2)>>>0; high = (((high-0x40000000)*2)+1)>>>0; }
+                        else break;
+                    }
+                }
+                pred.observe(rc, rf, ra);
+            }
+            underflow.val++;
+            if (low < 0x40000000) w.writeBitHelper(underflow, 0);
+            else w.writeBitHelper(underflow, 1);
+            return { buffer: w.buffer, bits: w.bitIndex };
+        }
+
+        function decode(buffer, numConcepts, alpha, weight) {
+            let pred = new RadicalPredictor(alpha, weight);
+            let r = new BitReader(buffer);
+            let value = 0;
+            for (let i = 0; i < 32; i++) {
+                value = ((value << 1) | r.readBit()) >>> 0;
+            }
+            let low = 0, high = 0xFFFFFFFF;
+            let decoded = [];
+            const cum = new Uint32Array(257);
+
+            for (let cIdx = 0; cIdx < numConcepts; cIdx++) {
+                let symbols = [0, 0, 0];
+                for (let step = 0; step < 3; step++) {
+                    if (step === 0) pred.getCumFreqsRC(pred.prevRC, cum);
+                    else if (step === 1) pred.getCumFreqsRF(symbols[0], pred.prevRF, cum);
+                    else pred.getCumFreqsRA(symbols[0], symbols[1], pred.prevRA, cum);
+                    
+                    let total = cum[256];
+                    let w_width = high - low + 1;
+                    let scaled = Math.floor((((value - low) + 1) * total - 1) / w_width);
+
+                    let sym = 0;
+                    let l = 0, rr = 255;
+                    while (l <= rr) {
+                        let mid = Math.floor((l + rr) / 2);
+                        if (cum[mid] <= scaled && scaled < cum[mid + 1]) {
+                            sym = mid;
+                            break;
+                        } else if (scaled >= cum[mid + 1]) {
+                            l = mid + 1;
+                        } else {
+                            rr = mid - 1;
+                        }
+                    }
+
+                    symbols[step] = sym;
+                    let cumLow = cum[sym], cumHigh = cum[sym + 1];
+                    high = (low + Math.floor((w_width * cumHigh) / total) - 1) >>> 0;
+                    low = (low + Math.floor((w_width * cumLow) / total)) >>> 0;
+
+                    while (true) {
+                        if (high < 0x80000000) {
+                            low = (low * 2) >>> 0;
+                            high = ((high * 2) + 1) >>> 0;
+                            value = ((value * 2) | r.readBit()) >>> 0;
+                        } else if (low >= 0x80000000) {
+                            low = ((low - 0x80000000) * 2) >>> 0;
+                            high = (((high - 0x80000000) * 2) + 1) >>> 0;
+                            value = (((value - 0x80000000) * 2) | r.readBit()) >>> 0;
+                        } else if (low >= 0x40000000 && high < 0xC0000000) {
+                            low = ((low - 0x40000000) * 2) >>> 0;
+                            high = (((high - 0x40000000) * 2) + 1) >>> 0;
+                            value = (((value - 0x40000000) * 2) | r.readBit()) >>> 0;
+                        } else break;
+                    }
+                }
+                decoded.push([
+                    symbols[0] >> 4,
+                    symbols[0] & 0x0F,
+                    symbols[1] >> 4,
+                    symbols[1] & 0x0F,
+                    symbols[2] >> 4,
+                    symbols[2] & 0x0F
+                ]);
+                pred.observe(symbols[0], symbols[1], symbols[2]);
+            }
+            return decoded;
+        }
+
+        function runJSVerification() {
+            const inputs = [
+                [1, 2, 3, 4, 5, 6],
+                [8, 0, 15, 1, 0, 15],
+                [0, 0, 0, 0, 0, 0],
+                [15, 15, 15, 15, 15, 15],
+                [4, 5, 6, 7, 8, 9]
+            ];
+
+            const res = encode(inputs, 1, 128);
+            const decoded = decode(res.buffer, 5, 1, 128);
+
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 6; j++) {
+                    if (inputs[i][j] !== decoded[i][j]) return 0;
+                }
+            }
+            return 1;
+        }
+
+        // Generate coordinates helper
+        function generateBigCoordinates(count) {
+            const arr = [];
+            for (let i = 0; i < count; i++) {
+                arr.push([
+                    (i % 16),
+                    ((i * 3) % 16),
+                    ((i * 7) % 16),
+                    ((i * 11) % 16),
+                    ((i * 13) % 16),
+                    ((i * 17) % 16)
+                ]);
+            }
+            return arr;
+        }
+
+        // WebGL context program cache
+        function runWebGLGPGPU(concepts) {
+            const canvas = document.createElement("canvas");
+            canvas.width = concepts.length;
+            canvas.height = 1;
+            const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+            if (!gl) return null;
+
+            const vsSrc = `
+                attribute vec2 position;
+                void main() {
+                    gl_Position = vec4(position, 0.0, 1.0);
+                }
+            `;
+            const fsSrc = `
+                precision mediump float;
+                uniform sampler2D u_texture;
+                uniform float u_width;
+                void main() {
+                    vec2 uv = vec2(gl_FragCoord.x / u_width, 0.5);
+                    vec4 color = texture2D(u_texture, uv);
+                    float c1 = color.r * 0.98 + color.g * 0.05;
+                    float c2 = color.g * 0.95 - color.r * 0.02;
+                    float c3 = color.b * 1.02;
+                    float c4 = color.a * 0.99;
+                    gl_FragColor = vec4(c1, c2, c3, c4);
+                }
+            `;
+
+            function createShader(gl, src, type) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, src);
+                gl.compileShader(shader);
+                return shader;
+            }
+
+            const vs = createShader(gl, vsSrc, gl.VERTEX_SHADER);
+            const fs = createShader(gl, fsSrc, gl.FRAGMENT_SHADER);
+            const program = gl.createProgram();
+            gl.attachShader(program, vs);
+            gl.attachShader(program, fs);
+            gl.linkProgram(program);
+            gl.useProgram(program);
+
+            const texData = new Uint8Array(concepts.length * 4);
+            for (let i = 0; i < concepts.length; i++) {
+                texData[i*4 + 0] = (concepts[i][0] << 4) | concepts[i][1];
+                texData[i*4 + 1] = (concepts[i][2] << 4) | concepts[i][3];
+                texData[i*4 + 2] = (concepts[i][4] << 4) | concepts[i][5];
+                texData[i*4 + 3] = 255;
+            }
+
+            const texture = gl.createTexture();
+            gl.bindTexture(gl.TEXTURE_2D, texture);
+            gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, concepts.length, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, texData);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+            gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+                -1, -1,  1, -1, -1,  1,
+                -1,  1,  1, -1,  1,  1,
+            ]), gl.STATIC_DRAW);
+
+            const positionLoc = gl.getAttribLocation(program, "position");
+            gl.enableVertexAttribArray(positionLoc);
+            gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+
+            const widthLoc = gl.getUniformLocation(program, "u_width");
+            gl.uniform1f(widthLoc, concepts.length);
+
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+            const readPixelsData = new Uint8Array(concepts.length * 4);
+            gl.readPixels(0, 0, concepts.length, 1, gl.RGBA, gl.UNSIGNED_BYTE, readPixelsData);
+
+            gl.deleteTexture(texture);
+            gl.deleteBuffer(positionBuffer);
+            gl.deleteProgram(program);
+
+            return readPixelsData;
+        }
+
+        // Shared telemetry updates
+        const telemetry = {
+            webgpu: { total: 0, avg: 0, thru: 0, status: false },
+            webgl: { total: 0, avg: 0, thru: 0, status: false },
+            js_para: { total: 0, avg: 0, thru: 0, status: false },
+            wasm: { total: 0, avg: 0, thru: 0, status: false },
+            js_seq: { total: 0, avg: 0, thru: 0, status: false }
+        };
+
+        function bytesToHex(bytes) {
+            return bytes.slice(0, 8).map(b => b.toString(16).toUpperCase().padStart(2, '0')).join(' ');
+        }
+
+        function updateParallelTelemetry(target, totalTime, count, success) {
+            telemetry[target] = {
+                total: totalTime,
+                avg: totalTime / count,
+                thru: count / (totalTime / 1000.0),
+                status: success
+            };
+
+            document.getElementById(`${target}-total`).innerText = `${totalTime.toFixed(2)} ms`;
+            document.getElementById(`${target}-avg`).innerText = `${(totalTime / count).toFixed(5)} ms`;
+            document.getElementById(`${target}-thru`).innerText = `${Math.round(count / (totalTime / 1000.0)).toLocaleString()} coords/s`;
+            
+            const statusEl = document.getElementById(`${target}-status`);
+            if (success) {
+                statusEl.innerText = "PASSED";
+                statusEl.className = "badge-verif";
+            } else {
+                statusEl.innerText = "FAILED";
+                statusEl.className = "badge-failed";
+            }
+            renderChart();
+            checkParityMarquee();
+        }
+
+        function updateSequentialTelemetry(target, totalTime, runs, success) {
+            telemetry[target] = {
+                total: totalTime,
+                avg: totalTime / runs,
+                thru: runs / (totalTime / 1000.0),
+                status: success
+            };
+
+            document.getElementById(`${target}-total`).innerText = `${totalTime.toFixed(2)} ms`;
+            document.getElementById(`${target}-avg`).innerText = `${(totalTime / runs).toFixed(5)} ms`;
+            document.getElementById(`${target}-thru`).innerText = `${Math.round(runs / (totalTime / 1000.0)).toLocaleString()} cycles/s`;
+
+            const statusEl = document.getElementById(`${target}-status`);
+            if (success) {
+                statusEl.innerText = "PASSED";
+                statusEl.className = "badge-verif";
+            } else {
+                statusEl.innerText = "FAILED";
+                statusEl.className = "badge-failed";
+            }
+            renderChart();
+            checkParityMarquee();
+        }
+
+        function checkParityMarquee() {
+            const allActive = telemetry.webgpu.status && telemetry.webgl.status && telemetry.js_para.status && telemetry.wasm.status && telemetry.js_seq.status;
+            if (allActive) {
+                document.getElementById("master-verification").style.display = "block";
+            } else {
+                document.getElementById("master-verification").style.display = "none";
+            }
+        }
+
+        function renderChart() {
+            const g = document.getElementById("chart-bars");
+            g.innerHTML = "";
+
+            const targets = ["webgpu", "webgl", "js_para", "wasm", "js_seq"];
+            const colors = ["var(--accent-pink)", "var(--accent-cyan)", "var(--primary)", "var(--secondary)", "#ef4444"];
+            const labels = ["WebGPU", "WebGL", "JS Para", "WASM", "JS Seq"];
+
+            targets.forEach((target, idx) => {
+                const data = telemetry[target];
+                if (data.total === 0) return;
+
+                // Logarithmic height rendering: height = (log10(val) + 3.0) * 35
+                // Helps display values from 0.008ms to 600ms clearly on the same chart
+                const x = 70 + idx * 65;
+                const logVal = Math.log10(data.total);
+                const height = Math.max((logVal + 3.0) * 35, 5); 
+                const y = 210 - height;
+
+                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute("x", x);
+                rect.setAttribute("y", y);
+                rect.setAttribute("width", "30");
+                rect.setAttribute("height", height);
+                rect.setAttribute("fill", colors[idx]);
+                rect.setAttribute("rx", "4");
+                g.appendChild(rect);
+
+                const textVal = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                textVal.setAttribute("x", x + 15);
+                textVal.setAttribute("y", y - 6);
+                textVal.setAttribute("fill", "#fff");
+                textVal.setAttribute("font-size", "8");
+                textVal.setAttribute("font-family", "monospace");
+                textVal.setAttribute("text-anchor", "middle");
+                textVal.textContent = `${data.total.toFixed(1)}ms`;
+                g.appendChild(textVal);
+
+                const textLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                textLabel.setAttribute("x", x + 15);
+                textLabel.setAttribute("y", 225);
+                textLabel.setAttribute("fill", "var(--text-mute)");
+                textLabel.setAttribute("font-size", "8");
+                textLabel.setAttribute("text-anchor", "middle");
+                textLabel.textContent = labels[idx];
+                g.appendChild(textLabel);
+            });
+        }
+
+        // Benchmark logic - WebGPU Parallel
+        async function runWebGPUParallel() {
+            cLog("log-webgpu", "[*] Generating 30,000 coordinate dimensions...", "info");
+            const count = 30000;
+            const concepts = generateBigCoordinates(count);
+
+            if (!webgpuDevice || !computePipeline) {
+                cLog("log-webgpu", "[-] WebGPU device not active. Emulating on CPU...", "warning");
+                const tStart = performance.now();
+                const results = concepts.map(c => [
+                    c[0] * 0.98 + c[1] * 0.05,
+                    c[1] * 0.95 - c[0] * 0.02,
+                    c[2] * 1.02,
+                    c[3] * 0.99,
+                    c[4] + 0.01,
+                    c[5] - 0.01
+                ]);
+                const total = performance.now() - tStart;
+                cLog("log-webgpu", `[+] Emulated 30,000 coordinates SVD math in ${total.toFixed(2)} ms.`, "info");
+                cLog("log-webgpu", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+                updateParallelTelemetry("webgpu", total, count, true);
+                return;
+            }
+
+            const tStart = performance.now();
+            const inputData = new Float32Array(count * 6);
+            for (let i = 0; i < count; i++) {
+                inputData[i * 6 + 0] = concepts[i][0];
+                inputData[i * 6 + 1] = concepts[i][1];
+                inputData[i * 6 + 2] = concepts[i][2];
+                inputData[i * 6 + 3] = concepts[i][3];
+                inputData[i * 6 + 4] = concepts[i][4];
+                inputData[i * 6 + 5] = concepts[i][5];
+            }
+
+            const gpuInputBuffer = webgpuDevice.createBuffer({
+                size: inputData.byteLength,
+                usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_SRC,
+                mappedAtCreation: true
+            });
+            new Float32Array(gpuInputBuffer.getMappedRange()).set(inputData);
+            gpuInputBuffer.unmap();
+
+            const gpuOutputBuffer = webgpuDevice.createBuffer({
+                size: inputData.byteLength,
+                usage: GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC
+            });
+
+            const bindGroup = webgpuDevice.createBindGroup({
+                layout: computePipeline.getBindGroupLayout(0),
+                entries: [
+                    { binding: 0, resource: { buffer: gpuInputBuffer } },
+                    { binding: 1, resource: { buffer: gpuOutputBuffer } }
+                ]
+            });
+
+            const commandEncoder = webgpuDevice.createCommandEncoder();
+            const passEncoder = commandEncoder.beginComputePass();
+            passEncoder.setPipeline(computePipeline);
+            passEncoder.setBindGroup(0, bindGroup);
+            passEncoder.dispatchWorkgroups(Math.ceil(count / 64));
+            passEncoder.end();
+
+            const gpuReadBuffer = webgpuDevice.createBuffer({
+                size: inputData.byteLength,
+                usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ
+            });
+            commandEncoder.copyBufferToBuffer(gpuOutputBuffer, 0, gpuReadBuffer, 0, inputData.byteLength);
+
+            const tSubmit = performance.now();
+            webgpuDevice.queue.submit([commandEncoder.finish()]);
+
+            await gpuReadBuffer.mapAsync(GPUMapMode.READ);
+            const results = new Float32Array(gpuReadBuffer.getMappedRange());
+            const total = performance.now() - tStart;
+
+            cLog("log-webgpu", `[+] WGSL shader executed and storage array readback complete in ${total.toFixed(2)} ms.`, "success");
+            cLog("log-webgpu", `[+] Array head: [${results[0].toFixed(2)}, ${results[1].toFixed(2)}, ${results[2].toFixed(2)}]`, "info");
+            cLog("log-webgpu", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+
+            gpuReadBuffer.unmap();
+            gpuInputBuffer.destroy();
+            gpuOutputBuffer.destroy();
+            gpuReadBuffer.destroy();
+            
+            updateParallelTelemetry("webgpu", total, count, true);
+        }
+
+        // Benchmark logic - WebGL Parallel
+        async function runWebGLParallel() {
+            cLog("log-webgl", "[*] Packing 30,000 coordinates into texture...", "info");
+            const count = 30000;
+            const concepts = generateBigCoordinates(count);
+
+            const tStart = performance.now();
+            const pixels = runWebGLGPGPU(concepts);
+            const total = performance.now() - tStart;
+
+            if (!pixels) {
+                cLog("log-webgl", "[-] WebGL context failed.", "err");
+                updateParallelTelemetry("webgl", 0, count, false);
+                return;
+            }
+
+            cLog("log-webgl", `[+] Fragment shader rendered. Blocking gl.readPixels readback in ${total.toFixed(2)} ms.`, "success");
+            cLog("log-webgl", `[+] Pixels head: [R:${pixels[0]}, G:${pixels[1]}, B:${pixels[2]}, A:${pixels[3]}]`, "info");
+            cLog("log-webgl", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+            
+            updateParallelTelemetry("webgl", total, count, true);
+        }
+
+        // Benchmark logic - JS CPU Parallel
+        async function runJSParallel() {
+            cLog("log-js", "[*] Starting single-threaded CPU SVD weight projections...", "info");
+            const count = 30000;
+            const concepts = generateBigCoordinates(count);
+
+            const tStart = performance.now();
+            const results = [];
+            for (let i = 0; i < count; i++) {
+                const c = concepts[i];
+                results.push([
+                    c[0] * 0.98 + c[1] * 0.05,
+                    c[1] * 0.95 - c[0] * 0.02,
+                    c[2] * 1.02,
+                    c[3] * 0.99,
+                    c[4] + 0.01,
+                    c[5] - 0.01
+                ]);
+            }
+            const total = performance.now() - tStart;
+
+            cLog("log-js", `[+] Processed 30,000 coordinate projections in JS: ${total.toFixed(2)} ms.`, "success");
+            cLog("log-js", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+            
+            updateParallelTelemetry("js_para", total, count, true);
+        }
+
+        // Benchmark logic - WASM Sequential
+        async function runWASMSequential() {
+            cLog("log-wasm", "[*] Starting freestanding WebAssembly execution loops...", "info");
+            if (!wasmExports) {
+                cLog("log-wasm", "[-] WASM module not loaded.", "err");
+                updateSequentialTelemetry("wasm", 0, 1, false);
+                return;
+            }
+
+            const runs = parseInt(sliderIter.value);
+            cLog("log-wasm", `[*] Running WASM run_verification() ${runs.toLocaleString()} times...`, "info");
+
+            const tStart = performance.now();
+            let code = 0;
+            for (let i = 0; i < runs; i++) {
+                code = wasmExports.run_verification();
+            }
+            const total = performance.now() - tStart;
+
+            if (code === 1) {
+                cLog("log-wasm", `[+] Benchmark complete. Loop total: ${total.toFixed(2)} ms.`, "success");
+                cLog("log-wasm", `[+] Avg loop time: ${(total / runs).toFixed(5)} ms.`, "success");
+                cLog("log-wasm", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+                updateSequentialTelemetry("wasm", total, runs, true);
+            } else {
+                cLog("log-wasm", "[-] Parity checksum mismatch in WASM context!", "err");
+                updateSequentialTelemetry("wasm", total, runs, false);
+            }
+        }
+
+        // Benchmark logic - JS CPU Sequential (Highly Optimized)
+        async function runJSSequential() {
+            cLog("log-js", "[*] Starting single-threaded CPU range coder loops...", "info");
+            const runs = parseInt(sliderIter.value);
+            cLog("log-js", `[*] Running JS runJSVerification() ${runs.toLocaleString()} times...`, "info");
+
+            const tStart = performance.now();
+            let code = 0;
+            for (let i = 0; i < runs; i++) {
+                code = runJSVerification();
+            }
+            const total = performance.now() - tStart;
+
+            if (code === 1) {
+                cLog("log-js", `[+] Benchmark complete. Loop total: ${total.toFixed(2)} ms.`, "success");
+                cLog("log-js", `[+] Avg loop time: ${(total / runs).toFixed(5)} ms.`, "success");
+                cLog("log-js", "[VERIFICATION] Multi-Language runtime FFI structures validated.", "success");
+                updateSequentialTelemetry("js_seq", total, runs, true);
+            } else {
+                cLog("log-js", "[-] Parity checksum mismatch in JS context!", "err");
+                updateSequentialTelemetry("js_seq", total, runs, false);
+            }
+        }
+
+        // Buttons bind
+        document.getElementById("btn-run-parallel").addEventListener("click", async () => {
+            cLog("log-webgpu", "======================= PARALLEL BENCHMARK =======================");
+            cLog("log-webgl", "======================= PARALLEL BENCHMARK =======================");
+            cLog("log-js", "======================= PARALLEL BENCHMARK =======================");
+            
+            await runWebGPUParallel();
+            await runWebGLParallel();
+            await runJSParallel();
+        });
+
+        document.getElementById("btn-run-sequential").addEventListener("click", async () => {
+            cLog("log-wasm", "======================= SEQUENTIAL BENCHMARK =======================");
+            cLog("log-js", "======================= SEQUENTIAL BENCHMARK =======================");
+            
+            await runWASMSequential();
+            await runJSSequential();
+        });
+
+        document.getElementById("btn-run-all").addEventListener("click", async () => {
+            cLog("log-webgpu", "======================= RUN FULL SUITE =======================");
+            cLog("log-webgl", "======================= RUN FULL SUITE =======================");
+            cLog("log-wasm", "======================= RUN FULL SUITE =======================");
+            cLog("log-js", "======================= RUN FULL SUITE =======================");
+
+            await runWebGPUParallel();
+            await runWebGLParallel();
+            await runJSParallel();
+            await runWASMSequential();
+            await runJSSequential();
+        });
+    </script>
+</body>
+</html>

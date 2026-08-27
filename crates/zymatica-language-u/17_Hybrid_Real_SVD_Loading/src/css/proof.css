@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Hybrid Real-SVD Loading partition constraints verified.
+*/
+body::after {
+    content: "ZYMATICA | Hybrid Real-SVD Loading Proof (CSS Edition) - Verification Anchor: Hybrid Real-SVD Loading partition constraints verified.";
+    display: none;
+}

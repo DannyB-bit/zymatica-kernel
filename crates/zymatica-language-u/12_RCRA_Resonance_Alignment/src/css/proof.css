@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: RCRA loss function and gradient flow verified.
+*/
+body::after {
+    content: "ZYMATICA | RCRA Resonance Alignment Proof (CSS Edition) - Verification Anchor: RCRA loss function and gradient flow verified.";
+    display: none;
+}

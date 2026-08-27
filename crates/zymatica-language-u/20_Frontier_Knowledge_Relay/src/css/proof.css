@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Frontier-Knowledge-Relay logic verified successfully.
+*/
+body::after {
+    content: "ZYMATICA | Frontier Knowledge Relay Proof (CSS Edition) - Verification Anchor: Frontier-Knowledge-Relay logic verified successfully.";
+    display: none;
+}

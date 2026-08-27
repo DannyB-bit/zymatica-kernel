@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = [
+    "programs/zk_lorawan",
+    "groth16",
+]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[workspace.dependencies]
+anchor-lang = "0.29.0"
+anchor-spl = "0.29.0"
+
+[patch.crates-io]
+ahash = { path = "tools/ahash-0.8.4" }

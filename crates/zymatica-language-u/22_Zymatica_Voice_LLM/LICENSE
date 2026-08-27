@@ -1,0 +1,76 @@
+PROPRIETARY INTELLECTUAL PROPERTY & COPYRIGHT NOTICE
+=====================================================
+Copyright (c) 2026 Zymatica / Language-U Project / The AI Collective. All rights reserved.
+
+NOTICE: ALL INFORMATION, CODE, ARCHITECTURAL SCHEMAS, MATHEMATICAL FORMULAS, DATASETS, AND DATA
+CONTAINED HEREIN ARE, AND REMAIN THE PROPERTY OF ZYMATICA AND ITS ASSOCIATES (THE AI COLLECTIVE).
+THE INTELLECTUAL, LOGICAL, AND TECHNICAL CONCEPTS CONTAINED HEREIN ARE PROPRIETARY TO ZYMATICA AND
+ARE PROTECTED BY COPYRIGHT LAW, TRADE SECRET LAW, AND APPLICABLE INTELLECTUAL PROPERTY STATUTES.
+
+REPRODUCTION, DISSEMINATION, TRANSLATION, PORTING, REVERSE-ENGINEERING, OR MODIFICATION 
+OF THIS MATERIAL, CODE, OR DATA IS STRICTLY FORBIDDEN UNLESS PRIOR EXPLICIT WRITTEN 
+PERMISSION IS OBTAINED FROM ZYMATICA (support@zymatica.space).
+
+THE LICENSED SOFTWARE AND CODE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS 
+BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR CODE.
+
+================================================================================
+THIRD-PARTY OPEN-SOURCE LICENSES CHART
+================================================================================
+The ZymaticaVoice codebase utilizes and integrates several open-source libraries.
+Below is the licensing attribution chart for all integrated components:
+
+| Component Name   | Author / Maintainer   | Primary License | Source URL                                     |
+|------------------|-----------------------|-----------------|------------------------------------------------|
+| VibeVoice        | Microsoft             | MIT License     | https://github.com/microsoft/VibeVoice         |
+| edge-tts         | rany2                  | MIT License     | https://github.com/rany2/edge-tts              |
+| aiohttp          | Aio-libs team         | Apache 2.0      | https://github.com/aio-libs/aiohttp            |
+| soundfile        | Bastian Bechtold      | BSD 3-Clause    | https://github.com/bastibe/python-soundfile    |
+| PyTorch          | Meta AI / Contributors| BSD-style       | https://github.com/pytorch/pytorch            |
+| NumPy            | NumPy Developers      | BSD 3-Clause    | https://github.com/numpy/numpy                 |
+| SciPy            | SciPy Developers      | BSD 3-Clause    | https://github.com/scipy/scipy                 |
+| transformers     | Hugging Face          | Apache 2.0      | https://github.com/huggingface/transformers    |
+| safetensors      | Hugging Face          | Apache 2.0      | https://github.com/huggingface/safetensors     |
+
+================================================================================
+THIRD-PARTY LICENSE TEXTS
+================================================================================
+
+--------------------------------------------------------------------------------
+VibeVoice & edge-tts (MIT License)
+--------------------------------------------------------------------------------
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+aiohttp, transformers, safetensors (Apache License, Version 2.0)
+--------------------------------------------------------------------------------
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

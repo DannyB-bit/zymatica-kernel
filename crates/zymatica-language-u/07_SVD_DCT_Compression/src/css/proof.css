@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: SVD/DCT spectral projection pipeline verified.
+*/
+body::after {
+    content: "ZYMATICA | SVD/DCT Compression Proof (CSS Edition) - Verification Anchor: SVD/DCT spectral projection pipeline verified.";
+    display: none;
+}

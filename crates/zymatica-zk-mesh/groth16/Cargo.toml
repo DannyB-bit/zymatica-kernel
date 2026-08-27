@@ -1,0 +1,30 @@
+[package]
+name = "zk-lorawan-groth16"
+version = "1.0.0"
+edition = "2021"
+description = "Real Groth16 ZK-SNARK prover and verifier for ZK-LoRaWAN (BN254 curve)"
+license = "Proprietary"
+
+[dependencies]
+ark-ff = "0.4.0"
+ark-ec = "0.4.0"
+ark-std = "0.4.0"
+ark-relations = "0.4.0"
+ark-groth16 = "0.4.0"
+ark-bn254 = "0.4.0"
+ark-serialize = "0.4.0"
+ark-snark = "0.4.0"
+rand = "0.8"
+hex = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zeroize = "1.3"
+chrono = { version = "0.4", features = ["serde"] }
+getrandom = { version = "0.2", features = ["js"] }
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "zk_lorawan_prove"
+path = "src/main.rs"

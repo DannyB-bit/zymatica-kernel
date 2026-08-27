@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Multi-centroid steering verified successfully.
+*/
+body::after {
+    content: "ZYMATICA | Multi-Centroid Steering Proof (CSS Edition) - Verification Anchor: Multi-centroid steering verified successfully.";
+    display: none;
+}

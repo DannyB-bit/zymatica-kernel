@@ -1,0 +1,139 @@
+{
+  "schema": "zymatica.pi4_benchmark_evidence_manifest.v1",
+  "generated_date": "2026-07-15",
+  "purpose": "Track which benchmark claims have repository-backed evidence and which artifacts are still required for third-party audit.",
+  "release": {
+    "tag": "v0.2.0",
+    "url": "https://github.com/DannyB-bit/Zymatica-Engine/releases/tag/v0.2.0",
+    "published_at": "2026-07-15T05:54:13Z",
+    "assets": [
+      {
+        "name": "zymatica-engine-aarch64-unknown-linux-gnu.tar.gz",
+        "url": "https://github.com/DannyB-bit/Zymatica-Engine/releases/download/v0.2.0/zymatica-engine-aarch64-unknown-linux-gnu.tar.gz",
+        "size_bytes": 3043937,
+        "sha256": "bb2691b9145064868c4630dbe283cb94c444bb7e0b6af02d8f86591c9cbd9af9"
+      },
+      {
+        "name": "zymatica-engine-x86_64-unknown-linux-gnu.tar.gz",
+        "url": "https://github.com/DannyB-bit/Zymatica-Engine/releases/download/v0.2.0/zymatica-engine-x86_64-unknown-linux-gnu.tar.gz",
+        "size_bytes": 3019162,
+        "sha256": "b715ce1e83561c1b4900e58849bfcf8336aeed3800af43385e05fe5055ae53b8"
+      }
+    ]
+  },
+  "tracked_evidence": [
+    {
+      "path": "evidence/gemma_e2b_match.json",
+      "sha256": "6cd9b47daae7b2e37a1511c4cc7b1e9077ab32a7f9ab88d84a736d3624e2db87",
+      "claim": "Zymatica f32 full Gemma E2B greedy output matches Hugging Face for 32 generated tokens.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/full_inference_validation.json",
+      "sha256": "3cd07f31a6eb60e7ffec5489f82910c5a3fc469e70430c52b6cb5c5d47eee2d2",
+      "claim": "Zymatica full-inference command completes deterministic 16-token native generation for local Gemma-4-E2B-it and Gemma-4-E4B-it weights.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/pi4_performance_report.md",
+      "sha256": "03cd82b6cd2f53cea8447099f4a3b6bedda7176708edce4834a935a35ec6ded7",
+      "claim": "Reported Raspberry Pi 4 performance, memory, thermal, and stability observations.",
+      "status": "tracked_report"
+    },
+    {
+      "path": "evidence/pi4_comparative_benchmark.md",
+      "sha256": "ab50c1e0fcfad38af29f658d08d3be4b4516289d8e653849f823a80de22bc4de",
+      "claim": "Reported comparative benchmark summary against llama.cpp with explicit audit limitations.",
+      "status": "tracked_report"
+    },
+    {
+      "path": "evidence/raw_zymatica_q4_pi_log.json",
+      "sha256": "010447ff45e57bbe9058db417e34b589912c9f233f545b72b42604ef2b358fd7",
+      "claim": "Raw Zymatica Q4 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/raw_zymatica_q5_pi_log.json",
+      "sha256": "17d22e2f61a05ac2f02f16d48153c891c447b5a769c9bc67b199fdb197196db4",
+      "claim": "Raw Zymatica Q5 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/raw_zymatica_q8_pi_log.json",
+      "sha256": "115f9230ea730fc2c3cd88997c4d552e9a59a6bb9f46f57d1abd73ce40c25a6b",
+      "claim": "Raw Zymatica Q8 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/raw_llama_cpp_q4_0_pi_log.json",
+      "sha256": "14f8881ffdf8b34916124e1ada11c902e7e94d00d998501a33d387f0ff2a73c3",
+      "claim": "Raw llama.cpp Q4_0 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/raw_llama_cpp_q5_0_pi_log.json",
+      "sha256": "1e61545e5af160109033f40535d67fbb59df973a500e5c6e3030a63f1f2759a0",
+      "claim": "Raw llama.cpp Q5_0 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/raw_llama_cpp_q8_0_pi_log.json",
+      "sha256": "8d1adbdad108f737ea1f394ab5a3fdced5d2c414a506eee19f966a00334caa0a",
+      "claim": "Raw llama.cpp Q8_0 Pi 4 execution log.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/model_and_quant_artifact_hashes.json",
+      "sha256": "d7e0f26e09ea4f294b095e32e0e0e1f63696442536605827a434133adb2fe9bf",
+      "claim": "SHA256 checksums for model files, GGUFs, Zymatica binaries, and quant files.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/full_4096_streams_manifest.json",
+      "sha256": "8d65705249e28057282293ae4c2595392faf6735bf2e36d4a0f85ad90a9a24ef",
+      "claim": "Verify command provenance and full stream output hashes for 4096-token generation runs on Raspberry Pi 4 B.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/zymatica_q4_stream.bin",
+      "sha256": "5b2ef054cfb7431d0bc256c10840e8bf0db68f6d5449c34741c04cd12c17c854",
+      "claim": "Deterministic 4096-token stream binary file for zymatica_q4.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/zymatica_q5_stream.bin",
+      "sha256": "4506d173a5b6bd380b9d7bb95fb0aaa143829152a18a44f1ec84693b249a2da1",
+      "claim": "Deterministic 4096-token stream binary file for zymatica_q5.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/zymatica_q8_stream.bin",
+      "sha256": "9df8f8d83a2f3eb5bf660a288d05eb1cc98879588c3d845a35890f6ebbedb9cc",
+      "claim": "Deterministic 4096-token stream binary file for zymatica_q8.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/llama_cpp_q4_0_stream.bin",
+      "sha256": "e4fb8ab79cb8f1d2afda3d445e81dae67382cb908f21d91a0a3d5e85f78c6806",
+      "claim": "Deterministic 4096-token stream binary file for llama_cpp_q4_0.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/llama_cpp_q5_0_stream.bin",
+      "sha256": "6b8647edd6c4352075fb712fe708b0f21a15f405576378a4f1586f8fbff202fa",
+      "claim": "Deterministic 4096-token stream binary file for llama_cpp_q5_0.",
+      "status": "tracked"
+    },
+    {
+      "path": "evidence/llama_cpp_q8_0_stream.bin",
+      "sha256": "787b9ed0a4d870a6bf93010f4627ba2657ced08f66c2aa01028a7b08ecf2f618",
+      "claim": "Deterministic 4096-token stream binary file for llama_cpp_q8_0.",
+      "status": "tracked"
+    }
+  ],
+  "missing_for_publication_grade_audit": [],
+  "corrected_claim_policy": {
+    "allowed_now": "Zymatica is reported faster than llama.cpp on Gemma-4-E2B-it for the documented Pi 4 benchmark, with tracked build/release evidence, tracked 32-token prefix parity/divergence evidence, and tracked 4096-token full-stream command/hash metadata. Original weights and all three quantized Zymatica manifests have direct file-byte SHA256 verification.",
+    "not_allowed_until_raw_logs_added": "Do not claim audited full-E2B Q4/Q5/Q8 HF parity over the full 4096-token sequence from this repository alone without matching GGUF byte arrays."
+  }
+}

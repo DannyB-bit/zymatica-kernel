@@ -1,0 +1,21 @@
+[toolchain]
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+solana_cuneiform_anchor = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy"
+
+[programs.devnet]
+solana_cuneiform_anchor = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-node tests/solana-cuneiform-anchor.ts"

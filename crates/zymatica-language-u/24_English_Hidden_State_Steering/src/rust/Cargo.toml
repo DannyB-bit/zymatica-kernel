@@ -1,0 +1,6 @@
+[package]
+name = "english_hidden_state_steering"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

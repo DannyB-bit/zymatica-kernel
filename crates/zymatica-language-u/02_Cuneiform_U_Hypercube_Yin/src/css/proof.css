@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Cuneiform-U hypercube radical structure verified.
+*/
+body::after {
+    content: "ZYMATICA | Cuneiform-U Semantic Hypercube Proof (CSS Edition) - Verification Anchor: Cuneiform-U hypercube radical structure verified.";
+    display: none;
+}

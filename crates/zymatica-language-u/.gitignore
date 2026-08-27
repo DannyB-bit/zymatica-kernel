@@ -1,0 +1,7 @@
+
+**/node_modules/
+28_Solana_Semantic_Anchor/node_modules/
+target/
+target-sbf/
+
+**/__pycache__/

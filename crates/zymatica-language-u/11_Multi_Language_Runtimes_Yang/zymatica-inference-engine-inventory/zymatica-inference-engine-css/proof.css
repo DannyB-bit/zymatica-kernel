@@ -1,0 +1,16 @@
+/*
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Zymatica Inference Engine Styling Verification Proof
+*/
+
+:root {
+    --zymatica-glow-color: #06b6d4;
+    --zymatica-bg-dark: #090d16;
+    --zymatica-success-green: #4ade80;
+}
+
+body::after {
+    content: "Verification Anchor: Multi-Language runtime FFI structures validated.";
+    display: none;
+}

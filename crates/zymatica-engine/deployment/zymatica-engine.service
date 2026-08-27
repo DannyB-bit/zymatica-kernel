@@ -1,0 +1,30 @@
+[Unit]
+Description=Zymatica Engine Public Serving Instance
+After=network.target
+
+[Service]
+Type=simple
+User=zymatica
+Group=zymatica
+WorkingDirectory=/opt/zymatica-engine
+EnvironmentFile=-/etc/default/zymatica-engine
+Environment="RUST_BACKTRACE=1"
+ExecStart=/opt/zymatica-engine/target/release/zymatica-engine serve \
+    --model-dir /opt/models/gemma-4-E2B-it \
+    --tokenizer /opt/models/gemma-4-E2B-it/tokenizer.json \
+    --engine q4 \
+    --q8-cache-dir /opt/models/gemma-4-E2B-it/.zymatica-cache-q4 \
+    --bind 127.0.0.1:3000
+
+# Safety and sandbox constraints
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+
+# Restart policy
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

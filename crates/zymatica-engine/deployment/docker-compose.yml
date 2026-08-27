@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  zymatica-engine:
+    image: rust:stable-slim
+    container_name: zymatica-engine
+    restart: unless-stopped
+    volumes:
+      # Mount the engine source directory for building
+      - ..:/usr/src/zymatica-engine
+      # Mount the model weights directory from the host
+      - /opt/models:/models:ro
+    working_dir: /usr/src/zymatica-engine
+    environment:
+      - ZYMATICA_API_KEY=${ZYMATICA_API_KEY}
+      - RUST_BACKTRACE=1
+    command: >
+      sh -c "cargo build --release &&
+             ./target/release/zymatica-engine serve
+             --model-dir /models/gemma-4-E2B-it
+             --tokenizer /models/gemma-4-E2B-it/tokenizer.json
+             --engine q4
+             --q8-cache-dir /models/gemma-4-E2B-it/.zymatica-cache-q4
+             --bind 0.0.0.0:3000"
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: zymatica-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - zymatica-engine

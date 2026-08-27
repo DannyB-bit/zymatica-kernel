@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM U-Performance Record Sandbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #090D16;
+            --primary: #63B3ED;
+            --primary-navy: #0F2D59;
+            --secondary: #1D4ED8;
+            --text-main: #E2E8F0;
+            --text-muted: #A0AEC0;
+            --accent: #FEB2B2;
+            --success: #48BB78;
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(99, 179, 237, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(9, 13, 22, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #63B3ED 0%, #D6BCFA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge.loading {
+            background-color: rgba(236, 201, 75, 0.2);
+            color: #ECC94B;
+            border: 1px solid rgba(236, 201, 75, 0.3);
+        }
+
+        .badge.ready {
+            background-color: rgba(72, 187, 120, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            box-shadow: 0 0 15px rgba(72, 187, 120, 0.3);
+        }
+
+        main {
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+            padding-left: 0.75rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            background: rgba(9, 13, 22, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            padding: 1rem;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(99, 179, 237, 0.2);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        button {
+            flex: 1;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-navy) 100%);
+            border: 1px solid rgba(99, 179, 237, 0.3);
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 179, 237, 0.3);
+            border-color: var(--primary);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button.btn-accent {
+            background: linear-gradient(135deg, var(--success) 0%, #2F855A 100%);
+            border-color: rgba(72, 187, 120, 0.3);
+        }
+
+        button.btn-accent:hover {
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .results-block {
+            background: rgba(9, 13, 22, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+
+        .result-val {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .result-val.highlight {
+            color: var(--success);
+            font-weight: 800;
+        }
+
+        .visualizer-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: rgba(5, 8, 16, 0.7);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .logs-container {
+            flex: 1;
+            background: rgba(5, 8, 16, 0.7);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            overflow-y: auto;
+            max-height: 250px;
+            color: #48BB78;
+        }
+
+        footer {
+            padding: 2rem 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--glass-border);
+            margin-top: 3rem;
+            background: rgba(9, 13, 22, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-block">
+            <span class="logo-title">WASM_U Performance Record</span>
+            <div id="status-badge" class="badge loading">WASM INITIALIZING</div>
+        </div>
+        <div>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Isomorphic Parity Test Sandbox</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Left Panel: Input & Telemetry -->
+        <div class="panel">
+            <h2>1. Mapped Intent Coordinates (Cuneiform-U)</h2>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Paste or modify the 6D concept coordinate mapping array below. Each concept maps to a radical tuple (domain, subdomain, operation, modality, depth, polarity).
+            </p>
+            <textarea id="coords-input">[
+  {"domain": 1, "subdomain": 2, "operation": 3, "modality": 4, "depth": 5, "polarity": 6},
+  {"domain": 8, "subdomain": 0, "operation": 15, "modality": 1, "depth": 0, "polarity": 15},
+  {"domain": 0, "subdomain": 0, "operation": 0, "modality": 0, "depth": 0, "polarity": 0},
+  {"domain": 15, "subdomain": 15, "operation": 15, "modality": 15, "depth": 15, "polarity": 15},
+  {"domain": 4, "subdomain": 5, "operation": 6, "modality": 7, "depth": 8, "polarity": 9}
+]</textarea>
+            
+            <div class="button-group">
+                <button id="btn-validate">Run Parity check</button>
+                <button id="btn-bench" class="btn-accent">Run 10,000x loops benchmark</button>
+            </div>
+
+            <div class="results-block">
+                <div class="result-row">
+                    <span>Verification Status:</span>
+                    <span id="verif-status" class="result-val">Not Run</span>
+                </div>
+                <div class="result-row">
+                    <span>Compressed Payload:</span>
+                    <span id="compressed-size" class="result-val">-</span>
+                </div>
+                <div class="result-row">
+                    <span>Warm Execution Latency (1 Iteration):</span>
+                    <span id="single-latency" class="result-val">-</span>
+                </div>
+                <div class="result-row">
+                    <span>Average Benchmark Latency:</span>
+                    <span id="avg-latency" class="result-val highlight">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Visualizations & Logs -->
+        <div class="panel">
+            <h2>2. 6D Semantic Hypercube Coordinate Cloud</h2>
+            <div class="visualizer-container">
+                <canvas id="cube-canvas"></canvas>
+            </div>
+
+            <h2>3. Log Console output</h2>
+            <div id="logs" class="logs-container">
+                <div>[SYSTEM] Waiting for WASM compile initialization...</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Zymatica.space &bull; astronautshe.com &bull; The AI Collective ART. Freestanding Zig target compiled natively inside VRAM/Cache.</p>
+    </footer>
+
+    <script>
+        let wasmExports = null;
+        let memoryBuffer = null;
+        
+        // Log handler
+        function logMsg(msg, color = "#48BB78") {
+            const consoleDiv = document.getElementById('logs');
+            const newLog = document.createElement('div');
+            newLog.style.color = color;
+            newLog.innerText = msg;
+            consoleDiv.appendChild(newLog);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        // WebAssembly instantiation
+        async function loadWasm() {
+            try {
+                const response = await fetch('proof_wasm.wasm');
+                if (!response.ok) {
+                    throw new Error("Could not fetch proof_wasm.wasm");
+                }
+                const buffer = await response.arrayBuffer();
+                const wasmObj = await WebAssembly.instantiate(buffer);
+                wasmExports = wasmObj.instance.exports;
+                memoryBuffer = wasmExports.memory;
+                
+                logMsg("[+] proof_wasm.wasm loaded and instanced successfully!");
+                document.getElementById('status-badge').innerText = "WASM READY";
+                document.getElementById('status-badge').className = "badge ready";
+                
+                // Trigger verification check
+                const verifResult = wasmExports.run_verification();
+                if (verifResult === 1) {
+                    logMsg("[+] Core freestanding verification test returned: 1 (SUCCESS)", "#48BB78");
+                } else {
+                    logMsg("[-] Core freestanding verification test returned: 0 (FAILURE)", "#F56565");
+                }
+            } catch (e) {
+                logMsg("[-] Error compiling WASM: " + e.message, "#F56565");
+                document.getElementById('status-badge').innerText = "WASM ERROR";
+                document.getElementById('status-badge').className = "badge loading";
+            }
+        }
+
+        // Run verification parity loop
+        document.getElementById('btn-validate').addEventListener('click', () => {
+            if (!wasmExports) {
+                logMsg("[-] WebAssembly is not initialized yet.", "#F56565");
+                return;
+            }
+
+            try {
+                const inputJson = JSON.parse(document.getElementById('coords-input').value);
+                const count = inputJson.length;
+                logMsg(`[+] Triggering coordinate validation check on ${count} elements...`);
+
+                const structSize = 6;
+                const inputOffset = 102400; // Offset in WASM memory
+                const memView = new Uint8Array(memoryBuffer.buffer);
+
+                // Write coordinates to WASM memory
+                for (let i = 0; i < count; i++) {
+                    const idx = inputOffset + i * structSize;
+                    const c = inputJson[i];
+                    memView[idx] = c.domain;
+                    memView[idx + 1] = c.subdomain;
+                    memView[idx + 2] = c.operation;
+                    memView[idx + 3] = c.modality;
+                    memView[idx + 4] = c.depth;
+                    memView[idx + 5] = c.polarity;
+                }
+
+                const t0 = performance.now();
+                const encodedBufferPtr = wasmExports.wasm_encode(inputOffset, count);
+                const bitsCount = wasmExports.wasm_get_encoded_bits();
+                const bytesCount = Math.floor((bitsCount + 7) / 8);
+                const t1 = performance.now();
+
+                logMsg(`  - Encoded size: ${bitsCount} bits (${bytesCount} bytes)`);
+                document.getElementById('compressed-size').innerText = `${bytesCount} Bytes (${bitsCount} bits)`;
+
+                // Decode
+                const decodedBufferPtr = wasmExports.wasm_decode(encodedBufferPtr, bytesCount, count);
+                const decodedView = new Uint8Array(memoryBuffer.buffer, decodedBufferPtr, count * structSize);
+                
+                let matches = true;
+                for (let i = 0; i < count; i++) {
+                    const idx = i * structSize;
+                    const orig = inputJson[i];
+                    const dec = {
+                        domain: decodedView[idx],
+                        subdomain: decodedView[idx + 1],
+                        operation: decodedView[idx + 2],
+                        modality: decodedView[idx + 3],
+                        depth: decodedView[idx + 4],
+                        polarity: decodedView[idx + 5]
+                    };
+
+                    if (orig.domain !== dec.domain || orig.subdomain !== dec.subdomain ||
+                        orig.operation !== dec.operation || orig.modality !== dec.modality ||
+                        orig.depth !== dec.depth || orig.polarity !== dec.polarity) {
+                        matches = false;
+                        logMsg(`  [-] Parity mismatch at coordinate index ${i}!`, "#F56565");
+                        break;
+                    }
+                }
+
+                if (matches) {
+                    logMsg(`[+] Lossless Parity Status: 1 (SUCCESS). Decoded elements match input perfectly.`, "#48BB78");
+                    document.getElementById('verif-status').innerText = "PASSED (100% PARITY)";
+                    document.getElementById('verif-status').style.color = "#48BB78";
+                } else {
+                    document.getElementById('verif-status').innerText = "FAILED";
+                    document.getElementById('verif-status').style.color = "#F56565";
+                }
+
+                const singleLat = t1 - t0;
+                document.getElementById('single-latency').innerText = `${singleLat.toFixed(5)} ms (${(singleLat * 1000).toFixed(2)} us)`;
+
+            } catch (err) {
+                logMsg("[-] Execution Error: " + err.message, "#F56565");
+            }
+        });
+
+        // Run warm JIT benchmark loops
+        document.getElementById('btn-bench').addEventListener('click', () => {
+            if (!wasmExports) {
+                logMsg("[-] WebAssembly is not initialized yet.", "#F56565");
+                return;
+            }
+
+            logMsg("[+] Starting Warm CPU Cache JIT benchmark loop (10,000 runs)...");
+            const loops = 10000;
+            const t0 = performance.now();
+            for (let i = 0; i < loops; i++) {
+                wasmExports.run_verification();
+            }
+            const t1 = performance.now();
+            
+            const durationMs = t1 - t0;
+            const avgMs = durationMs / loops;
+            const avgUs = avgMs * 1000;
+
+            logMsg(`[+] Warm benchmark finished: Total = ${durationMs.toFixed(3)} ms, Avg = ${avgUs.toFixed(4)} microseconds per loop.`, "#48BB78");
+            document.getElementById('avg-latency').innerText = `${avgUs.toFixed(4)} Microseconds`;
+            document.getElementById('avg-latency').style.color = "#48BB78";
+            
+            // Adjust visualizer rotation speed based on speed
+            rotSpeed = 0.05;
+        });
+
+        // --- Canvas Rotating Cloud Visualizer ---
+        const canvas = document.getElementById('cube-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let rotX = 0;
+        let rotY = 0;
+        let rotSpeed = 0.005;
+
+        // Resize handler
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // 3D coordinate projection
+        function project3D(x, y, z, width, height) {
+            const fov = 350;
+            const distance = 400;
+            const scale = fov / (distance + z);
+            const x2d = width / 2 + x * scale;
+            const y2d = height / 2 + y * scale;
+            return { x: x2d, y: y2d, scale: scale };
+        }
+
+        // Generate points on hypercube coordinates
+        const points = [];
+        for (let i = 0; i < 64; i++) {
+            points.push({
+                x: ((i & 1) ? 100 : -100) + (Math.random() - 0.5) * 20,
+                y: ((i & 2) ? 100 : -100) + (Math.random() - 0.5) * 20,
+                z: ((i & 4) ? 100 : -100) + (Math.random() - 0.5) * 20,
+                col: (i % 2 === 0) ? '#63B3ED' : '#D6BCFA'
+            });
+        }
+
+        function drawVisualizer() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            rotX += rotSpeed;
+            rotY += rotSpeed * 0.7;
+
+            const cosX = Math.cos(rotX);
+            const sinX = Math.sin(rotX);
+            const cosY = Math.cos(rotY);
+            const sinY = Math.sin(rotY);
+
+            // Draw bounding circular grid
+            ctx.strokeStyle = 'rgba(99, 179, 237, 0.05)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, canvas.height / 2, 120, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Draw coordinate axis lines
+            ctx.beginPath();
+            ctx.moveTo(canvas.width / 2 - 140, canvas.height / 2);
+            ctx.lineTo(canvas.width / 2 + 140, canvas.height / 2);
+            ctx.moveTo(canvas.width / 2, canvas.height / 2 - 140);
+            ctx.lineTo(canvas.width / 2, canvas.height / 2 + 140);
+            ctx.stroke();
+
+            // Render projected coordinates points
+            const projected = points.map(p => {
+                // Rotation X
+                let y1 = p.y * cosX - p.z * sinX;
+                let z1 = p.z * cosX + p.y * sinX;
+                
+                // Rotation Y
+                let x2 = p.x * cosY - z1 * sinY;
+                let z2 = z1 * cosY + p.x * sinY;
+
+                const proj = project3D(x2, y1, z2, canvas.width, canvas.height);
+                return { ...proj, col: p.col };
+            });
+
+            // Draw connecting web lines (simulating neural prior connection matrix)
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < projected.length; i++) {
+                for (let j = i + 1; j < projected.length; j++) {
+                    const dx = projected[i].x - projected[j].x;
+                    const dy = projected[i].y - projected[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 45) {
+                        ctx.strokeStyle = `rgba(99, 179, 237, ${0.15 * (1 - dist/45)})`;
+                        ctx.beginPath();
+                        ctx.moveTo(projected[i].x, projected[i].y);
+                        ctx.lineTo(projected[j].x, projected[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw coordinate node spheres
+            projected.forEach(p => {
+                ctx.fillStyle = p.col;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, Math.max(1, p.scale * 2.5), 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            if (rotSpeed > 0.005) {
+                rotSpeed -= 0.001; // Decay speed boost back to base rotation rate
+            }
+
+            requestAnimationFrame(drawVisualizer);
+        }
+
+        // Initialize Page
+        window.addEventListener('load', () => {
+            loadWasm();
+            drawVisualizer();
+        });
+    </script>
+</body>
+</html>

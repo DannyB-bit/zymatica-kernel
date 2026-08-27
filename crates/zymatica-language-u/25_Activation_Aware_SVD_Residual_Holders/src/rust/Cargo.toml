@@ -1,0 +1,6 @@
+[package]
+name = "activation_aware_svd_residual_holders"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

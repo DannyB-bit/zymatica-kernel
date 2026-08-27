@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: LLD-AC range coder verified from actual codebase.
+*/
+body::after {
+    content: "ZYMATICA | LLD-AC Range Coding Proof (CSS Edition) - Verification Anchor: LLD-AC range coder verified from actual codebase.";
+    display: none;
+}

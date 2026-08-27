@@ -1,0 +1,5 @@
+# ZK-LoRaWAN Gateway Dependencies
+# Watermark: ip zymatica.space
+solana>=0.34.0
+anchorpy>=0.20.1
+pycryptodome>=3.19.0

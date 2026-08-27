@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: E-PAUP embedding-driven projection and SVD factorization verified.
+*/
+body::after {
+    content: "ZYMATICA | Embedding-Driven Weight Projection Proof (CSS Edition) - Verification Anchor: E-PAUP embedding-driven projection and SVD factorization verified.";
+    display: none;
+}

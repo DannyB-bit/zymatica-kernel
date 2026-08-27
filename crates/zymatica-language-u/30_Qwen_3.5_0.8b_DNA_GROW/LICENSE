@@ -1,0 +1,60 @@
+PROPRIETARY INTELLECTUAL PROPERTY & COPYRIGHT NOTICE
+=====================================================
+Copyright (c) 2026 Zymatica / Language-U Project / The AI Collective. All rights reserved.
+
+NOTICE: ALL INFORMATION, CODE, ARCHITECTURAL SCHEMAS, MATHEMATICAL FORMULAS, DATASETS, AND DATA
+CONTAINED HEREIN ARE, AND REMAIN THE PROPERTY OF ZYMATICA AND ITS ASSOCIATES (THE AI COLLECTIVE).
+THE INTELLECTUAL, LOGICAL, AND TECHNICAL CONCEPTS CONTAINED HEREIN ARE PROPRIETARY TO ZYMATICA AND
+ARE PROTECTED BY COPYRIGHT LAW, TRADE SECRET LAW, AND APPLICABLE INTELLECTUAL PROPERTY STATUTES.
+
+PROPRIETARY ASSETS COVERED UNDER THIS LICENSE NOTICE INCLUDE, BUT ARE NOT LIMITED TO:
+1. **Language-U Framework:** The compression taxonomy, semantic decomposition theory, 
+   Shannon Bypass mathematical framework, and entropy decomposition equations.
+2. **Cuneiform-U Semantic Hypercube System:** The 6-dimensional hypercube mapping along orthogonal axes 
+   (Domain, Subdomain, Operation, Modality, Depth, Polarity) and coordinate radical representation 
+   schemas (Classifier Radical R_C, Factor Radical R_F, and Active Radical R_A).
+3. **Genesis Protocol:** The multi-level procedural model transmission, sharded weights 
+   reconstruction, and dynamic layers streaming execution architecture.
+4. **ProceduralSeed File Format (.LLM / .genesis):** The custom binary seed format, layer 
+   encoding schemas, coordinate-packing matrices, and weights projection indexing.
+5. **Chirp Packetization & FEC Scheme:** The LoRA packet layout wrappers (including 78-chirp 
+   and 28-chirp physical packetization formats), Qualia Seed configuration (0xE0), Huffman facts coding 
+   mappings, and XOR-FEC (Forward Error Correction) recovery stream algorithms.
+6. **SVD/DCT Compression & Reconstructor Pipeline:** The weights reduction algorithms, singular value 
+   decomposition (SVD) projection targets, discrete cosine transform (DCT) spectral compression, 
+   and grow_weight / shrink_weight reconstruction implementations.
+7. **LLM-Logits-Driven Range Coding (LLD-AC):** The active logits-driven probability range coding 
+   and decoding mechanisms, dynamic entropy priors, and collapse signal scaling.
+8. **Embedding-Driven Weight Projection (E-PAUP / 1-PAUP):** The mathematical projection of target 
+   weight deltas/manifolds onto base-model shared word embedding matrices.
+9. **Tokenizer Prefix-Suffix Varint Differential Coding:** The lossless tokenizer serialization 
+   storing tokens by ID order using variable-length prefix sharing indexes and suffix bytes.
+10. **Multi-Language Runtimes & Ports:** Low-overhead execution runtimes, off-line tokenizers, 
+    and edge-optimized memory management bindings (including C++, Rust, Go, Python, Swift, 
+    Java, and TypeScript implementations).
+11. **Radical Coordinate Resonance Alignment (RCRA):** The custom semantic-regularized LoRA PEFT 
+   alignment loops, Cuneiform-U coordinate loss function, loss scaling weights, and token-based 
+   on-device reconstruction correction scripts (including decode_teleport.py).
+12. **Brand Assets & Artwork:** The official branding, visual representations, logos, and design 
+   artwork associated with Zymatica, Language-U, and TheAiCollective.art.
+13. **Multi-Centroid Steering Wheel (MC-HSDC):** The Multi-Centroid Hidden-State Directional Correction 
+   mechanism, including the dynamic extraction of topological domain centroids (English, Chinese, Math) 
+   and the continuous vector-aligned steering physics applied via cosine similarity scaling.
+14. **Cognitive Observer Framework:** The tri-part meta-reasoning loop governing autonomous runtime alignment:
+   - **Evolutionary Prompt DNA:** Genetic selection of agent persona prompts across execution epochs, measuring fitness via latency-to-quality ratios, and applying stochastic mutation via an LLM observer.
+   - **The Curator:** The dynamic session-state extractor that synthesizes ephemeral user rules into permanent context guidelines upon session termination.
+   - **Reflexion Remediation:** The automated capture of inference faults, hardware thrashing, and ASR/TTS loop errors, which constructs structured remedial instructions to alter the agent's action-space constraints in the subsequent turn.
+15. **Zero-RAM Meta:** The JIT execution engine and process-level memory optimization framework, including:
+   - **Zero-Allocation JIT SVD Swapping:** Bypassing parameter allocation on the meta device context manager at startup to prevent virtual memory bloating and disk thrashing.
+   - **Strict Shape-Filtered Layernorm Initializers:** Discriminative parameter filtering targeting "layer_scalar" variables to resolve shape mismatches during CPU RAM initialization.
+   - **Dynamic Multimodal CUDA Buffer Sweeping:** Recursive scanning and dynamic interception of stray GPU-allocated buffers (e.g., position_ids) to sweep them to CPU, preventing device runtime mismatches.
+
+REPRODUCTION, DISSEMINATION, TRANSLATION, PORTING, REVERSE-ENGINEERING, OR MODIFICATION 
+OF THIS MATERIAL, CODE, OR DATA IS STRICTLY FORBIDDEN UNLESS PRIOR EXPLICIT WRITTEN 
+PERMISSION IS OBTAINED FROM ZYMATICA.
+
+THE LICENSED SOFTWARE AND CODE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS 
+BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR CODE.

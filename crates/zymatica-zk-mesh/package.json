@@ -1,0 +1,30 @@
+{
+  "name": "zk-lorawan-tests",
+  "version": "0.1.0",
+  "description": "Integration tests for ZK-LoRaWAN Anchor program",
+  "main": "index.js",
+  "scripts": {
+    "test": "anchor test",
+    "test:sbf": "bash scripts/test-sbf.sh",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
+    "@solana/web3.js": "^1.98.4",
+    "rpc-websockets": "^10.0.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.19",
+    "chai": "^4.3.10",
+    "mocha": "^11.7.6",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "uuid": "^11.1.1",
+    "serialize-javascript": "^7.0.7",
+    "diff": "^9.0.0"
+  }
+}

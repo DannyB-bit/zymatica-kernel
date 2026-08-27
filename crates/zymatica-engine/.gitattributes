@@ -1,0 +1,5 @@
+# Force Unix-style line endings for all evidence files
+evidence/* text eol=lf
+
+# Force binary mode for stream bin files
+evidence/*.bin binary

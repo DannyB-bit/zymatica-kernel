@@ -1,0 +1,6 @@
+[package]
+name = "brand_assets_and_artwork"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

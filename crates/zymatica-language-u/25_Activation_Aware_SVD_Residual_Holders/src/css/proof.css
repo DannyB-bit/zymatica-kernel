@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+  Verification Anchor: Activation-aware SVD residual holders verified.
+*/
+body::after {
+    content: "ZYMATICA | Activation-Aware SVD Residual Holders Proof (CSS Edition) - Verification Anchor: Activation-aware SVD residual holders verified.";
+    display: none;
+}

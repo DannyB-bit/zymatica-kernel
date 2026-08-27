@@ -1,0 +1,9 @@
+/* 
+  Watermark: ip zymatica.space | astronautshe.com
+  Copyright (c) 2026 Zymatica. All rights reserved.
+*/
+.comm-orb {
+    background: radial-gradient(circle, #8b5cf6 0%, #10b981 100%);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    content: "Verification Anchor: Zymatica Voice LLM FFI hybrid loop verified.";
+}

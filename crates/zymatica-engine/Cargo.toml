@@ -1,0 +1,65 @@
+[package]
+name = "zymatica-engine"
+version = "0.2.0"
+edition = "2024"
+license = "Proprietary"
+default-run = "zymatica-engine"
+
+[lib]
+name = "zymatica_core"
+crate-type = ["rlib", "cdylib"]
+
+[features]
+default = ["cli-tokenizer", "parallel", "server"]
+cli-tokenizer = ["dep:tokenizers"]
+parallel = ["dep:rayon"]
+server = ["cli-tokenizer", "dep:axum", "dep:tokio"]
+gpu = ["dep:bytemuck", "dep:pollster", "dep:wgpu"]
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+ed25519-dalek = "3.0.0"
+half = "2.4"
+rand = { version = "0.8", default-features = false, features = ["std_rng"] }
+rayon = { version = "1.12", optional = true }
+safetensors = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokenizers = { version = "0.23.1", default-features = false, features = ["fancy-regex"], optional = true }
+flate2 = "1.1.9"
+futures-util = "0.3"
+sha2 = "0.10"
+hmac = "0.12"
+wasmi = "2.0.0-beta.7"
+reed-solomon-erasure = { version = "6.0", default-features = false }
+bytemuck = { version = "1.25", optional = true }
+pollster = { version = "1.0", optional = true }
+wgpu = { version = "30.0", optional = true }
+zip = { version = "4.6.1", default-features = false, features = ["deflate", "zstd"] }
+
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+axum = { version = "0.7", optional = true }
+memmap2 = "0.9"
+libc = "0.2"
+tokio = { version = "1.48", features = ["macros", "net", "rt-multi-thread", "signal"], optional = true }
+
+[dev-dependencies]
+tempfile = "3.23"
+tower = { version = "0.5", features = ["util"] }
+
+[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+criterion = "0.7"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+
+[[bin]]
+name = "zymatica-engine"
+path = "src/main.rs"
+required-features = ["cli-tokenizer"]
+
+[[bench]]
+name = "kernels"
+harness = false
