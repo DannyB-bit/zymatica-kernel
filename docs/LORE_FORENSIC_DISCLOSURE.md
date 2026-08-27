@@ -21,13 +21,13 @@ Across the loft, Milo hauled two heavy Pelican cases onto the steel worktable, u
 
 Inside sat a custom-machined, anodized aluminum field chassis: an air-gapped, dual-socket workstation wired into five software-defined radio antennas and an array of hardware cryptographic accelerators.
 
-Kofi walked over, smelling of diesel exhaust, river mud, and sweat. He wiped a streak of grease from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
+Kofi walked over, smelling of river mud, and sweat. He wiped a streak of sweat from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
 
-"Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that gunship pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
+"Alright, explain it to me again a guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that helicopter know our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads if GPS was blocked?"
 
 Milo didn’t look up. His fingers blurred across a mechanical keyboard, compiling a native Rust payload with sub-microsecond execution hooks.
 
-"Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run **ZK-LoRaWAN**."
+"Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run ZK-LoRaWAN."
 
 Jae leaned over Milo’s shoulder, his eyes instantly locking onto the open terminal source:
 
@@ -89,7 +89,7 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 
 > **H(X) = -Σ P(xᵢ) · log₂(P(xᵢ))**
 
-"Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for *meaning*. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
+"Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for meaning. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
 
 Jae traced the decompiled tensor functions with his finger:
 
@@ -175,6 +175,10 @@ She placed her carbon helmet on the table.
 
 Her green eyes hardened.
 
-"We don't sleep through the answer.
+"We don't sleep through the answer."
+
+Amara heard her from across the room. She looked at Kofi. The party was gone. The countdown was still running. Twenty-nine days.
+
+But the future had already arrived. And it had arrived with an earthquake first. Then the water.
 
 ---
