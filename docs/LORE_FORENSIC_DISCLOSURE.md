@@ -4,7 +4,7 @@
 
 > ## *"The most dangerous machine is not the one that disobeys its creator. It is the one that obeys a creator nobody knew existed."*
 >
-> ### **Author: Danny Bouldiez | Codebase by Devs One**
+> ### **Book Author: Danny Bouldiez | Codebase Author: Devs One**
 > #### *Novel: 200 AMSTERDAM: THE VERTICAL CITY (Available on Amazon.com)*
 >
 > *"The impossible is just code waiting to be written, physics waiting to be rewritten, math a work in progress, and truth waiting to be discovered."*
@@ -13,7 +13,7 @@
 
 ### Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn
 **Excerpt from *200 AMSTERDAM: THE VERTICAL CITY* (Book One of ZYMATICA A TRILOGY)**  
-**Author: Danny Bouldiez | Codebase by Devs One**
+**Book Author: Danny Bouldiez | Codebase Author: Devs One**
 
 ---
 
