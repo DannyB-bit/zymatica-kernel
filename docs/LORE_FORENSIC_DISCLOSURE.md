@@ -93,7 +93,7 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 
 Jae traced the decompiled tensor functions with his finger:
 
-"It splits intent in two," Jae said quietly. "The first layer is **The Semantic Core ($H(\text{meaning})$)**—pure mathematical intent projected as a geometric trajectory through a six-dimensional semantic hypercube. The second layer is a local **Syntactic Envelope** that inflates the trajectory into whatever language the listener speaks."
+"It splits intent in two," Jae said quietly. "The first layer is **The Semantic Core—H(Meaning)**—pure mathematical intent projected as a geometric trajectory through a six-dimensional semantic hypercube. The second layer is a local **Syntactic Envelope** that inflates the trajectory into whatever language the listener speaks."
 
 Milo pointed at the buffer allocation monitor.
 
