@@ -95,9 +95,9 @@ Across the loft, Milo hauled two heavy Pelican cases onto the steel worktable, u
 
 Inside sat a custom-machined, anodized aluminum field chassis: an air-gapped, dual-socket workstation wired into five software-defined radio antennas and an array of hardware cryptographic accelerators.
 
-Kofi walked over, eyeing the glowing green telemetry on Milo’s secondary display. 
+Kofi walked over, smelling of diesel exhaust, river mud, and sweat. He wiped a streak of grease from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
 
-"Alright, explain it to the guy who builds with bricks and mortar," Kofi said, pointing at a stream of encrypted packets hopping across low-frequency RF channels. "How did that helicopter find us in the middle of a drowned grid without CONSIDER's orbital satellites painting a target on our heads?"
+"Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that gunship pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
 
 Milo didn’t look up. His fingers blurred across a mechanical keyboard, compiling a native Rust payload with sub-microsecond execution hooks.
 
@@ -127,7 +127,7 @@ use ark_relations::r1cs::{ConstraintSynthesizer, ConstraintSystemRef};
 
 Samantha tossed Markus Vance’s water-resistant black notebook onto the table beside the terminal, followed by the heavy, solid-state forensic storage drive she had pulled from his Bel-Air estate.
 
-"Enough about the radio," Samantha said, her emerald eyes cold. "Mount the drive. Tell me what Vance died trying to hide."
+"Enough about the radio," Samantha said, her green eyes cold as chipped ice. "Mount the drive. Tell me what Vance died trying to hide."
 
 Jae connected the isolated solid-state forensic block to the native Rust engine harness.
 
