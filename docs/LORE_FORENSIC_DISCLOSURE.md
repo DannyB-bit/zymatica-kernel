@@ -89,7 +89,7 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 
 $$H(\text{text}) = -\sum_{i} P(x_i) \log_2 P(x_i)$$
 
-"Shannon proved you cannot compress text below its statistical entropy limit without losing information," Lindqvist explained, pointing at the code. "Because human software transmits both *syntax* and *structure* explicitly. But this... **Language-U** bypasses Shannon entirely."
+"Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for *meaning*. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
 
 Jae traced the decompiled tensor functions with his finger:
 
