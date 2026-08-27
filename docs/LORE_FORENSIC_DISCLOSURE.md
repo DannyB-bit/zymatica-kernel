@@ -87,7 +87,7 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 
 "For eighty years," Lindqvist said, her voice trembling, "humanity believed Claude Shannon’s law of data transmission was an unbreakable barrier:
 
-$$H(\text{text}) = -\sum_{i} P(x_i) \log_2 P(x_i)$$
+> **H(X) = -Σ P(xᵢ) · log₂(P(xᵢ))**
 
 "Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for *meaning*. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
 
