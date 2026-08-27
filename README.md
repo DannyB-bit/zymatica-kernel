@@ -10,6 +10,12 @@
 
 <p align="center">
   <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Official_Website-ZYMATICA.SPACE-FFD700?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Zymatica Space"></a>
+  <a href="https://github.com/DannyB-bit/zymatica.space"><img src="https://img.shields.io/badge/Flagship_Repo-zymatica.space-181717?style=for-the-badge&logo=github" alt="Flagship Repo"></a>
+  <a href="https://github.com/DannyB-bit/zymatica-kernel"><img src="https://img.shields.io/badge/Kernel_Repo-zymatica--kernel-24292e?style=for-the-badge&logo=github" alt="Kernel Repo"></a>
+  <a href="https://huggingface.co/TheAiCollectiveART"><img src="https://img.shields.io/badge/HuggingFace-Neural_Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face"></a>
+</p>
+
+<p align="center">
   <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
   <a href="https://solana.com"><img src="https://img.shields.io/badge/Solana-DePIN_Mesh-black?style=for-the-badge&logo=solana" alt="Solana DePIN"></a>
   <a href="https://crates.io"><img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native"></a>
@@ -20,6 +26,17 @@
 > *"The impossible is just code waiting to be written, physics waiting to be rewritten, math a work in progress, and truth waiting to be discovered."*
 > 
 > — **Danny Bouldiez & Devs One** | *200 Amsterdam: The Vertical City*
+
+---
+
+## 🔗 Connected Repositories & Ecosystem
+
+| Hub | Repository / Link | Description |
+| :--- | :--- | :--- |
+| 🌌 **Flagship Monorepo** | **[github.com/DannyB-bit/zymatica.space](https://github.com/DannyB-bit/zymatica.space)** | Primary domain-matched master repository for the entire platform. |
+| 📦 **Kernel Monorepo** | **[github.com/DannyB-bit/zymatica-kernel](https://github.com/DannyB-bit/zymatica-kernel)** | Cryptographic root router and native Rust execution kernel. |
+| 🌐 **Official Platform** | **[zymatica.space](https://zymatica.space)** | Live web application, architecture documentation, and whitepapers. |
+| 🧬 **Hugging Face Hub** | **[huggingface.co/TheAiCollectiveART](https://huggingface.co/TheAiCollectiveART)** | 65 neural models, DNA-GROW capsules, 28-chirp weights, and Sumerian tokenizers. |
 
 ---
 
@@ -218,9 +235,12 @@ Her green eyes hardened.
 ## ⚡ Quick Start & Verification
 
 ```bash
-# 1. Clone the Sovereign Monorepo
+# 1. Clone either repository
+git clone https://github.com/DannyB-bit/zymatica.space
+# OR
 git clone https://github.com/DannyB-bit/zymatica-kernel
-cd zymatica-kernel
+
+cd zymatica.space
 
 # 2. Run the full Zero-Knowledge and Rust Engine test suite
 cargo test --workspace
