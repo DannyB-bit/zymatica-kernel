@@ -64,6 +64,7 @@ pub mod qwen35;
 pub mod sampling;
 pub mod scheduler;
 pub mod schema_mask;
+pub mod semantic_parity;
 #[cfg(all(feature = "server", not(target_family = "wasm")))]
 pub mod server;
 pub mod speculative;
