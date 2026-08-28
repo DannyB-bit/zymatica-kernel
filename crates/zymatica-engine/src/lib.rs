@@ -86,4 +86,6 @@ pub mod flash_attention;
 pub mod hyper_cuneiform_bridge;
 pub mod jit_fusion;
 pub mod morphogenesis;
+pub mod z_mcts;
+pub mod z_wormhole;
 pub mod zk_barrier;
