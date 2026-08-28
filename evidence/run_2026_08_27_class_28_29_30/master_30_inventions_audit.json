@@ -1,0 +1,29 @@
+{
+  "total_inventions": 30,
+  "timestamp": "2026-08-28 03:25:48 UTC",
+  "book": "200 AMSTERDAM: The Vertical City",
+  "book_author": "Danny Bouldiez",
+  "codebase_author": "Devs One",
+  "amazon_url": "https://www.amazon.com/dp/B0HGVC777F",
+  "repository": "https://github.com/DannyB-bit/zymatica.space",
+  "verified_inventions": [
+    {
+      "class": 28,
+      "name": "ZNS Neural Swarm Hypergraph",
+      "status": "VERIFIED_PASS",
+      "key_metric": "16-Byte Intent Chirp (512x Bandwidth Reduction)"
+    },
+    {
+      "class": 29,
+      "name": "Hyper-Manifold KV Folding",
+      "status": "VERIFIED_PASS",
+      "key_metric": "15x VRAM Savings (87.5% - 93.3% VRAM Reduced)"
+    },
+    {
+      "class": 30,
+      "name": "Holomorphic Speculative Engine",
+      "status": "VERIFIED_PASS",
+      "key_metric": "81.6% Reduction in Neural Network Forward Invocations"
+    }
+  ]
+}
