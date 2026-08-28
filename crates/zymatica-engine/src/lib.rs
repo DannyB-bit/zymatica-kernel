@@ -1,3 +1,4 @@
+pub mod epigenetic_manifold_crystallizer;
 pub mod holomorphic_speculative_engine;
 pub mod hyper_manifold_kv_folding;
 pub mod neural_swarm_hypergraph;
