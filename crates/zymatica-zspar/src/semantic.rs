@@ -166,7 +166,8 @@ impl InvariantSet {
             return None;
         }
         let mut records = Vec::with_capacity(count);
-        for chunk in rest.chunks_exact(11) {
+        let (chunks, _) = rest.as_chunks::<11>();
+        for chunk in chunks {
             let kind = InvariantKind::from_u8(chunk[0]);
             let key = u16::from_be_bytes([chunk[1], chunk[2]]);
             let value = i64::from_be_bytes([

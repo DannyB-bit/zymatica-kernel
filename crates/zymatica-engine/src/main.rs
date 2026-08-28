@@ -481,6 +481,8 @@ enum Command {
     Run {
         #[arg(long)]
         model_dir: PathBuf,
+        #[arg(long)]
+        tokenizer: Option<PathBuf>,
         #[arg(
             long,
             default_value = "What is the nature of the sovereign 8D manifold?"
@@ -515,6 +517,7 @@ fn main() -> Result<()> {
     match cli.command {
         Command::Run {
             model_dir,
+            tokenizer,
             prompt,
             new_tokens,
             engine,
@@ -553,20 +556,41 @@ fn main() -> Result<()> {
             let load_dur = start_load.elapsed();
             println!("  [+] Model Loaded & Quantized in {:?}", load_dur);
 
-            // Encode prompt tokens using simple whitespace/ASCII byte IDs if external tokenizer not passed
-            let prompt_ids: Vec<usize> = prompt.as_bytes().iter().map(|&b| b as usize).collect();
+            // Resolve and load Hugging Face tokenizer.json if available
+            let tok_path = tokenizer.unwrap_or_else(|| model_dir.join("tokenizer.json"));
+            let tokenizer_opt = if tok_path.exists() {
+                Tokenizer::from_file(&tok_path).ok()
+            } else {
+                None
+            };
+
+            let prompt_ids: Vec<usize> = if let Some(ref tok) = tokenizer_opt {
+                let encoded = tok
+                    .encode(prompt.clone(), true)
+                    .map_err(|e| anyhow::anyhow!("encoding prompt with HF tokenizer: {e}"))?;
+                encoded.get_ids().iter().map(|&id| id as usize).collect()
+            } else {
+                prompt.as_bytes().iter().map(|&b| b as usize).collect()
+            };
 
             let start_gen = Instant::now();
             let output_ids = model.generate_greedy(&prompt_ids, new_tokens);
             let gen_dur = start_gen.elapsed();
 
             let generated_slice = &output_ids[prompt_ids.len()..];
-            let decoded_text = String::from_utf8_lossy(
-                &generated_slice
-                    .iter()
-                    .map(|&id| (id % 256) as u8)
-                    .collect::<Vec<u8>>(),
-            );
+            let decoded_text = if let Some(ref tok) = tokenizer_opt {
+                let gen_u32: Vec<u32> = generated_slice.iter().map(|&id| id as u32).collect();
+                tok.decode(&gen_u32, true)
+                    .unwrap_or_else(|_| "[Decode error]".to_string())
+            } else {
+                String::from_utf8_lossy(
+                    &generated_slice
+                        .iter()
+                        .map(|&id| (id % 256) as u8)
+                        .collect::<Vec<u8>>(),
+                )
+                .to_string()
+            };
 
             let tps = (generated_slice.len() as f64) / gen_dur.as_secs_f64().max(0.00001);
             println!("  [+] Generated Tokens:  {}", generated_slice.len());
