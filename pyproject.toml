@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zymatica"
+version = "1.0.0"
+description = "Zymatica Semantic Communication & High-Performance Inference Engine"
+readme = "README.md"
+authors = [
+    { name = "Danny Bouldiez | Devs One", email = "contact@zymatica.space" }
+]
+license = { text = "MIT" }
+keywords = ["semantic-communication", "lora", "compression", "inference-engine", "cuneiform"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+    "numpy>=1.20.0"
+]
