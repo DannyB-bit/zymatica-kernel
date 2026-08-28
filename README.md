@@ -22,9 +22,9 @@
 
 <p align="center">
   <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
-  <img src="https://img.shields.io/badge/Zero--Knowledge-Groth16_BN254-00C7B7?style=for-the-badge" alt="Zero-Knowledge">
-  <img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U">
-  <img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native">
+  <a href="crates/zymatica-zk-mesh"><img src="https://img.shields.io/badge/Zero--Knowledge-Groth16_BN254-00C7B7?style=for-the-badge" alt="Zero-Knowledge"></a>
+  <a href="crates/zymatica-language-u"><img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U"></a>
+  <a href="crates/zymatica-engine"><img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native"></a>
 </p>
 
 ---
