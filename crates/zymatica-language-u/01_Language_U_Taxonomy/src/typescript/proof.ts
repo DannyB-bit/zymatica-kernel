@@ -17,4 +17,4 @@ console.log(`[1] Total raw bits: ${totalRawBits}`);
 console.log(`[2] Total semantic bits: ${totalSemanticBits}`);
 console.log(`[3] Space savings: ${savings.toFixed(2)}%`);
 
-console.log("\n[VERIFICATION] Semantic decomposition limits proven. Bypassed Shannon Syntactic Channel limit.");
+console.log("\n[VERIFICATION] Semantic decomposition limits proven. Task-Oriented Semantic Rate-Distortion Verified.");

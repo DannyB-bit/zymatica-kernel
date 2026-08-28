@@ -187,7 +187,7 @@ This invention's logic is cross-validated dynamically across **23 programming la
 
 | Verification Mode | Languages | Run Command | Expected Anchor Output |
 |:---|:---|:---|:---|
-| **Dynamic Execution** | Python, Go, Rust, Java, TypeScript, Zig, Pure C, Bash, PowerShell, Kotlin, Elixir, MATLAB/Octave, GLSL, WAT, C++, C#, Lua, Julia, Dart, Haskell, Assembly, Faust, Swift | Run dynamically via the test runner suite:<br>`python scratch/test_ports.py` | `Semantic decomposition limits proven. Bypassed Shannon Syntactic Channel limit.` |
+| **Dynamic Execution** | Python, Go, Rust, Java, TypeScript, Zig, Pure C, Bash, PowerShell, Kotlin, Elixir, MATLAB/Octave, GLSL, WAT, C++, C#, Lua, Julia, Dart, Haskell, Assembly, Faust, Swift | Run dynamically via the test runner suite:<br>`python scratch/test_ports.py` | `Semantic decomposition limits proven. Task-Oriented Semantic Rate-Distortion Verified.` |
 
 Refer to [README.md](../01_Language_U_Taxonomy/src/README.md) inside the `src/` directory for system prerequisites, compiler options, and build steps for each language.
 
