@@ -1,3 +1,4 @@
+pub mod no_std_embedded_8d;
 pub mod cuneiform_8d_octonion_engine;
 pub mod epigenetic_manifold_crystallizer;
 pub mod holomorphic_speculative_engine;
