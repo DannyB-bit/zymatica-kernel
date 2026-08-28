@@ -7,8 +7,6 @@
 //! without emitting wasteful, slow text tokens during dead-end exploration.
 //! ==============================================================================
 
-use std::collections::HashMap;
-
 /// Point in 8D Continuous Riemannian Latent Space
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct LatentState8D {

@@ -386,7 +386,7 @@ mod tests {
         let e4 = Octonion::basis(4);
         let e5 = Octonion::basis(5);
         let e6 = Octonion::basis(6);
-        let e7 = Octonion::basis(7);
+        let _e7 = Octonion::basis(7);
 
         assert_eq!(e0 * e1, e1);
         assert_eq!(e1 * e0, e1);

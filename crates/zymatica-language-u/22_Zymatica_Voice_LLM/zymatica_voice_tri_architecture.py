@@ -1,7 +1,7 @@
 # Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 # Author: Zymatica / The AI Collective
 
 """
@@ -27,9 +27,9 @@ def create_fastest_stack(target_dir):
     
     # 1. Rust Server (Tokio Orchestrator)
     rust_server = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 use std::net::SocketAddr;
 use tokio::net::TcpListener;
 
@@ -43,9 +43,9 @@ async fn main() {
 """
     # 2. C++/CUDA Matrix Kernels
     cpp_cuda = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 #include <cuda_runtime.h>
 #include <iostream>
 
@@ -63,8 +63,8 @@ extern "C" void launch_svd_kernel(const float* h_in, float* h_out, int size) {
     # 3. Assembly SIMD Byte operations
     asm_simd = """; Watermark: ip zymatica.space | astronautshe.com
 ; Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 section .text
 global fast_xor_simd
 fast_xor_simd:
@@ -83,9 +83,9 @@ fast_xor_simd:
 """
     # 4. Faust DSP Lowpass
     faust_dsp = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import("stdfaust.lib");
 process = fi.lowpass(4, 3400) : fi.highpass(4, 300); // Strict telephony vocoder filter
 """
@@ -94,8 +94,8 @@ process = fi.lowpass(4, 3400) : fi.highpass(4, 300); // Strict telephony vocoder
     wat_decoder = """(module
   ;; Watermark: ip zymatica.space | astronautshe.com
   ;; Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
   (func $decode (param $input i32) (param $len i32) (result i32)
     ;; WebAssembly rapid decompression algorithm
     i32.const 1
@@ -118,8 +118,8 @@ def create_common_stack(target_dir):
     # 1. FastAPI Server
     fastapi_server = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 from fastapi import FastAPI
 import uvicorn
 
@@ -134,9 +134,9 @@ if __name__ == "__main__":
 """
     # 2. Node.js Express server
     node_server = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import express from 'express';
 const app = express();
 
@@ -148,9 +148,9 @@ app.listen(5000, () => console.log('Node Server active on port 5000'));
 """
     # 3. React UI component
     react_tailwind = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import React from 'react';
 
 export default function App() {
@@ -174,9 +174,9 @@ def create_secure_stack(target_dir):
     
     # 1. Rust Axum safe memory backend
     rust_axum = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 use axum::{routing::get, Json, Router};
 use serde::Serialize;
 
@@ -205,8 +205,8 @@ async fn status_handler() -> Json<StatusResponse> {
     wat_sandbox = """(module
   ;; Watermark: ip zymatica.space | astronautshe.com
   ;; Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
   (memory 1)
   (func $safe_parse (param $ptr i32) (param $len i32) (result i32)
     ;; Strict bounds check inside WebAssembly linear memory
@@ -219,8 +219,8 @@ async fn status_handler() -> Json<StatusResponse> {
     # 3. Scratch Dockerfile (Zero-utilities rootless container)
     dockerfile = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 FROM scratch
 COPY zymatica_voice_bin /zymatica_voice_bin
 USER 1000:1000
@@ -228,9 +228,9 @@ ENTRYPOINT ["/zymatica_voice_bin"]
 """
     # 4. TypeScript typed UI
     ts_app = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import React from 'react';
 
 type SecurityPayload = {
@@ -254,8 +254,8 @@ export const SecureUI: React.FC = () => {
     # 5. PowerShell Cryptographically Signed Launcher
     powershell_signed = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 # SIG # Begin Signature Block
 # [Signed script payload simulation]
 Write-Host "=============================================="

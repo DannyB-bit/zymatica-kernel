@@ -1,4 +1,6 @@
-use ed25519_dalek::{Signature, Signer, SigningKey, Verifier, VerifyingKey};
+use ed25519_dalek::{Signature, Verifier, VerifyingKey};
+#[cfg(test)]
+use ed25519_dalek::{Signer, SigningKey};
 use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 

@@ -7,8 +7,8 @@ Tests ALL compression layers in the Zymatica system:
   Layer 3: Cuneiform-U v3 Arithmetic Range Coding on 6D Semantic Coordinates
 
 Copyright (c) 2026 Zymatica / TheAiCollectiveART.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 """
 
 import sys

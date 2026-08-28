@@ -7,7 +7,7 @@
 //! ==============================================================================
 
 pub use zymatica_zspar::crc32c;
-pub use zymatica_zspar::gf16::GF16;
+pub use zymatica_zspar::gf16::Gf16;
 pub use zymatica_zspar::rs12_8::{DecodeResult, DecodeStatus, Rs12_8};
 pub use zymatica_zspar::semantic::{
     Concept8D, InvariantKind, InvariantPatchFrame, InvariantRecord, InvariantSet, ParityOnlyFrame,
@@ -50,7 +50,7 @@ pub struct SemanticCodeword8D {
 
 impl SemanticCodeword8D {
     pub fn encode(state: Concept8D) -> Self {
-        let syms = state.to_symbols();
+        let syms = state.symbols();
         let encoded = Rs12_8::encode(&syms).expect("Valid RS(12,8) encoding");
         let parity = [encoded[8], encoded[9], encoded[10], encoded[11]];
         Self { state, parity }
@@ -89,7 +89,7 @@ impl SemanticCodeword8D {
     }
 
     pub fn to_symbols(&self) -> [u8; 12] {
-        let s = self.state.to_symbols();
+        let s = self.state.symbols();
         [
             s[0],
             s[1],
@@ -122,7 +122,7 @@ impl ZSparEngine {
         reconstructed_state: Concept8D,
         authoritative_parity: [u8; 4],
     ) -> SemanticSyndromeResult {
-        let s = reconstructed_state.to_symbols();
+        let s = reconstructed_state.symbols();
         let received_codeword = [
             s[0],
             s[1],
@@ -140,9 +140,9 @@ impl ZSparEngine {
 
         let result = Rs12_8::decode(received_codeword, &[]);
         match result.status {
-            DecodeStatus::Exact => SemanticSyndromeResult::ExactMatch,
+            DecodeStatus::Clean => SemanticSyndromeResult::ExactMatch,
             DecodeStatus::Corrected => {
-                let repaired = Concept8D::from_symbols(&[
+                let repaired = Concept8D::from_symbols([
                     result.codeword[0],
                     result.codeword[1],
                     result.codeword[2],
@@ -152,7 +152,7 @@ impl ZSparEngine {
                     result.codeword[6],
                     result.codeword[7],
                 ]);
-                let mask = axis_diff_mask(reconstructed_state, repaired);
+                let mask = axis_diff_mask(&reconstructed_state, &repaired);
                 let diff_indices: Vec<usize> = (0..8).filter(|&i| (mask & (1 << i)) != 0).collect();
                 if diff_indices.len() == 1 {
                     let idx = diff_indices[0];
@@ -174,10 +174,12 @@ impl ZSparEngine {
                     SemanticSyndromeResult::ExactMatch
                 }
             }
-            DecodeStatus::Uncorrectable => SemanticSyndromeResult::IrrecoverableDrift {
-                reason: "Semantic syndrome exceeds RS(12,8) correction bound (distance > 2)"
-                    .to_string(),
-            },
+            DecodeStatus::Uncorrectable | DecodeStatus::InvalidInput => {
+                SemanticSyndromeResult::IrrecoverableDrift {
+                    reason: "Semantic syndrome exceeds RS(12,8) correction bound (distance > 2) or invalid input"
+                        .to_string(),
+                }
+            }
         }
     }
 }

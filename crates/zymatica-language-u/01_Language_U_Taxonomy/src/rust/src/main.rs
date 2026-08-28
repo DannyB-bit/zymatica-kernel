@@ -8,7 +8,7 @@ fn main() {
     println!("ZYMATICA | Language-U Taxonomy Proof (Rust Edition)");
     println!("======================================================================\n");
 
-    let messages = vec![
+    let messages = [
         "SYSTEM_ALERT: SX1302 reset line high, restarting gateway transceiver.",
         "GATEWAY_STATUS: Temperature 42C, LoRa SNR 9.2dB, packets active.",
         "COMMAND_ROUTE: Directing node 04 to lower power state (TxPower 14dBm).",

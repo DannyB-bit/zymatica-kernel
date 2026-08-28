@@ -1,7 +1,7 @@
 # Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 # Author: Zymatica / The AI Collective
 
 """
@@ -40,8 +40,8 @@ HYBRID_PORTS_DIR = os.path.join(BASE_DIR, "hybrid_ports")
 HTML_UI = """<!-- 
   Watermark: ip zymatica.space | astronautshe.com
   Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +62,8 @@ HTML_UI = """<!--
 CSS_UI = """/* 
   Watermark: ip zymatica.space | astronautshe.com
   Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 */
 .comm-orb {
     background: radial-gradient(circle, #8b5cf6 0%, #10b981 100%);
@@ -74,9 +74,9 @@ CSS_UI = """/*
 
 # 3. React Component
 REACT_UI = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import React from 'react';
 
 export default function ZymaticaVoiceUI() {
@@ -93,8 +93,8 @@ export default function ZymaticaVoiceUI() {
 TAILWIND_UI = """<!-- 
   Watermark: ip zymatica.space | astronautshe.com
   Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -114,9 +114,9 @@ TAILWIND_UI = """<!--
 
 # 5. Rust FFI Decompression module
 RUST_DECOMPRESSOR = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 #[no_mangle]
 pub extern "C" fn decompress_sumerian_level9(src: *const u8, src_len: usize, dest: *mut u8, dest_len: usize) -> i32 {
@@ -130,8 +130,8 @@ pub extern "C" fn decompress_sumerian_level9(src: *const u8, src_len: usize, des
 # 6. x86-64 NASM Assembly for critical byte-level XOR-FEC
 ASM_XOR_FEC = """; Watermark: ip zymatica.space | astronautshe.com
 ; Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 section .text
 global xor_fec_byte_block
@@ -156,9 +156,9 @@ xor_fec_byte_block:
 # 7. GLSL compute shader for real-time visualization on web UI
 GLSL_SHADER = """#version 430
 // Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 layout(local_size_x = 16, local_size_y = 16) in;
 layout(rgba32f, binding = 0) uniform image2D imgOutput;
@@ -176,9 +176,9 @@ void main() {
 
 # 8. Faust DSP noise cancellation block
 FAUST_FILTER = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 import("stdfaust.lib");
 process = no.noise : fi.lowpass(3, 4000) : fi.highpass(3, 300);
@@ -188,8 +188,8 @@ process = no.noise : fi.lowpass(3, 4000) : fi.highpass(3, 300);
 WAT_DECODER = """(module
   ;; Watermark: ip zymatica.space | astronautshe.com
   ;; Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
   (func $unpack (param $src i32) (param $len i32) (result i32)
     ;; WebAssembly core client unpacking routine
     i32.const 0
@@ -200,9 +200,9 @@ WAT_DECODER = """(module
 
 # 10. C++ audio frame packer
 CPP_AUDIO_PACKER = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 #include <iostream>
 #include <vector>
 
@@ -219,9 +219,9 @@ extern "C" {
 
 # 11. C# desktop launch client
 CS_DESKTOP_CLIENT = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 using System;
 using System.IO;
 
@@ -237,9 +237,9 @@ class ZymaticaVoiceConsole {
 
 # 12. Zig cross-compilation manifest
 ZIG_BUILD = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 const std:: = @import("std");
 
 pub fn build(b: *std.Build) void {
@@ -258,9 +258,9 @@ pub fn build(b: *std.Build) void {
 
 # 13. Go lightweight client interface proxy
 GO_PROXY = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 package main
 
 import (
@@ -275,9 +275,9 @@ func main() {
 
 # 14. TypeScript interface FFI definitions
 TS_FFI = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 export interface AudioBufferMetadata {
     originalSize: number;
@@ -294,8 +294,8 @@ export function verifySumerianBuffer(meta: AudioBufferMetadata): boolean {
 # 15. Julia audio analytics block
 JULIA_ANALYTICS = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 function analyze_spectrum(signal::Vector{Float32})
     println("[JULIA] Fast Fourier Transform spectrum calculations...")
@@ -307,8 +307,8 @@ end
 # 16. Lua steering key search hooks
 LUA_STEERING = """-- Watermark: ip zymatica.space | astronautshe.com
 -- Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 local function match_steering_keys(input_text)
     print("[LUA] Running matching checks inside multi-centroid space...")
@@ -319,9 +319,9 @@ end
 
 # 17. Kotlin Android audio engine shell
 KOTLIN_ANDROID = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 package com.zymatica.voice
 
 class AudioEngine {
@@ -334,9 +334,9 @@ class AudioEngine {
 
 # 18. Swift iOS native shell
 SWIFT_IOS = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 import Foundation
 import AVFoundation
 
@@ -350,9 +350,9 @@ class SwiftVoiceEngine {
 
 # 19. Dart Flutter wrapper
 DART_FLUTTER = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 class VoiceController {
   void triggerCommLink() {
@@ -365,8 +365,8 @@ class VoiceController {
 # 20. Elixir actor queue module
 ELIXIR_QUEUE = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 defmodule Zymatica.VoiceQueue do
   def start_link() do
@@ -380,8 +380,8 @@ end
 # 21. MATLAB/Octave DSP test script
 MATLAB_DSP = """% Watermark: ip zymatica.space | astronautshe.com
 % Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 function verify_dsp()
     disp('[MATLAB] Simulating filter attenuation vectors...');
@@ -391,9 +391,9 @@ end
 
 # 22. Java voice server fallback controller
 JAVA_SERVER = """// Watermark: ip zymatica.space | astronautshe.com
-// Copyright © 2026 Zymatica
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 public class VoiceServerController {
     public static void main(String[] args) {
@@ -407,8 +407,8 @@ public class VoiceServerController {
 BASH_DEPLOY = """#!/bin/bash
 # Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 echo "====================================================="
 echo "ZYMATICA VOICE HYBRID - BASH LAUNCH SCRIPT"
@@ -419,8 +419,8 @@ echo "[VERIFICATION] Zymatica Voice LLM FFI hybrid loop verified."
 # 24. PowerShell Windows bootstrap script
 POWERSHELL_BOOT = """# Watermark: ip zymatica.space | astronautshe.com
 # Copyright (c) 2026 Zymatica.
-// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
-// See LICENSE for terms.
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 
 Write-Host "====================================================="
 Write-Host "ZYMATICA VOICE HYBRID - POWERSHELL CONTROLLER"
