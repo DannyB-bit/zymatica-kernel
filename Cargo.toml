@@ -22,6 +22,7 @@ members = [
     "crates/zymatica-language-u/21_Cuneiform_Normalization_Scalar/src/rust",
     "crates/zymatica-language-u/24_English_Hidden_State_Steering/src/rust",
     "crates/zymatica-language-u/26_Perpetual_Motion_Eigenspace_Loops/src/rust",
+    "crates/zymatica-zspar",
 ]
 resolver = "2"
 

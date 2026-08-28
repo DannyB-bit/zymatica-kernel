@@ -111,6 +111,32 @@ impl Concept8DState {
         )
     }
 
+    pub fn to_zspar(&self) -> zymatica_zspar::Concept8D {
+        zymatica_zspar::Concept8D::new(
+            self.domain,
+            self.subdomain,
+            self.operation,
+            self.modality,
+            self.strength,
+            self.polarity,
+            self.temporal_horizon,
+            self.epistemic_certainty,
+        )
+    }
+
+    pub fn from_zspar(c: zymatica_zspar::Concept8D) -> Self {
+        Self::new(
+            c.domain,
+            c.subdomain,
+            c.operation,
+            c.modality,
+            c.strength,
+            c.polarity,
+            c.temporal_horizon,
+            c.epistemic_certainty,
+        )
+    }
+
     pub fn to_dword(&self) -> u32 {
         ((self.domain as u32) << 28)
             | ((self.subdomain as u32) << 24)
@@ -133,6 +159,18 @@ impl Concept8DState {
             ((val >> 4) & 0x0F) as u8,
             (val & 0x0F) as u8,
         )
+    }
+}
+
+impl From<zymatica_zspar::Concept8D> for Concept8DState {
+    fn from(c: zymatica_zspar::Concept8D) -> Self {
+        Self::from_zspar(c)
+    }
+}
+
+impl From<Concept8DState> for zymatica_zspar::Concept8D {
+    fn from(c: Concept8DState) -> Self {
+        c.to_zspar()
     }
 }
 
