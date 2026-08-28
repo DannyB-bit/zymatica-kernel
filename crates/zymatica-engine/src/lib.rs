@@ -1,3 +1,4 @@
+pub mod cuneiform_8d_octonion_engine;
 pub mod epigenetic_manifold_crystallizer;
 pub mod holomorphic_speculative_engine;
 pub mod hyper_manifold_kv_folding;
