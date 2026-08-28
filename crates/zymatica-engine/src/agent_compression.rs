@@ -59,7 +59,10 @@ impl TrajectoryCompressor {
         retained.extend(tail);
 
         let saved = total_tokens.saturating_sub(current_tokens);
-        let summary = format!("[Context Compressed: {} tokens saved from older turns]", saved);
+        let summary = format!(
+            "[Context Compressed: {} tokens saved from older turns]",
+            saved
+        );
 
         CompressedTrajectory {
             retained_messages: retained,
@@ -82,9 +85,18 @@ mod tests {
     fn test_trajectory_compression() {
         let compressor = TrajectoryCompressor::new(50);
         let history = vec![
-            ChatMessage { role: "system".to_string(), content: "System prompt".to_string() },
-            ChatMessage { role: "user".to_string(), content: "Long message 1 ".repeat(20) },
-            ChatMessage { role: "assistant".to_string(), content: "Recent response".to_string() },
+            ChatMessage {
+                role: "system".to_string(),
+                content: "System prompt".to_string(),
+            },
+            ChatMessage {
+                role: "user".to_string(),
+                content: "Long message 1 ".repeat(20),
+            },
+            ChatMessage {
+                role: "assistant".to_string(),
+                content: "Recent response".to_string(),
+            },
         ];
 
         let compressed = compressor.compress(&history);

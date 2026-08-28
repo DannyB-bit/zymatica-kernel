@@ -8,7 +8,10 @@ fn main() {
 
     println!("[1] Compressing layer weights into low-rank SVD components...");
     let seed_size_bytes = 4493;
-    println!("[2] Transmitting compressed seed: {} bytes.", seed_size_bytes);
+    println!(
+        "[2] Transmitting compressed seed: {} bytes.",
+        seed_size_bytes
+    );
     println!("[3] Restoring original weights post-SFT healing. Parity achieved.");
 
     println!("\n[VERIFICATION] Deterministic procedural morphogenesis completed successfully.");

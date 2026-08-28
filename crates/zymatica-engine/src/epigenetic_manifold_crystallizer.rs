@@ -40,7 +40,12 @@ impl EpigeneticCrystal {
         let rank = bytes[1];
         let mut weights = [0.0f32; 16];
         for i in 0..16 {
-            let b = [bytes[2 + i * 4], bytes[3 + i * 4], bytes[4 + i * 4], bytes[5 + i * 4]];
+            let b = [
+                bytes[2 + i * 4],
+                bytes[3 + i * 4],
+                bytes[4 + i * 4],
+                bytes[5 + i * 4],
+            ];
             weights[i] = f32::from_be_bytes(b);
         }
         let hash = u32::from_be_bytes([bytes[66], bytes[67], bytes[68], bytes[69]]);
@@ -66,7 +71,11 @@ impl EpigeneticManifoldEngine {
         }
     }
 
-    pub fn compute_nullspace_projection_mgs(&mut self, base_basis: &[Vec<f32>], new_concept: &[f32]) -> Vec<f32> {
+    pub fn compute_nullspace_projection_mgs(
+        &mut self,
+        base_basis: &[Vec<f32>],
+        new_concept: &[f32],
+    ) -> Vec<f32> {
         self.update_counter += 1;
         let mut v = new_concept.to_vec();
 
@@ -131,10 +140,7 @@ mod tests {
     #[test]
     fn test_mgs_nullspace_projection_orthogonality() {
         let mut engine = EpigeneticManifoldEngine::new(4);
-        let base_basis = vec![
-            vec![1.0, 0.0, 0.0, 0.0],
-            vec![0.0, 1.0, 0.0, 0.0],
-        ];
+        let base_basis = vec![vec![1.0, 0.0, 0.0, 0.0], vec![0.0, 1.0, 0.0, 0.0]];
         let new_concept = vec![3.0, 4.0, 5.0, 6.0];
 
         let projected = engine.compute_nullspace_projection_mgs(&base_basis, &new_concept);
@@ -143,7 +149,11 @@ mod tests {
         // Projected vector must be orthogonal to all base basis vectors
         for b in &base_basis {
             let dot: f32 = b.iter().zip(&projected).map(|(&x, &y)| x * y).sum();
-            assert!(dot.abs() < 1e-6, "Dot product with basis should be zero, got {}", dot);
+            assert!(
+                dot.abs() < 1e-6,
+                "Dot product with basis should be zero, got {}",
+                dot
+            );
         }
 
         // Remaining components in orthogonal subspace should be preserved

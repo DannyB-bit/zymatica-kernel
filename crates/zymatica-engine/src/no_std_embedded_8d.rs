@@ -1,7 +1,6 @@
 //! # Invention: Zymatica Bare-Metal Embedded 8D Engine (no_std)
 //! Zero-heap-allocation, fixed-stack-array 8D concept engine for microcontrollers (ARM Cortex, ESP32, STM32, RISC-V).
 
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct EmbeddedConcept8D {
     pub dword: u32,
@@ -9,7 +8,16 @@ pub struct EmbeddedConcept8D {
 
 impl EmbeddedConcept8D {
     #[inline(always)]
-    pub const fn new(d: u8, sub: u8, op: u8, mod_: u8, st: u8, pol: u8, temp: u8, cert: u8) -> Self {
+    pub const fn new(
+        d: u8,
+        sub: u8,
+        op: u8,
+        mod_: u8,
+        st: u8,
+        pol: u8,
+        temp: u8,
+        cert: u8,
+    ) -> Self {
         let rc = ((d & 0x0F) << 4) | (sub & 0x0F);
         let rf = ((op & 0x0F) << 4) | (mod_ & 0x0F);
         let ra = ((st & 0x0F) << 4) | (pol & 0x0F);
@@ -31,7 +39,7 @@ impl EmbeddedConcept8D {
         chirp[2] = ((self.dword >> 24) & 0xFF) as u8;
         chirp[3] = opcode;
         chirp[4] = 100;
-        
+
         let coords_bytes = self.to_bytes();
         chirp[5] = coords_bytes[0];
         chirp[6] = coords_bytes[1];

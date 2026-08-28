@@ -11,15 +11,19 @@ pub struct HyperKvKnotLUT {
 
 impl HyperKvKnotLUT {
     pub const PHASE_LUT: [f32; 16] = [
-        0.0000, 0.3826, 0.7071, 0.9238, 1.0000, 0.9238, 0.7071, 0.3826,
-        0.0000, -0.3826, -0.7071, -0.9238, -1.0000, -0.9238, -0.7071, -0.3826,
+        0.0000, 0.3826, 0.7071, 0.9238, 1.0000, 0.9238, 0.7071, 0.3826, 0.0000, -0.3826, -0.7071,
+        -0.9238, -1.0000, -0.9238, -0.7071, -0.3826,
     ];
 
     #[inline(always)]
     pub fn evaluate_lut(&self, t: usize, head_dim: usize) -> Vec<f32> {
-        let t_norm = if self.span_tokens > 1 { t as f32 / (self.span_tokens - 1) as f32 } else { 0.0 };
+        let t_norm = if self.span_tokens > 1 {
+            t as f32 / (self.span_tokens - 1) as f32
+        } else {
+            0.0
+        };
         let mut out = vec![0.0f32; head_dim];
-        
+
         let lut_val = Self::PHASE_LUT[(self.lut_index as usize + t) % 16];
 
         for i in 0..head_dim {

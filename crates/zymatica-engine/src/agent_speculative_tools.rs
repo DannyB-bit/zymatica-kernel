@@ -65,7 +65,13 @@ impl SpeculativeToolEngine {
     }
 
     fn extract_tool_name(&self, buf: &str) -> Option<String> {
-        for name in &["read_file", "write_to_file", "terminal", "grep_search", "list_dir"] {
+        for name in &[
+            "read_file",
+            "write_to_file",
+            "terminal",
+            "grep_search",
+            "list_dir",
+        ] {
             if buf.contains(name) {
                 return Some(name.to_string());
             }

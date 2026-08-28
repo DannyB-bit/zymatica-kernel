@@ -37,8 +37,15 @@ impl SimdPretokenizer {
     }
 
     /// Parallel multi-threaded document chunking across CPU threads for high-throughput ingestion.
-    pub fn parallel_chunk_document(text: &str, chunk_size_words: usize, overlap_words: usize) -> Vec<String> {
-        let paragraphs: Vec<&str> = text.split("\n\n").filter(|p| !p.trim().is_empty()).collect();
+    pub fn parallel_chunk_document(
+        text: &str,
+        chunk_size_words: usize,
+        overlap_words: usize,
+    ) -> Vec<String> {
+        let paragraphs: Vec<&str> = text
+            .split("\n\n")
+            .filter(|p| !p.trim().is_empty())
+            .collect();
         if paragraphs.len() <= 1 {
             let words = Self::pretokenize(text);
             if words.is_empty() {
@@ -236,7 +243,8 @@ impl DirectLutBpeEncoder {
                 }
             }
 
-            self.pretoken_cache.insert(pretoken.to_string(), ids.clone());
+            self.pretoken_cache
+                .insert(pretoken.to_string(), ids.clone());
             token_ids.extend(ids);
         }
 
@@ -252,7 +260,11 @@ impl FastTokenCounter {
             return 0;
         }
         let pretokens = SimdPretokenizer::pretokenize(text);
-        pretokens.iter().map(|p| p.len().div_ceil(3)).sum::<usize>().max(1)
+        pretokens
+            .iter()
+            .map(|p| p.len().div_ceil(3))
+            .sum::<usize>()
+            .max(1)
     }
 }
 
@@ -298,7 +310,13 @@ mod tests {
         assert_eq!(cache.get("hello"), Some(vec![1, 2, 3]));
 
         assert_eq!(SimdVocabMask::classify_token("123"), TokenCategory::Numeric);
-        assert_eq!(SimdVocabMask::classify_token("word"), TokenCategory::Alphabetic);
-        assert_eq!(SimdVocabMask::classify_token("<tool>"), TokenCategory::Control);
+        assert_eq!(
+            SimdVocabMask::classify_token("word"),
+            TokenCategory::Alphabetic
+        );
+        assert_eq!(
+            SimdVocabMask::classify_token("<tool>"),
+            TokenCategory::Control
+        );
     }
 }

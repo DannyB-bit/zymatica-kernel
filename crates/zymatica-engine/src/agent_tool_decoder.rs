@@ -14,7 +14,9 @@ pub struct ZymaticaToolDecoder;
 impl ZymaticaToolDecoder {
     /// Parse a `<tool_call>{...}</tool_call>` block from a streaming LLM output buffer.
     pub fn parse_tool_call(stream_buffer: &str) -> Option<ZymaticaToolCall> {
-        if let Some((start_idx, end_idx)) = crate::agent_simd_tokenizer::SpecialTokenMatcher::find_tool_call_bounds(stream_buffer) {
+        if let Some((start_idx, end_idx)) =
+            crate::agent_simd_tokenizer::SpecialTokenMatcher::find_tool_call_bounds(stream_buffer)
+        {
             let json_slice = stream_buffer[start_idx..end_idx].trim();
             if let Ok(parsed) = serde_json::from_str::<Value>(json_slice) {
                 if let Some(name) = parsed.get("name").and_then(|v| v.as_str()) {
@@ -67,7 +69,8 @@ mod tests {
 
     #[test]
     fn test_partial_tool_name_decoding() {
-        let partial_stream = r#"Executing task... <tool_call>{"name": "solar_power_monitor", "arguments": {"range"#;
+        let partial_stream =
+            r#"Executing task... <tool_call>{"name": "solar_power_monitor", "arguments": {"range"#;
         let partial_name = ZymaticaToolDecoder::parse_partial_tool_name(partial_stream);
         assert_eq!(partial_name, Some("solar_power_monitor".to_string()));
     }

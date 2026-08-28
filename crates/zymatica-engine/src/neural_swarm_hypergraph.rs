@@ -1,8 +1,4 @@
-//! # Invention Class 28: Zymatica Neural Swarm Hypergraph (ZNS-Hypergraph)
-//!
-//! Autonomous, zero-bandwidth multi-agent consensus and morphogenetic ephemeral subagent
-//! spawning over 6D semantic hypercube trajectories and air-gapped LoRa mesh networks.
-
+use ed25519_dalek::{Signature, Signer, SigningKey, Verifier, VerifyingKey};
 use std::collections::HashMap;
 
 /// 16-Byte Differential Swarm Intent Chirp Packet
@@ -19,7 +15,14 @@ pub struct SwarmIntentChirp {
 }
 
 impl SwarmIntentChirp {
-    pub fn new(sender: u8, epoch: u8, domain: u8, subdomain: u8, opcode: u8, coords: [u8; 6]) -> Self {
+    pub fn new(
+        sender: u8,
+        epoch: u8,
+        domain: u8,
+        subdomain: u8,
+        opcode: u8,
+        coords: [u8; 6],
+    ) -> Self {
         let mut chirp = Self {
             sender_node_id: sender,
             swarm_epoch: epoch,
@@ -125,9 +128,10 @@ pub struct SwarmQuorumCertificate {
     pub certificate_hash: u32,
 }
 
-/// Swarm Multi-Node Hypergraph Consensus Engine with Identity Authentication and Sybil Replay Guards
+/// Swarm Multi-Node Hypergraph Consensus Engine with Ed25519 Cryptographic Verification
 pub struct SwarmConsensusEngine {
     pub registered_nodes: Vec<u8>,
+    pub registered_keys: HashMap<u8, VerifyingKey>,
     pub pending_proposals: HashMap<u8, Vec<SwarmIntentChirp>>,
 }
 
@@ -135,22 +139,61 @@ impl SwarmConsensusEngine {
     pub fn new(nodes: Vec<u8>) -> Self {
         Self {
             registered_nodes: nodes,
+            registered_keys: HashMap::new(),
             pending_proposals: HashMap::new(),
         }
+    }
+
+    /// Register a cryptographic Ed25519 verifying key for a node
+    pub fn register_key(&mut self, node_id: u8, key: VerifyingKey) {
+        if !self.registered_nodes.contains(&node_id) {
+            self.registered_nodes.push(node_id);
+        }
+        self.registered_keys.insert(node_id, key);
+    }
+
+    /// Submit a cryptographically signed swarm intent proposal with Ed25519 verification
+    pub fn submit_signed_intent(
+        &mut self,
+        chirp: SwarmIntentChirp,
+        signature: &Signature,
+    ) -> Result<(), &'static str> {
+        // Enforce cryptographic identity verification
+        let verifying_key = self
+            .registered_keys
+            .get(&chirp.sender_node_id)
+            .ok_or("Node public key not registered for cryptographic verification")?;
+
+        let msg_bytes = chirp.to_bytes();
+        verifying_key
+            .verify(&msg_bytes, signature)
+            .map_err(|_| "Ed25519 cryptographic signature verification failed: invalid signature for intent chirp")?;
+
+        self.submit_intent_internal(chirp)
     }
 
     /// Submit a verified swarm intent proposal from an authorized registered node
     pub fn submit_intent(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
         // Enforce membership verification
         if !self.registered_nodes.contains(&chirp.sender_node_id) {
-            return Err("Unauthorized node ID: sender is not in the registered swarm membership set");
+            return Err(
+                "Unauthorized node ID: sender is not in the registered swarm membership set",
+            );
         }
+        self.submit_intent_internal(chirp)
+    }
 
+    fn submit_intent_internal(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
         let proposals = self.pending_proposals.entry(chirp.swarm_epoch).or_default();
 
         // Enforce one vote per registered node per epoch (prevent duplicate/Sybil replay)
-        if proposals.iter().any(|p| p.sender_node_id == chirp.sender_node_id) {
-            return Err("Duplicate vote detected: node has already submitted a proposal for this epoch");
+        if proposals
+            .iter()
+            .any(|p| p.sender_node_id == chirp.sender_node_id)
+        {
+            return Err(
+                "Duplicate vote detected: node has already submitted a proposal for this epoch",
+            );
         }
 
         proposals.push(chirp);
@@ -158,7 +201,11 @@ impl SwarmConsensusEngine {
     }
 
     /// Resolve weighted centroid consensus with quorum certificate generation
-    pub fn resolve_consensus(&self, epoch: u8, quorum_threshold: usize) -> Option<SwarmQuorumCertificate> {
+    pub fn resolve_consensus(
+        &self,
+        epoch: u8,
+        quorum_threshold: usize,
+    ) -> Option<SwarmQuorumCertificate> {
         let proposals = self.pending_proposals.get(&epoch)?;
         if proposals.len() < quorum_threshold {
             return None;
@@ -209,6 +256,7 @@ impl SwarmConsensusEngine {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use rand::rngs::OsRng;
 
     #[test]
     fn test_swarm_intent_chirp_16byte_serialization() {
@@ -244,9 +292,15 @@ mod tests {
         let c3 = SwarmIntentChirp::new(3, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
         let c_unauth = SwarmIntentChirp::new(99, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
 
-        assert!(engine.submit_intent(c_unauth).is_err(), "Unauthorized node must be rejected");
+        assert!(
+            engine.submit_intent(c_unauth).is_err(),
+            "Unauthorized node must be rejected"
+        );
         assert!(engine.submit_intent(c1).is_ok());
-        assert!(engine.submit_intent(c1).is_err(), "Duplicate submission in same epoch must be rejected");
+        assert!(
+            engine.submit_intent(c1).is_err(),
+            "Duplicate submission in same epoch must be rejected"
+        );
         assert!(engine.submit_intent(c2).is_ok());
 
         assert_eq!(engine.resolve_consensus(10, 3), None);
@@ -256,5 +310,45 @@ mod tests {
         assert_eq!(cert.consensus_trajectory, [11, 21, 31, 41, 51, 61]);
         assert_eq!(cert.epoch, 10);
         assert_eq!(cert.participant_nodes.len(), 3);
+    }
+
+    #[test]
+    fn test_swarm_ed25519_cryptographic_signature_consensus() {
+        let mut csprng = OsRng;
+        let signing_key1 = SigningKey::generate(&mut csprng);
+        let signing_key2 = SigningKey::generate(&mut csprng);
+        let signing_key3 = SigningKey::generate(&mut csprng);
+
+        let mut engine = SwarmConsensusEngine::new(vec![]);
+        engine.register_key(1, signing_key1.verifying_key());
+        engine.register_key(2, signing_key2.verifying_key());
+        engine.register_key(3, signing_key3.verifying_key());
+
+        let c1 = SwarmIntentChirp::new(1, 20, 1, 1, 0x01, [10, 20, 30, 40, 50, 60]);
+        let sig1 = signing_key1.sign(&c1.to_bytes());
+
+        let c2 = SwarmIntentChirp::new(2, 20, 1, 1, 0x01, [12, 22, 32, 42, 52, 62]);
+        let sig2 = signing_key2.sign(&c2.to_bytes());
+
+        let c3 = SwarmIntentChirp::new(3, 20, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
+        let sig3 = signing_key3.sign(&c3.to_bytes());
+
+        // Test forged signature from wrong key
+        let forged_sig = signing_key2.sign(&c1.to_bytes());
+        assert!(
+            engine.submit_signed_intent(c1, &forged_sig).is_err(),
+            "Forged signature must be rejected"
+        );
+
+        // Submit authentic signed intents
+        assert!(engine.submit_signed_intent(c1, &sig1).is_ok());
+        assert!(engine.submit_signed_intent(c2, &sig2).is_ok());
+        assert!(engine.submit_signed_intent(c3, &sig3).is_ok());
+
+        let cert = engine
+            .resolve_consensus(20, 3)
+            .expect("Quorum reached with valid Ed25519 signatures");
+        assert_eq!(cert.consensus_trajectory, [11, 21, 31, 41, 51, 61]);
+        assert_eq!(cert.participant_nodes, vec![1, 2, 3]);
     }
 }

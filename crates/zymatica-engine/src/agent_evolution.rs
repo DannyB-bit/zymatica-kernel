@@ -25,7 +25,12 @@ impl GeneticSkillEvolver {
         }
     }
 
-    pub fn mutate_prompt(&self, original_name: &str, base_prompt: &str, mutation_idx: usize) -> SkillMutation {
+    pub fn mutate_prompt(
+        &self,
+        original_name: &str,
+        base_prompt: &str,
+        mutation_idx: usize,
+    ) -> SkillMutation {
         let mutated = format!(
             "{}\n\n[GEPA Optimization Directive v{}]: Be extremely precise, verify code invariants, and minimize unnecessary turns.",
             base_prompt, mutation_idx
@@ -40,10 +45,18 @@ impl GeneticSkillEvolver {
         }
     }
 
-    pub fn evaluate_and_update_pareto(&mut self, mut mut_variant: SkillMutation, benchmark_accuracy: f32) -> &ParetoFrontier {
+    pub fn evaluate_and_update_pareto(
+        &mut self,
+        mut mut_variant: SkillMutation,
+        benchmark_accuracy: f32,
+    ) -> &ParetoFrontier {
         mut_variant.accuracy_score = benchmark_accuracy;
         self.population.push(mut_variant);
-        self.population.sort_by(|a, b| b.accuracy_score.partial_cmp(&a.accuracy_score).unwrap_or(std::cmp::Ordering::Equal));
+        self.population.sort_by(|a, b| {
+            b.accuracy_score
+                .partial_cmp(&a.accuracy_score)
+                .unwrap_or(std::cmp::Ordering::Equal)
+        });
         // Keep top Pareto optimal candidates
         self.population.truncate(5);
         unsafe { &*(&self.population as *const _ as *const ParetoFrontier) }

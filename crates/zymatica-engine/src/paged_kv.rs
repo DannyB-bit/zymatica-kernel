@@ -519,7 +519,10 @@ impl PagedKvCache {
     }
 
     /// Compress a sequence's attention KV cache into parametric Class 29 Hyper-KV Knots
-    pub fn export_hyper_kv_knots(&self, sequence_id: u64) -> Result<Vec<crate::hyper_manifold_kv_folding::HyperKvKnotLUT>> {
+    pub fn export_hyper_kv_knots(
+        &self,
+        sequence_id: u64,
+    ) -> Result<Vec<crate::hyper_manifold_kv_folding::HyperKvKnotLUT>> {
         let seq = self
             .sequences
             .get(&sequence_id)
@@ -541,15 +544,28 @@ impl PagedKvCache {
                     key_block.extend_from_slice(self.key(sequence_id, position, layer, kv_head));
                     val_block.extend_from_slice(self.value(sequence_id, position, layer, kv_head));
                 }
-                knots.push(crate::hyper_manifold_kv_folding::HyperKvKnotLUT::compress_block(&key_block, tokens, head_dim));
-                knots.push(crate::hyper_manifold_kv_folding::HyperKvKnotLUT::compress_block(&val_block, tokens, head_dim));
+                knots.push(
+                    crate::hyper_manifold_kv_folding::HyperKvKnotLUT::compress_block(
+                        &key_block, tokens, head_dim,
+                    ),
+                );
+                knots.push(
+                    crate::hyper_manifold_kv_folding::HyperKvKnotLUT::compress_block(
+                        &val_block, tokens, head_dim,
+                    ),
+                );
             }
         }
         Ok(knots)
     }
 
     /// Reconstruct an attention KV cache from parametric Class 29 Hyper-KV Knots
-    pub fn import_hyper_kv_knots(&mut self, sequence_id: u64, tokens: usize, knots: &[crate::hyper_manifold_kv_folding::HyperKvKnotLUT]) -> Result<()> {
+    pub fn import_hyper_kv_knots(
+        &mut self,
+        sequence_id: u64,
+        tokens: usize,
+        knots: &[crate::hyper_manifold_kv_folding::HyperKvKnotLUT],
+    ) -> Result<()> {
         if self.sequences.contains_key(&sequence_id) {
             self.free_sequence(sequence_id);
         }
@@ -570,10 +586,14 @@ impl PagedKvCache {
                 let reconstructed_vals = val_knot.reconstruct_block(tokens, head_dim);
 
                 for position in 0..tokens {
-                    let k_slice = &reconstructed_keys[position * head_dim..(position + 1) * head_dim];
-                    let v_slice = &reconstructed_vals[position * head_dim..(position + 1) * head_dim];
-                    self.key_mut(sequence_id, position, layer, kv_head).copy_from_slice(k_slice);
-                    self.value_mut(sequence_id, position, layer, kv_head).copy_from_slice(v_slice);
+                    let k_slice =
+                        &reconstructed_keys[position * head_dim..(position + 1) * head_dim];
+                    let v_slice =
+                        &reconstructed_vals[position * head_dim..(position + 1) * head_dim];
+                    self.key_mut(sequence_id, position, layer, kv_head)
+                        .copy_from_slice(k_slice);
+                    self.value_mut(sequence_id, position, layer, kv_head)
+                        .copy_from_slice(v_slice);
                 }
             }
         }

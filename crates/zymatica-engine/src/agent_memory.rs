@@ -44,7 +44,11 @@ impl MemoryStore {
             .collect()
     }
 
-    pub fn search_vector(&self, target_embedding: &[f32], limit: usize) -> Vec<(&MemoryRecord, f32)> {
+    pub fn search_vector(
+        &self,
+        target_embedding: &[f32],
+        limit: usize,
+    ) -> Vec<(&MemoryRecord, f32)> {
         let mut scored: Vec<(&MemoryRecord, f32)> = self
             .records
             .values()
@@ -60,12 +64,15 @@ impl MemoryStore {
     }
 
     pub fn update_user_profile(&mut self, user_id: &str, fact: &str) {
-        let profile = self.profiles.entry(user_id.to_string()).or_insert_with(|| DialecticUserProfile {
-            user_id: user_id.to_string(),
-            preferences: HashMap::new(),
-            key_facts: vec![],
-            interaction_style: "Direct".to_string(),
-        });
+        let profile =
+            self.profiles
+                .entry(user_id.to_string())
+                .or_insert_with(|| DialecticUserProfile {
+                    user_id: user_id.to_string(),
+                    preferences: HashMap::new(),
+                    key_facts: vec![],
+                    interaction_style: "Direct".to_string(),
+                });
         if !profile.key_facts.contains(&fact.to_string()) {
             profile.key_facts.push(fact.to_string());
         }
@@ -140,7 +147,10 @@ impl TokenWindowChatMemory {
     }
 
     pub fn total_tokens(&self) -> usize {
-        self.messages.iter().map(|m| estimate_tokens(&m.content)).sum()
+        self.messages
+            .iter()
+            .map(|m| estimate_tokens(&m.content))
+            .sum()
     }
 
     pub fn prune_to_budget(&mut self) {
@@ -150,7 +160,7 @@ impl TokenWindowChatMemory {
 
         // Separate system message if present at index 0
         let has_system = self.messages.first().map_or(false, |m| m.role == "system");
-        
+
         while self.total_tokens() > self.max_token_budget {
             let remove_idx = if has_system { 1 } else { 0 };
             if remove_idx >= self.messages.len() {

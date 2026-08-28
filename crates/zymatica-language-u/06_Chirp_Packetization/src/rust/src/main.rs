@@ -8,7 +8,10 @@ fn main() {
 
     let packet_size = 255;
     let data_packets = 9;
-    println!("[1] Slicing compressed seed into {} physical LoRa packet frames...", data_packets);
+    println!(
+        "[1] Slicing compressed seed into {} physical LoRa packet frames...",
+        data_packets
+    );
     println!("    Each frame size: {} bytes", packet_size);
     println!("[2] Computing XOR parity block for Forward Error Correction (FEC)...");
 

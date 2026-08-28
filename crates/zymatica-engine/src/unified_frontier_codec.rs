@@ -1,9 +1,8 @@
 //! # Unified Frontier Codec & Semantic Communication Engine
-//! 
+//!
 //! High-performance Rust implementation of the 27 Language-U Semantic Communication Protocol Inventions.
 //! Integrates 6D Concept Radicals, Geodesic Signed ZigZag Delta Coding, Activation-Aware SVD Residuals,
 //! and 255-byte LoRa XOR-FEC Chirp Packetization with real-time error recovery.
-
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Concept6D {
@@ -16,7 +15,14 @@ pub struct Concept6D {
 }
 
 impl Concept6D {
-    pub fn new(domain: u8, subdomain: u8, operation: u8, modality: u8, strength: u8, depth: u8) -> Self {
+    pub fn new(
+        domain: u8,
+        subdomain: u8,
+        operation: u8,
+        modality: u8,
+        strength: u8,
+        depth: u8,
+    ) -> Self {
         Self {
             domain: domain & 0x0F,
             subdomain: subdomain & 0x0F,
@@ -157,7 +163,8 @@ impl GeodesicDeltaCodec {
                     if idx + 3 >= bytes.len() {
                         return Err("Unexpected EOF in Mode 11 escape");
                     }
-                    curr = Concept6D::from_radicals([bytes[idx + 1], bytes[idx + 2], bytes[idx + 3]]);
+                    curr =
+                        Concept6D::from_radicals([bytes[idx + 1], bytes[idx + 2], bytes[idx + 3]]);
                     out.push(curr);
                     idx += 4;
                 }
@@ -239,7 +246,9 @@ impl XorFecChirpPacketizer {
     }
 
     /// Recover dropped packet using XOR Parity Frame
-    pub fn recover_single_dropped(received_packets: &[Option<Vec<u8>>]) -> Result<Vec<u8>, &'static str> {
+    pub fn recover_single_dropped(
+        received_packets: &[Option<Vec<u8>>],
+    ) -> Result<Vec<u8>, &'static str> {
         let mut missing_idx = None;
         let mut missing_count = 0;
 
@@ -302,7 +311,12 @@ pub struct EnglishHiddenStateSteering;
 
 impl EnglishHiddenStateSteering {
     /// Apply centroid bias offset to token logits based on active 6D concept
-    pub fn apply_steering(logits: &mut [f32], concept: Concept6D, vocab_dim: usize, strength_scale: f32) {
+    pub fn apply_steering(
+        logits: &mut [f32],
+        concept: Concept6D,
+        vocab_dim: usize,
+        strength_scale: f32,
+    ) {
         let bias = (concept.strength as f32 / 15.0) * strength_scale;
         let step = (vocab_dim / 16).max(1);
         let start_idx = (concept.domain as usize * step) % logits.len();
@@ -340,7 +354,8 @@ mod tests {
         let encoded = GeodesicDeltaCodec::encode_trajectory(&trajectory);
         assert!(encoded.len() < trajectory.len() * 3); // Must achieve real compression
 
-        let decoded = GeodesicDeltaCodec::decode_trajectory(&encoded).expect("Decode should succeed");
+        let decoded =
+            GeodesicDeltaCodec::decode_trajectory(&encoded).expect("Decode should succeed");
         assert_eq!(trajectory, decoded);
     }
 
@@ -354,7 +369,8 @@ mod tests {
         let mut received: Vec<Option<Vec<u8>>> = packets.into_iter().map(Some).collect();
         received[0] = None;
 
-        let recovered = XorFecChirpPacketizer::recover_single_dropped(&received).expect("Parity recovery should succeed");
+        let recovered = XorFecChirpPacketizer::recover_single_dropped(&received)
+            .expect("Parity recovery should succeed");
         assert_eq!(&recovered[..400], &raw_payload[..]);
     }
 
@@ -380,11 +396,14 @@ mod tests {
             let modality = ((i * 13 + 1) % 16) as u8;
             let strength = ((i * 17 + 9) % 16) as u8;
             let depth = ((i * 19 + 3) % 16) as u8;
-            trajectory.push(Concept6D::new(domain, subdomain, operation, modality, strength, depth));
+            trajectory.push(Concept6D::new(
+                domain, subdomain, operation, modality, strength, depth,
+            ));
         }
 
         let encoded = GeodesicDeltaCodec::encode_trajectory(&trajectory);
-        let decoded = GeodesicDeltaCodec::decode_trajectory(&encoded).expect("Decode must succeed without errors");
+        let decoded = GeodesicDeltaCodec::decode_trajectory(&encoded)
+            .expect("Decode must succeed without errors");
         assert_eq!(trajectory.len(), decoded.len());
         assert_eq!(trajectory, decoded);
     }

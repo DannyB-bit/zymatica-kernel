@@ -63,7 +63,9 @@ impl ClawMigrator {
         if env_file.exists() {
             report.keys_migrated += 1;
             if !dry_run {
-                let zymatica_home = dirs_home().unwrap_or_else(|| PathBuf::from(".")).join(".zymatica");
+                let zymatica_home = dirs_home()
+                    .unwrap_or_else(|| PathBuf::from("."))
+                    .join(".zymatica");
                 let _ = fs::create_dir_all(&zymatica_home);
                 let _ = fs::copy(&env_file, zymatica_home.join(".env"));
             }

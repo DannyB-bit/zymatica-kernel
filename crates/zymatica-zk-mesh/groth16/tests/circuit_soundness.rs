@@ -317,4 +317,3 @@ fn unsatisfied_assignment_cannot_verify_against_its_bad_public_inputs() {
         }
     }
 }
-

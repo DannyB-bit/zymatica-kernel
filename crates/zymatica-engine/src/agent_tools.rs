@@ -189,7 +189,11 @@ impl AgentTool for WriteFileTool {
         Ok(ToolExecutionResult {
             tool_name: self.name().to_string(),
             success: true,
-            output: format!("Successfully written {} bytes to {}", content.len(), path_str),
+            output: format!(
+                "Successfully written {} bytes to {}",
+                content.len(),
+                path_str
+            ),
             error: None,
             execution_time_us: 0,
         })
@@ -249,7 +253,11 @@ impl AgentTool for TerminalTool {
             tool_name: self.name().to_string(),
             success,
             output: stdout,
-            error: if stderr.is_empty() { None } else { Some(stderr) },
+            error: if stderr.is_empty() {
+                None
+            } else {
+                Some(stderr)
+            },
             execution_time_us: 0,
         })
     }
@@ -361,7 +369,11 @@ impl AgentTool for ListDirTool {
             let entry = entry?;
             let meta = entry.metadata()?;
             let kind = if meta.is_dir() { "dir" } else { "file" };
-            entries.push(format!("[{}] {}", kind, entry.file_name().to_string_lossy()));
+            entries.push(format!(
+                "[{}] {}",
+                kind,
+                entry.file_name().to_string_lossy()
+            ));
         }
         Ok(ToolExecutionResult {
             tool_name: self.name().to_string(),
@@ -380,7 +392,12 @@ fn walkdir_simple(dir: &Path) -> Result<Vec<PathBuf>> {
             let entry = entry?;
             let path = entry.path();
             if path.is_dir() {
-                if !path.file_name().and_then(|s| s.to_str()).unwrap_or("").starts_with('.') {
+                if !path
+                    .file_name()
+                    .and_then(|s| s.to_str())
+                    .unwrap_or("")
+                    .starts_with('.')
+                {
                     files.extend(walkdir_simple(&path)?);
                 }
             } else {

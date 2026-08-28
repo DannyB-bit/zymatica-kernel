@@ -146,8 +146,7 @@ impl ZKLoRaWANProver {
 
         // Compute the public hashes
         let nonce_fr = Fr::from(9999u64);
-        let nullifier_hash =
-            circuit::mimc_hash(private_key_fr, Some(nonce_fr), &self.constants);
+        let nullifier_hash = circuit::mimc_hash(private_key_fr, Some(nonce_fr), &self.constants);
         let attestation_hash =
             circuit::mimc_hash(private_key_fr, Some(firmware_hash_fr), &self.constants);
         let ciphertext_hash =

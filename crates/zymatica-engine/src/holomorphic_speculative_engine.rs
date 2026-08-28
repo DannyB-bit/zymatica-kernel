@@ -111,7 +111,12 @@ mod tests {
         unembed[1 * hidden_dim + 1] = 2.0; // Token 1 aligns with axis 1
         unembed[2 * hidden_dim + 2] = 1.0; // Token 2 aligns with axis 2
 
-        let draft = speculator.generate_speculative_candidates(&current_hidden, &velocity, &unembed, vocab_size);
+        let draft = speculator.generate_speculative_candidates(
+            &current_hidden,
+            &velocity,
+            &unembed,
+            vocab_size,
+        );
         assert_eq!(draft.len(), depth);
 
         // Verification matrix matching draft

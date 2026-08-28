@@ -85,7 +85,9 @@ pub struct Octonion {
 
 impl Octonion {
     pub const ZERO: Self = Self { c: [0.0; 8] };
-    pub const ONE: Self = Self { c: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] };
+    pub const ONE: Self = Self {
+        c: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    };
 
     pub fn new(c: [f32; 8]) -> Self {
         Self { c }
@@ -106,20 +108,16 @@ impl Octonion {
 
     /// Imaginary 7D vector part $(e_1, \dots, e_7)$
     pub fn imaginary(&self) -> [f32; 7] {
-        [self.c[1], self.c[2], self.c[3], self.c[4], self.c[5], self.c[6], self.c[7]]
+        [
+            self.c[1], self.c[2], self.c[3], self.c[4], self.c[5], self.c[6], self.c[7],
+        ]
     }
 
     /// Octonionic Conjugate: $\bar{x} = (x_0, -x_1, -x_2, \dots, -x_7)$
     pub fn conjugate(&self) -> Self {
         Self {
             c: [
-                self.c[0],
-                -self.c[1],
-                -self.c[2],
-                -self.c[3],
-                -self.c[4],
-                -self.c[5],
-                -self.c[6],
+                self.c[0], -self.c[1], -self.c[2], -self.c[3], -self.c[4], -self.c[5], -self.c[6],
                 -self.c[7],
             ],
         }
@@ -225,14 +223,39 @@ impl Mul for Octonion {
         // (a_L + a_R * e_4)(b_L + b_R * e_4) = (a_L b_L - \bar{b}_R a_R) + (b_R a_L + a_R \bar{b}_L) e_4
         let mut c = [0.0f32; 8];
 
-        c[0] = a[0]*b[0] - a[1]*b[1] - a[2]*b[2] - a[3]*b[3] - a[4]*b[4] - a[5]*b[5] - a[6]*b[6] - a[7]*b[7];
-        c[1] = a[0]*b[1] + a[1]*b[0] + a[2]*b[4] + a[3]*b[7] - a[4]*b[2] + a[5]*b[6] - a[6]*b[5] - a[7]*b[3];
-        c[2] = a[0]*b[2] - a[1]*b[4] + a[2]*b[0] + a[3]*b[5] + a[4]*b[1] - a[5]*b[3] + a[6]*b[7] - a[7]*b[6];
-        c[3] = a[0]*b[3] - a[1]*b[7] - a[2]*b[5] + a[3]*b[0] + a[4]*b[6] + a[5]*b[2] - a[6]*b[4] + a[7]*b[1];
-        c[4] = a[0]*b[4] + a[1]*b[2] - a[2]*b[1] - a[3]*b[6] + a[4]*b[0] + a[5]*b[7] + a[6]*b[3] - a[7]*b[5];
-        c[5] = a[0]*b[5] - a[1]*b[6] + a[2]*b[3] - a[3]*b[2] - a[4]*b[7] + a[5]*b[0] + a[6]*b[1] + a[7]*b[4];
-        c[6] = a[0]*b[6] + a[1]*b[5] - a[2]*b[7] + a[3]*b[4] - a[4]*b[3] - a[5]*b[1] + a[6]*b[0] + a[7]*b[2];
-        c[7] = a[0]*b[7] + a[1]*b[3] + a[2]*b[6] - a[3]*b[1] + a[4]*b[5] - a[5]*b[4] - a[6]*b[2] + a[7]*b[0];
+        c[0] = a[0] * b[0]
+            - a[1] * b[1]
+            - a[2] * b[2]
+            - a[3] * b[3]
+            - a[4] * b[4]
+            - a[5] * b[5]
+            - a[6] * b[6]
+            - a[7] * b[7];
+        c[1] = a[0] * b[1] + a[1] * b[0] + a[2] * b[4] + a[3] * b[7] - a[4] * b[2] + a[5] * b[6]
+            - a[6] * b[5]
+            - a[7] * b[3];
+        c[2] = a[0] * b[2] - a[1] * b[4] + a[2] * b[0] + a[3] * b[5] + a[4] * b[1] - a[5] * b[3]
+            + a[6] * b[7]
+            - a[7] * b[6];
+        c[3] = a[0] * b[3] - a[1] * b[7] - a[2] * b[5] + a[3] * b[0] + a[4] * b[6] + a[5] * b[2]
+            - a[6] * b[4]
+            + a[7] * b[1];
+        c[4] = a[0] * b[4] + a[1] * b[2] - a[2] * b[1] - a[3] * b[6]
+            + a[4] * b[0]
+            + a[5] * b[7]
+            + a[6] * b[3]
+            - a[7] * b[5];
+        c[5] = a[0] * b[5] - a[1] * b[6] + a[2] * b[3] - a[3] * b[2] - a[4] * b[7]
+            + a[5] * b[0]
+            + a[6] * b[1]
+            + a[7] * b[4];
+        c[6] = a[0] * b[6] + a[1] * b[5] - a[2] * b[7] + a[3] * b[4] - a[4] * b[3] - a[5] * b[1]
+            + a[6] * b[0]
+            + a[7] * b[2];
+        c[7] = a[0] * b[7] + a[1] * b[3] + a[2] * b[6] - a[3] * b[1] + a[4] * b[5]
+            - a[5] * b[4]
+            - a[6] * b[2]
+            + a[7] * b[0];
 
         Self { c }
     }
@@ -287,7 +310,8 @@ impl Geodesic8DCodecHardened {
 
         let mut out = Vec::new();
         let mut idx = 0;
-        let mut curr = Concept8D::from_dword(u32::from_be_bytes([bytes[1], bytes[2], bytes[3], bytes[4]]));
+        let mut curr =
+            Concept8D::from_dword(u32::from_be_bytes([bytes[1], bytes[2], bytes[3], bytes[4]]));
         out.push(curr);
         idx += 5;
 
@@ -318,7 +342,12 @@ impl Geodesic8DCodecHardened {
                 if idx + 4 >= bytes.len() {
                     return Err("Unexpected EOF in Mode 11 8D Keyframe");
                 }
-                let dw = u32::from_be_bytes([bytes[idx + 1], bytes[idx + 2], bytes[idx + 3], bytes[idx + 4]]);
+                let dw = u32::from_be_bytes([
+                    bytes[idx + 1],
+                    bytes[idx + 2],
+                    bytes[idx + 3],
+                    bytes[idx + 4],
+                ]);
                 curr = Concept8D::from_dword(dw);
                 out.push(curr);
                 idx += 5;
@@ -377,7 +406,7 @@ mod tests {
         assert_eq!(e3 * e2, -e5);
 
         // Non-associativity: (e1 * e2) * e3 != e1 * (e2 * e3)
-        let left = (e1 * e2) * e3;  // e4 * e3 = e6
+        let left = (e1 * e2) * e3; // e4 * e3 = e6
         let right = e1 * (e2 * e3); // e1 * e5 = -e6
         assert_eq!(left, e6);
         assert_eq!(right, -e6);
@@ -413,8 +442,8 @@ mod tests {
         }
 
         let encoded = Geodesic8DCodecHardened::encode_trajectory(&trajectory);
-        let decoded = Geodesic8DCodecHardened::decode_trajectory(&encoded).expect("Decode should succeed");
+        let decoded =
+            Geodesic8DCodecHardened::decode_trajectory(&encoded).expect("Decode should succeed");
         assert_eq!(trajectory, decoded);
     }
 }
-
