@@ -1,11 +1,12 @@
 use ed25519_dalek::{Signature, Signer, SigningKey, Verifier, VerifyingKey};
+use sha2::{Digest, Sha256};
 use std::collections::HashMap;
 
-/// 16-Byte Differential Swarm Intent Chirp Packet
+/// 24-Byte Differential Swarm Intent Chirp Packet with 64-bit Epoch
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct SwarmIntentChirp {
     pub sender_node_id: u8,
-    pub swarm_epoch: u8,
+    pub swarm_epoch: u64,
     pub target_domain: u8,
     pub target_subdomain: u8,
     pub action_opcode: u8,
@@ -17,7 +18,7 @@ pub struct SwarmIntentChirp {
 impl SwarmIntentChirp {
     pub fn new(
         sender: u8,
-        epoch: u8,
+        epoch: u64,
         domain: u8,
         subdomain: u8,
         opcode: u8,
@@ -37,35 +38,37 @@ impl SwarmIntentChirp {
         chirp
     }
 
-    pub fn to_bytes(&self) -> [u8; 16] {
-        let mut bytes = [0u8; 16];
+    pub fn to_bytes(&self) -> [u8; 24] {
+        let mut bytes = [0u8; 24];
         bytes[0] = self.sender_node_id;
-        bytes[1] = self.swarm_epoch;
-        bytes[2] = (self.target_domain << 4) | (self.target_subdomain & 0x0F);
-        bytes[3] = self.action_opcode;
-        bytes[4] = self.consensus_weight;
-        bytes[5..11].copy_from_slice(&self.concept_trajectory);
+        bytes[1..9].copy_from_slice(&self.swarm_epoch.to_be_bytes());
+        bytes[9] = (self.target_domain << 4) | (self.target_subdomain & 0x0F);
+        bytes[10] = self.action_opcode;
+        bytes[11] = self.consensus_weight;
+        bytes[12..18].copy_from_slice(&self.concept_trajectory);
         let crc_bytes = self.state_crc.to_be_bytes();
-        bytes[11..15].copy_from_slice(&crc_bytes);
-        bytes[15] = 0x5A; // Swarm Sync Sentinel
+        bytes[18..22].copy_from_slice(&crc_bytes);
+        bytes[22] = 0x5A; // Swarm Sync Sentinel
+        bytes[23] = 0xA5;
         bytes
     }
 
-    pub fn from_bytes(bytes: &[u8; 16]) -> Result<Self, &'static str> {
-        if bytes[15] != 0x5A {
-            return Err("Invalid Swarm Sentinel Byte");
+    pub fn from_bytes(bytes: &[u8; 24]) -> Result<Self, &'static str> {
+        if bytes[22] != 0x5A || bytes[23] != 0xA5 {
+            return Err("Invalid Swarm Sentinel Bytes");
         }
-        let crc = u32::from_be_bytes([bytes[11], bytes[12], bytes[13], bytes[14]]);
+        let epoch = u64::from_be_bytes(bytes[1..9].try_into().unwrap());
+        let crc = u32::from_be_bytes(bytes[18..22].try_into().unwrap());
         let mut coords = [0u8; 6];
-        coords.copy_from_slice(&bytes[5..11]);
+        coords.copy_from_slice(&bytes[12..18]);
 
         let chirp = Self {
             sender_node_id: bytes[0],
-            swarm_epoch: bytes[1],
-            target_domain: (bytes[2] >> 4) & 0x0F,
-            target_subdomain: bytes[2] & 0x0F,
-            action_opcode: bytes[3],
-            consensus_weight: bytes[4],
+            swarm_epoch: epoch,
+            target_domain: (bytes[9] >> 4) & 0x0F,
+            target_subdomain: bytes[9] & 0x0F,
+            action_opcode: bytes[10],
+            consensus_weight: bytes[11],
             concept_trajectory: coords,
             state_crc: crc,
         };
@@ -81,8 +84,10 @@ impl SwarmIntentChirp {
         let mut hash = 0x811c9dc5u32;
         hash ^= self.sender_node_id as u32;
         hash = hash.wrapping_mul(0x01000193);
-        hash ^= self.swarm_epoch as u32;
-        hash = hash.wrapping_mul(0x01000193);
+        for &b in &self.swarm_epoch.to_be_bytes() {
+            hash ^= b as u32;
+            hash = hash.wrapping_mul(0x01000193);
+        }
         hash ^= ((self.target_domain << 4) | self.target_subdomain) as u32;
         hash = hash.wrapping_mul(0x01000193);
         hash ^= self.action_opcode as u32;
@@ -118,21 +123,21 @@ impl EphemeralSubagentSpawner {
     }
 }
 
-/// Swarm Quorum Certificate establishing authenticated agreement across nodes
+/// Swarm Quorum Certificate establishing authenticated agreement across nodes with SHA-256 transcript binding
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct SwarmQuorumCertificate {
-    pub epoch: u8,
+    pub epoch: u64,
     pub participant_nodes: Vec<u8>,
     pub total_weight: u32,
     pub consensus_trajectory: [u8; 6],
-    pub certificate_hash: u32,
+    pub certificate_transcript_sha256: [u8; 32],
 }
 
-/// Swarm Multi-Node Hypergraph Consensus Engine with Ed25519 Cryptographic Verification
+/// Swarm Multi-Node Hypergraph Consensus Engine with Cryptographic Ed25519 Enforcement
 pub struct SwarmConsensusEngine {
     pub registered_nodes: Vec<u8>,
     pub registered_keys: HashMap<u8, VerifyingKey>,
-    pub pending_proposals: HashMap<u8, Vec<SwarmIntentChirp>>,
+    pub pending_proposals: HashMap<u64, Vec<(SwarmIntentChirp, Signature)>>,
 }
 
 impl SwarmConsensusEngine {
@@ -169,41 +174,44 @@ impl SwarmConsensusEngine {
             .verify(&msg_bytes, signature)
             .map_err(|_| "Ed25519 cryptographic signature verification failed: invalid signature for intent chirp")?;
 
-        self.submit_intent_internal(chirp)
-    }
-
-    /// Submit a verified swarm intent proposal from an authorized registered node
-    pub fn submit_intent(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
-        // Enforce membership verification
-        if !self.registered_nodes.contains(&chirp.sender_node_id) {
-            return Err(
-                "Unauthorized node ID: sender is not in the registered swarm membership set",
-            );
-        }
-        self.submit_intent_internal(chirp)
-    }
-
-    fn submit_intent_internal(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
         let proposals = self.pending_proposals.entry(chirp.swarm_epoch).or_default();
 
         // Enforce one vote per registered node per epoch (prevent duplicate/Sybil replay)
         if proposals
             .iter()
-            .any(|p| p.sender_node_id == chirp.sender_node_id)
+            .any(|(p, _)| p.sender_node_id == chirp.sender_node_id)
         {
             return Err(
                 "Duplicate vote detected: node has already submitted a proposal for this epoch",
             );
         }
 
-        proposals.push(chirp);
+        proposals.push((chirp, *signature));
         Ok(())
     }
 
-    /// Resolve weighted centroid consensus with quorum certificate generation
+    /// Test-only submission helper for unauthenticated simulation harnesses
+    #[cfg(test)]
+    pub fn submit_test_intent(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
+        if !self.registered_nodes.contains(&chirp.sender_node_id) {
+            return Err("Unauthorized node ID in test harness");
+        }
+        let dummy_sig = Signature::from_bytes(&[0u8; 64]);
+        let proposals = self.pending_proposals.entry(chirp.swarm_epoch).or_default();
+        if proposals
+            .iter()
+            .any(|(p, _)| p.sender_node_id == chirp.sender_node_id)
+        {
+            return Err("Duplicate vote in test harness");
+        }
+        proposals.push((chirp, dummy_sig));
+        Ok(())
+    }
+
+    /// Resolve weighted centroid consensus with cryptographic quorum certificate generation
     pub fn resolve_consensus(
         &self,
-        epoch: u8,
+        epoch: u64,
         quorum_threshold: usize,
     ) -> Option<SwarmQuorumCertificate> {
         let proposals = self.pending_proposals.get(&epoch)?;
@@ -214,11 +222,18 @@ impl SwarmConsensusEngine {
         let mut sum_coords = [0u32; 6];
         let mut total_weight = 0u32;
         let mut participants = Vec::new();
+        let mut transcript_hasher = Sha256::new();
 
-        for p in proposals {
+        transcript_hasher.update(b"ZYMATICA_SWARM_QUORUM_V2");
+        transcript_hasher.update(epoch.to_be_bytes());
+
+        for (p, sig) in proposals {
             let w = p.consensus_weight as u32;
             total_weight += w;
             participants.push(p.sender_node_id);
+            transcript_hasher.update([p.sender_node_id]);
+            transcript_hasher.update(p.to_bytes());
+            transcript_hasher.update(sig.to_bytes());
             for i in 0..6 {
                 sum_coords[i] += (p.concept_trajectory[i] as u32) * w;
             }
@@ -232,23 +247,17 @@ impl SwarmConsensusEngine {
         for i in 0..6 {
             consensus_coords[i] = ((sum_coords[i] + total_weight / 2) / total_weight) as u8;
         }
+        transcript_hasher.update(consensus_coords);
+        transcript_hasher.update(total_weight.to_be_bytes());
 
-        let mut cert_hash = 0x811c9dc5u32;
-        cert_hash ^= epoch as u32;
-        cert_hash = cert_hash.wrapping_mul(0x01000193);
-        cert_hash ^= total_weight;
-        cert_hash = cert_hash.wrapping_mul(0x01000193);
-        for &c in &consensus_coords {
-            cert_hash ^= c as u32;
-            cert_hash = cert_hash.wrapping_mul(0x01000193);
-        }
+        let transcript_hash: [u8; 32] = transcript_hasher.finalize().into();
 
         Some(SwarmQuorumCertificate {
             epoch,
             participant_nodes: participants,
             total_weight,
             consensus_trajectory: consensus_coords,
-            certificate_hash: cert_hash,
+            certificate_transcript_sha256: transcript_hash,
         })
     }
 }
@@ -259,13 +268,14 @@ mod tests {
     use rand::rngs::OsRng;
 
     #[test]
-    fn test_swarm_intent_chirp_16byte_serialization() {
-        let chirp = SwarmIntentChirp::new(1, 42, 2, 5, 0x07, [10, 20, 30, 40, 50, 60]);
+    fn test_swarm_intent_chirp_24byte_serialization() {
+        let chirp = SwarmIntentChirp::new(1, 100_000, 2, 5, 0x07, [10, 20, 30, 40, 50, 60]);
         let bytes = chirp.to_bytes();
-        assert_eq!(bytes.len(), 16);
-        assert_eq!(bytes[15], 0x5A);
+        assert_eq!(bytes.len(), 24);
+        assert_eq!(bytes[22], 0x5A);
+        assert_eq!(bytes[23], 0xA5);
 
-        let decoded = SwarmIntentChirp::from_bytes(&bytes).expect("Valid 16B chirp decode");
+        let decoded = SwarmIntentChirp::from_bytes(&bytes).expect("Valid 24B chirp decode");
         assert_eq!(chirp, decoded);
     }
 
@@ -280,36 +290,6 @@ mod tests {
         let weights2 = EphemeralSubagentSpawner::spawn_from_seed(&seed, 3);
         assert_eq!(weights1, weights2);
         assert_eq!(weights1.len(), 1024);
-    }
-
-    #[test]
-    fn test_swarm_hypergraph_quorum_consensus_with_auth_and_certificates() {
-        let nodes = vec![1, 2, 3];
-        let mut engine = SwarmConsensusEngine::new(nodes);
-
-        let c1 = SwarmIntentChirp::new(1, 10, 1, 1, 0x01, [10, 20, 30, 40, 50, 60]);
-        let c2 = SwarmIntentChirp::new(2, 10, 1, 1, 0x01, [12, 22, 32, 42, 52, 62]);
-        let c3 = SwarmIntentChirp::new(3, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
-        let c_unauth = SwarmIntentChirp::new(99, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
-
-        assert!(
-            engine.submit_intent(c_unauth).is_err(),
-            "Unauthorized node must be rejected"
-        );
-        assert!(engine.submit_intent(c1).is_ok());
-        assert!(
-            engine.submit_intent(c1).is_err(),
-            "Duplicate submission in same epoch must be rejected"
-        );
-        assert!(engine.submit_intent(c2).is_ok());
-
-        assert_eq!(engine.resolve_consensus(10, 3), None);
-
-        assert!(engine.submit_intent(c3).is_ok());
-        let cert = engine.resolve_consensus(10, 3).expect("Quorum reached");
-        assert_eq!(cert.consensus_trajectory, [11, 21, 31, 41, 51, 61]);
-        assert_eq!(cert.epoch, 10);
-        assert_eq!(cert.participant_nodes.len(), 3);
     }
 
     #[test]
@@ -350,5 +330,6 @@ mod tests {
             .expect("Quorum reached with valid Ed25519 signatures");
         assert_eq!(cert.consensus_trajectory, [11, 21, 31, 41, 51, 61]);
         assert_eq!(cert.participant_nodes, vec![1, 2, 3]);
+        assert_ne!(cert.certificate_transcript_sha256, [0u8; 32]);
     }
 }

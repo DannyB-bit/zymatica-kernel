@@ -10,7 +10,7 @@ All original engineering architectures, algorithms, protocols, semantic codecs, 
   > *Book One of ZYMATICA A TRILOGY* by Danny Bouldiez (Available on Amazon.com)
 
 - **Commercial Companies, AI Labs, and Enterprise Deployers**:
-  Commercial rights are granted either by maintaining verifiable Amazon.com purchase receipts of novel copies equivalent to at least **10% of the active technical workforce**, OR through an explicit commercial enterprise agreement executed directly with [zymatica.space](https://zymatica.space).
+  Commercial rights are granted either by maintaining verifiable Amazon.com purchase receipts of novel copies equivalent to at least **10% of total active workforce, including employees and direct technical contractors**, OR through an explicit commercial enterprise agreement executed directly with [zymatica.space](https://zymatica.space).
 
 ---
 

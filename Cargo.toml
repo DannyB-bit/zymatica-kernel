@@ -24,3 +24,11 @@ members = [
     "crates/zymatica-language-u/26_Perpetual_Motion_Eigenspace_Loops/src/rust",
 ]
 resolver = "2"
+
+[workspace.package]
+version = "2.0.0"
+authors = ["Danny Bouldiez", "Devs One"]
+edition = "2021"
+license-file = "LICENSE"
+repository = "https://github.com/DannyB-bit/zymatica.space"
+homepage = "https://zymatica.space"

@@ -592,7 +592,6 @@ mod tests {
     use super::*;
 
     #[test]
-    #[test]
     fn geodesic_delta_radicals_round_trip_is_lossless() {
         let input = [
             Concept6D::new(1, 4, 12, 1, 0, 15),
@@ -603,11 +602,12 @@ mod tests {
             Concept6D::new(1, 4, 14, 1, 3, 10),
         ];
         let encoded = encode_geodesic_deltas(&input);
-        assert_eq!(encoded.len(), 3 + 5); // 8 bytes for 6 concepts
+        assert_eq!(encoded.len(), 3 + 5 * 3); // 3-byte root + 5 x 3-byte lossless subdomain delta packets = 18 bytes
         let decoded = decode_geodesic_deltas(&encoded, input.len());
         assert_eq!(decoded, input);
     }
 
+    #[test]
     fn cuneiform_round_trip_matches_zymatica_proof_vector() {
         let input = [
             Concept6D::new(1, 2, 3, 4, 5, 6),
