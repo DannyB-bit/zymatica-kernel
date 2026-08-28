@@ -1,9 +1,9 @@
-# Invention Class 35: Z-MCTS (Continuous Manifold Test-Time Latent Reasoning Engine)
+# Invention Class 35: Z-MCTS (Continuous Semantic MCTS Trajectory Search)
 
 ## Abstract
-Current test-time compute paradigms (e.g. OpenAI o1, DeepSeek-R1) achieve enhanced reasoning capabilities by generating thousands of intermediate natural language tokens (hidden behind `<think>` tags). While effective, this brute-force approach suffers from massive memory consumption, slow time-to-first-token, and substantial inference cost.
+Continuous trajectory optimization across semantic manifolds enables navigation of complex state-spaces prior to token decoding.
 
-**Z-MCTS** replaces token-level rollouts with **continuous Monte Carlo Tree Search directly on 8D Riemannian manifold geodesics**. By evaluating path action potentials $\mathcal{S}[\gamma] = \int \left( \frac{1}{2} \|\dot{\gamma}(t)\|^2_{\mathbf{G}} - V(\gamma(t)) \right) dt$ in latent space before emitting output tokens, Z-MCTS prunes dead-end reasoning branches in sub-milliseconds without generating unneeded tokens.
+**Z-MCTS** evaluates continuous Monte Carlo Tree Search directly on 8D Riemannian manifold geodesics using Hamiltonian energy functionals $\mathcal{S}[\gamma] = \int \left( \frac{1}{2} \|\dot{\gamma}(t)\|^2_{\mathbf{G}} - V(\gamma(t)) \right) dt$.
 
 ---
 

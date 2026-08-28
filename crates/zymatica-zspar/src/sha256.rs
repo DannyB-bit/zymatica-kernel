@@ -56,8 +56,8 @@ impl Sha256 {
 
     fn process_block(&mut self) {
         let mut w = [0u32; 64];
-        for i in 0..16 {
-            w[i] = u32::from_be_bytes([
+        for (i, word) in w.iter_mut().enumerate().take(16) {
+            *word = u32::from_be_bytes([
                 self.buffer[i * 4],
                 self.buffer[i * 4 + 1],
                 self.buffer[i * 4 + 2],

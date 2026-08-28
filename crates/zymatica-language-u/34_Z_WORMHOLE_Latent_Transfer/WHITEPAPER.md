@@ -1,9 +1,9 @@
-# Invention Class 34: Z-WORMHOLE (Universal Cross-Model Latent Transfer Protocol)
+# Invention Class 34: Z-WORMHOLE (Experimental Cross-Architecture Latent Projection Bridge)
 
 ## Abstract
-Modern multi-agent AI ecosystems suffer from the **Natural Language Bottleneck**: when heterogeneous models (e.g. Qwen-3.5, Gemma-2, Llama-3) collaborate, each agent must serialize its internal neural activations into slow, ambiguous natural language text tokens, transmit them over bandwidth-constrained networks, and have the recipient re-tokenize and re-embed the prompt.
+Modern multi-agent AI ecosystems suffer from the **Natural Language Bottleneck**: when heterogeneous models (e.g. Qwen-3.5, Gemma-2, SmolLM) collaborate, inter-agent communication typically requires serializing activations into text tokens.
 
-**Z-WORMHOLE** establishes a direct, zero-shot continuous latent bridge. By projecting the source model's intermediate hidden state $h_A \in \mathbb{R}^{d_A}$ into an invariant continuous 8D Riemannian manifold capsule $\mathcal{C} = (S, \mathcal{H})$ where $S \in [0, 15]^8$, and expanding $\mathcal{C}$ into target dimensions $h_B \in \mathbb{R}^{d_B}$, heterogeneous models exchange thoughts directly at layer speed with **$20\times-50\times$ reduced latency** and zero token generation costs.
+**Z-WORMHOLE** explores an experimental continuous projection bridge between heterogeneous model activation spaces through a shared 8D Riemannian manifold intermediate.
 
 ---
 

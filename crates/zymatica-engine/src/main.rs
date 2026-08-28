@@ -477,15 +477,26 @@ enum Command {
         #[arg(long, default_value = "studio_dashboard.html")]
         output: PathBuf,
     },
-    /// 1-Click Sovereign Execution (Ollama-style drop-in runner): zymatica run <model>
+    /// Execute real native inference from a local model directory (Gemma/Qwen).
     Run {
-        #[arg(default_value = "qwen3.5:0.8b")]
-        model: String,
+        #[arg(long)]
+        model_dir: PathBuf,
         #[arg(
             long,
             default_value = "What is the nature of the sovereign 8D manifold?"
         )]
         prompt: String,
+        #[arg(long, default_value_t = 32)]
+        new_tokens: usize,
+        #[arg(long, default_value = "q8")]
+        engine: String,
+        #[arg(long)]
+        q8_cache_dir: Option<PathBuf>,
+    },
+    /// Interactive demonstration of 8D Manifold, Z-WORMHOLE latent bridge, and Z-MCTS trajectory search.
+    DemoManifold {
+        #[arg(default_value = "qwen3.5:0.8b")]
+        model: String,
         #[arg(long)]
         zspar: bool,
         #[arg(long)]
@@ -494,8 +505,6 @@ enum Command {
         wormhole: bool,
         #[arg(long)]
         mcts: bool,
-        #[arg(long, default_value_t = 8080)]
-        port: u16,
     },
     /// Run verification proofs for all Zymatica ecosystem complements.
     EcosystemProof,
@@ -505,27 +514,91 @@ fn main() -> Result<()> {
     let cli = Cli::parse();
     match cli.command {
         Command::Run {
-            model,
+            model_dir,
             prompt,
-            zspar,
-            hyperkv,
-            wormhole,
-            mcts,
-            port,
+            new_tokens,
+            engine,
+            q8_cache_dir,
         } => {
             println!(
                 "================================================================================"
             );
-            println!(" [+] ZYMATICA SOVEREIGN INFERENCE RUNTIME (1-Click Local Execution)");
+            println!(" [+] ZYMATICA SOVEREIGN INFERENCE RUNTIME (Native Checkpoint Execution)");
+            println!(
+                "================================================================================"
+            );
+            println!("  -> Model Checkpoint:   {}", model_dir.display());
+            println!("  -> Prompt:             {}", prompt);
+            println!("  -> New Tokens Target:  {}", new_tokens);
+            println!("  -> Engine Quant Mode:  {}", engine);
+            println!(
+                "--------------------------------------------------------------------------------"
+            );
+
+            let mode = match engine.as_str() {
+                "q8" => QuantMode::Q8,
+                "q5" => QuantMode::Q5,
+                "q4" => QuantMode::Q4,
+                "q3" => QuantMode::Q3,
+                _ => QuantMode::Q8,
+            };
+
+            let start_load = Instant::now();
+            let model = load_quant_model(
+                &model_dir,
+                mode,
+                QuantizedActivationMode::F32,
+                q8_cache_dir.as_deref(),
+            )?;
+            let load_dur = start_load.elapsed();
+            println!("  [+] Model Loaded & Quantized in {:?}", load_dur);
+
+            // Encode prompt tokens using simple whitespace/ASCII byte IDs if external tokenizer not passed
+            let prompt_ids: Vec<usize> = prompt.as_bytes().iter().map(|&b| b as usize).collect();
+
+            let start_gen = Instant::now();
+            let output_ids = model.generate_greedy(&prompt_ids, new_tokens);
+            let gen_dur = start_gen.elapsed();
+
+            let generated_slice = &output_ids[prompt_ids.len()..];
+            let decoded_text = String::from_utf8_lossy(
+                &generated_slice
+                    .iter()
+                    .map(|&id| (id % 256) as u8)
+                    .collect::<Vec<u8>>(),
+            );
+
+            let tps = (generated_slice.len() as f64) / gen_dur.as_secs_f64().max(0.00001);
+            println!("  [+] Generated Tokens:  {}", generated_slice.len());
+            println!(
+                "  [+] Generation Time:   {:?} ({:.2} tokens/sec)",
+                gen_dur, tps
+            );
+            println!("  [+] Model Output:      {:?}", decoded_text);
+            println!(
+                "================================================================================"
+            );
+            Ok(())
+        }
+        Command::DemoManifold {
+            model,
+            zspar,
+            hyperkv,
+            wormhole,
+            mcts,
+        } => {
+            println!(
+                "================================================================================"
+            );
+            println!(" [+] ZYMATICA 8D MANIFOLD & LATENT SEARCH DEMO (Interactive Simulation)");
             println!(
                 "================================================================================"
             );
             println!("  -> Model Target:       {}", model);
-            println!("  -> User Prompt:        {}", prompt);
             println!(
                 "  -> Hyper-KV Folding:   {}",
                 if hyperkv {
-                    "ENABLED (100x Compression)"
+                    "ENABLED (Parametric Knot LUT)"
                 } else {
                     "AUTO"
                 }
@@ -541,7 +614,7 @@ fn main() -> Result<()> {
             println!(
                 "  -> Z-WORMHOLE Bridge:  {}",
                 if wormhole {
-                    "ENABLED (Direct Latent Hand-Off)"
+                    "ENABLED (Latent Projection Bridge)"
                 } else {
                     "STANDBY"
                 }
@@ -549,14 +622,10 @@ fn main() -> Result<()> {
             println!(
                 "  -> Z-MCTS Latent Tree: {}",
                 if mcts {
-                    "ENABLED (Continuous Test-Time Compute)"
+                    "ENABLED (Continuous Semantic Search)"
                 } else {
                     "STANDBY"
                 }
-            );
-            println!(
-                "  -> HTTP Server:        http://127.0.0.1:{}/v1 (OpenAI & Claude Compatible)",
-                port
             );
             println!(
                 "--------------------------------------------------------------------------------"
@@ -577,8 +646,11 @@ fn main() -> Result<()> {
             let bridge = zymatica_core::z_wormhole::ZWormholeBridge::new(src_arch, tgt_arch, 64);
             let mut dummy_activation = vec![0.1f32; src_arch.hidden_dim()];
             dummy_activation[0] = 0.85;
+
+            let start_wormhole = Instant::now();
             let capsule = bridge.compress_thought(&dummy_activation, 1001)?;
             let expanded = bridge.expand_thought(&capsule)?;
+            let wormhole_elapsed = start_wormhole.elapsed();
 
             let mcts_config = zymatica_core::z_mcts::ZMctsConfig::default();
             let mut mcts_engine = zymatica_core::z_mcts::ZMctsEngine::new(mcts_config);
@@ -586,19 +658,21 @@ fn main() -> Result<()> {
             let goal_st = zymatica_core::z_mcts::LatentState8D::new([
                 10.0, 12.0, 8.0, 14.0, 9.0, 1.0, 4.0, 13.0,
             ]);
+
+            let start_mcts = Instant::now();
             let traj = mcts_engine.search_optimal_trajectory(start_st, goal_st);
+            let mcts_elapsed = start_mcts.elapsed();
 
             println!(
-                "  [+] Z-WORMHOLE Latent Injection: {} dims -> 8D Manifold -> {} dims (100% OK)",
+                "  [+] Z-WORMHOLE Latent Projection: {} dims -> 8D Capsule -> {} dims (executed in {:?})",
                 src_arch.hidden_dim(),
-                expanded.len()
+                expanded.len(),
+                wormhole_elapsed
             );
             println!(
-                "  [+] Z-MCTS Latent Reasoning: Navigated {} continuous waypoints in 1.42 ms",
-                traj.len()
-            );
-            println!(
-                "  [+] Response Generated: \"The sovereign 8D manifold establishes mathematically verified latent equivalence across distributed models without text token serialization.\""
+                "  [+] Z-MCTS Trajectory Search: Navigated {} continuous Riemannian waypoints (executed in {:?})",
+                traj.len(),
+                mcts_elapsed
             );
             println!(
                 "================================================================================"

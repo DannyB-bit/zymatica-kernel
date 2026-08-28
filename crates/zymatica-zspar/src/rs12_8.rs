@@ -78,13 +78,13 @@ impl Rs12_8 {
 
     pub fn syndromes(codeword: &Codeword) -> Syndromes {
         let mut out = [0u8; K_PARITY_SYMBOLS];
-        for s in 0..K_PARITY_SYMBOLS {
+        for (s, slot) in out.iter_mut().enumerate() {
             let x = Gf16::alpha_pow((s + 1) as u32);
             let mut acc = 0u8;
             for &sym in codeword {
                 acc = Gf16::add(Gf16::mul(acc, x), sym);
             }
-            out[s] = acc;
+            *slot = acc;
         }
         out
     }
@@ -259,15 +259,15 @@ impl Rs12_8 {
 
         // Matrix A: A[s][j] = (alpha^(s+1))^(11 - pos[j])
         let mut a = vec![vec![0u8; m]; 4];
-        for s in 0..4 {
+        for (s, a_row) in a.iter_mut().enumerate() {
             let x = Gf16::alpha_pow((s + 1) as u32);
-            for j in 0..m {
-                let power = 11 - (positions[j] as usize);
+            for (j, &pos) in positions.iter().enumerate() {
+                let power = 11 - (pos as usize);
                 let mut val = 1u8;
                 for _ in 0..power {
                     val = Gf16::mul(val, x);
                 }
-                a[s][j] = val;
+                a_row[j] = val;
             }
         }
 
@@ -276,8 +276,8 @@ impl Rs12_8 {
         // Gaussian elimination on m x m subsystem
         for col in 0..m {
             let mut pivot_row = None;
-            for row in col..4 {
-                if a[row][col] != 0 {
+            for (row, a_row) in a.iter().enumerate().skip(col) {
+                if a_row[col] != 0 {
                     pivot_row = Some(row);
                     break;
                 }
@@ -289,16 +289,18 @@ impl Rs12_8 {
             }
 
             let inv_pivot = Gf16::inv(a[col][col])?;
-            for c in col..m {
-                a[col][c] = Gf16::mul(a[col][c], inv_pivot);
+            for val in a[col].iter_mut().take(m).skip(col) {
+                *val = Gf16::mul(*val, inv_pivot);
             }
             b[col] = Gf16::mul(b[col], inv_pivot);
 
             for row in 0..4 {
                 if row != col && a[row][col] != 0 {
                     let factor = a[row][col];
-                    for c in col..m {
-                        a[row][c] = Gf16::add(a[row][c], Gf16::mul(factor, a[col][c]));
+                    let col_slice = a[col][col..m].to_vec();
+                    for (c, &col_val) in col_slice.iter().enumerate() {
+                        let factor_a = Gf16::mul(factor, col_val);
+                        a[row][col + c] = Gf16::add(a[row][col + c], factor_a);
                     }
                     b[row] = Gf16::add(b[row], Gf16::mul(factor, b[col]));
                 }
@@ -306,8 +308,8 @@ impl Rs12_8 {
         }
 
         // Check remaining equations
-        for row in m..4 {
-            if b[row] != 0 {
+        for &val in b.iter().take(4).skip(m) {
+            if val != 0 {
                 return None;
             }
         }
