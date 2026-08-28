@@ -2,7 +2,7 @@
 name = "zymatica-engine"
 version = "0.2.0"
 edition = "2024"
-license = "Proprietary"
+license-file = "../../LICENSE"
 default-run = "zymatica-engine"
 
 [lib]
@@ -51,10 +51,6 @@ tower = { version = "0.5", features = ["util"] }
 
 [target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
 criterion = "0.7"
-
-[profile.release]
-codegen-units = 1
-lto = "thin"
 
 [[bin]]
 name = "zymatica-engine"

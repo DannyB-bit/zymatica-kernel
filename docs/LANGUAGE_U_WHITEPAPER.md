@@ -1,5 +1,6 @@
-# ZYMATICA: Language-U Framework (Taxonomy/Decomposition)
-*IP Class 01 | Apache License 2.0*
+# ZYMATICA: Language-U: Unified Cognitive Protocol Architecture
+*IP Class 01 | Zymatica Covenant License 2.0 (SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0)*
+**Author:** Danny Bouldiez | Codebase by Devs One
 
 ![Zymatica Logo](../Logo.jpg)
 

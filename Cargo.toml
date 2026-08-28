@@ -33,3 +33,7 @@ edition = "2021"
 license-file = "LICENSE"
 repository = "https://github.com/DannyB-bit/zymatica.space"
 homepage = "https://zymatica.space"
+
+[profile.release]
+codegen-units = 1
+lto = "thin"

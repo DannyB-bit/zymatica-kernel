@@ -3,7 +3,7 @@ name = "zk-lorawan-groth16"
 version = "1.0.0"
 edition = "2021"
 description = "Real Groth16 ZK-SNARK prover and verifier for ZK-LoRaWAN (BN254 curve)"
-license = "Proprietary"
+license-file = "../../../LICENSE"
 
 [dependencies]
 ark-ff = "0.4.0"

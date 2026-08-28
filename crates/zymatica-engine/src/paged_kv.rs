@@ -569,7 +569,7 @@ impl PagedKvCache {
         if self.sequences.contains_key(&sequence_id) {
             self.free_sequence(sequence_id);
         }
-        self.allocate_sequence_tokens(sequence_id, tokens)?;
+        self.create_sequence(sequence_id);
 
         let mut knot_idx = 0;
         for layer in 0..self.layers {
@@ -590,10 +590,7 @@ impl PagedKvCache {
                         &reconstructed_keys[position * head_dim..(position + 1) * head_dim];
                     let v_slice =
                         &reconstructed_vals[position * head_dim..(position + 1) * head_dim];
-                    self.key_mut(sequence_id, position, layer, kv_head)
-                        .copy_from_slice(k_slice);
-                    self.value_mut(sequence_id, position, layer, kv_head)
-                        .copy_from_slice(v_slice);
+                    self.set_kv(sequence_id, position, layer, kv_head, k_slice, v_slice);
                 }
             }
         }

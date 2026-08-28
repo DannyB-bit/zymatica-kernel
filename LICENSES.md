@@ -16,13 +16,16 @@ All original engineering architectures, algorithms, protocols, semantic codecs, 
 
 ## 2. Inventions & Proprietary Modules Covered
 
-The Covenant License covers all 32 Classes of Zymatica Inventions, including but not limited to:
+The Covenant License covers all 35 Classes of Zymatica Inventions, including but not limited to:
 - **Classes 01–27**: Native Qwen3.5/Gemma Runtimes, LoRaWAN Chirp Packetizers, Cuneiform 6D Manifolds, ZK-VDE Decryption Circuits.
 - **Class 28**: `neural_swarm_hypergraph` — Ephemeral subagent spawning, hypergraph routing, authenticated quorum consensus.
 - **Class 29**: `hyper_manifold_kv_folding` — Continuous trajectory parametric knot LUT compression for KV attention caches.
 - **Class 30**: `holomorphic_speculative_engine` — Holomorphic velocity draft candidate projection and fused tree attention.
 - **Class 31**: `epigenetic_manifold_crystallizer` — Gram-Schmidt nullspace weight projection and 70-byte crystal serialization.
 - **Class 32**: `cuneiform_8d_octonion_engine` — Non-associative Cayley-Dickson octonion algebra ($\mathbb{O}$) and lossless 8D geodesic codecs.
+- **Class 33**: `zymatica-zspar` — Model-independent finite-field $\text{GF}(16)$ $\text{RS}(12,8)$ semantic parity error correction and auto-repair.
+- **Class 34**: `z_wormhole` — Universal cross-model zero-shot direct latent thought transfer protocol.
+- **Class 35**: `z_mcts` — Continuous manifold test-time latent reasoning engine on 8D Riemannian geodesics.
 
 ---
 
