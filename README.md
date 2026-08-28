@@ -708,6 +708,68 @@ python run_proof.py
 
 ---
 
+
+---
+
+## 🏛️ The 27 Proprietary Inventions of Language-U
+
+The Language-U Semantic Communication Protocol unifies **27 foundational inventions** engineered by **Devs One** and cataloged in the novel **200 AMSTERDAM** by **Danny Bouldiez**:
+
+```mermaid
+graph TD
+    A["Raw Input Message"] --> B["Cuneiform-U S-Tokenizer (Coordinate Mapping)"]
+    B --> C["LLD-AC Range Coding (Entropy Compression)"]
+    C --> D["XOR-FEC Chirp Packetization (255-Byte Blocks)"]
+    D -->|915 MHz LoRa Channel| E["Receiver Packet Reassembly"]
+    E --> F["XOR-FEC Parity Error Correction"]
+    F --> G["LLD-AC Range Decoder"]
+    G --> H["Zero-RAM Meta / Native C JIT Weights Inflation"]
+    H --> H2["Activation-Aware SVD Residual Holders"]
+    H2 --> I["Epigenetic SFT Healing (RCRA Loss)"]
+    I --> J["English Hidden-State Steering (EHSS/EVG/HSDC)"]
+    J --> K["Coherent Semantic Output & Autonomous Tool Trigger"]
+```
+
+### Complete Inventions Index:
+
+| Class | Invention / Component | Purpose & Mathematical Highlight | Technical Whitepaper & Execution Script |
+| :---: | :--- | :--- | :--- |
+| **01** | **Language-U Taxonomy** | Hierarchical semantic decomposition taxonomy ($H(\text{Text}) \equiv H(\text{Meaning}) + H(\text{Syntax}\mid\text{Meaning})$). | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/01_Language_U_Taxonomy/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/01_Language_U_Taxonomy/run_proof.py) |
+| **02** | **Cuneiform-U Hypercube (Yin)** | 6D coordinate mapping along orthogonal semantic axes ($\mathbb{R}^6$). | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/02_Cuneiform_U_Hypercube_Yin/run_proof.py) |
+| **03** | **Cuneiform-U Engine (Yang)** | Edge-ready semantic range coder production engine. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/03_Cuneiform_U_Production_Engine_Yang/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/03_Cuneiform_U_Production_Engine_Yang/run_proof.py) |
+| **04** | **Genesis Protocol** | Sharded layers transmission & 381-byte procedural seed reassembly. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/04_Genesis_Protocol/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/04_Genesis_Protocol/run_proof.py) |
+| **05** | **Procedural Seed Format** | `.LLM` / `.genesis` compact seed file layout for zero-copy model booting. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/05_Procedural_Seed_Format/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/05_Procedural_Seed_Format/run_proof.py) |
+| **06** | **Chirp Packetization** | LoRa 255-byte frames packaging & XOR-FEC parity error healing. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/06_Chirp_Packetization/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/06_Chirp_Packetization/run_proof.py) |
+| **07** | **SVD/DCT Compression** | High-ratio SVD-DCT tensor factorizations for sub-millisecond parameter projection. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/07_SVD_DCT_Compression/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/07_SVD_DCT_Compression/run_proof.py) |
+| **08** | **LLD-AC Range Coding** | LLM-Logits-Driven adaptive arithmetic range coding. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/08_LLD_AC_Range_Coding/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/08_LLD_AC_Range_Coding/run_proof.py) |
+| **09** | **EPAUP Weight Projection** | Projects low-rank weights directly onto word embedding token matrices. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/09_EPAUP_Weight_Projection/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/09_EPAUP_Weight_Projection/run_proof.py) |
+| **10** | **Tokenizer Varint Coding** | Prefix-suffix varint differential token coder for 248K+ vocabularies. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/10_Tokenizer_Varint_Coding/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/10_Tokenizer_Varint_Coding/run_proof.py) |
+| **11** | **Multi-Language Runtimes** | Native compiled decoders across Rust, C++, Swift, TypeScript, Go, Java, Python. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/11_Multi_Language_Runtimes_Yang/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/11_Multi_Language_Runtimes_Yang/run_proof.py) |
+| **12** | **RCRA Resonance Alignment** | Fine-tuning and post-training using radical concept resonance loss. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/12_RCRA_Resonance_Alignment/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/12_RCRA_Resonance_Alignment/run_proof.py) |
+| **13** | **Brand Assets Artwork** | Cryptographic ZYMATICA angel seals, cuneiform glyph assets, and visual telemetry. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/13_Brand_Assets_Artwork/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/13_Brand_Assets_Artwork/run_proof.py) |
+| **14** | **Multi-Centroid Steering** | Dynamic English, CJK, and multilingual centroid hidden-state steering. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/14_Multi_Centroid_Steering/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/14_Multi_Centroid_Steering/run_proof.py) |
+| **15** | **Cognitive Observer** | Self-improving DNA cognitive loop, Reflexion agent lifecycle, and dynamic skill generator. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/15_Cognitive_Observer_Framework/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/15_Cognitive_Observer_Framework/run_proof.py) |
+| **16** | **Zero-RAM Meta Engine** | Layer-dispatching JIT parameter execution in VRAM without full-model RAM allocation. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/16_Zero_RAM_Meta/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/16_Zero_RAM_Meta/run_proof.py) |
+| **17** | **Hybrid Real-SVD Loading** | Full-rank retention in critical early attention blocks + SVD tail projection. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/17_Hybrid_Real_SVD_Loading/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/17_Hybrid_Real_SVD_Loading/run_proof.py) |
+| **18** | **Word Boundary Boosting** | Dynamic word-boundary logits steering offsets for punctuation and syntax synthesis. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/18_Word_Boundary_Boosting/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/18_Word_Boundary_Boosting/run_proof.py) |
+| **19** | **microByte JIT Inflation** | Inflates ultra-compact microByte capsules directly into active inference layers. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/19_microByte_Procedural_Inflation/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/19_microByte_Procedural_Inflation/run_proof.py) |
+| **20** | **Frontier Knowledge Relay** | Zero-context-cost 19 KB distilled knowledge relay package. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/20_Frontier_Knowledge_Relay/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/20_Frontier_Knowledge_Relay/run_proof.py) |
+| **21** | **Cuneiform Normalization** | Coordinate normalization scalars preventing FP16/BF16 numerical underflow. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/21_Cuneiform_Normalization_Scalar/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/21_Cuneiform_Normalization_Scalar/run_proof.py) |
+| **22** | **Zymatica Voice LLM** | Real-time neural speech synthesis with zlib audio compression & pre-fetching. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/22_Zymatica_Voice_LLM/zymatica_voice_llm_whitepaper.md) &bull; [app.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/22_Zymatica_Voice_LLM/app.py) |
+| **23** | **Zymatica Voice LoRa Guide** | Physical AI agent voice packet routing over off-grid LoRa hardware. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/23_Zymatica_Voice_Lora_Guide/Zymatica_Voice_Lora_Guide.md) &bull; [PDF Guide](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/23_Zymatica_Voice_Lora_Guide/Zymatica_Voice_Lora_Guide.pdf) |
+| **24** | **English Hidden-State Steering (EHSS)**| Online vocabulary gating, drift compensation, and semantic vector steering hooks. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/24_English_Hidden_State_Steering/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/24_English_Hidden_State_Steering/run_proof.py) |
+| **25** | **Activation-Aware SVD Residuals** | Dual-ridge regression error compensation mapping MLP output residuals. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/25_Activation_Aware_SVD_Residual_Holders/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/25_Activation_Aware_SVD_Residual_Holders/run_proof.py) |
+| **26** | **Closed-Loop Eigenspace Residual Recovery**| Persistent feedback loops and zero-materialization state cycling. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/26_Perpetual_Motion_Eigenspace_Loops/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/26_Perpetual_Motion_Eigenspace_Loops/run_proof.py) |
+| **27** | **Zymatica Inference Engine** | Unified 30-runtime multi-architecture execution inventory. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/27_Zymatica_Inference_Engine/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/27_Zymatica_Inference_Engine/run_proof.py) |
+
+---
+
+## 🔬 Live Kaggle Training Kernels
+
+The underlying neural priors are trained and verifiable on Kaggle:
+* 🧬 **[`Language-U-LLM` Kaggle Kernel](https://www.kaggle.com/code/dannybouldiez/language-u-llm)**: Fine-tuned Qwen 0.8B generative semantic prior for Language-U reconstruction.
+* 💎 **[`Gemma-4-31B-SVD-Compression` Kaggle Kernel](https://www.kaggle.com/code/dannybouldiez/gemma4-31b-svd-compression)**: SVD matrix factorizations and low-rank tensor compression for Gemma-4.
+
 ## ⚡ The 25+ Programming Language Implementation Matrix
 
 The **Cuneiform-U / Language-U 6D Inference Engine & Range Coder** has been natively implemented, benchmarked, and verified across **over 25 programming languages and runtime environments**, providing zero-dependency interoperability across any computing architecture:
