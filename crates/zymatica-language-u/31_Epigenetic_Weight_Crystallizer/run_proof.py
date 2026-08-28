@@ -53,8 +53,9 @@ def test_proof():
     crystal = EpigeneticCrystal(domain=5, rank=2, weights=weights, hash_val=0xDEADBEEF)
     packed = crystal.pack()
     print(f"[+] Ephemeral Crystal Serialization: {len(packed)} Bytes (LoRa Mesh Ready)")
+    assert len(packed) == 70, f"Expected 70 bytes, got {len(packed)}"
 
-    print("\n[PASS] CLASS 31 VERIFICATION: ZERO CATASTROPHIC FORGETTING PROVEN!")
+    print("\n[PASS] CLASS 31 VERIFICATION: SUBSPACES ACTIVATION INVARIANCE PROVEN!")
     print("=" * 65)
 
 if __name__ == "__main__":
