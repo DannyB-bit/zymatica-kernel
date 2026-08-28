@@ -1,3 +1,5 @@
+pub mod neural_swarm_hypergraph;
+pub mod unified_frontier_codec;
 ﻿pub mod agent_acp;
 pub mod agent_claw_migration;
 pub mod agent_compression;
