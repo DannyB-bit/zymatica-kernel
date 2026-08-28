@@ -1,3 +1,4 @@
+pub mod hyper_manifold_kv_folding;
 pub mod neural_swarm_hypergraph;
 pub mod unified_frontier_codec;
 ﻿pub mod agent_acp;
