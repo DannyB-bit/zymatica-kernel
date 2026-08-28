@@ -14,14 +14,14 @@
 
 <p align="center">
   <a href="https://zymatica.space/"><img src="https://img.shields.io/badge/Official_Website-ZYMATICA.SPACE-FFD700?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Zymatica Space"></a>
-  <a href="https://www.amazon.com"><img src="https://img.shields.io/badge/Available_on-AMAZON.COM-FF9900?style=for-the-badge&logo=amazon&logoColor=white" alt="Available on Amazon"></a>
+  <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Available_on-AMAZON.COM-FF9900?style=for-the-badge&logo=amazon&logoColor=white" alt="Available on Amazon"></a>
   <a href="https://github.com/DannyB-bit/zymatica.space"><img src="https://img.shields.io/badge/Flagship_Repo-zymatica.space-181717?style=for-the-badge&logo=github" alt="Flagship Repo"></a>
   <a href="https://github.com/DannyB-bit/zymatica-kernel"><img src="https://img.shields.io/badge/Kernel_Repo-zymatica--kernel-24292e?style=for-the-badge&logo=github" alt="Kernel Repo"></a>
   <a href="https://huggingface.co/TheAiCollectiveART"><img src="https://img.shields.io/badge/HuggingFace-Neural_Weights-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face"></a>
 </p>
 
 <p align="center">
-  <a href="https://www.amazon.com"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
+  <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
   <img src="https://img.shields.io/badge/Zero--Knowledge-Groth16_BN254-00C7B7?style=for-the-badge" alt="Zero-Knowledge">
   <img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U">
   <img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native">
