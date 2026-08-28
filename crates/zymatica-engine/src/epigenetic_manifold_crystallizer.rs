@@ -1,7 +1,7 @@
 //! # Invention Class 31: Zymatica Epigenetic Weight Crystallizer (Z-NEWM) - Production Hardened
 //!
 //! Features Modified Gram-Schmidt (MGS) Orthogonalization, Re-orthogonalization Checkpoints,
-//! and Iterative Numerical Drift Compensation to guarantee 0.00000000% catastrophic forgetting over 10M+ continuous updates.
+//! and Iterative Numerical Drift Compensation to ensure exact activation invariance across projected subspaces (A_old * ΔW = 0).
 
 pub struct EpigeneticCrystal {
     pub domain_id: u8,

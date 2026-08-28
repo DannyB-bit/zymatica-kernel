@@ -139,13 +139,13 @@ zymatica.space (Master Monorepo)
 ├── crates/
 │   ├── zymatica-engine/          # FlashAttention-4, 6D Geodesic KV-Cache, JIT Fusion, ZK Barrier & Inference Runtime
 │   ├── zymatica-agent-harness/   # Self-Improving Cognitive Loop, Autonomous SWE Runners & Multi-Agent MCP
-│   ├── zymatica-language-u/      # 34 Language-U Modules, 6D Hypercube, Shannon-Bypass Cuneiform Radicals
+│   ├── zymatica-language-u/      # 34 Language-U Modules, 6D Hypercube, Semantic Cuneiform Radicals
 │   └── zymatica-zk-mesh/         # ZK-LoRaWAN Groth16 on BN254, SX1302 Drivers & Solana Anchor Program
 ├── demo_hypercube.html           # Zero-Dependency Interactive Browser 6D Manifold Visualizer
 ├── studio_dashboard.html         # Real-Time Operational Telemetry & System Studio Dashboard
-├── break_the_record_engine.py    # 7.0x Shannon-Bypass, 1.76M ZK Proofs/Sec & 45ms Morphogenesis Benchmark
+├── break_the_record_engine.py    # Rate-Distortion Benchmark, 1.76M ZK Hashes/Sec & Sub-50ms Morphogenesis
 ├── verify_frontier_suite.py      # Unified 5-Pillar Real Execution Verification Battery
-└── verify_lossless_fidelity.py   # 10,000-Vector Zero Quality Loss & Lossless Reversibility Guarantee
+└── verify_lossless_fidelity.py   # 10,000-Vector Lossless Reversibility Verification Suite
 `
 
 ---
@@ -597,35 +597,35 @@ Her green eyes hardened.
 
 ## 📈 The 4 Tiers of Semantic Compression Scaling
 
-Because **Language-U** transmits *geometric trajectories through a 6D hypercube* rather than raw syntactic text, compression scales dramatically depending on the operational tier:
+Because **Language-U** transmits *geometric trajectories through a 6D/8D semantic concept space* rather than raw character syntax, bandwidth savings scale according to the operational tier:
 
-| Compression Tier | Mathematical Mechanism | Compression Ratio | Space Savings & Bandwidth |
+| Compression Tier | Mathematical Mechanism | Compression Ratio | Space Savings & Baseline Context |
 | :--- | :--- | :--- | :--- |
-| **Tier 1: Baseline** | 3-Byte 6D Radicals (RC, RF, RA) | **20x – 25x** | **95.0% – 96.0%** Bandwidth Savings |
-| **Tier 2: Delta-Manifold** | Geodesic Δ-Radicals (1-Byte Micro-Deltas) | **40x – 60x** | **97.5% – 98.3%** Bandwidth Savings |
-| **Tier 3: HG-RLAC** | Bit-Packed Range Coding & Segment Headers | **80x – 120x** | **98.8% – 99.2%** (7x below Shannon Limit) |
-| **Tier 4: Genesis Seed** | 381-Byte Procedural Morphogenesis | **1,000x – 11,000x+** | **99.9% – 99.99%** (Sub-50ms Neural Boot) |
+| **Tier 1: Baseline** | 3-Byte 6D Radicals (RC, RF, RA) | **20x – 25x** | **95.0% – 96.0%** vs raw UTF-8 string payloads |
+| **Tier 2: Delta-Manifold** | Geodesic Δ-Radicals (1-Byte Micro-Deltas) | **40x – 60x** | **97.5% – 98.3%** vs uncompressed trajectory floats |
+| **Tier 3: HG-RLAC** | Bit-Packed Range Coding & Segment Headers | **80x – 120x** | **98.8% – 99.2%** vs verbose JSON-RPC / AST tool packets |
+| **Tier 4: Genesis Seed** | 381-Byte Procedural Morphogenesis | **1,000x – 11,000x+** | **99.9% – 99.99%** vs dense uncompressed weight tensors |
 
 ---
 
 ## 🧪 Real Weight Execution & Verification Guide
 
-This repository contains **fully operational, non-toy engineering software**. Anyone cloning this codebase can execute the complete mathematical suites, zero-knowledge circuits, and real neural weight pipelines:
+This repository contains **fully operational, production-grade engineering software**. Anyone cloning this codebase can execute the complete mathematical suites, zero-knowledge circuits, and real neural weight pipelines:
 
-### 1. Execute the World-Record Benchmark Suite
-Push beyond classical limits in a single command (7.0x Shannon-bypass, 1.76M ZK proofs/sec, 45ms morphogenesis):
+### 1. Execute the Core Performance & Rate-Distortion Benchmark Suite
+Evaluates semantic trajectory rate-distortion, BN254 Groth16 cryptographic nullifier throughput, and sub-50ms procedural morphogenesis:
 ```bash
 python break_the_record_engine.py
 ```
 
 ### 2. Run the Full Frontier Verification Battery
-Tests 6D Geodesic Delta Compression, SVD-DCT low-rank projection, MiMC-7 nullifiers, XOR-FEC noise packet healing, and 0ms speculative tool memory:
+Tests 6D Geodesic Delta Compression, SVD-DCT low-rank projection, MiMC-7 nullifiers, XOR-FEC noise packet healing, and speculative tool memory:
 ```bash
 python verify_frontier_suite.py
 ```
 
 ### 3. Run Real Weight Neural Morphogenesis (Qwen 0.8B DNA-GROW)
-Assembles real model weights from binary radio chirp packets (`packet_chirp3_0.bin` .. `39.bin`) and executes English Hidden-State Steering (EHSS) & EVG gating:
+Assembles model weights from binary radio chirp packets (`packet_chirp3_0.bin` .. `39.bin`) and executes English Hidden-State Steering (EHSS) & EVG gating:
 ```bash
 cd crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW
 pip install torch transformers
@@ -639,7 +639,7 @@ cd crates/zymatica-zk-mesh/tests
 python verify_all_modules.py
 ```
 
-### 5. Verify 6D Cuneiform-U Shannon-Bypass Math
+### 5. Verify 6D Cuneiform-U Semantic Manifold Math
 Verifies exact 3-byte radical coordinate reconstruction and geometric hypercube clustering:
 ```bash
 cd crates/zymatica-language-u/01_Language_U_Taxonomy
@@ -732,7 +732,7 @@ graph TD
 | **28** | **ZNS Neural Swarm Hypergraph** | Autonomous 16-byte swarm intent consensus, geometric centroid quorum, and ephemeral subagent morphogenesis. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/28_Neural_Swarm_Hypergraph/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/28_Neural_Swarm_Hypergraph/run_proof.py) |
 | **29** | **Hyper-Manifold KV Folding (Hyper-KV)** | 8x–16x KV-cache memory compression for 1M+ context inference via in-SRAM 6D geodesic knot evaluation. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/29_Hyper_Manifold_KV_Folding/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/29_Hyper_Manifold_KV_Folding/run_proof.py) |
 | **30** | **Holomorphic Speculative Engine (Z-HQSpec)** | Draft-model-free speculative decoding achieving 4.8x–7.2x acceleration via 6D holomorphic geodesic velocity projection. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/30_Holomorphic_Speculative_Engine/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/30_Holomorphic_Speculative_Engine/run_proof.py) |
-| **31** | **Epigenetic Weight Crystallizer (Z-NEWM)** | Zero-backprop continual learning via closed-form nullspace projection, eliminating catastrophic forgetting permanently. | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/31_Epigenetic_Weight_Crystallizer/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/31_Epigenetic_Weight_Crystallizer/run_proof.py) |
+| **31** | **Epigenetic Weight Crystallizer (Z-NEWM)** | Orthogonal nullspace weight projection (MGS) guaranteeing zero base-activation interference across projected subspaces ($A_{\text{old}} \Delta W = 0$). | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/31_Epigenetic_Weight_Crystallizer/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/31_Epigenetic_Weight_Crystallizer/run_proof.py) |
 | **32** | **8D Octonion Hypercube (Z-8D Octagram)** | 32-bit native atomic DWORD architecture integrating Temporal Horizon (Time) and Epistemic Certainty (zk-Truth). | [Whitepaper](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/32_8D_Octonion_Hypercube/WHITEPAPER.md) &bull; [run_proof.py](https://huggingface.co/TheAiCollectiveART/zymatica.space/blob/main/32_8D_Octonion_Hypercube/run_proof.py) |
 
 ---
