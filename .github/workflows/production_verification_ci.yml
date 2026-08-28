@@ -1,0 +1,42 @@
+name: Zymatica Production Engine CI/CD & Fuzzing Battery
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  multi-arch-build-and-test:
+    name: Multi-Architecture Native Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        rust: [stable]
+
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ matrix.rust }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Master 4-Pillars Verification Suite
+        run: |
+          python crates/zymatica-language-u/unified_polyglot_pillars/unified_four_pillars_engine.py
+
+      - name: Execute 8D Octonion Stress Harness
+        run: |
+          python crates/zymatica-language-u/32_8D_Octonion_Hypercube/run_proof.py
+
+      - name: Execute Epigenetic Nullspace Continual Learning Proof
+        run: |
+          python crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/run_proof.py
