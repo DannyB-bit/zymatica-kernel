@@ -115,7 +115,17 @@ impl EphemeralSubagentSpawner {
     }
 }
 
-/// Swarm Multi-Node Hypergraph Consensus Engine
+/// Swarm Quorum Certificate establishing authenticated agreement across nodes
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct SwarmQuorumCertificate {
+    pub epoch: u8,
+    pub participant_nodes: Vec<u8>,
+    pub total_weight: u32,
+    pub consensus_trajectory: [u8; 6],
+    pub certificate_hash: u32,
+}
+
+/// Swarm Multi-Node Hypergraph Consensus Engine with Identity Authentication and Sybil Replay Guards
 pub struct SwarmConsensusEngine {
     pub registered_nodes: Vec<u8>,
     pub pending_proposals: HashMap<u8, Vec<SwarmIntentChirp>>,
@@ -129,14 +139,26 @@ impl SwarmConsensusEngine {
         }
     }
 
-    pub fn submit_intent(&mut self, chirp: SwarmIntentChirp) {
-        self.pending_proposals
-            .entry(chirp.swarm_epoch)
-            .or_default()
-            .push(chirp);
+    /// Submit a verified swarm intent proposal from an authorized registered node
+    pub fn submit_intent(&mut self, chirp: SwarmIntentChirp) -> Result<(), &'static str> {
+        // Enforce membership verification
+        if !self.registered_nodes.contains(&chirp.sender_node_id) {
+            return Err("Unauthorized node ID: sender is not in the registered swarm membership set");
+        }
+
+        let proposals = self.pending_proposals.entry(chirp.swarm_epoch).or_default();
+
+        // Enforce one vote per registered node per epoch (prevent duplicate/Sybil replay)
+        if proposals.iter().any(|p| p.sender_node_id == chirp.sender_node_id) {
+            return Err("Duplicate vote detected: node has already submitted a proposal for this epoch");
+        }
+
+        proposals.push(chirp);
+        Ok(())
     }
 
-    pub fn resolve_consensus(&self, epoch: u8, quorum_threshold: usize) -> Option<[u8; 6]> {
+    /// Resolve weighted centroid consensus with quorum certificate generation
+    pub fn resolve_consensus(&self, epoch: u8, quorum_threshold: usize) -> Option<SwarmQuorumCertificate> {
         let proposals = self.pending_proposals.get(&epoch)?;
         if proposals.len() < quorum_threshold {
             return None;
@@ -144,10 +166,12 @@ impl SwarmConsensusEngine {
 
         let mut sum_coords = [0u32; 6];
         let mut total_weight = 0u32;
+        let mut participants = Vec::new();
 
         for p in proposals {
             let w = p.consensus_weight as u32;
             total_weight += w;
+            participants.push(p.sender_node_id);
             for i in 0..6 {
                 sum_coords[i] += (p.concept_trajectory[i] as u32) * w;
             }
@@ -162,7 +186,23 @@ impl SwarmConsensusEngine {
             consensus_coords[i] = ((sum_coords[i] + total_weight / 2) / total_weight) as u8;
         }
 
-        Some(consensus_coords)
+        let mut cert_hash = 0x811c9dc5u32;
+        cert_hash ^= epoch as u32;
+        cert_hash = cert_hash.wrapping_mul(0x01000193);
+        cert_hash ^= total_weight;
+        cert_hash = cert_hash.wrapping_mul(0x01000193);
+        for &c in &consensus_coords {
+            cert_hash ^= c as u32;
+            cert_hash = cert_hash.wrapping_mul(0x01000193);
+        }
+
+        Some(SwarmQuorumCertificate {
+            epoch,
+            participant_nodes: participants,
+            total_weight,
+            consensus_trajectory: consensus_coords,
+            certificate_hash: cert_hash,
+        })
     }
 }
 
@@ -195,20 +235,26 @@ mod tests {
     }
 
     #[test]
-    fn test_swarm_hypergraph_quorum_consensus() {
+    fn test_swarm_hypergraph_quorum_consensus_with_auth_and_certificates() {
         let nodes = vec![1, 2, 3];
         let mut engine = SwarmConsensusEngine::new(nodes);
 
         let c1 = SwarmIntentChirp::new(1, 10, 1, 1, 0x01, [10, 20, 30, 40, 50, 60]);
         let c2 = SwarmIntentChirp::new(2, 10, 1, 1, 0x01, [12, 22, 32, 42, 52, 62]);
         let c3 = SwarmIntentChirp::new(3, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
+        let c_unauth = SwarmIntentChirp::new(99, 10, 1, 1, 0x01, [11, 21, 31, 41, 51, 61]);
 
-        engine.submit_intent(c1);
-        engine.submit_intent(c2);
+        assert!(engine.submit_intent(c_unauth).is_err(), "Unauthorized node must be rejected");
+        assert!(engine.submit_intent(c1).is_ok());
+        assert!(engine.submit_intent(c1).is_err(), "Duplicate submission in same epoch must be rejected");
+        assert!(engine.submit_intent(c2).is_ok());
+
         assert_eq!(engine.resolve_consensus(10, 3), None);
 
-        engine.submit_intent(c3);
-        let consensus = engine.resolve_consensus(10, 3).expect("Quorum reached");
-        assert_eq!(consensus, [11, 21, 31, 41, 51, 61]);
+        assert!(engine.submit_intent(c3).is_ok());
+        let cert = engine.resolve_consensus(10, 3).expect("Quorum reached");
+        assert_eq!(cert.consensus_trajectory, [11, 21, 31, 41, 51, 61]);
+        assert_eq!(cert.epoch, 10);
+        assert_eq!(cert.participant_nodes.len(), 3);
     }
 }

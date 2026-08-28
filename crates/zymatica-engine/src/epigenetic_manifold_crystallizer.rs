@@ -11,6 +11,8 @@ pub struct EpigeneticCrystal {
 }
 
 impl EpigeneticCrystal {
+    pub const WIRE_BYTE_LEN: usize = 70; // 1 (domain) + 1 (rank) + 64 (16 x f32) + 4 (hash) = 70 bytes
+
     pub fn new(domain: u8, rank: u8, weights: [f32; 16], hash: u32) -> Self {
         Self {
             domain_id: domain,
@@ -20,8 +22,8 @@ impl EpigeneticCrystal {
         }
     }
 
-    pub fn to_bytes(&self) -> [u8; 64] {
-        let mut out = [0u8; 64];
+    pub fn to_bytes(&self) -> [u8; 70] {
+        let mut out = [0u8; 70];
         out[0] = self.domain_id;
         out[1] = self.nullspace_basis_rank;
         for (i, &w) in self.crystal_weights.iter().enumerate() {
@@ -29,11 +31,11 @@ impl EpigeneticCrystal {
             out[2 + i * 4..6 + i * 4].copy_from_slice(&b);
         }
         let h_bytes = self.activation_hash.to_be_bytes();
-        out[60..64].copy_from_slice(&h_bytes);
+        out[66..70].copy_from_slice(&h_bytes);
         out
     }
 
-    pub fn from_bytes(bytes: &[u8; 64]) -> Self {
+    pub fn from_bytes(bytes: &[u8; 70]) -> Self {
         let domain = bytes[0];
         let rank = bytes[1];
         let mut weights = [0.0f32; 16];
@@ -41,7 +43,7 @@ impl EpigeneticCrystal {
             let b = [bytes[2 + i * 4], bytes[3 + i * 4], bytes[4 + i * 4], bytes[5 + i * 4]];
             weights[i] = f32::from_be_bytes(b);
         }
-        let hash = u32::from_be_bytes([bytes[60], bytes[61], bytes[62], bytes[63]]);
+        let hash = u32::from_be_bytes([bytes[66], bytes[67], bytes[68], bytes[69]]);
         Self {
             domain_id: domain,
             nullspace_basis_rank: rank,
@@ -99,5 +101,53 @@ impl EpigeneticManifoldEngine {
         }
 
         v
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_epigenetic_crystal_70byte_wire_roundtrip() {
+        let mut weights = [0.0f32; 16];
+        for i in 0..16 {
+            weights[i] = (i as f32) * 1.5 - 4.0;
+        }
+        let crystal = EpigeneticCrystal::new(7, 3, weights, 0xCAFEBABE);
+        let bytes = crystal.to_bytes();
+        assert_eq!(bytes.len(), 70);
+        assert_eq!(bytes.len(), EpigeneticCrystal::WIRE_BYTE_LEN);
+
+        let decoded = EpigeneticCrystal::from_bytes(&bytes);
+        assert_eq!(decoded.domain_id, 7);
+        assert_eq!(decoded.nullspace_basis_rank, 3);
+        assert_eq!(decoded.activation_hash, 0xCAFEBABE);
+        for i in 0..16 {
+            assert!((decoded.crystal_weights[i] - weights[i]).abs() < 1e-7);
+        }
+    }
+
+    #[test]
+    fn test_mgs_nullspace_projection_orthogonality() {
+        let mut engine = EpigeneticManifoldEngine::new(4);
+        let base_basis = vec![
+            vec![1.0, 0.0, 0.0, 0.0],
+            vec![0.0, 1.0, 0.0, 0.0],
+        ];
+        let new_concept = vec![3.0, 4.0, 5.0, 6.0];
+
+        let projected = engine.compute_nullspace_projection_mgs(&base_basis, &new_concept);
+        assert_eq!(projected.len(), 4);
+
+        // Projected vector must be orthogonal to all base basis vectors
+        for b in &base_basis {
+            let dot: f32 = b.iter().zip(&projected).map(|(&x, &y)| x * y).sum();
+            assert!(dot.abs() < 1e-6, "Dot product with basis should be zero, got {}", dot);
+        }
+
+        // Remaining components in orthogonal subspace should be preserved
+        assert!((projected[2] - 5.0).abs() < 1e-6);
+        assert!((projected[3] - 6.0).abs() < 1e-6);
     }
 }

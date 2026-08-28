@@ -145,9 +145,9 @@ impl ZKLoRaWANProver {
         let gateway_part2_fr = Fr::from_le_bytes_mod_order(&part2_bytes);
 
         // Compute the public hashes
-        let identity_hash = circuit::mimc_hash(private_key_fr, None, &self.constants);
+        let nonce_fr = Fr::from(9999u64);
         let nullifier_hash =
-            circuit::mimc_hash(private_key_fr, Some(Fr::from(9999u64)), &self.constants);
+            circuit::mimc_hash(private_key_fr, Some(nonce_fr), &self.constants);
         let attestation_hash =
             circuit::mimc_hash(private_key_fr, Some(firmware_hash_fr), &self.constants);
         let ciphertext_hash =
@@ -159,6 +159,7 @@ impl ZKLoRaWANProver {
         let proof = circuit::generate_proof(
             &self.proving_key,
             private_key_fr,
+            nonce_fr,
             decryption_key_fr,
             coordinate_fr,
             firmware_hash_fr,
@@ -377,10 +378,12 @@ fn main() {
             let part2_bytes = [0u8; 32];
             let gateway_part2_fr = Fr::from_le_bytes_mod_order(&part2_bytes);
 
+            let nonce_fr = Fr::from(9999u64);
             let mut rng = rand::thread_rng();
             let proof = circuit::generate_proof(
                 &prover.proving_key,
                 private_key_fr,
+                nonce_fr,
                 decryption_key_fr,
                 coordinate_fr,
                 firmware_hash_fr,

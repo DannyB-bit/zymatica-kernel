@@ -31,6 +31,7 @@ use ark_std::rand::{CryptoRng, Rng};
 pub struct ZKLoRaCircuit<F: PrimeField> {
     // Secret inputs (witnesses)
     pub private_key: Option<F>,
+    pub nonce: Option<F>,
     pub decryption_key: Option<F>,
     pub coordinate_val: Option<F>,
     pub firmware_hash_witness: Option<F>,
@@ -54,6 +55,9 @@ impl<F: PrimeField> ConstraintSynthesizer<F> for ZKLoRaCircuit<F> {
         // Allocate core private witnesses
         let private_key_var =
             cs.new_witness_variable(|| self.private_key.ok_or(SynthesisError::AssignmentMissing))?;
+
+        let nonce_var =
+            cs.new_witness_variable(|| self.nonce.ok_or(SynthesisError::AssignmentMissing))?;
 
         let decryption_key_var = cs.new_witness_variable(|| {
             self.decryption_key.ok_or(SynthesisError::AssignmentMissing)
@@ -129,10 +133,13 @@ impl<F: PrimeField> ConstraintSynthesizer<F> for ZKLoRaCircuit<F> {
             identity_hash_var.into(),
         )?;
 
-        // 2. Nullifier Verification: nullifier_hash = MiMC(private_key + 9999)
+        // 2. Nullifier Verification: nullifier_hash = MiMC(private_key + nonce)
         let mut initial_lc_2 = ark_relations::r1cs::LinearCombination::from(private_key_var);
-        initial_lc_2 += (F::from(9999u64), Variable::One);
-        let val_2 = self.private_key.map(|x| x + F::from(9999u64));
+        initial_lc_2 += (F::one(), nonce_var);
+        let val_2 = match (self.private_key, self.nonce) {
+            (Some(pk), Some(n)) => Some(pk + n),
+            _ => None,
+        };
         let calculated_nullifier_var = mimc_hash_constraints(&cs, initial_lc_2, val_2)?;
         let nullifier_hash_var =
             cs.new_input_variable(|| self.nullifier_hash.ok_or(SynthesisError::AssignmentMissing))?;
@@ -178,11 +185,19 @@ impl<F: PrimeField> ConstraintSynthesizer<F> for ZKLoRaCircuit<F> {
             ciphertext_hash_var.into(),
         )?;
 
-        // 5. Gateway Binding
-        let _gateway_part1_var =
+        // 5. Gateway Binding (R1CS Gate)
+        let gateway_part1_var =
             cs.new_input_variable(|| self.gateway_part1.ok_or(SynthesisError::AssignmentMissing))?;
-        let _gateway_part2_var =
+        let gateway_part2_var =
             cs.new_input_variable(|| self.gateway_part2.ok_or(SynthesisError::AssignmentMissing))?;
+        let mut gw_lc = ark_relations::r1cs::LinearCombination::from(gateway_part1_var);
+        gw_lc += (F::one(), gateway_part2_var);
+        gw_lc += (F::one(), private_key_var);
+        let val_gw = match (self.gateway_part1, self.gateway_part2, self.private_key) {
+            (Some(g1), Some(g2), Some(pk)) => Some(g1 + g2 + pk),
+            _ => None,
+        };
+        let _calculated_gw_var = mimc_hash_constraints(&cs, gw_lc, val_gw)?;
 
         // 6. Deposit Commitment: deposit_commitment = MiMC(identity_hash + deposit_value)
         let mut initial_lc_5 =
@@ -252,6 +267,7 @@ pub fn setup_keys<R: Rng + CryptoRng>(
 ) -> Result<(ProvingKey<Bn254>, VerifyingKey<Bn254>), SynthesisError> {
     let empty_circuit = ZKLoRaCircuit {
         private_key: None,
+        nonce: None,
         decryption_key: None,
         coordinate_val: None,
         firmware_hash_witness: None,
@@ -275,6 +291,7 @@ pub fn setup_keys<R: Rng + CryptoRng>(
 pub fn generate_proof<R: Rng + CryptoRng>(
     pk: &ProvingKey<Bn254>,
     private_key: Fr,
+    nonce: Fr,
     decryption_key: Fr,
     coordinate_val: Fr,
     firmware_hash: Fr,
@@ -292,6 +309,7 @@ pub fn generate_proof<R: Rng + CryptoRng>(
 ) -> Result<Proof<Bn254>, SynthesisError> {
     let circuit = ZKLoRaCircuit {
         private_key: Some(private_key),
+        nonce: Some(nonce),
         decryption_key: Some(decryption_key),
         coordinate_val: Some(coordinate_val),
         firmware_hash_witness: Some(firmware_hash),

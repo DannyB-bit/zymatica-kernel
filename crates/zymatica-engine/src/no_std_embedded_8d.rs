@@ -1,7 +1,6 @@
 //! # Invention: Zymatica Bare-Metal Embedded 8D Engine (no_std)
 //! Zero-heap-allocation, fixed-stack-array 8D concept engine for microcontrollers (ARM Cortex, ESP32, STM32, RISC-V).
 
-#![no_std]
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct EmbeddedConcept8D {

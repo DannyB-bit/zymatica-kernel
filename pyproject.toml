@@ -10,7 +10,7 @@ readme = "README.md"
 authors = [
     { name = "Danny Bouldiez | Devs One", email = "contact@zymatica.space" }
 ]
-license = { text = "MIT" }
+license = { text = "Zymatica Commercial & Novel-Holder Covenant License 2.0" }
 keywords = ["semantic-communication", "lora", "compression", "inference-engine", "cuneiform"]
 classifiers = [
     "Programming Language :: Python :: 3",

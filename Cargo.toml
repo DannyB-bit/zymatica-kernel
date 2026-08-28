@@ -1,7 +1,6 @@
-﻿[workspace]
+[workspace]
 members = [
     "crates/zymatica-zk-mesh/groth16",
-    "crates/zymatica-zk-mesh/programs/zk_lorawan",
     "crates/zymatica-engine",
     "crates/zymatica-language-u/01_Language_U_Taxonomy/src/rust",
     "crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/src/rust",

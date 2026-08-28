@@ -1,0 +1,9 @@
+/target
+Cargo.lock
+**/*.rs.bk
+*.pdb
+*.exe
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

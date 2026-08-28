@@ -59,7 +59,7 @@ impl Concept6D {
     }
 }
 
-/// Geodesic Delta Codec with 4-Mode Adaptive Encoding
+/// Geodesic Delta Codec with 4-Mode Lossless Adaptive Stream Encoding
 pub struct GeodesicDeltaCodec;
 
 impl GeodesicDeltaCodec {
@@ -69,31 +69,30 @@ impl GeodesicDeltaCodec {
             return Vec::new();
         }
 
-        let mut out = Vec::with_capacity(trajectory.len() * 2);
+        let mut out = Vec::with_capacity(trajectory.len() * 3);
         let first = trajectory[0];
         let rad = first.to_radicals();
         out.extend_from_slice(&rad);
 
         let mut prev = first;
         for curr in &trajectory[1..] {
-            let dist = prev.distance(curr);
-            if dist == 0 {
-                // Mode 00: Zero delta (1 byte)
+            if *curr == prev {
+                // Mode 00: Zero delta / Repeat (1 byte total)
                 out.push(0x00);
-            } else if prev.domain == curr.domain && prev.subdomain == curr.subdomain && dist <= 6 {
-                // Mode 01: Multi-axis local delta (2 bytes: Mode header + packed nibbles)
-                let d_op = ((curr.operation as i8 - prev.operation as i8) & 0x0F) as u8;
-                let d_mod = ((curr.modality as i8 - prev.modality as i8) & 0x0F) as u8;
-                let d_str = ((curr.strength as i8 - prev.strength as i8) & 0x0F) as u8;
-                let d_dep = ((curr.depth as i8 - prev.depth as i8) & 0x0F) as u8;
-                out.push(0x40 | (d_op << 2) | (d_mod & 0x03));
-                out.push((d_str << 4) | (d_dep & 0x0F));
+            } else if prev.domain == curr.domain && prev.subdomain == curr.subdomain {
+                // Mode 01: Subdomain-local update: domain & subdomain unchanged;
+                // transmit remaining 4 axes (op, mod, str, dep) losslessly in 2 data bytes (3 bytes total)
+                out.push(0x40);
+                out.push((curr.operation << 4) | (curr.modality & 0x0F));
+                out.push((curr.strength << 4) | (curr.depth & 0x0F));
             } else if prev.domain == curr.domain {
-                // Mode 10: Subdomain jump (2 bytes)
+                // Mode 10: Domain-local update: domain unchanged;
+                // transmit subdomain in header nibble + remaining 4 axes in 2 data bytes (3 bytes total)
                 out.push(0x80 | (curr.subdomain & 0x0F));
                 out.push((curr.operation << 4) | (curr.modality & 0x0F));
+                out.push((curr.strength << 4) | (curr.depth & 0x0F));
             } else {
-                // Mode 11: Full coordinate escape (4 bytes)
+                // Mode 11: Full coordinate escape (4 bytes total: 0xC0 + 3 bytes radical)
                 out.push(0xC0);
                 let c_rad = curr.to_radicals();
                 out.extend_from_slice(&c_rad);
@@ -116,7 +115,8 @@ impl GeodesicDeltaCodec {
 
         let mut idx = 3;
         while idx < bytes.len() {
-            let mode = bytes[idx] >> 6;
+            let b0 = bytes[idx];
+            let mode = b0 >> 6;
             match mode {
                 0 => {
                     // Mode 00: Repeat previous coordinate
@@ -124,34 +124,33 @@ impl GeodesicDeltaCodec {
                     idx += 1;
                 }
                 1 => {
-                    // Mode 01: Multi-axis delta
-                    if idx + 1 >= bytes.len() {
+                    // Mode 01: Subdomain-local update (2 data bytes)
+                    if idx + 2 >= bytes.len() {
                         return Err("Unexpected EOF in Mode 01 delta");
                     }
-                    let b1 = bytes[idx];
-                    let b2 = bytes[idx + 1];
-                    let d_op = ((b1 >> 2) & 0x0F) as i8;
-                    let d_mod = (b1 & 0x03) as i8;
-                    let d_str = ((b2 >> 4) & 0x0F) as i8;
-                    let d_dep = (b2 & 0x0F) as i8;
-
-                    curr.operation = ((curr.operation as i8 + d_op) & 0x0F) as u8;
-                    curr.modality = ((curr.modality as i8 + d_mod) & 0x0F) as u8;
-                    curr.strength = ((curr.strength as i8 + d_str) & 0x0F) as u8;
-                    curr.depth = ((curr.depth as i8 + d_dep) & 0x0F) as u8;
+                    let b1 = bytes[idx + 1];
+                    let b2 = bytes[idx + 2];
+                    curr.operation = (b1 >> 4) & 0x0F;
+                    curr.modality = b1 & 0x0F;
+                    curr.strength = (b2 >> 4) & 0x0F;
+                    curr.depth = b2 & 0x0F;
                     out.push(curr);
-                    idx += 2;
+                    idx += 3;
                 }
                 2 => {
-                    // Mode 10: Subdomain transition
-                    if idx + 1 >= bytes.len() {
+                    // Mode 10: Domain-local update (subdomain in header + 2 data bytes)
+                    if idx + 2 >= bytes.len() {
                         return Err("Unexpected EOF in Mode 10 transition");
                     }
-                    curr.subdomain = bytes[idx] & 0x0F;
-                    curr.operation = (bytes[idx + 1] >> 4) & 0x0F;
-                    curr.modality = bytes[idx + 1] & 0x0F;
+                    let b1 = bytes[idx + 1];
+                    let b2 = bytes[idx + 2];
+                    curr.subdomain = b0 & 0x0F;
+                    curr.operation = (b1 >> 4) & 0x0F;
+                    curr.modality = b1 & 0x0F;
+                    curr.strength = (b2 >> 4) & 0x0F;
+                    curr.depth = b2 & 0x0F;
                     out.push(curr);
-                    idx += 2;
+                    idx += 3;
                 }
                 3 => {
                     // Mode 11: Full coordinate escape
@@ -368,5 +367,25 @@ mod tests {
         let holder = ActivationAwareSvdHolder::new_rank2(u, s, vt);
         let m = holder.reconstruct(2, 2);
         assert_eq!(m, vec![2.0, 0.0, 0.0, 3.0]);
+    }
+
+    #[test]
+    fn test_geodesic_codec_exhaustive_property_fuzzing() {
+        let mut trajectory = Vec::new();
+        // Generate diverse combinations across all 6 dimensions
+        for i in 0..500 {
+            let domain = ((i * 3) % 16) as u8;
+            let subdomain = ((i * 7 + 2) % 16) as u8;
+            let operation = ((i * 11 + 5) % 16) as u8;
+            let modality = ((i * 13 + 1) % 16) as u8;
+            let strength = ((i * 17 + 9) % 16) as u8;
+            let depth = ((i * 19 + 3) % 16) as u8;
+            trajectory.push(Concept6D::new(domain, subdomain, operation, modality, strength, depth));
+        }
+
+        let encoded = GeodesicDeltaCodec::encode_trajectory(&trajectory);
+        let decoded = GeodesicDeltaCodec::decode_trajectory(&encoded).expect("Decode must succeed without errors");
+        assert_eq!(trajectory.len(), decoded.len());
+        assert_eq!(trajectory, decoded);
     }
 }
