@@ -44,10 +44,25 @@
 
 ## 🏛️ Foundational Research Assets on Hugging Face
 
-The mathematical, morphogenetic, and polyglot compression foundations of the Zymatica ecosystem are deployed and verifiable across official open model and specification repositories:
+The mathematical, morphogenetic, WebGL runtime, and 5-language polyglot compression foundations of the Zymatica ecosystem are deployed and verifiable across official open model and specification repositories:
 
 | Foundation | Repository on Hugging Face | Computational Architecture & Role |
 | :--- | :--- | :--- |
+| 📜 **Genesis Format Standard** | **[`TheAiCollectiveART/genesis-format-spec`](https://huggingface.co/TheAiCollectiveART/genesis-format-spec)** | 381-byte procedural Genesis seed binary format specification for deterministic model morphogenesis. |
+| 🔀 **S-PAUP JIT Router** | **[`TheAiCollectiveART/S-PAUP-JIT-Weights-Router`](https://huggingface.co/TheAiCollectiveART/S-PAUP-JIT-Weights-Router)** | Sub-millisecond JIT weight routing engine dynamically swapping parameter tensors from 6D coordinates. |
+| 🌐 **WebGL Inference Engine** | **[`TheAiCollectiveART/language-u-webgl-inference-engine`](https://huggingface.co/TheAiCollectiveART/language-u-webgl-inference-engine)** | Zero-dependency client-side WebGL GPU engine executing 6D Language-U tensor operations in the browser. |
+| 🧬 **DNA-GROW Morphogenesis** | **[`TheAiCollectiveART/qwen-3.5-0.8b-DNA-GROW`](https://huggingface.co/TheAiCollectiveART/qwen-3.5-0.8b-DNA-GROW)** | 381-byte procedural seeds + morphogenetic tensor expansion for sub-50ms cold-start neural booting. |
+| 📡 **28-Chirp Over-the-Air Weights** | **[`TheAiCollectiveART/qwen-3.5-0.8b-28chirps`](https://huggingface.co/TheAiCollectiveART/qwen-3.5-0.8b-28chirps)** | Real-world physical LoRa chirp series for over-the-air model reconstruction without Internet. |
+| 💎 **Gemma-4 Language-U** | **[`TheAiCollectiveART/Gemma-4-Language-U`](https://huggingface.co/TheAiCollectiveART/Gemma-4-Language-U)** | Gemma-4 architecture aligned for English Hidden-State Steering (EHSS) and 6D manifold translation. |
+| 🧮 **LoRA Operator Suite** | **[`TheAiCollectiveART/LORA-OPERATOR`](https://huggingface.co/TheAiCollectiveART/LORA-OPERATOR)** | Closed-form algebraic low-rank tensor operators for real-time weights projection & residual recovery. |
+| 🦀 **UFO Compression (Rust)** | **[`TheAiCollectiveART/UFO-Compression-Rust`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Rust)** | Ultra-high throughput SIMD Rust codec for 6D semantic radical packing and variable-length deltas. |
+| ⚡ **UFO Compression (C++20)** | **[`TheAiCollectiveART/UFO-Compression-CPP`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-CPP)** | Zero-copy C++20 implementation for embedded microcontrollers, ESP32, and robotic edge nodes. |
+| 🐹 **UFO Compression (Go)** | **[`TheAiCollectiveART/UFO-Compression-Go`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Go)** | Concurrent Goroutine semantic compression microservice for mesh relays and LoRaWAN gateways. |
+| ☕ **UFO Compression (Java)** | **[`TheAiCollectiveART/UFO-Compression-Java`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Java)** | Enterprise JVM and native Android edge semantic codec with zero external runtime dependencies. |
+| 🐍 **UFO Compression (Python)** | **[`TheAiCollectiveART/UFO-Compression-Python`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Python)** | PyTorch / NumPy reference research codec for machine learning and evaluation harnesses. |
+| 📦 **LLM Capsule Standard** | **[`TheAiCollectiveART/llm-capsule-spec`](https://huggingface.co/TheAiCollectiveART/llm-capsule-spec)** | Deterministic standalone binary container format for zero-dependency local agent deployment. |
+
+--- | :--- | :--- |
 | 🧬 **DNA-GROW Morphogenesis** | **[`TheAiCollectiveART/qwen-3.5-0.8b-DNA-GROW`](https://huggingface.co/TheAiCollectiveART/qwen-3.5-0.8b-DNA-GROW)** | 381-byte procedural seeds + morphogenetic tensor expansion for sub-50ms cold-start neural booting. |
 | 📡 **28-Chirp Over-the-Air Weights** | **[`TheAiCollectiveART/qwen-3.5-0.8b-28chirps`](https://huggingface.co/TheAiCollectiveART/qwen-3.5-0.8b-28chirps)** | Real-world physical LoRa chirp series for over-the-air model reconstruction without Internet. |
 | 💎 **Gemma-4 Language-U** | **[`TheAiCollectiveART/Gemma-4-Language-U`](https://huggingface.co/TheAiCollectiveART/Gemma-4-Language-U)** | Gemma-4 architecture aligned for English Hidden-State Steering (EHSS) and 6D manifold translation. |
