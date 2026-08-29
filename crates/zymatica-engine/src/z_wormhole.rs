@@ -126,19 +126,19 @@ impl ZWormholeBridge {
         let mut inter_vec = vec![0.0f32; total_inter];
 
         // Matrix-vector product: inter = source_hidden * W_down
-        for j in 0..total_inter {
+        for (j, slot) in inter_vec.iter_mut().enumerate() {
             let mut sum = 0.0f32;
-            for i in 0..src_dim {
-                sum += source_hidden[i] * self.proj_down_weights[i * total_inter + j];
+            for (i, &src_val) in source_hidden.iter().enumerate().take(src_dim) {
+                sum += src_val * self.proj_down_weights[i * total_inter + j];
             }
-            inter_vec[j] = sum;
+            *slot = sum;
         }
 
         // Map first 8 dimensions to bounded 0.0..15.0 manifold coordinates via sigmoid scaling
         let mut axes = [0.0f32; 8];
-        for i in 0..8 {
+        for (i, slot) in axes.iter_mut().enumerate() {
             let sigmoid = 1.0 / (1.0 + (-inter_vec[i]).exp());
-            axes[i] = sigmoid * 15.0;
+            *slot = sigmoid * 15.0;
         }
 
         let harmonics = inter_vec[8..].to_vec();
@@ -163,8 +163,8 @@ impl ZWormholeBridge {
         let mut inter_vec = Vec::with_capacity(total_inter);
 
         // Inverse map bounded axes
-        for i in 0..8 {
-            let normalized = (capsule.axes[i] / 15.0).clamp(0.001, 0.999);
+        for &axis in &capsule.axes {
+            let normalized = (axis / 15.0).clamp(0.001, 0.999);
             let logit = (normalized / (1.0 - normalized)).ln();
             inter_vec.push(logit);
         }
@@ -174,12 +174,12 @@ impl ZWormholeBridge {
         let mut target_hidden = vec![0.0f32; tgt_dim];
 
         // Matrix-vector product: target_hidden = inter * W_up
-        for j in 0..tgt_dim {
+        for (j, slot) in target_hidden.iter_mut().enumerate() {
             let mut sum = 0.0f32;
-            for i in 0..total_inter {
-                sum += inter_vec[i] * self.proj_up_weights[i * tgt_dim + j];
+            for (i, &inter_val) in inter_vec.iter().enumerate().take(total_inter) {
+                sum += inter_val * self.proj_up_weights[i * tgt_dim + j];
             }
-            target_hidden[j] = sum;
+            *slot = sum;
         }
 
         Ok(target_hidden)

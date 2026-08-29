@@ -991,9 +991,13 @@ unsafe fn q8_i8_dot2_f32_avx2_fma(
     (sum_a * scale_a, sum_b * scale_b)
 }
 
+/// # Safety
+///
+/// `row_a`, `row_b`, `row_c`, `row_d`, and `x` must point to valid arrays of `f32` of at least `len` elements.
+/// The host CPU must support AVX2 and FMA instructions.
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[target_feature(enable = "avx2,fma")]
-#[allow(unused_unsafe, clippy::too_many_arguments, clippy::missing_safety_doc)]
+#[allow(unused_unsafe, clippy::too_many_arguments)]
 pub unsafe fn f32_dot4_avx2_fma(
     row_a: *const f32,
     row_b: *const f32,
@@ -1055,9 +1059,13 @@ pub unsafe fn f32_dot4_avx2_fma(
     (sum_a, sum_b, sum_c, sum_d)
 }
 
+/// # Safety
+///
+/// `row_a` through `row_h` and `x` must point to valid arrays of `f32` of at least `len` elements.
+/// The host CPU must support AVX2 and FMA instructions.
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[target_feature(enable = "avx2,fma")]
-#[allow(unused_unsafe, clippy::too_many_arguments, clippy::missing_safety_doc)]
+#[allow(unused_unsafe, clippy::too_many_arguments)]
 pub unsafe fn f32_dot8_avx2_fma(
     row_a: *const f32,
     row_b: *const f32,
@@ -1280,22 +1288,27 @@ pub enum Q4DotKernel {
 #[inline]
 pub fn select_q4_dot_kernel() -> Q4DotKernel {
     if thermal_pressure_high() {
-        return Q4DotKernel::ThermalHigh;
-    }
-    #[cfg(target_arch = "aarch64")]
-    {
-        return Q4DotKernel::Neon;
-    }
-    #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
-    {
-        if is_x86_avx2_fma_available() {
-            return Q4DotKernel::Avx2Fma;
+        Q4DotKernel::ThermalHigh
+    } else {
+        #[cfg(target_arch = "aarch64")]
+        {
+            Q4DotKernel::Neon
         }
-        if is_x86_avx2_available() {
-            return Q4DotKernel::Avx2;
+        #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
+        {
+            if is_x86_avx2_fma_available() {
+                Q4DotKernel::Avx2Fma
+            } else if is_x86_avx2_available() {
+                Q4DotKernel::Avx2
+            } else {
+                Q4DotKernel::Scalar
+            }
+        }
+        #[cfg(not(any(target_arch = "aarch64", target_arch = "x86", target_arch = "x86_64")))]
+        {
+            Q4DotKernel::Scalar
         }
     }
-    Q4DotKernel::Scalar
 }
 
 #[inline]
@@ -2380,8 +2393,14 @@ unsafe fn rms_norm_in_place_avx2_fma_impl(
     }
 }
 
+/// # Safety
+///
+/// `row_a` and `row_b` must point to valid arrays of `i8` of at least `len` elements.
+/// `x` must point to a valid array of `f32` of at least `len` elements.
+/// `out_a` and `out_b` must be valid mutable references.
 #[cfg(target_arch = "aarch64")]
 #[inline]
+#[allow(clippy::too_many_arguments)]
 pub unsafe fn q8_gemv_row_pair_neon(
     row_a: *const i8,
     row_b: *const i8,

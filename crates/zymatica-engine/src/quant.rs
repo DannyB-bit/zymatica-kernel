@@ -1263,8 +1263,9 @@ fn read_f32_scales(storage: &[u8], offset: usize, rows: usize) -> Result<Vec<f32
         );
     }
     let mut scales = Vec::with_capacity(rows);
-    for chunk in storage[offset..end].chunks_exact(4) {
-        scales.push(f32::from_le_bytes([chunk[0], chunk[1], chunk[2], chunk[3]]));
+    let (chunks, _) = storage[offset..end].as_chunks::<4>();
+    for chunk in chunks {
+        scales.push(f32::from_le_bytes(*chunk));
     }
     Ok(scales)
 }

@@ -21,6 +21,7 @@ pub struct Concept8D {
 }
 
 impl Concept8D {
+    #[allow(clippy::too_many_arguments)]
     pub fn new(d: u8, sub: u8, op: u8, mod_: u8, st: u8, pol: u8, temp: u8, cert: u8) -> Self {
         Self {
             domain: d & 0x0F,
