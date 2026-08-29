@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: 1.98.0
           components: rustfmt, clippy
@@ -45,10 +45,10 @@ jobs:
       - name: Verify code before accepting evidence
         shell: bash
         run: |
-          cargo +1.98.0 fmt --all -- --check
-          cargo +1.98.0 clippy --workspace --all-targets --locked -- -D warnings
-          cargo +1.98.0 test --workspace --locked
-          cargo +1.98.0 build --workspace --release --locked
+          cargo fmt --all -- --check
+          cargo clippy --workspace --all-targets --locked -- -D warnings
+          cargo test --workspace --locked
+          cargo build --workspace --release --locked
 
       - name: Compile all Python verification code
         run: python -m compileall -q tools/ten_out_of_ten crates/zymatica-language-u
