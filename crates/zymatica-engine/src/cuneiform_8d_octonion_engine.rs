@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 //! # Invention Class 32: Zymatica 8D Semantic DWORD & Octonion Hypercube Engine (Z-8D)
 //!
 //! Dual Architecture:

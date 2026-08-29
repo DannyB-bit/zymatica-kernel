@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Class 35: Z-MCTS (Continuous Manifold Test-Time Latent Reasoning Engine)
-Author: Danny Bouldiez | Codebase by Devs One
+Class 35: Z-MCTS (Continuous Latent Reasoning Engine) Algorithmic Verifier
+Scope: Demonstrates continuous manifold Monte Carlo Tree Search trajectory optimization
+over an 8D Riemannian metric space. (Note: Language-model integration benchmarks test-time reasoning across downstream tasks).
 """
 
 import math
@@ -57,7 +58,7 @@ class LatentMctsPy:
                     if score > best_score:
                         best_score = score
                         best_child = c_idx
-                curr = best_child
+                    curr = best_child
                 depth += 1
 
             # Expansion
@@ -107,7 +108,7 @@ class LatentMctsPy:
 def main():
     print("=" * 80)
     print(" [+] ZYMATICA CLASS 35: Z-MCTS TEST-TIME CONTINUOUS LATENT REASONING")
-    print("     Non-Token Geodesic Search Across 8D Riemannian Manifolds")
+    print("     Scope: Geometric Geodesic Search Across 8D Riemannian Manifolds (Simulation)")
     print("=" * 80)
 
     start = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
@@ -125,7 +126,7 @@ def main():
     print(f" [MCTS] Reasoning Optimization Gain:         {((initial_dist - final_dist) / initial_dist * 100):.2f}% error reduction")
 
     assert final_dist < initial_dist, "MCTS must monotonically navigate towards semantic target"
-    print("\n[PASS] CLASS 35 VERIFICATION: TEST-TIME CONTINUOUS LATENT MCTS PROVEN!")
+    print("\n[PASS] CLASS 35 VERIFICATION: GEODESIC MCTS LATENT TRAJECTORY SEARCH VERIFIED")
     print("=" * 80)
 
 

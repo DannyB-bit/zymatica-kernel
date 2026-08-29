@@ -39,7 +39,7 @@ Commit a directory such as `evidence/10_00/latest/` containing these machine-rea
    - max calibration preactivation delta <= 1e-4
    - adaptation loss improves
    - base loss degradation <= 2%
-   - wording remains “nullspace-constrained update”; do not claim universal 0% catastrophic forgetting from this alone
+   - wording remains “nullspace-constrained update”; do not claim universal catastrophic forgetting elimination from this alone (evaluation criteria)
 
 4. `mcts.json`
    - uses a real target LM-head/reward objective during search
@@ -70,7 +70,7 @@ The README and research docs must distinguish:
 - **synthetic/reference test**
 - **hypothesis/specification**
 
-“World record,” “100%,” “zero failures,” “universal,” giant fixed compression ratios, or similar strong claims require a committed evidence artifact and an inline `[EVIDENCE: path]` marker. Avoid “zk-VDE decryption” unless a VDE is actually implemented; the current relation is better described as a private coordinate/ciphertext commitment relation.
+Claims of exceptional performance or fixed compression ratios require a committed evidence artifact and an inline evidence marker (e.g. `[EVIDENCE: evidence/10_00/latest/MANIFEST.json]`). Avoid “zk-VDE decryption” unless a VDE is actually implemented; the current relation is better described as a private coordinate/ciphertext commitment relation.
 
 ## E. Licensing/provenance
 

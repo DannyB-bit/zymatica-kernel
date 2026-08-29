@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 //! CRC32C (Castagnoli) 0x82F63B78 reflected implementation
 
 const CRC32C_TABLE: [u32; 256] = {

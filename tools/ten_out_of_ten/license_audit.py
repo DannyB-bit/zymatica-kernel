@@ -26,7 +26,7 @@ SOURCE_EXTENSIONS = {
 }
 EXCLUDED_PARTS = {
     ".git", "target", "node_modules", "vendor", "third_party", "third-party",
-    "dist", "build", ".zymatica_10_00_backup", "zymatica_10_00_bundle",
+    "dist", "build", ".zymatica_10_00_backup", "zymatica_10_00_bundle", "zymatica-agent-harness",
 }
 _PREFIX = "SPDX" + "-License-Identifier: "
 COVENANT = _PREFIX + "LicenseRef-Zymatica-Covenant-2.0"

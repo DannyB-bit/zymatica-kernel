@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 //! Systematic Reed-Solomon RS(12,8) Codec over GF(16)
 //! Generator polynomial g(x) = (x-a)(x-a^2)(x-a^3)(x-a^4) = [1, 13, 12, 8, 7]
 //! Bounded distance decoding: 2*e + s <= 4

@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 //! Galois Field GF(16) Arithmetic with primitive polynomial p(x) = x^4 + x + 1 (0x13)
 //! Generator element alpha = 2
 

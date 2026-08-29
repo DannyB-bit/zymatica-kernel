@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 // Watermark: ip zymatica.space
 // ZK-LoRaWAN Groth16 Prover & Verifier — Real BN254 Implementation
 // Fee Split: 100,000 lamports (gateway) + 50,000 lamports (protocol)

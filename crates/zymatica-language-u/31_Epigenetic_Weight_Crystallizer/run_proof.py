@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Class 31: Epigenetic Weight Crystallizer (Z-NEWM) Standalone Verifier
+Class 31: Epigenetic Weight Crystallizer (Z-NEWM) Algorithmic Verifier
+Scope: Validates closed-form Gram-Schmidt nullspace weight projection and 70-byte
+crystal serialization. (Note: Empirical continual learning validation occurs via downstream task evaluation).
 """
 
 import struct
@@ -31,6 +33,7 @@ class EpigeneticCrystal:
 def test_proof():
     print("=" * 65)
     print("  ZYMATICA CLASS 31: EPIGENETIC WEIGHT CRYSTALLIZER (Z-NEWM)")
+    print("  Scope: Gram-Schmidt Nullspace Projection & Crystal Serialization")
     print("=" * 65)
 
     hidden_dim = 128
@@ -55,7 +58,7 @@ def test_proof():
     print(f"[+] Ephemeral Crystal Serialization: {len(packed)} Bytes (LoRa Mesh Ready)")
     assert len(packed) == 70, f"Expected 70 bytes, got {len(packed)}"
 
-    print("\n[PASS] CLASS 31 VERIFICATION: SUBSPACES ACTIVATION INVARIANCE PROVEN!")
+    print("\n[PASS] CLASS 31 VERIFICATION: NULLSPACE ORTHOGONALITY & SERIALIZATION VERIFIED")
     print("=" * 65)
 
 if __name__ == "__main__":

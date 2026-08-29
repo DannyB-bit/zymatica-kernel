@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sys
 import math
 import time
@@ -107,7 +107,8 @@ print(f"  -> Spectral Energy Retained:           {energy_retained:.2f}%")
 print(f"  -> Relative Frobenius Error:           {frobenius_error:.4f} (STABLE CONVERGENCE)")
 
 # -----------------------------------------------------------------------------
-# 3. ZK-LoRaWAN GROTH16 MiMC HASH & SIGMA RANGE CONSTRAINTS
+# -----------------------------------------------------------------------------
+# 3. ZK-LoRaWAN BN254 MiMC-7 HASH ROUNDS & NULLIFIER GENERATION
 # -----------------------------------------------------------------------------
 print("\n[3] EXECUTING ZK-LoRaWAN BN254 MiMC HASH ROUNDS & RANGE GATING...")
 
@@ -132,9 +133,9 @@ print(f"  -> MiMC-7 Nullifier (Zero-Knowledge):  0x{nullifier_hash:016x}")
 print(f"  -> Public Anonymity Check:             PASS (Zero linkability to hardware MAC/GPS)")
 
 # -----------------------------------------------------------------------------
-# 4. XOR-FEC CRYPTO RECONSTRUCTION OVER CORRUPTED RF LINKS
+# 4. XOR-FEC IN-MEMORY PACKET RECONSTRUCTION UNDER 25% NOISE ERASURE
 # -----------------------------------------------------------------------------
-print("\n[4] EXECUTING XOR-FEC PARITY SELF-HEALING UNDER 25% NOISE INJECTION...")
+print("\n[4] EXECUTING XOR-FEC PARITY SELF-HEALING UNDER 25% NOISE INJECTION (SIMULATION)...")
 
 payload = b"ZYMATICA_GROTH16_BN254_CUNEIFORM_GEODESIC_TELEMETRY_PACKET_VERIFIED"
 block_size = 16
@@ -156,7 +157,7 @@ for idx, blk in enumerate(corrupted_blocks):
 
 reconstruction_success = (bytes(recovered_block) == blocks[2])
 print(f"  -> Original Transmission Blocks:       {len(blocks)} blocks ({len(payload)} bytes)")
-print(f"  -> Injected RF Noise Erasure:          Block 2 wiped out (25% burst packet loss)")
+print(f"  -> Injected Noise Erasure:             Block 2 wiped out (25% burst packet loss)")
 print(f"  -> Mathematical Parity Reconstruction: {reconstruction_success} (100% BIT-EXACT SELF-HEAL)")
 
 # -----------------------------------------------------------------------------

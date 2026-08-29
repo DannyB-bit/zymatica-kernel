@@ -40,5 +40,6 @@ Per Section 3 of the Covenant License, third-party open-source libraries incorpo
 | `ed25519-dalek` / `curve25519-dalek` | Dalek Cryptography | BSD-3-Clause |
 | `tokio` / `axum` / `rayon` | Tokio / Rayon Projects | MIT |
 | `solana-program` | Solana Labs SDK | Apache-2.0 |
+| `zymatica-agent-harness` | External Agent Harness Subtree | Upstream Permissive & Reference Licenses |
 
-No term of the Zymatica Covenant License restricts or diminishes any rights granted to the public under these upstream open-source licenses for their respective third-party library files.
+No term of the Zymatica Covenant License restricts or diminishes any rights granted to the public under these upstream open-source licenses for their respective third-party library files. `zymatica-agent-harness` is maintained outside the default Rust workspace as reference evaluation infrastructure.

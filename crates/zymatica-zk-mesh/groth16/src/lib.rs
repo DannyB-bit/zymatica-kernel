@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 // ============================================================================
 // ZK-LoRaWAN FFI Library — Hardened Groth16 BN254 Verifier
 // ============================================================================

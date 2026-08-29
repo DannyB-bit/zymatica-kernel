@@ -1,6 +1,6 @@
 {
-  "cargo": null,
-  "created_utc": "2026-08-29T07:35:23.948302+00:00",
+  "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
+  "created_utc": "2026-08-29T23:36:06.990819+00:00",
   "files": [
     {
       "path": "epigenetic.json",
@@ -14,8 +14,8 @@
     },
     {
       "path": "MANIFEST.json",
-      "sha256": "25b3e762e86204b2b863365815651145499ee12b2c869633f7b25774c2ee453e",
-      "size": 1015
+      "sha256": "580f38c038d7d4b4ad3610717c892e762953e2ea81da2e0fe51e4a819e8d1868",
+      "size": 2454
     },
     {
       "path": "mcts.json",
@@ -28,10 +28,10 @@
       "size": 6045990
     }
   ],
-  "git_head": "db77e927d48b5e957140343cf5d739f824443074",
-  "git_status_porcelain": "M EXECUTION_GUIDE.md\n M LICENSES.md\n M README.md\n M tools/ten_out_of_ten/claims_audit.py",
+  "git_head": "916d821ce247ebeab45a1e9248bef37e120ff860",
+  "git_status_porcelain": "M LICENSES.md\n M README.md\n M break_the_record_engine.py\n M crates/zymatica-engine/src/cuneiform_8d_octonion_engine.rs\n M crates/zymatica-engine/src/holomorphic_speculative_engine.rs\n M crates/zymatica-engine/src/neural_swarm_hypergraph.rs\n M crates/zymatica-language-u/29_Hyper_Manifold_KV_Folding/run_proof.py\n M crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/run_proof.py\n M crates/zymatica-language-u/34_Z_WORMHOLE_Latent_Transfer/run_proof.py\n M crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning/run_proof.py\n M crates/zymatica-zk-mesh/groth16/src/ceremony.rs\n M crates/zymatica-zk-mesh/groth16/src/circuit.rs\n M crates/zymatica-zk-mesh/groth16/src/lib.rs\n M crates/zymatica-zk-mesh/groth16/src/main.rs\n M crates/zymatica-zspar/src/crc32c.rs\n M crates/zymatica-zspar/src/gf16.rs\n M crates/zymatica-zspar/src/lib.rs\n M crates/zymatica-zspar/src/rs12_8.rs\n M crates/zymatica-zspar/src/semantic.rs\n M crates/zymatica-zspar/src/sha256.rs\n M docs/TEN_OUT_OF_TEN_ACCEPTANCE.md\n M evidence/10_00/latest/MANIFEST.json\n M master_forensic_audit.py\n M tools/ten_out_of_ten/claims_audit.py\n M tools/ten_out_of_ten/evidence_manifest.py\n M tools/ten_out_of_ten/fix_clippy_run27.py\n M tools/ten_out_of_ten/license_audit.py\n M verify_frontier_suite.py\n?? LICENSE_SCOPE.txt\n?? THIRD_PARTY_LICENSE_ALLOWLIST.txt",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
-  "rustc": null,
+  "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v1"
 }

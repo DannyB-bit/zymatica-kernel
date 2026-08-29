@@ -112,16 +112,18 @@ The 6D delta engine represents continuous trajectories using an adaptive variabl
 * `Mode 11`: Full coordinate escape & absolute Euclidean anchor.
 * **Adversarial Property Testing**: Validated with `proptest!` across **100,000,000 consecutive random-walk coordinates, extrema jumps, and bit-flipped streams with 0 round-trip decoding failures** [EVIDENCE: evidence/10_00/latest/MANIFEST.json].
 
-### Pillar 3: Cryptographically Airtight Groth16 ZK-LoRa Mesh Circuit
+### Pillar 3: Groth16 ZK-LoRa Mesh Privacy Circuit (Research Implementation)
 The zero-knowledge privacy layer proves edge node authenticity over untrusted mesh relays without exposing hardware DevEUIs, GPS coordinates, or payload contents:
 * **Private Witness**: Device private key (sk), physical location cell, monotonic nonce (v), firmware measurement (M), and semantic packet hash (H_pkt).
 * **Public Constraints**: Identity commitment C_id = H(sk), nullifier N = H(sk, v), gateway commitment C_gw = H(pk_gw), firmware root R_fw, and packet commitment C_pkt = H(Language-U).
 * **Double-Spend Prevention**: Every packet nullifier is verified on-chain via the Solana Anchor program, guaranteeing no replay attacks.
+* **Cryptographic Boundary Disclosure**: The current circuit uses a single-party devnet verifying key and reference hash functions for development validation; production deployment requires a multi-party computation (MPC) ceremony with standardized Keccak-256 / SHA-256.
 
 ### Pillar 4: Autonomous AI -> LoRa -> AI Execution Loop
 Real physical demonstration using dual air-gapped nodes (Raspberry Pi 4 / Linux edge devices):
 * Node A observes sensor telemetry, extracts semantic state, and broadcasts a 41-byte RF chirp.
 * Node B captures the RF chirp, reconstructs the semantic intent, executes a local tool call (e.g., valve actuation or alert file creation), and responds with an autonomous return packet.
+* **RF Propagation Boundary**: Software packet framing, RS(12,8) codecs, and XOR FEC recovery are verified via loopback simulation; physical over-the-air verification requires dedicated RF transceiver benches.
 
 ### Pillar 5: Immutable Evidence Bundles & One-Command Verifier
 Every claim in this repository is backed by cryptographically verifiable execution artifacts under `/evidence/`:

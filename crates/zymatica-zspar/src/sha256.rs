@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 //! Pure dependency-free SHA-256 with 128-bit tag extraction (first 16 bytes)
 
 const K: [u32; 64] = [

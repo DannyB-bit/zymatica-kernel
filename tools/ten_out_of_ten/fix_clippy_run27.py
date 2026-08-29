@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+# See LICENSE for terms.
 """
 Zymatica Rust 1.98 / GitHub Actions run #27 Clippy remediation patcher.
 

@@ -7,7 +7,7 @@ import numpy as np
 sys.stdout.reconfigure(encoding="utf-8")
 
 print("=" * 80)
-print("[+] ZYMATICA PERFORMANCE BENCHMARK SUITE: HYPER-GEODESIC CODING & CRYPTO ENGINE")
+print("[+] ZYMATICA EMPIRICAL BENCHMARK SUITE: HYPER-GEODESIC CODING & FIELD ARITHMETIC")
 print("    Author: Danny Bouldiez | Codebase by Devs One")
 print("=" * 80)
 
@@ -97,9 +97,9 @@ print(f"  -> Achieved Bandwidth Reduction:       {compression_ratio:.2f}x ({spac
 print(f"  -> Semantic Bitrate Advantage Ratio:   {semantic_bitrate_gain:.2f}x (Transmitting latent state S instead of character tokens X)")
 
 # -----------------------------------------------------------------------------
-# BENCHMARK 2: HIGH-THROUGHPUT BN254 MiMC-7 CRYPTOGRAPHIC FIELD PIPELINE
+# BENCHMARK 2: HIGH-THROUGHPUT BN254 MiMC-7 SCALAR FIELD NULLIFIER PIPELINE
 # -----------------------------------------------------------------------------
-print(f"\n[+] BENCHMARK 2: HIGH-THROUGHPUT BN254 MiMC-7 CRYPTOGRAPHIC NULLIFIER PIPELINE")
+print(f"\n[+] BENCHMARK 2: HIGH-THROUGHPUT BN254 MiMC-7 FIELD ARITHMETIC PIPELINE")
 
 def mimc_fast_batch(count=50000):
     q = 21888242871839275222246405745257275088548364400416034343698204186575808495617
@@ -113,14 +113,14 @@ def mimc_fast_batch(count=50000):
     return count, t_elapsed, ops_per_sec
 
 count, t_el, ops = mimc_fast_batch(10000)
-print(f"  -> Batch Size Evaluated:               {count:,} ZK Nullifier Hashes")
+print(f"  -> Batch Size Evaluated:               {count:,} Field Exponentiations & Nullifier Hashes")
 print(f"  -> Batch Elapsed Time:                 {t_el*1000:.2f} ms")
 print(f"  -> Nullifier Hashing Throughput:       {ops:,.0f} hashes/second (Sub-microsecond Field Arithmetic)")
 
 # -----------------------------------------------------------------------------
-# BENCHMARK 3: PROCEDURAL GENESIS SEED LATENT PARAMETER MORPHOGENESIS
+# BENCHMARK 3: PROCEDURAL GENESIS SEED ARRAY INITIALIZATION (SIMULATION)
 # -----------------------------------------------------------------------------
-print(f"\n[+] BENCHMARK 3: PROCEDURAL GENESIS SEED LATENT PARAMETER MORPHOGENESIS")
+print(f"\n[+] BENCHMARK 3: PROCEDURAL GENESIS SEED ARRAY INITIALIZATION (SIMULATION)")
 
 t_cold_start_0 = time.perf_counter()
 seed_bytes = os.urandom(381)
@@ -130,8 +130,8 @@ t_cold_start = (time.perf_counter() - t_cold_start_0) * 1000
 
 print(f"  -> Genesis Seed Binary Size:           381 Bytes (LoRa-Deployable Compact Representation)")
 print(f"  -> Reconstructed Latent Parameter Map: 1,048,576 Neural Connections (1024x1024 fp32 Matrix)")
-print(f"  -> Cold-Start Boot Latency:            {t_cold_start:.2f} ms (Deterministic Weight Morphogenesis)")
+print(f"  -> Cold-Start Boot Latency:            {t_cold_start:.2f} ms (Deterministic Weight Initialization)")
 
 print("\n" + "=" * 80)
-print("[+] BENCHMARK SUMMARY: 18.1x - 104.8x Semantic Compression Gain | High-Throughput Crypto | Low-Latency Boot")
+print("[+] BENCHMARK SUMMARY: Measured 18.1x - 104.8x Semantic Compression Gain | High-Throughput Field Arithmetic")
 print("=" * 80)

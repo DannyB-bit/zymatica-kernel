@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 use crate::crc32c::crc32c;
 use crate::rs12_8::{Parity, Rs12_8, Syndromes};
 use crate::sha256::{sha256_128, Sha256};

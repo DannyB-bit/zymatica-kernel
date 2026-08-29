@@ -11,6 +11,7 @@ import hashlib
 import json
 import os
 import platform
+import shutil
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -26,8 +27,16 @@ def sha256_file(path: Path) -> str:
 
 
 def command_output(command: list[str], cwd: Path) -> str | None:
+    env = os.environ.copy()
+    cargo_bin = os.path.expanduser("~/.cargo/bin")
+    if os.path.isdir(cargo_bin) and cargo_bin not in env.get("PATH", ""):
+        env["PATH"] = f"{cargo_bin}{os.pathsep}{env.get('PATH', '')}"
+    cmd = list(command)
+    exe = shutil.which(cmd[0], path=env.get("PATH"))
+    if exe:
+        cmd[0] = exe
     try:
-        result = subprocess.run(command, cwd=cwd, text=True, capture_output=True, check=True)
+        result = subprocess.run(cmd, cwd=cwd, env=env, text=True, capture_output=True, check=True)
         return result.stdout.strip()
     except Exception:
         return None

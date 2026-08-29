@@ -1,3 +1,7 @@
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
+
 // ============================================================================
 // ZK-LoRaWAN MPC Ceremony — Groth16 Trusted Setup
 // ============================================================================
