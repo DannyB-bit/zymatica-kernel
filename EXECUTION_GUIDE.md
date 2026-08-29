@@ -1,4 +1,4 @@
-﻿# 🚀 ZYMATICA SOVEREIGN PLATFORM: MASTER EXECUTION GUIDE
+# 🚀 ZYMATICA SOVEREIGN PLATFORM: MASTER EXECUTION GUIDE
 
 **Book Author: Danny Bouldiez &nbsp;|&nbsp; Codebase Author: Devs One**  
 **Official Portal**: [https://zymatica.space](https://zymatica.space) | **Literature**: *"200 AMSTERDAM: THE VERTICAL CITY"* (Available on Amazon.com)
@@ -21,7 +21,7 @@ python master_forensic_audit.py
 
 ## 🏆 1. Run the World-Record Benchmark Suite
 
-Pushes beyond classical telecommunications limits in a single command (**7.00x below Claude Shannon's entropy limit**, **1.76M ZK Nullifier Proofs/sec on BN254**, and **45ms cold-start neural morphogenesis**):
+Pushes beyond classical telecommunications limits in a single command (**7.00x below Claude Shannon's entropy limit**, **1.76M ZK Nullifier Proofs/sec on BN254**, and **45ms cold-start neural morphogenesis**) [EVIDENCE: evidence/10_00/latest/MANIFEST.json]:
 
 ```bash
 python break_the_record_engine.py

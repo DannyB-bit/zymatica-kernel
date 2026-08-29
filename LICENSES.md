@@ -24,7 +24,7 @@ The Covenant License covers all 35 Classes of Zymatica Inventions, including but
 - **Class 31**: `epigenetic_manifold_crystallizer` — Gram-Schmidt nullspace weight projection and 70-byte crystal serialization.
 - **Class 32**: `cuneiform_8d_octonion_engine` — Non-associative Cayley-Dickson octonion algebra ($\mathbb{O}$) and lossless 8D geodesic codecs.
 - **Class 33**: `zymatica-zspar` — Model-independent finite-field $\text{GF}(16)$ $\text{RS}(12,8)$ semantic parity error correction and auto-repair.
-- **Class 34**: `z_wormhole` — Universal cross-model zero-shot direct latent thought transfer protocol.
+- **Class 34**: `z_wormhole` — Cross-model zero-shot direct latent thought transfer protocol [EVIDENCE: evidence/10_00/latest/wormhole.json].
 - **Class 35**: `z_mcts` — Continuous manifold test-time latent reasoning engine on 8D Riemannian geodesics.
 
 ---

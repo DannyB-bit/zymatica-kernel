@@ -1,6 +1,6 @@
 {
   "cargo": null,
-  "created_utc": "2026-08-29T04:46:50.037576+00:00",
+  "created_utc": "2026-08-29T07:35:23.948302+00:00",
   "files": [
     {
       "path": "epigenetic.json",
@@ -13,6 +13,11 @@
       "size": 395
     },
     {
+      "path": "MANIFEST.json",
+      "sha256": "25b3e762e86204b2b863365815651145499ee12b2c869633f7b25774c2ee453e",
+      "size": 1015
+    },
+    {
       "path": "mcts.json",
       "sha256": "81e07c7cc0cd50068ffaf8cb51d7c436448feac3f7e3b97a1603e35773e43a53",
       "size": 301
@@ -23,8 +28,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "6ed8d45a7fcb70935eb7d38358474ca39d4a3423",
-  "git_status_porcelain": "?? evidence/10_00/",
+  "git_head": "db77e927d48b5e957140343cf5d739f824443074",
+  "git_status_porcelain": "M EXECUTION_GUIDE.md\n M LICENSES.md\n M README.md\n M tools/ten_out_of_ten/claims_audit.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": null,

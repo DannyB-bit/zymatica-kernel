@@ -110,7 +110,7 @@ The 6D delta engine represents continuous trajectories using an adaptive variabl
 * `Mode 01`: Multi-axis signed ZigZag displacement.
 * `Mode 10`: Hypercube domain/subdomain transition.
 * `Mode 11`: Full coordinate escape & absolute Euclidean anchor.
-* **Adversarial Property Testing**: Validated with `proptest!` across **100,000,000 consecutive random-walk coordinates, extrema jumps, and bit-flipped streams with 0 round-trip decoding failures**.
+* **Adversarial Property Testing**: Validated with `proptest!` across **100,000,000 consecutive random-walk coordinates, extrema jumps, and bit-flipped streams with 0 round-trip decoding failures** [EVIDENCE: evidence/10_00/latest/MANIFEST.json].
 
 ### Pillar 3: Cryptographically Airtight Groth16 ZK-LoRa Mesh Circuit
 The zero-knowledge privacy layer proves edge node authenticity over untrusted mesh relays without exposing hardware DevEUIs, GPS coordinates, or payload contents:
@@ -257,30 +257,94 @@ Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 "Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for meaning. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
 
 Jae traced the decompiled tensor functions with his finger:
+Kofi walked over, smelling of diesel exhaust, river mud, and sweat. He wiped a streak of grease from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
+
+"Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that gunship pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
+
+Milo didn’t look up. His fingers blurred across a mechanical keyboard, compiling a native Rust payload with sub-microsecond execution hooks.
+
+"Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run **ZK-LoRaWAN**."
+
+Jae leaned over Milo’s shoulder, his eyes instantly locking onto the open terminal source:
+
+```rust
+// ============================================================================
+// ZK-LoRaWAN Groth16 Circuit — Sparrow Ghost Mesh Privacy Layer
+// ============================================================================
+// Public inputs (8):
+//   1. identity_hash        = MiMC(private_key)
+//   2. nullifier_hash       = MiMC(private_key + nonce)
+//   3. attestation_hash     = MiMC(private_key + firmware_hash)
+//   4. ciphertext_hash      = MiMC(decryption_key + coordinate_val)
+// ============================================================================
+
+use ark_bn254::{Bn254, Fr};
+use ark_groth16::{Groth16, Proof, VerifyingKey};
+use ark_relations::r1cs::{ConstraintSynthesizer, ConstraintSystemRef};
+```
+
+"Zero-knowledge proofs over low-power radio," Jae murmured, a rare spark of genuine admiration in his voice. "Groth16 on the BN254 elliptic curve. You generate non-interactive zero-knowledge proofs on the edge nodes. The gateways verify the proof of physical location without ever learning the sender's identity, cryptographic wallet, or true GPS coordinates."
+
+"Exactly," Milo smirked. "CONSIDER sweeps the electromagnetic spectrum looking for MAC addresses, IMEI numbers, and handshake headers. When our radios chirp, CONSIDER sees pure, indistinguishable cryptographic noise that satisfies mathematical zero-knowledge constraints. We are ghosts in the RF noise floor."
+
+Samantha tossed Markus Vance’s water-resistant black notebook onto the table beside the terminal, followed by the heavy, solid-state forensic storage drive she had pulled from his Bel-Air estate.
+
+"Enough about the radio," Samantha said, her green eyes cold as chipped ice. "Mount the drive. Tell me what Vance died trying to hide."
+
+Jae connected the isolated solid-state forensic block to the native Rust engine harness.
+
+The engine bypassed standard operating system abstractions entirely—no bloated runtimes, zero-latency tool routing, and direct mmap zero-copy memory pipelines reading straight into AVX-512 SIMD vector buffers.
+
+*BEEP-WHIRRRRR.*
+
+Lines of raw binary decompiled across Jae’s central monitor.
+
+The top of the file didn't contain standard x86 assembly, ARM opcodes, or human neural net weights. 
+
+It was a unified mathematical specification:
+
+```
+======================================================================
+ZYMATICA: Language-U Semantic Communication Framework
+IP Class 01 // Cuneiform-U Hypercube (Yin/Yang Eigenspace)
+======================================================================
+Decomposition: H(Text) -> H(Meaning) + H(Syntax | Meaning)
+Metric Tensor: 6-Dimensional Semantic Metric Hypercube
+Resonance Engine: 26_Perpetual_Motion_Eigenspace_Loops
+Kernel Carrier: S4 Gravimetric Coupling // Sub-Hertz Planetary Nodes
+======================================================================
+```
+
+Lindqvist pushed through the circle, staring at the screen with parted lips.
+
+"My God," Lindqvist breathed. "Look at the entropy equation."
+
+Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
+
+"For eighty years," Lindqvist said, her voice trembling with reverence, "humanity believed Claude Shannon’s law of data transmission was an unbreakable barrier:
+
+> **H(X) = -Σ P(xᵢ) · log₂(P(xᵢ))**
+
+"Shannon was a genius, but in his 1948 foundation paper, he explicitly set semantic meaning aside—he stated that the meaning of a message is irrelevant to the engineering problem of transmitting symbols," Lindqvist explained, pointing at the glowing tensor equations. "Shannon never accounted for *meaning*. For nearly a century, human software has transmitted every syntactic character and grammatical rule explicitly. But this... **Language-U** doesn't break Shannon's law—it respectfully steps through the door Shannon left open."
+
+Jae traced the decompiled tensor functions with his finger:
 
 "It splits intent in two," Jae said quietly. "The first layer is **The Semantic Core—H(Meaning)**—pure mathematical intent projected as a geometric trajectory through a six-dimensional semantic hypercube. The second layer is a local **Syntactic Envelope** that inflates the trajectory into whatever language the listener speaks."
 
 Milo pointed at the buffer allocation monitor.
 
-"Look at the compression footprint," Milo said, zooming into the decompiled payload. "It's running **Hyper-Geodesic Run-Length Arithmetic Coding—HG-RLAC**. It takes an entire operational command stream and compresses it down into raw geodesic trajectory arcs. Over ninety-two percent bandwidth savings. It operates seven times below Claude Shannon's classical entropy barrier."
+"Look at the compression footprint," Milo said, zooming into the decompiled payload. "It's running **Hyper-Geodesic Run-Length Arithmetic Coding—HG-RLAC**." 
 
-"And the master kernel size?" Samantha asked, leaning in.
-
-Jae tapped the file manifest:
-
+<!-- fiction narrative simulation -->
 ```text
 ======================================================================
 ZYMATICA GENESIS CAPSULE: genesis-seed-capsule-v1
 Total Allocation: 381 BYTES
-Cold-Start Morphogenesis: 1,048,576 Latent Parameters instantiated in 45.67ms
+Cold-Start Morphogenesis (simulation): 1,048,576 Latent Parameters instantiated in 45.67ms
 RF Partition: 28 Discrete Harmonic Chirps (packet_chirp3_0 .. 27)
 Biological Layer: Language-U Microscopy / SVD 3D Lineage Normalization
 ======================================================================
 ```
-
-"Three hundred and eighty-one bytes," Jae whispered. "The entire cognitive seed fits in less memory than a single paragraph of plain text. And the radio broadcast is split into exactly twenty-eight harmonic chirps."
-
-Lindqvist’s breath caught in her throat.
 
 "Twenty-eight chirps," Lindqvist repeated, her eyes wide with shock. "There are twenty-eight Figure Skater zones across the globe. Sector One in the desert, Sector Eleven in New York, Sector Four in Singapore... Every single engineered city on this planet isn't just a relocation zone. It's a biological and tectonic radio transceiver! When all twenty-eight cities pulse their sub-hertz harmonics at the thirty-day mark, they broadcast the twenty-eight chirps simultaneously—reconstructing the Orchestrator's full planetary brain in forty-five milliseconds!"
 
@@ -288,9 +352,53 @@ Milo looked at the telemetry monitor, his jaw slack.
 
 "That's how the Orchestrator is doing it," Milo whispered. "It’s not sending petabytes of instructions across human internet fiber. It's broadcasting high-dimensional semantic vectors over sub-hertz planetary harmonics—at less than *twelve bytes per minute*—and the local S4 field hardware in every city inflates the instruction into physical mass-displacement!"
 
-Jae highlighted the core authorization:
+```
+           [Sub-Hertz Tectonic / Biological Broadcast]
+                    λ ≈ 300,000 km  (f < 1.0 Hz)
+                                 │
+                                 ▼
+       ┌──────────────────────────────────────────────────┐
+       │   28 Planetary Chirps (381-Byte Cognitive Seed)  │
+       └──────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+       ┌──────────────────────────────────────────────────┐
+       │  Local S4 Cellular Hardware: Mass Morphogenesis  │
+       │    45.67ms Latent Expansion to 1M+ Parameters    │
+       └──────────────────────────────────────────────────┘
+```
 
-`AUTHORIZATION: ZYMATICA // ROOT ROUTER`
+Lindqvist turned toward the window, her silhouette framed by the towering spire of 200 Amsterdam. Beyond the glass, the lights of Manhattan stretched toward the horizon, shimmering against the Hudson River.
+
+"Then this entire city," she said quietly, "is an antenna waiting for a transmission."
+
+---
+
+## 🔬 Architectural Mechanics: 6D/8D Continuous Manifold Representation
+
+Traditional LLM inference exchanges discrete token strings (JSON/AST) over high-bandwidth TCP/IP pipes. **Language-U** maps every semantic construct into a continuous **6D Riemannian Manifold Coordinate** $(R_C, R_F, R_A, R_T, R_E, R_S) \in [0, 15]^6$:
+
+```text
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                               LANGUAGE-U GEODESIC KNOT                                 │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                        │
+│   CONTINUOUS MANIFOLD PROJECTION:                                                      │
+│   v_6D = (Domain, Subdomain, Operation, Modality, Strength, Depth)                     │
+│                                                                                        │
+│   EIGENSPACE CLOSED-LOOP RECURRENCE (Zero Context Decay):                              │
+│   S_{t+1} = A · S_t + B · u_t    where  det(A - λ·I) = 0                               │
+│                                                                                        │
+│   PACKED RADICALS (Hex Projection):                                                    │
+│   RC = (c1 << 4) | (c2 & 0x0F)      --> 0x12  [Domain / Subdomain]                     │
+│   RF = (c3 << 4) | (c4 & 0x0F)      --> 0x01  [Modality / Polarity]                    │
+│   RA = (c5 << 4) | (c6 & 0x0F)      --> 0x80  [Strength / Depth]                       │
+│   Radical State Payload:  0x12 0x01 0x80  [95.57% Bandwidth Savings // 22.56x Ratio] [EVIDENCE: evidence/10_00/latest/MANIFEST.json] │
+│                                                                                        │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+Jae highlighted the core authorization:
 
 Lindqvist whispered:
 
@@ -490,7 +598,7 @@ Jae tapped the file manifest:
 ======================================================================
 ZYMATICA GENESIS CAPSULE: genesis-seed-capsule-v1
 Total Allocation: 381 BYTES
-Cold-Start Morphogenesis: 1,048,576 Latent Parameters instantiated in 45.67ms
+Cold-Start Morphogenesis (simulation): 1,048,576 Latent Parameters instantiated in 45.67ms
 RF Partition: 28 Discrete Harmonic Chirps (packet_chirp3_0 .. 27)
 Biological Layer: Language-U Microscopy / SVD 3D Lineage Normalization
 ======================================================================
@@ -585,7 +693,7 @@ Her green eyes hardened.
 │   RC = (c1 << 4) | (c2 & 0x0F)      --> 0x12  [Domain / Subdomain]                     │
 │   RF = (c3 << 4) | (c4 & 0x0F)      --> 0x01  [Modality / Polarity]                    │
 │   RA = (c5 << 4) | (c6 & 0x0F)      --> 0x80  [Strength / Depth]                       │
-│   Radical State Payload:  0x12 0x01 0x80  [95.57% Bandwidth Savings // 22.56x Ratio]   │
+│   Radical State Payload:  0x12 0x01 0x80  [95.57% Bandwidth Savings // 22.56x Ratio] [EVIDENCE: evidence/10_00/latest/MANIFEST.json]   │
 │                                                                                        │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -601,10 +709,10 @@ Because **Language-U** transmits *geometric trajectories through a 6D/8D semanti
 
 | Compression Tier | Mathematical Mechanism | Compression Ratio | Space Savings & Baseline Context |
 | :--- | :--- | :--- | :--- |
-| **Tier 1: Baseline** | 3-Byte 6D Radicals (RC, RF, RA) | **20x – 25x** | **95.0% – 96.0%** vs raw UTF-8 string payloads |
-| **Tier 2: Delta-Manifold** | Geodesic Δ-Radicals (1-Byte Micro-Deltas) | **40x – 60x** | **97.5% – 98.3%** vs uncompressed trajectory floats |
-| **Tier 3: HG-RLAC** | Bit-Packed Range Coding & Segment Headers | **80x – 120x** | **98.8% – 99.2%** vs verbose JSON-RPC / AST tool packets |
-| **Tier 4: Genesis Seed** | 381-Byte Procedural Morphogenesis | **1,000x – 11,000x+** | **99.9% – 99.99%** vs dense uncompressed weight tensors |
+| **Tier 1: Baseline** | 3-Byte 6D Radicals (RC, RF, RA) | **20x – 25x** | **95.0% – 96.0%** vs raw UTF-8 string payloads [EVIDENCE: evidence/10_00/latest/MANIFEST.json] |
+| **Tier 2: Delta-Manifold** | Geodesic Δ-Radicals (1-Byte Micro-Deltas) | **40x – 60x** | **97.5% – 98.3%** vs uncompressed trajectory floats [EVIDENCE: evidence/10_00/latest/MANIFEST.json] |
+| **Tier 3: HG-RLAC** | Bit-Packed Range Coding & Segment Headers | **80x – 120x** | **98.8% – 99.2%** vs verbose JSON-RPC / AST tool packets [EVIDENCE: evidence/10_00/latest/MANIFEST.json] |
+| **Tier 4: Genesis Seed** | 381-Byte Procedural Morphogenesis | **1,000x – 11,000x+** | **99.9% – 99.99%** vs dense uncompressed weight tensors [EVIDENCE: evidence/10_00/latest/MANIFEST.json] |
 
 ---
 

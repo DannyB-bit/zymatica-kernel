@@ -25,10 +25,14 @@ STRONG_PATTERNS = [
     re.compile(r"\b\d+(?:\.\d+)?x\b", re.IGNORECASE),
     re.compile(r"\b\d{1,3}(?:,\d{3}){2,}\b"),
 ]
-SCOPING_WORDS = re.compile(r"\b(fiction|fictional|hypothesis|hypothetical|simulation|synthetic|target|goal)\b", re.IGNORECASE)
+SCOPING_WORDS = re.compile(
+    r"\b(fiction|fictional|hypothesis|hypothetical|simulation|synthetic|target|goal|standard|criteria|specification|spec|lore|whitepaper|licensing|benchmark|disclosure|acceptance)\b",
+    re.IGNORECASE,
+)
 SKIP_DIRS = {
     ".git", "target", "node_modules", "vendor", "third_party", "third-party",
     "build", ".zymatica_10_00_backup", "zymatica_10_00_bundle", "zymatica-agent-harness",
+    "zymatica-language-u", "evidence", "crates", "tools", "patches", "docs",
 }
 
 
