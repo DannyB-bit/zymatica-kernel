@@ -28,7 +28,7 @@ impl ClawMigrator {
         }
     }
 
-    pub fn migrate(claw_dir: &Path, _dry_run: bool) -> Result<MigrationReport> {
+    pub fn migrate(claw_dir: &Path, dry_run: bool) -> Result<MigrationReport> {
         let mut report = MigrationReport {
             memories_migrated: 0,
             skills_migrated: 0,
