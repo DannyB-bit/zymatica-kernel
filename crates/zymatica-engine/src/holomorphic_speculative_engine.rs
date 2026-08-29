@@ -107,8 +107,8 @@ mod tests {
         let vocab_size = 3;
         // Orthogonal projection matrix for 3 tokens
         let mut unembed = vec![0.0f32; vocab_size * hidden_dim];
-        unembed[0 * hidden_dim + 0] = 1.0; // Token 0 aligns with axis 0
-        unembed[1 * hidden_dim + 1] = 2.0; // Token 1 aligns with axis 1
+        unembed[0] = 1.0; // Token 0 aligns with axis 0
+        unembed[hidden_dim + 1] = 2.0; // Token 1 aligns with axis 1
         unembed[2 * hidden_dim + 2] = 1.0; // Token 2 aligns with axis 2
 
         let draft = speculator.generate_speculative_candidates(

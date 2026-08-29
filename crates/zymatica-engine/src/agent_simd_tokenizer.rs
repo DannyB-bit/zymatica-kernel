@@ -186,7 +186,7 @@ impl DirectLutBpeEncoder {
         // Seed basic ASCII byte tokens
         for i in 0..256u32 {
             let s = format!("{}", (i as u8) as char);
-            vocab.insert(s, i as u32);
+            vocab.insert(s, i);
         }
 
         // Seed common subword merges
@@ -224,11 +224,11 @@ impl DirectLutBpeEncoder {
 
                 for i in 0..ids.len() - 1 {
                     let pair = (ids[i], ids[i + 1]);
-                    if let Some(&rank) = self.ranks.get(&pair) {
-                        if rank < min_rank {
-                            min_rank = rank;
-                            min_idx = Some(i);
-                        }
+                    if let Some(&rank) = self.ranks.get(&pair)
+                        && rank < min_rank
+                    {
+                        min_rank = rank;
+                        min_idx = Some(i);
                     }
                 }
 

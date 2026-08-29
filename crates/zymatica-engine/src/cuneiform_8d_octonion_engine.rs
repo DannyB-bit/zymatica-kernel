@@ -143,8 +143,8 @@ impl Octonion {
             let conj = self.conjugate();
             let inv_n = 1.0 / n_sq;
             let mut c = [0.0f32; 8];
-            for i in 0..8 {
-                c[i] = conj.c[i] * inv_n;
+            for (i, value) in c.iter_mut().enumerate() {
+                *value = conj.c[i] * inv_n;
             }
             Some(Self { c })
         }
@@ -184,8 +184,8 @@ impl Add for Octonion {
     type Output = Self;
     fn add(self, rhs: Self) -> Self {
         let mut c = [0.0f32; 8];
-        for i in 0..8 {
-            c[i] = self.c[i] + rhs.c[i];
+        for (i, value) in c.iter_mut().enumerate() {
+            *value = self.c[i] + rhs.c[i];
         }
         Self { c }
     }
@@ -195,8 +195,8 @@ impl Sub for Octonion {
     type Output = Self;
     fn sub(self, rhs: Self) -> Self {
         let mut c = [0.0f32; 8];
-        for i in 0..8 {
-            c[i] = self.c[i] - rhs.c[i];
+        for (i, value) in c.iter_mut().enumerate() {
+            *value = self.c[i] - rhs.c[i];
         }
         Self { c }
     }
@@ -206,8 +206,8 @@ impl Neg for Octonion {
     type Output = Self;
     fn neg(self) -> Self {
         let mut c = [0.0f32; 8];
-        for i in 0..8 {
-            c[i] = -self.c[i];
+        for (i, value) in c.iter_mut().enumerate() {
+            *value = -self.c[i];
         }
         Self { c }
     }

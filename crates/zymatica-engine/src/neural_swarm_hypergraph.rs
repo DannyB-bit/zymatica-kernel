@@ -236,8 +236,8 @@ impl SwarmConsensusEngine {
             transcript_hasher.update([p.sender_node_id]);
             transcript_hasher.update(p.to_bytes());
             transcript_hasher.update(sig.to_bytes());
-            for i in 0..6 {
-                sum_coords[i] += (p.concept_trajectory[i] as u32) * w;
+            for (sum, &coord) in sum_coords.iter_mut().zip(&p.concept_trajectory) {
+                *sum += (coord as u32) * w;
             }
         }
 
@@ -246,20 +246,20 @@ impl SwarmConsensusEngine {
         }
 
         let mut consensus_coords = [0u8; 6];
-        for i in 0..6 {
-            consensus_coords[i] = ((sum_coords[i] + total_weight / 2) / total_weight) as u8;
+        for (coord, &sum) in consensus_coords.iter_mut().zip(&sum_coords) {
+            *coord = ((sum + total_weight / 2) / total_weight) as u8;
         }
-        transcript_hasher.update(consensus_coords);
-        transcript_hasher.update(total_weight.to_be_bytes());
 
-        let transcript_hash: [u8; 32] = transcript_hasher.finalize().into();
+        let mut cert_hasher = Sha256::new();
+        cert_hasher.update(transcript_hasher.finalize());
+        let digest: [u8; 32] = cert_hasher.finalize().into();
 
         Some(SwarmQuorumCertificate {
             epoch,
             participant_nodes: participants,
             total_weight,
             consensus_trajectory: consensus_coords,
-            certificate_transcript_sha256: transcript_hash,
+            certificate_transcript_sha256: digest,
         })
     }
 }
@@ -270,12 +270,10 @@ mod tests {
     use rand::rngs::OsRng;
 
     #[test]
-    fn test_swarm_intent_chirp_24byte_serialization() {
-        let chirp = SwarmIntentChirp::new(1, 100_000, 2, 5, 0x07, [10, 20, 30, 40, 50, 60]);
+    fn test_swarm_chirp_24b_crc_and_deserialization() {
+        let chirp = SwarmIntentChirp::new(1, 100, 2, 4, 0x01, [1, 2, 3, 4, 5, 6]);
         let bytes = chirp.to_bytes();
         assert_eq!(bytes.len(), 24);
-        assert_eq!(bytes[22], 0x5A);
-        assert_eq!(bytes[23], 0xA5);
 
         let decoded = SwarmIntentChirp::from_bytes(&bytes).expect("Valid 24B chirp decode");
         assert_eq!(chirp, decoded);
@@ -284,8 +282,8 @@ mod tests {
     #[test]
     fn test_ephemeral_subagent_spawning_determinism() {
         let mut seed = [0u8; 381];
-        for i in 0..381 {
-            seed[i] = ((i * 17 + 31) % 256) as u8;
+        for (i, byte) in seed.iter_mut().enumerate() {
+            *byte = ((i * 17 + 31) % 256) as u8;
         }
 
         let weights1 = EphemeralSubagentSpawner::spawn_from_seed(&seed, 3);

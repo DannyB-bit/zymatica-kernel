@@ -35,8 +35,7 @@ impl ZymaticaToolDecoder {
         let after_name = &slice[name_idx + 6..];
         let colon_idx = after_name.find(':')?;
         let val_slice = after_name[colon_idx + 1..].trim_start();
-        if val_slice.starts_with('"') {
-            let name_content = &val_slice[1..];
+        if let Some(name_content) = val_slice.strip_prefix('"') {
             let end_quote = name_content.find('"')?;
             Some(name_content[..end_quote].to_string())
         } else {

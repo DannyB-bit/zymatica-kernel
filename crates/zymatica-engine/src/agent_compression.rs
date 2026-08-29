@@ -74,7 +74,7 @@ impl TrajectoryCompressor {
 
 fn estimate_tokens(text: &str) -> usize {
     // Fast estimation heuristic: ~4 chars per token
-    (text.len() + 3) / 4
+    text.len().div_ceil(4)
 }
 
 #[cfg(test)]

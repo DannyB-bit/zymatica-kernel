@@ -241,13 +241,13 @@ impl AgentTool for TerminalTool {
 
         #[cfg(target_os = "windows")]
         let output = Command::new("cmd")
-            .args(&["/C", cmd])
+            .args(["/C", cmd])
             .output()
             .context("Failed to launch cmd.exe")?;
 
         #[cfg(not(target_os = "windows"))]
         let output = Command::new("sh")
-            .args(&["-c", cmd])
+            .args(["-c", cmd])
             .output()
             .context("Failed to launch shell")?;
 

@@ -262,10 +262,12 @@ impl XorFecChirpPacketizer {
         if missing_count == 0 {
             // No packet dropped, simply concatenate
             let mut out = Vec::new();
-            for p in received_packets.iter().take(received_packets.len() - 1) {
-                if let Some(data) = p {
-                    out.extend_from_slice(&data[1..]);
-                }
+            for data in received_packets
+                .iter()
+                .take(received_packets.len() - 1)
+                .flatten()
+            {
+                out.extend_from_slice(&data[1..]);
             }
             return Ok(out);
         }
@@ -279,11 +281,11 @@ impl XorFecChirpPacketizer {
         recovered[0] = target as u8;
 
         for (idx, p) in received_packets.iter().enumerate() {
-            if idx != target {
-                if let Some(data) = p {
-                    for (dst, src) in recovered[1..Self::MTU].iter_mut().zip(&data[1..Self::MTU]) {
-                        *dst ^= *src;
-                    }
+            if idx != target
+                && let Some(data) = p
+            {
+                for (dst, src) in recovered[1..Self::MTU].iter_mut().zip(&data[1..Self::MTU]) {
+                    *dst ^= *src;
                 }
             }
         }
@@ -344,12 +346,13 @@ mod tests {
 
     #[test]
     fn test_geodesic_codec_lossless_trajectory() {
-        let mut trajectory = Vec::new();
-        trajectory.push(Concept6D::new(1, 2, 3, 4, 5, 6));
-        trajectory.push(Concept6D::new(1, 2, 3, 4, 5, 6)); // Mode 00
-        trajectory.push(Concept6D::new(1, 2, 4, 5, 6, 7)); // Mode 01
-        trajectory.push(Concept6D::new(1, 9, 2, 1, 0, 0)); // Mode 10
-        trajectory.push(Concept6D::new(4, 7, 8, 9, 10, 11)); // Mode 11
+        let trajectory = vec![
+            Concept6D::new(1, 2, 3, 4, 5, 6),
+            Concept6D::new(1, 2, 3, 4, 5, 6),   // Mode 00
+            Concept6D::new(1, 2, 4, 5, 6, 7),   // Mode 01
+            Concept6D::new(1, 9, 2, 1, 0, 0),   // Mode 10
+            Concept6D::new(4, 7, 8, 9, 10, 11), // Mode 11
+        ];
 
         let encoded = GeodesicDeltaCodec::encode_trajectory(&trajectory);
         assert!(encoded.len() < trajectory.len() * 3); // Must achieve real compression

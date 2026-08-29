@@ -41,11 +41,11 @@ impl PluginLoader {
             let path = entry.path();
             if path.is_dir() {
                 let manifest_path = path.join("plugin.json");
-                if let Ok(content) = fs::read_to_string(&manifest_path) {
-                    if let Ok(manifest) = serde_json::from_str::<PluginManifest>(&content) {
-                        self.plugins.insert(manifest.name.clone(), manifest);
-                        count += 1;
-                    }
+                if let Ok(content) = fs::read_to_string(&manifest_path)
+                    && let Ok(manifest) = serde_json::from_str::<PluginManifest>(&content)
+                {
+                    self.plugins.insert(manifest.name.clone(), manifest);
+                    count += 1;
                 }
             }
         }
