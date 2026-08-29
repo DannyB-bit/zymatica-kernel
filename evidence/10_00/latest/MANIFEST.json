@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-29T23:36:06.990819+00:00",
+  "created_utc": "2026-08-29T23:37:01.871749+00:00",
   "files": [
     {
       "path": "epigenetic.json",
@@ -14,8 +14,8 @@
     },
     {
       "path": "MANIFEST.json",
-      "sha256": "580f38c038d7d4b4ad3610717c892e762953e2ea81da2e0fe51e4a819e8d1868",
-      "size": 2454
+      "sha256": "88c7c1e70d83813bb6bc77e9a4326c71cc7d4b1aa141c4ad840ebd9b26574a27",
+      "size": 1215
     },
     {
       "path": "mcts.json",
@@ -28,8 +28,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "916d821ce247ebeab45a1e9248bef37e120ff860",
-  "git_status_porcelain": "M LICENSES.md\n M README.md\n M break_the_record_engine.py\n M crates/zymatica-engine/src/cuneiform_8d_octonion_engine.rs\n M crates/zymatica-engine/src/holomorphic_speculative_engine.rs\n M crates/zymatica-engine/src/neural_swarm_hypergraph.rs\n M crates/zymatica-language-u/29_Hyper_Manifold_KV_Folding/run_proof.py\n M crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/run_proof.py\n M crates/zymatica-language-u/34_Z_WORMHOLE_Latent_Transfer/run_proof.py\n M crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning/run_proof.py\n M crates/zymatica-zk-mesh/groth16/src/ceremony.rs\n M crates/zymatica-zk-mesh/groth16/src/circuit.rs\n M crates/zymatica-zk-mesh/groth16/src/lib.rs\n M crates/zymatica-zk-mesh/groth16/src/main.rs\n M crates/zymatica-zspar/src/crc32c.rs\n M crates/zymatica-zspar/src/gf16.rs\n M crates/zymatica-zspar/src/lib.rs\n M crates/zymatica-zspar/src/rs12_8.rs\n M crates/zymatica-zspar/src/semantic.rs\n M crates/zymatica-zspar/src/sha256.rs\n M docs/TEN_OUT_OF_TEN_ACCEPTANCE.md\n M evidence/10_00/latest/MANIFEST.json\n M master_forensic_audit.py\n M tools/ten_out_of_ten/claims_audit.py\n M tools/ten_out_of_ten/evidence_manifest.py\n M tools/ten_out_of_ten/fix_clippy_run27.py\n M tools/ten_out_of_ten/license_audit.py\n M verify_frontier_suite.py\n?? LICENSE_SCOPE.txt\n?? THIRD_PARTY_LICENSE_ALLOWLIST.txt",
+  "git_head": "dc5f88ea9504c716db0e889d8e3e98f0741f58ff",
+  "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
