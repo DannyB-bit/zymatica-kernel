@@ -2,78 +2,99 @@ name: Zymatica Production Engine CI/CD & Verification Battery
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: "1"
 
 jobs:
   multi-arch-build-and-test:
     name: Multi-Architecture Native Build & Test (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        rust: [stable]
 
     steps:
       - name: Checkout Codebase
         uses: actions/checkout@v4
 
-      - name: Setup Rust Toolchain
+      - name: Setup Rust 1.98.0
         uses: dtolnay/rust-toolchain@stable
         with:
-          toolchain: ${{ matrix.rust }}
+          toolchain: 1.98.0
           components: rustfmt, clippy
 
+      - name: Rust Toolchain Evidence
+        shell: bash
+        run: |
+          rustc --version --verbose
+          cargo --version
+          cargo clippy --version
+          cargo fmt --version
+
       - name: Rustfmt Check
-        run: cargo fmt --all -- --check
+        run: cargo +1.98.0 fmt --all -- --check
 
       - name: Rust Clippy Verification
-        run: cargo clippy --workspace --all-targets -- -D warnings
+        run: cargo +1.98.0 clippy --workspace --all-targets --locked -- -D warnings
 
       - name: Run Native Rust Workspace Tests
-        run: cargo test --workspace --locked --verbose
+        run: cargo +1.98.0 test --workspace --locked --verbose
 
       - name: Build Production Release Artifacts
-        run: cargo build --workspace --release --locked
+        run: cargo +1.98.0 build --workspace --release --locked
 
-      - name: Build & Run C++20 Z-SPAR Tests (Ubuntu / macOS)
+      - name: Build & Run C++20 Z-SPAR Tests
         if: runner.os != 'Windows'
+        shell: bash
         run: |
           cmake -S crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity -B build_zspar -DCMAKE_BUILD_TYPE=Release
-          cmake --build build_zspar -j
+          cmake --build build_zspar --parallel
           ctest --test-dir build_zspar --output-on-failure
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Python Dependencies
+      - name: Python Syntax Gate
+        shell: bash
+        run: |
+          python -m compileall -q \
+            crates/zymatica-language-u \
+            tools/ten_out_of_ten
+
+      - name: Install Lightweight Verification Dependencies
+        shell: bash
         run: |
           python -m pip install --upgrade pip
-          pip install numpy
+          python -m pip install numpy
+
+      - name: Numerical Helper Self-Test
+        run: python tools/ten_out_of_ten/real_model_validation.py self-test
 
       - name: Run Master 4-Pillars Verification Suite
-        run: |
-          python crates/zymatica-language-u/unified_polyglot_pillars/unified_four_pillars_engine.py
+        run: python crates/zymatica-language-u/unified_polyglot_pillars/unified_four_pillars_engine.py
 
-      - name: Execute 8D Octonion Stress Harness (Class 32)
-        run: |
-          python crates/zymatica-language-u/32_8D_Octonion_Hypercube/run_proof.py
+      - name: Execute Class 31 Algorithmic Proof
+        run: python crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/run_proof.py
 
-      - name: Execute Epigenetic Nullspace Continual Learning Proof (Class 31)
-        run: |
-          python crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/run_proof.py
+      - name: Execute Class 32 Stress Harness
+        run: python crates/zymatica-language-u/32_8D_Octonion_Hypercube/run_proof.py
 
-      - name: Execute Z-SPAR Golden Vector Cross-Validation (Class 33)
-        run: |
-          python crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity/tools/reference_vectors.py
+      - name: Execute Z-SPAR Golden Vector Cross-Validation
+        run: python crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity/tools/reference_vectors.py
 
-      - name: Execute Z-WORMHOLE Cross-Model Latent Transfer Proof (Class 34)
-        run: |
-          python crates/zymatica-language-u/34_Z_WORMHOLE_Latent_Transfer/run_proof.py
+      - name: Execute Class 34 Algorithmic Proof
+        run: python crates/zymatica-language-u/34_Z_WORMHOLE_Latent_Transfer/run_proof.py
 
-      - name: Execute Z-MCTS Continuous Latent Reasoning Proof (Class 35)
-        run: |
-          python crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning/run_proof.py
+      - name: Execute Class 35 Algorithmic Proof
+        run: python crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning/run_proof.py

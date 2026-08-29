@@ -1,0 +1,72 @@
+name: Zymatica 10.00 Release Evidence Gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      evidence_dir:
+        description: Committed evidence directory to validate
+        required: true
+        default: evidence/10_00/latest
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-and-claims:
+    name: Research Evidence, Claims & Security Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.98.0
+          components: rustfmt, clippy
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve evidence directory
+        id: evidence
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "dir=${{ inputs.evidence_dir }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "dir=evidence/10_00/latest" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify code before accepting evidence
+        shell: bash
+        run: |
+          cargo +1.98.0 fmt --all -- --check
+          cargo +1.98.0 clippy --workspace --all-targets --locked -- -D warnings
+          cargo +1.98.0 test --workspace --locked
+          cargo +1.98.0 build --workspace --release --locked
+
+      - name: Compile all Python verification code
+        run: python -m compileall -q tools/ten_out_of_ten crates/zymatica-language-u
+
+      - name: Validate quantitative evidence thresholds
+        run: python tools/ten_out_of_ten/acceptance_gate.py --evidence-dir "${{ steps.evidence.outputs.dir }}"
+
+      - name: Validate research-claim evidence links
+        run: python tools/ten_out_of_ten/claims_audit.py --root . --json-output "${{ steps.evidence.outputs.dir }}/claims_audit.json"
+
+      - name: Validate license consistency
+        run: python tools/ten_out_of_ten/license_audit.py --root . --json-output "${{ steps.evidence.outputs.dir }}/license_audit.json"
+
+      - name: Generate evidence manifest
+        run: python tools/ten_out_of_ten/evidence_manifest.py "${{ steps.evidence.outputs.dir }}" --repo . --output "${{ steps.evidence.outputs.dir }}/MANIFEST.json"
+
+      - name: RustSec dependency audit
+        shell: bash
+        run: |
+          cargo install cargo-audit --locked
+          cargo audit

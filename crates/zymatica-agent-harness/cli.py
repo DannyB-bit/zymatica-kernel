@@ -10804,23 +10804,17 @@ class ZymaticaCLI(CLIAgentSetupMixin, CLICommandsMixin, CLIBillingMixin):
                     self._voice_continuous = False
                     self._no_speech_count = 0
                     _cprint(f"{_DIM}No speech detected 3 times, continuous mode stopped.{_RST}")
-                    return
+                elif self._voice_continuous and not self._voice_recording:
+                    def _restart_recording():
+                        try:
+                            self._voice_start_recording()
+                            if hasattr(self, '_app') and self._app:
+                                self._app.invalidate()
+                        except Exception as e:
+                            _cprint(f"{_DIM}Voice auto-restart failed: {e}{_RST}")
+                    threading.Thread(target=_restart_recording, daemon=True).start()
             else:
                 self._no_speech_count = 0
-
-            # If no transcript was submitted but continuous mode is active,
-            # restart recording so the user can keep talking.
-            # (When transcript IS submitted, process_loop handles restart
-            # after chat() completes.)
-            if self._voice_continuous and not submitted and not self._voice_recording:
-                def _restart_recording():
-                    try:
-                        self._voice_start_recording()
-                        if hasattr(self, '_app') and self._app:
-                            self._app.invalidate()
-                    except Exception as e:
-                        _cprint(f"{_DIM}Voice auto-restart failed: {e}{_RST}")
-                threading.Thread(target=_restart_recording, daemon=True).start()
 
     def _voice_speak_response_async(self, text: str) -> None:
         """Schedule TTS and mark it pending before continuous recording can restart."""

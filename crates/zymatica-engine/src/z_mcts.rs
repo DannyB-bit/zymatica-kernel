@@ -1,56 +1,68 @@
-//! ==============================================================================
-//! ZYMATICA CLASS 35: Z-MCTS (Continuous Manifold Test-Time Latent Reasoning Engine)
-//! Author: Danny Bouldiez | Codebase by Devs One
-//!
-//! Executes Monte Carlo Tree Search directly over continuous 8D Riemannian manifold
-//! trajectories prior to token generation. Enables test-time compute scaling (o1/R1 reasoning)
-//! without emitting wasteful, slow text tokens during dead-end exploration.
-//! ==============================================================================
+// Copyright © 2026 Zymatica
+// SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+// See LICENSE for terms.
 
-/// Point in 8D Continuous Riemannian Latent Space
+//! ==============================================================================
+//! ZYMATICA CLASS 35: Z-MCTS — Continuous Latent Test-Time Search
+//! ==============================================================================
+//!
+//! The search core is evaluator-agnostic. A real model/verifier can provide both value and
+//! policy-prior signals through `LatentEvaluator`. The previous geometric goal search remains
+//! available as a deterministic reference evaluator and is not presented as LLM reasoning.
+
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct LatentState8D {
     pub coords: [f32; 8],
 }
 
 impl LatentState8D {
-    pub fn new(coords: [f32; 8]) -> Self {
+    pub const fn new(coords: [f32; 8]) -> Self {
         Self { coords }
     }
 
     pub fn distance_to(&self, other: &Self) -> f32 {
-        let weights = [1.0, 1.0, 0.75, 0.75, 0.5, 0.5, 0.25, 0.25];
-        let mut sum = 0.0f32;
-        for i in 0..8 {
-            let d = self.coords[i] - other.coords[i];
-            sum += weights[i] * d * d;
-        }
-        sum.sqrt()
+        const WEIGHTS: [f32; 8] = [1.0, 1.0, 0.75, 0.75, 0.5, 0.5, 0.25, 0.25];
+        self.coords
+            .iter()
+            .zip(&other.coords)
+            .zip(WEIGHTS)
+            .map(|((&lhs, &rhs), weight)| {
+                let delta = lhs - rhs;
+                weight * delta * delta
+            })
+            .sum::<f32>()
+            .sqrt()
     }
 
     pub fn step(&self, velocity: &[f32; 8], dt: f32) -> Self {
-        let mut new_coords = [0.0f32; 8];
-        for i in 0..8 {
-            new_coords[i] = (self.coords[i] + velocity[i] * dt).clamp(0.0, 15.0);
+        let mut next = [0.0f32; 8];
+        for ((dst, &position), &speed) in next.iter_mut().zip(&self.coords).zip(velocity) {
+            *dst = (position + speed * dt).clamp(0.0, 15.0);
         }
-        Self::new(new_coords)
+        Self::new(next)
     }
 }
 
-/// MCTS Node in Continuous Latent Geodesic Space
 #[derive(Debug, Clone)]
 pub struct LatentMctsNode {
     pub state: LatentState8D,
     pub parent_idx: Option<usize>,
     pub children_indices: Vec<usize>,
-    pub action_taken: [f32; 8], // Velocity tangent vector
+    pub action_taken: [f32; 8],
     pub visit_count: u32,
     pub total_value: f32,
     pub prior_prob: f32,
+    pub depth: usize,
 }
 
 impl LatentMctsNode {
-    pub fn new(state: LatentState8D, parent: Option<usize>, action: [f32; 8], prior: f32) -> Self {
+    pub fn new(
+        state: LatentState8D,
+        parent: Option<usize>,
+        action: [f32; 8],
+        prior: f32,
+        depth: usize,
+    ) -> Self {
         Self {
             state,
             parent_idx: parent,
@@ -58,7 +70,8 @@ impl LatentMctsNode {
             action_taken: action,
             visit_count: 0,
             total_value: 0.0,
-            prior_prob: prior,
+            prior_prob: prior.max(0.0),
+            depth,
         }
     }
 
@@ -71,7 +84,6 @@ impl LatentMctsNode {
     }
 }
 
-/// Configuration for Z-MCTS Latent Reasoning Engine
 #[derive(Debug, Clone)]
 pub struct ZMctsConfig {
     pub num_simulations: usize,
@@ -87,15 +99,66 @@ impl Default for ZMctsConfig {
         Self {
             num_simulations: 250,
             max_depth: 8,
-            c_puct: 1.414,
-            branch_factor: 6,
+            c_puct: std::f32::consts::SQRT_2,
+            branch_factor: 8,
             step_dt: 0.25,
             curvature_penalty: 0.05,
         }
     }
 }
 
-/// Z-MCTS Continuous Latent Reasoning Engine
+/// Supplies the real objective for latent search.
+///
+/// Implementations may call an LM-head scorer, a reward model, a symbolic verifier, a unit-test
+/// oracle, or another deterministic model-derived objective. Search itself does not assume a
+/// geometric target.
+pub trait LatentEvaluator {
+    /// Higher values are better.
+    fn evaluate(&mut self, state: &LatentState8D, depth: usize) -> f32;
+
+    /// Non-negative prior used by PUCT. Returning 1.0 is a uniform prior.
+    fn prior(
+        &mut self,
+        _parent: &LatentState8D,
+        _action: &[f32; 8],
+        _next: &LatentState8D,
+        _depth: usize,
+    ) -> f32 {
+        1.0
+    }
+
+    /// Optional early termination condition.
+    fn is_terminal(&mut self, _state: &LatentState8D, _depth: usize) -> bool {
+        false
+    }
+}
+
+pub struct GeodesicGoalEvaluator {
+    goal: LatentState8D,
+}
+
+impl GeodesicGoalEvaluator {
+    pub const fn new(goal: LatentState8D) -> Self {
+        Self { goal }
+    }
+}
+
+impl LatentEvaluator for GeodesicGoalEvaluator {
+    fn evaluate(&mut self, state: &LatentState8D, _depth: usize) -> f32 {
+        10.0 / (1.0 + state.distance_to(&self.goal))
+    }
+
+    fn prior(
+        &mut self,
+        _parent: &LatentState8D,
+        _action: &[f32; 8],
+        next: &LatentState8D,
+        _depth: usize,
+    ) -> f32 {
+        (1.0 / (1.0 + next.distance_to(&self.goal))).max(1.0e-6)
+    }
+}
+
 pub struct ZMctsEngine {
     pub config: ZMctsConfig,
     pub nodes: Vec<LatentMctsNode>,
@@ -109,115 +172,157 @@ impl ZMctsEngine {
         }
     }
 
-    /// Search the optimal continuous reasoning trajectory from start to goal in latent space
+    /// Generic production search path. The evaluator supplies the actual model/verifier objective.
+    pub fn search_with_evaluator<E: LatentEvaluator>(
+        &mut self,
+        start_state: LatentState8D,
+        evaluator: &mut E,
+    ) -> Vec<LatentState8D> {
+        self.nodes.clear();
+        self.nodes
+            .push(LatentMctsNode::new(start_state, None, [0.0; 8], 1.0, 0));
+
+        let actions = self.generate_candidate_velocities();
+        let action_count = self.config.branch_factor.clamp(1, actions.len());
+
+        for _ in 0..self.config.num_simulations {
+            let mut current = 0usize;
+
+            // Selection.
+            while !self.nodes[current].children_indices.is_empty()
+                && self.nodes[current].depth < self.config.max_depth
+            {
+                let parent_visits = self.nodes[current].visit_count.max(1) as f32;
+                current = self.nodes[current]
+                    .children_indices
+                    .iter()
+                    .copied()
+                    .max_by(|&lhs, &rhs| {
+                        let lhs_score = self.puct_score(lhs, parent_visits);
+                        let rhs_score = self.puct_score(rhs, parent_visits);
+                        lhs_score.total_cmp(&rhs_score)
+                    })
+                    .unwrap_or(current);
+            }
+
+            let depth = self.nodes[current].depth;
+            if evaluator.is_terminal(&self.nodes[current].state, depth) {
+                let value = evaluator.evaluate(&self.nodes[current].state, depth);
+                self.backpropagate(current, value);
+                continue;
+            }
+
+            // Expansion.
+            if depth < self.config.max_depth && self.nodes[current].visit_count > 0 {
+                let parent_state = self.nodes[current].state;
+                let next_depth = depth + 1;
+                for action in actions.iter().take(action_count) {
+                    let next_state = parent_state.step(action, self.config.step_dt);
+                    let prior = evaluator
+                        .prior(&parent_state, action, &next_state, next_depth)
+                        .max(1.0e-8);
+                    let child_index = self.nodes.len();
+                    self.nodes.push(LatentMctsNode::new(
+                        next_state,
+                        Some(current),
+                        *action,
+                        prior,
+                        next_depth,
+                    ));
+                    self.nodes[current].children_indices.push(child_index);
+                }
+
+                current = self.nodes[current]
+                    .children_indices
+                    .iter()
+                    .copied()
+                    .max_by(|&lhs, &rhs| {
+                        self.nodes[lhs]
+                            .prior_prob
+                            .total_cmp(&self.nodes[rhs].prior_prob)
+                    })
+                    .unwrap_or(current);
+            }
+
+            // Model/verifier evaluation plus a small path-energy regularizer.
+            let node = &self.nodes[current];
+            let action_energy = node
+                .action_taken
+                .iter()
+                .map(|value| value * value)
+                .sum::<f32>();
+            let raw_value = evaluator.evaluate(&node.state, node.depth);
+            let value = raw_value - self.config.curvature_penalty * action_energy;
+            self.backpropagate(current, value);
+        }
+
+        self.best_trajectory(start_state)
+    }
+
+    /// Deterministic geometry-only reference path retained for regression tests and visual demos.
     pub fn search_optimal_trajectory(
         &mut self,
         start_state: LatentState8D,
         goal_state: LatentState8D,
     ) -> Vec<LatentState8D> {
-        self.nodes.clear();
-        self.nodes
-            .push(LatentMctsNode::new(start_state, None, [0.0; 8], 1.0));
+        let mut evaluator = GeodesicGoalEvaluator::new(goal_state);
+        self.search_with_evaluator(start_state, &mut evaluator)
+    }
 
-        let actions = self.generate_candidate_velocities();
+    fn puct_score(&self, node_index: usize, parent_visits: f32) -> f32 {
+        let child = &self.nodes[node_index];
+        child.q_value()
+            + self.config.c_puct * child.prior_prob * parent_visits.sqrt()
+                / (1.0 + child.visit_count as f32)
+    }
 
-        for _ in 0..self.config.num_simulations {
-            // 1. Selection
-            let mut curr_idx = 0;
-            let mut depth = 0;
-
-            while !self.nodes[curr_idx].children_indices.is_empty() && depth < self.config.max_depth
-            {
-                let parent_visits = self.nodes[curr_idx].visit_count;
-                let mut best_score = -f32::INFINITY;
-                let mut best_child_idx = self.nodes[curr_idx].children_indices[0];
-
-                for &child_idx in &self.nodes[curr_idx].children_indices {
-                    let child = &self.nodes[child_idx];
-                    let q = child.q_value();
-                    let u = self.config.c_puct
-                        * child.prior_prob
-                        * ((parent_visits as f32).sqrt() / (1.0 + child.visit_count as f32));
-                    let score = q + u;
-                    if score > best_score {
-                        best_score = score;
-                        best_child_idx = child_idx;
-                    }
-                }
-                curr_idx = best_child_idx;
-                depth += 1;
-            }
-
-            // 2. Expansion
-            if depth < self.config.max_depth && self.nodes[curr_idx].visit_count > 0 {
-                let parent_state = self.nodes[curr_idx].state;
-                for act in &actions {
-                    let next_state = parent_state.step(act, self.config.step_dt);
-                    let dist = next_state.distance_to(&goal_state);
-                    let prior = (1.0 / (1.0 + dist)).max(0.01);
-                    let new_node = LatentMctsNode::new(next_state, Some(curr_idx), *act, prior);
-                    let new_idx = self.nodes.len();
-                    self.nodes.push(new_node);
-                    self.nodes[curr_idx].children_indices.push(new_idx);
-                }
-                if let Some(&first_child) = self.nodes[curr_idx].children_indices.first() {
-                    curr_idx = first_child;
-                }
-            }
-
-            // 3. Evaluation (Energy functional in Riemannian space)
-            let current_state = self.nodes[curr_idx].state;
-            let dist_to_goal = current_state.distance_to(&goal_state);
-            let goal_reward = (10.0 / (1.0 + dist_to_goal)).min(10.0);
-            let action_norm: f32 = self.nodes[curr_idx]
-                .action_taken
-                .iter()
-                .map(|x| x * x)
-                .sum();
-            let value = goal_reward - self.config.curvature_penalty * action_norm;
-
-            // 4. Backpropagation
-            let mut back_idx = Some(curr_idx);
-            while let Some(idx) = back_idx {
-                self.nodes[idx].visit_count += 1;
-                self.nodes[idx].total_value += value;
-                back_idx = self.nodes[idx].parent_idx;
-            }
+    fn backpropagate(&mut self, leaf_index: usize, value: f32) {
+        let mut cursor = Some(leaf_index);
+        while let Some(index) = cursor {
+            self.nodes[index].visit_count = self.nodes[index].visit_count.saturating_add(1);
+            self.nodes[index].total_value += value;
+            cursor = self.nodes[index].parent_idx;
         }
+    }
 
-        // Extract best trajectory from root
+    fn best_trajectory(&self, start_state: LatentState8D) -> Vec<LatentState8D> {
         let mut trajectory = vec![start_state];
-        let mut curr_idx = 0;
-        while !self.nodes[curr_idx].children_indices.is_empty() {
-            let mut most_visited = 0;
-            let mut best_next_idx = self.nodes[curr_idx].children_indices[0];
-            for &child_idx in &self.nodes[curr_idx].children_indices {
-                if self.nodes[child_idx].visit_count > most_visited {
-                    most_visited = self.nodes[child_idx].visit_count;
-                    best_next_idx = child_idx;
-                }
-            }
-            if most_visited == 0 {
+        let mut current = 0usize;
+
+        while let Some(next) = self.nodes[current]
+            .children_indices
+            .iter()
+            .copied()
+            .filter(|&index| self.nodes[index].visit_count > 0)
+            .max_by_key(|&index| self.nodes[index].visit_count)
+        {
+            trajectory.push(self.nodes[next].state);
+            current = next;
+            if self.nodes[current].depth >= self.config.max_depth {
                 break;
             }
-            trajectory.push(self.nodes[best_next_idx].state);
-            curr_idx = best_next_idx;
         }
-
         trajectory
     }
 
     fn generate_candidate_velocities(&self) -> Vec<[f32; 8]> {
-        let mut velocities = Vec::new();
-        // Cardinal direction exploratory tangents
+        let mut velocities = Vec::with_capacity(24);
         for axis in 0..8 {
-            let mut v_pos = [0.0f32; 8];
-            v_pos[axis] = 1.0;
-            velocities.push(v_pos);
+            let mut positive = [0.0f32; 8];
+            positive[axis] = 1.0;
+            velocities.push(positive);
 
-            let mut v_neg = [0.0f32; 8];
-            v_neg[axis] = -1.0;
-            velocities.push(v_neg);
+            let mut negative = [0.0f32; 8];
+            negative[axis] = -1.0;
+            velocities.push(negative);
+        }
+
+        // Add a small set of diagonal tangents so the branch factor can exceed 16 without
+        // inventing random actions. These are normalized to unit L2 length.
+        for sign in [-1.0f32, 1.0] {
+            let mut diagonal = [0.0f32; 8];
+            diagonal.fill(sign / 8.0f32.sqrt());
+            velocities.push(diagonal);
         }
         velocities
     }
@@ -228,26 +333,57 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_z_mcts_latent_trajectory_optimization() {
+    fn geometric_reference_search_moves_toward_goal() {
         let config = ZMctsConfig {
-            num_simulations: 100,
+            num_simulations: 120,
             max_depth: 6,
-            c_puct: 1.414,
             branch_factor: 16,
             step_dt: 0.5,
             curvature_penalty: 0.01,
+            ..ZMctsConfig::default()
         };
-
         let mut engine = ZMctsEngine::new(config);
         let start = LatentState8D::new([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]);
         let goal = LatentState8D::new([5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0]);
-
         let trajectory = engine.search_optimal_trajectory(start, goal);
+
         assert!(trajectory.len() >= 2);
         assert_eq!(trajectory[0], start);
+        assert!(trajectory.last().unwrap().distance_to(&goal) < start.distance_to(&goal));
+    }
 
-        let initial_dist = start.distance_to(&goal);
-        let final_dist = trajectory.last().unwrap().distance_to(&goal);
-        assert!(final_dist < initial_dist, "MCTS must navigate towards goal");
+    struct AxisReward;
+
+    impl LatentEvaluator for AxisReward {
+        fn evaluate(&mut self, state: &LatentState8D, _depth: usize) -> f32 {
+            state.coords[0]
+        }
+
+        fn prior(
+            &mut self,
+            _parent: &LatentState8D,
+            action: &[f32; 8],
+            _next: &LatentState8D,
+            _depth: usize,
+        ) -> f32 {
+            if action[0] > 0.0 { 2.0 } else { 1.0 }
+        }
+    }
+
+    #[test]
+    fn generic_evaluator_controls_search_objective() {
+        let config = ZMctsConfig {
+            num_simulations: 80,
+            max_depth: 5,
+            branch_factor: 16,
+            step_dt: 0.5,
+            curvature_penalty: 0.0,
+            ..ZMctsConfig::default()
+        };
+        let mut engine = ZMctsEngine::new(config);
+        let start = LatentState8D::new([1.0; 8]);
+        let mut evaluator = AxisReward;
+        let trajectory = engine.search_with_evaluator(start, &mut evaluator);
+        assert!(trajectory.last().unwrap().coords[0] > start.coords[0]);
     }
 }
