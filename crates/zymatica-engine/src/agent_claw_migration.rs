@@ -11,14 +11,13 @@ pub struct MigrationReport {
     pub success: bool,
 }
 
+#[derive(Default)]
 pub struct ClawMigrator;
 
 impl ClawMigrator {
     pub fn detect_openclaw_dir(custom_path: Option<&Path>) -> Option<PathBuf> {
-        if let Some(p) = custom_path {
-            if p.exists() {
-                return Some(p.to_path_buf());
-            }
+        if let Some(p) = custom_path.filter(|p| p.exists()) {
+            return Some(p.to_path_buf());
         }
         let home = dirs_home()?;
         let claw_path = home.join(".openclaw");
@@ -29,7 +28,7 @@ impl ClawMigrator {
         }
     }
 
-    pub fn migrate(claw_dir: &Path, dry_run: bool) -> Result<MigrationReport> {
+    pub fn migrate(claw_dir: &Path, _dry_run: bool) -> Result<MigrationReport> {
         let mut report = MigrationReport {
             memories_migrated: 0,
             skills_migrated: 0,
@@ -44,18 +43,14 @@ impl ClawMigrator {
 
         // Migrate skills
         let skills_dir = claw_dir.join("skills");
-        if skills_dir.exists() {
-            if let Ok(entries) = fs::read_dir(&skills_dir) {
-                report.skills_migrated = entries.count();
-            }
+        if let Ok(entries) = fs::read_dir(&skills_dir) {
+            report.skills_migrated = entries.count();
         }
 
         // Migrate memories
         let memory_dir = claw_dir.join("memories");
-        if memory_dir.exists() {
-            if let Ok(entries) = fs::read_dir(&memory_dir) {
-                report.memories_migrated = entries.count();
-            }
+        if let Ok(entries) = fs::read_dir(&memory_dir) {
+            report.memories_migrated = entries.count();
         }
 
         // Migrate keys

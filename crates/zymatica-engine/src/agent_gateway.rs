@@ -45,6 +45,12 @@ pub struct GatewayEngine {
     event_queue: Arc<Mutex<Vec<GatewayEvent>>>,
 }
 
+impl Default for GatewayEngine {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl GatewayEngine {
     pub fn new() -> Self {
         Self {

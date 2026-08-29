@@ -281,8 +281,8 @@ impl XorFecChirpPacketizer {
         for (idx, p) in received_packets.iter().enumerate() {
             if idx != target {
                 if let Some(data) = p {
-                    for i in 1..Self::MTU {
-                        recovered[i] ^= data[i];
+                    for (dst, src) in recovered[1..Self::MTU].iter_mut().zip(&data[1..Self::MTU]) {
+                        *dst ^= *src;
                     }
                 }
             }

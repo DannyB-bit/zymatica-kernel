@@ -37,7 +37,7 @@ impl TrajectoryCompressor {
         let mut retained = Vec::new();
         let mut current_tokens = 0;
 
-        let has_system = history.first().map_or(false, |m| m.role == "system");
+        let has_system = history.first().is_some_and(|m| m.role == "system");
         if has_system {
             retained.push(history[0].clone());
             current_tokens += estimate_tokens(&history[0].content);

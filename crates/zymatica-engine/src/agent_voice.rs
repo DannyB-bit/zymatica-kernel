@@ -28,6 +28,12 @@ pub struct VoiceEngine {
     default_language: String,
 }
 
+impl Default for VoiceEngine {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl VoiceEngine {
     pub fn new() -> Self {
         Self {

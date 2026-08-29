@@ -7,6 +7,7 @@ pub struct EmbeddedConcept8D {
 }
 
 impl EmbeddedConcept8D {
+    #[allow(clippy::too_many_arguments)]
     #[inline(always)]
     pub const fn new(
         d: u8,
@@ -49,11 +50,9 @@ impl EmbeddedConcept8D {
         chirp[10] = 0;
 
         let mut hash = 0x811c9dc5u32;
-        let mut i = 0;
-        while i < 11 {
-            hash ^= chirp[i] as u32;
+        for &b in &chirp[..11] {
+            hash ^= b as u32;
             hash = hash.wrapping_mul(0x01000193);
-            i += 1;
         }
 
         let crc_b = hash.to_be_bytes();

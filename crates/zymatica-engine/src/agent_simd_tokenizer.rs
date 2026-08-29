@@ -100,13 +100,10 @@ impl SpecialTokenMatcher {
     }
 
     pub fn find_tool_call_bounds(buffer: &str) -> Option<(usize, usize)> {
-        if let Some(start) = buffer.find(Self::TOOL_CALL_START) {
-            let json_start = start + Self::TOOL_CALL_START.len();
-            if let Some(end) = buffer[json_start..].find(Self::TOOL_CALL_END) {
-                return Some((json_start, json_start + end));
-            }
-        }
-        None
+        let start = buffer.find(Self::TOOL_CALL_START)?;
+        let json_start = start + Self::TOOL_CALL_START.len();
+        let end = buffer[json_start..].find(Self::TOOL_CALL_END)?;
+        Some((json_start, json_start + end))
     }
 }
 

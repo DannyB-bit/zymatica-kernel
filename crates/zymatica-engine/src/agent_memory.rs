@@ -24,6 +24,12 @@ pub struct MemoryStore {
     profiles: HashMap<String, DialecticUserProfile>,
 }
 
+impl Default for MemoryStore {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl MemoryStore {
     pub fn new() -> Self {
         Self {
@@ -159,7 +165,7 @@ impl TokenWindowChatMemory {
         }
 
         // Separate system message if present at index 0
-        let has_system = self.messages.first().map_or(false, |m| m.role == "system");
+        let has_system = self.messages.first().is_some_and(|m| m.role == "system");
 
         while self.total_tokens() > self.max_token_budget {
             let remove_idx = if has_system { 1 } else { 0 };

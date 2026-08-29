@@ -59,7 +59,8 @@ impl ZKLoRaWANProver {
 
         // If not forcing reproducible setup, try to load existing keys from disk first
         if !use_reproducible {
-            if let (Ok(pk_data), Ok(vk_data)) = (std::fs::read(PK_FILE), std::fs::read(VK_FILE)) {
+            let loaded = (std::fs::read(PK_FILE), std::fs::read(VK_FILE));
+            if let (Ok(pk_data), Ok(vk_data)) = loaded {
                 if let (Ok(pk), Ok(vk)) = (
                     ProvingKey::<Bn254>::deserialize_compressed(&pk_data[..]),
                     VerifyingKey::<Bn254>::deserialize_compressed(&vk_data[..]),
