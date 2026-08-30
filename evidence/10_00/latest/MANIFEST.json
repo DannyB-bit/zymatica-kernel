@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T16:10:06.616415+00:00",
+  "created_utc": "2026-08-30T16:11:03.985850+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -63,11 +63,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "ef47d506b885eea0116b329db7c7174539a02309",
-  "git_status_porcelain": "?? evidence/10_00/latest/node_c_live_devnet_execution.json\n?? live_devnet_node_c_execution.py",
+  "git_head": "26ecb7bcc520b55cb98845b9c43e91fa6cfa5edb",
+  "git_status_porcelain": "?? docs/SOLANA_BLOCKCHAIN_FORENSIC_AUDIT_REPORT.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "b75343fc3b9123f97c15cc96ef07dc9afec1047f66ff8a1235018c5cdce7dbc6"
+  "source_tree_sha256": "2be42d66cb73b702a2d26cf13f8ae23454d62e1f87266802b7ab70ff22851489"
 }
