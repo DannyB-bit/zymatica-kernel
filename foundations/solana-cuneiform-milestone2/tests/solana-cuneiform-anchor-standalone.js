@@ -129,7 +129,7 @@ function runStandaloneTests() {
 
   const admin = new PublicKey(crypto.randomBytes(32));
   const treasury = new PublicKey(crypto.randomBytes(32));
-  const feeLamports = 1000000n; // 0.001 SOL (1,000,000 lamports)
+  const feeLamports = 150000n; // 0.00015 SOL (150,000 lamports)
 
   // Test 1: Initialize Program Instruction Serialization
   console.log("\n[Test 1] Verifying Initialize Program Serialization...");

@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T14:20:03.061903+00:00",
+  "created_utc": "2026-08-30T14:21:08.770889+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "1fb86cd66cc6755c7bf38f489ed06f6fa835b62c",
-  "git_status_porcelain": "M crates/zymatica-language-u/28_Solana_Semantic_Anchor/app/src/deploy_devnet.ts\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/app/src/test_devnet.ts\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/ARCHITECTURE.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/README.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/TEST_RESULTS.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/deploy_devnet.ts\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/test_devnet.ts\n M crates/zymatica-language-u/README.md\n M \"crates/zymatica-language-u/current milestones achieved/ARCHITECTURE.md\"\n M \"crates/zymatica-language-u/current milestones achieved/README.md\"\n M \"crates/zymatica-language-u/current milestones achieved/TEST_RESULTS.md\"\n M \"crates/zymatica-language-u/current milestones achieved/deploy_devnet.ts\"\n M \"crates/zymatica-language-u/current milestones achieved/test_devnet.ts\"\n M foundations/solana-cuneiform-milestone1/app/src/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/ARCHITECTURE.md\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/README.md\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/TEST_RESULTS.md\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/test_devnet.ts\n M foundations/solana-cuneiform-milestone2/app/src/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/ARCHITECTURE.md\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/README.md\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/TEST_RESULTS.md\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/test_devnet.ts\n M foundations/solana-cuneiform-milestone3/app/src/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/ARCHITECTURE.md\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/README.md\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/TEST_RESULTS.md\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/deploy_devnet.ts\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/test_devnet.ts",
+  "git_head": "edbfefe0c342e0221d30eb72ede33f24401c2cb7",
+  "git_status_porcelain": "M crates/zymatica-language-u/28_Solana_Semantic_Anchor/tests/solana-cuneiform-anchor-standalone.js\n M foundations/solana-cuneiform-milestone1/tests/solana-cuneiform-anchor-standalone.js\n M foundations/solana-cuneiform-milestone2/tests/solana-cuneiform-anchor-standalone.js\n M foundations/solana-cuneiform-milestone3/tests/solana-cuneiform-anchor-standalone.js",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "457b5b29210ee153b66be1a05595e544afe2060103d41e68ef438f126203512c"
+  "source_tree_sha256": "cf5b3e6ac4662b75d8c943ab27feabe4f775592699750aeaf7a11279aecbef7f"
 }
