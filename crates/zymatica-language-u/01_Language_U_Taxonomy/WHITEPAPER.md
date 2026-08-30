@@ -1,5 +1,5 @@
 # ZYMATICA: Language-U Framework (Taxonomy/Decomposition)
-*IP Class 01 | Apache License 2.0*
+*IP Class 01 | Zymatica Covenant License 2.0 (zymatica.space)*
 
 ![Zymatica Logo](../Logo.jpg)
 

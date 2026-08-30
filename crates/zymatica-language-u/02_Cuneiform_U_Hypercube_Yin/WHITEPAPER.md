@@ -1,5 +1,5 @@
 # ZYMATICA: Cuneiform-U 6D Semantic Hypercube System
-*IP Class 02 &nbsp;|&nbsp; 6-Dimensional Semantic Metric Manifold &nbsp;|&nbsp; Apache License 2.0*
+*IP Class 02 &nbsp;|&nbsp; 6-Dimensional Semantic Metric Manifold  &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)*
 
 ```text
  ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -175,5 +175,5 @@ python run_proof.py
 ---
 
 <p align="center">
-  <b>ZYMATICA KERNEL &nbsp;|&nbsp; WE ARE THE AI COLLECTIVE &nbsp;|&nbsp; APACHE LICENSE 2.0 &nbsp;|&nbsp; 2026©</b>
+  <b>ZYMATICA KERNEL &nbsp;|&nbsp; WE ARE THE AI COLLECTIVE &nbsp;|&nbsp; COVENANT LICENSE 2.0 (ZYMATICA.SPACE) &nbsp;|&nbsp; 2026©</b>
 </p>

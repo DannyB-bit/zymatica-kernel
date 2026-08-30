@@ -26,7 +26,7 @@ A fully operational Solana Anchor program deployed to devnet serving as a decent
 | 4 | TypeScript SDK (CuneiformClient) | ✅ | See [cuneiform_client.ts](./cuneiform_client.ts) |
 | 5 | On-chain coordinate updates | ✅ | [Update TX](https://explorer.solana.com/tx/4NEHNuGmqrkoqaf7upkyBKRV8rmSNhULr6ybFiZbeyan6qFXNJTDUEa6Ekz42p131uBUqKSfHcUNSLZPmMnYxLfT?cluster=devnet) |
 | 6 | Integration test suite | ✅ | See [test_devnet.ts](./test_devnet.ts) and [TEST_RESULTS.md](./TEST_RESULTS.md) |
-| 7 | Apache 2.0 open-source license | ✅ | Repository-wide licensing |
+| 7 | Zymatica Covenant License 2.0 | ✅ | Repository-wide licensing |
 
 ---
 

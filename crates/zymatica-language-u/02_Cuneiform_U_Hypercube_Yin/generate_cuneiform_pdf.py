@@ -153,7 +153,7 @@ def generate_pdf(output_pdf_path="WHITEPAPER.pdf"):
     story = []
     
     story.append(Paragraph("ZYMATICA: Cuneiform-U 6D Semantic Hypercube System", title_style))
-    story.append(Paragraph("<b>IP Class 02 &nbsp;|&nbsp; 6-Dimensional Semantic Metric Manifold &nbsp;|&nbsp; Apache License 2.0</b>", subtitle_style))
+    story.append(Paragraph("<b>IP Class 02 &nbsp;|&nbsp; 6-Dimensional Semantic Metric Manifold &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)</b>", subtitle_style))
     
     # Terminal Simulation Box
     term_p1 = Paragraph("<b>[ZYMATICA OS // VANCE FORENSIC DRIVE MONITOR // KERNEL v10.0.0]</b>", terminal_text_style)

@@ -7,7 +7,7 @@ tags:
 - lora
 - compression
 - multi-language
-license: apache-2.0
+license: LicenseRef-Zymatica-Covenant-2.0
 ---
 
 # Language-U Semantic Communication Protocol
@@ -121,9 +121,9 @@ This unified approach guarantees flawless robustness and implementation parity a
 ---
 
 ## 6. Licensing & Intellectual Property Mapping
-This repository and all files within are released under the **Apache License 2.0** (see the [LICENSE](./LICENSE) file for the full text).
+This repository and all original files within are released under the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](../../LICENSE)** (SPDX: `LicenseRef-Zymatica-Covenant-2.0`, see [LICENSE](./LICENSE) and [LICENSES.md](../../LICENSES.md) for full terms).
 
-The core on-chain integration includes built-in programmatic **Protocol Fee collection** routing transaction surcharges directly to the network treasury. Commercial integrations and node operations are governed by this public open-source standard.
+Individual developers, academic researchers, and creators are granted access through ownership of the novel *"200 AMSTERDAM: THE VERTICAL CITY"*, while commercial entities and AI labs operate under the 10% workforce novel purchase covenant or direct enterprise agreements via [zymatica.space](https://zymatica.space). Third-party upstream dependencies retain their respective open-source licenses per Section 3.
 
 For project direction and funding targets, see the **[ROADMAP](./ROADMAP.md)**. To contribute, see **[CONTRIBUTING](./CONTRIBUTING.md)**.
 

@@ -524,7 +524,7 @@ python3 /home/researcher/lora_rx_zk_listener.py
 **Version:** 1.0 (Bitcoin-style) → 2.0 (Solana ZK-enabled, in development)  
 **Date:** June 19, 2026  
 **Authors:** zymatica.space | astronautshe.com | DevsOne | We Are TheAiCollective.art  
-**License:** Apache License 2.0  
+**License:** Zymatica Covenant License 2.0 (zymatica.space)  
 **Solana Address (Treasury):** `CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ`  
 **Devnet Program ID:** `2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`  
 **Contact:** zymatica.space | github.com/DannyB-bit/zymatica.space
