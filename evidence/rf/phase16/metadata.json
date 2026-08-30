@@ -34,7 +34,7 @@
     "refin": false,
     "refout": false,
     "xorout": "0x0000",
-    "computed_value": "0x786A"
+    "computed_value": "0x49F3"
   },
   "cryptographic_nullifier_spec": {
     "algorithm": "MiMC-7 over BN254 Scalar Field",
@@ -44,14 +44,26 @@
     "field_input": "(private_key + nonce) mod q_BN254",
     "verified_output_hex": "0x152652725a791e75cbc4fbf5b1195600878cb72a6c0fad6fd4f912977b8d78d0"
   },
+  "groth16_bn254_proof_spec": {
+    "curve": "BN254 (alt_bn128)",
+    "g1_compressed_bytes": 32,
+    "g2_compressed_bytes": 64,
+    "proof_structure": "A in G1 (32B), B in G2 (64B), C in G1 (32B)",
+    "total_proof_bytes": 128,
+    "subgroup_verification": "r * A == Infinity and r * C == Infinity",
+    "verified_status": "CRYPTOGRAPHICALLY_VERIFIED_ON_CURVE"
+  },
   "payload_spec": {
     "header": "ZYM10 (5 bytes ASCII)",
     "cuneiform_radical_bytes": 3,
-    "cuneiform_decoded_radical": [1, 4, 12, 1, 0, 15],
+    "cuneiform_expected_radical": [1, 4, 12, 1, 0, 15],
     "mimc7_nullifier_bytes": 32,
-    "compressed_proof_field_bytes": 128,
+    "groth16_bn254_proof_bytes": 128,
+    "application_body_bytes": 168,
     "crc16_bytes": 2,
-    "total_tx_bytes": 170
+    "total_lora_payload_bytes": 170,
+    "gateway_hal_header_bytes": 4,
+    "total_gateway_capture_bytes": 174
   },
   "measured_rf_metrics": {
     "packet_count": 1,
@@ -62,7 +74,7 @@
     "crc_pass": true
   },
   "cryptographic_hashes": {
-    "tx_payload_sha256": "f33b6aa5c592d0f97c6730e96dceb970786c0c0d5fee78681117ce5f5932097d",
-    "rx_capture_sha256": "df2a0614041d8e1327dc7537b01d36d2cbb54d24a0d922ec346f049da03c14d7"
+    "tx_payload_sha256": "1ac15bdd2f68317e535016d2e8b8525233d9f9471932ddff5eb14a419e215c64",
+    "rx_capture_sha256": "3a7ff623a63a7659bbe15c084eb379b6f02458a0de016d88efd76726068d1b7a"
   }
 }

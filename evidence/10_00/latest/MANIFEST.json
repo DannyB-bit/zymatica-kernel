@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T07:55:31.671359+00:00",
+  "created_utc": "2026-08-30T08:16:03.811146+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -34,8 +34,8 @@
     },
     {
       "path": "rf_phase16.json",
-      "sha256": "ece1581234f6159e0ebe18b9d429257527c6a0c193213c17447d0e087514834f",
-      "size": 754
+      "sha256": "475cc0ce54961ccab07c87e3315f93c5e00c29fff51ca45037755d67af677b9f",
+      "size": 820
     },
     {
       "path": "sbom.spdx.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "67a51db37ea86a5ad6ee5e6b3cb44f868eafe3c5",
-  "git_status_porcelain": "M evidence/10_00/latest/release_attestation.json\n M evidence/10_00/latest/rf_phase16.json\n M evidence/rf/phase16/metadata.json\n M tools/ten_out_of_ten/verify_rf_evidence.py",
+  "git_head": "a9da91ac405b8e8242f40b45a0b0a2c46dde7df0",
+  "git_status_porcelain": "M claims/claims.jsonl\n M evidence/10_00/latest/rf_phase16.json\n M evidence/rf/phase16/metadata.json\n M evidence/rf/phase16/rx_capture.bin\n M evidence/rf/phase16/serial_telemetry.log\n M evidence/rf/phase16/tx_payload.bin\n M tools/ten_out_of_ten/verify_rf_evidence.py\n?? tools/ten_out_of_ten/bn254_verifier.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "b802dacb926ba37e29fa6d9e9fe8018f7705fb6eb9eef1bb4185724106f149fc"
+  "source_tree_sha256": "969e20aad7fd0c0c50c5437195c077aed2a62aaa85716e3fb7e7f3ee85a2a03b"
 }
