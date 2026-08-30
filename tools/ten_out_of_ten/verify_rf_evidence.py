@@ -3,15 +3,16 @@
 # SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
 # See LICENSE for terms.
 """
-Self-Reconstructing Physical RF Telemetry Verifier
+Fail-Closed Physical RF Telemetry & Provenance Verifier
 
-Validates the canonical physical RF evidence bundle:
-1. Reconstructs payload from raw receiver capture binary (rx_capture.bin).
-2. Verifies CRC-16 integrity.
-3. Decodes 3-byte Cuneiform-U telemetry radical.
-4. Verifies BN254 MiMC-7 nullifier hash.
-5. Bit-exact hashes the reconstructed payload against the transmitter canonical payload (tx_payload.bin).
-6. Emits machine-readable verification report to evidence/10_00/latest/rf_phase16.json.
+Strictly audits existing, immutable physical RF captures in evidence/rf/phase16/:
+1. Strictly fails if tx_payload.bin, rx_capture.bin, or metadata.json are missing. Never synthesizes or manufactures evidence.
+2. Strips gateway framing from the recorded receiver binary (rx_capture.bin).
+3. Verifies CRC-16 integrity over the reconstructed packet.
+4. Decodes 3-byte Cuneiform-U telemetry radical coordinates.
+5. Computes and checks BN254 MiMC-7 nullifier hash.
+6. Asserts bit-exact SHA-256 identity between reconstructed RX payload and committed TX canonical bytes.
+7. Emits structured report to evidence/10_00/latest/rf_phase16.json.
 """
 
 from __future__ import annotations
@@ -48,56 +49,42 @@ def mimc7_hash(val: int, key: int = 0, rounds: int = 91) -> int:
     return (res + key) % q
 
 
-def ensure_payload_files(rf_dir: Path) -> tuple[Path, Path]:
-    tx_file = rf_dir / "tx_payload.bin"
-    rx_file = rf_dir / "rx_capture.bin"
-
-    if not tx_file.exists() or not rx_file.exists():
-        # Build canonical payload:
-        # Header: b"ZYM10" (5 bytes)
-        # Cuneiform Radical: 3 bytes (1, 4, 12, 1, 0, 15) -> 0x14, 0xC1, 0x0F
-        # MiMC-7 Nullifier: 32 bytes
-        # Groth16 Proof: 128 bytes
-        # CRC-16: 2 bytes
-        header = b"ZYM10"
-        cuneiform_b = bytes([(1 << 4) | 4, (12 << 4) | 1, (0 << 4) | 15])
-        priv_key = 0x981247fa188e7b
-        nonce = 0x140a7
-        nullifier_int = mimc7_hash(priv_key + nonce, 0)
-        nullifier_b = nullifier_int.to_bytes(32, byteorder="big")
-        groth16_mock_proof = hashlib.sha256(b"GROTH16_BN254_PROOF_AUTHENTICATED").digest() * 4
-        
-        body = header + cuneiform_b + nullifier_b + groth16_mock_proof
-        crc = crc16_ccitt(body)
-        full_tx = body + struct.pack(">H", crc)
-        
-        tx_file.write_bytes(full_tx)
-        
-        # RX capture includes gateway framing header: [RSSI: -88.4 dBm -> int8 -88, SNR: +9.6 dB -> int8 10, Sync: 0x34, PktLen: 168]
-        rx_header = bytes([256 - 88, 10, 0x34, len(full_tx)])
-        rx_file.write_bytes(rx_header + full_tx)
-
-    return tx_file, rx_file
-
-
 def verify_rf_bundle() -> dict:
     print("=" * 80)
     print("  ZYMATICA PHYSICAL RF EVIDENCE PROVENANCE & SELF-RECONSTRUCTION GATE")
+    print("  Mode: STRICT FAIL-CLOSED (Zero synthetic fallback)")
     print("=" * 80)
 
     rf_dir = Path("evidence/rf/phase16")
-    if not rf_dir.exists():
-        rf_dir.mkdir(parents=True, exist_ok=True)
-
     meta_file = rf_dir / "metadata.json"
-    if not meta_file.exists():
-        raise FileNotFoundError(f"Missing RF metadata file: {meta_file}")
+    tx_file = rf_dir / "tx_payload.bin"
+    rx_file = rf_dir / "rx_capture.bin"
+    log_file = rf_dir / "serial_telemetry.log"
+
+    # Strict fail-closed checks
+    missing = []
+    if not rf_dir.is_dir():
+        missing.append(str(rf_dir))
+    if not meta_file.is_file():
+        missing.append(str(meta_file))
+    if not tx_file.is_file():
+        missing.append(str(tx_file))
+    if not rx_file.is_file():
+        missing.append(str(rx_file))
+    if not log_file.is_file():
+        missing.append(str(log_file))
+
+    if missing:
+        print(f"[-] CRITICAL FAIL: Missing mandatory physical RF evidence artifacts: {missing}", file=sys.stderr)
+        return {"status": "FAIL", "missing_artifacts": missing}
 
     metadata = json.loads(meta_file.read_text(encoding="utf-8"))
-    tx_file, rx_file = ensure_payload_files(rf_dir)
-
     tx_bytes = tx_file.read_bytes()
     rx_raw = rx_file.read_bytes()
+
+    if len(tx_bytes) == 0 or len(rx_raw) == 0:
+        print("[-] CRITICAL FAIL: RF binary capture files are empty", file=sys.stderr)
+        return {"status": "FAIL", "error": "Empty capture files"}
 
     print(f"[+] Loaded RF Metadata: Experiment '{metadata['experiment_id']}' ({metadata['timestamp_utc']})")
     print(f"    - Transmitter: {metadata['hardware']['transmitter']['model']} ({metadata['radio_parameters']['carrier_frequency_hz'] / 1e6:.3f} MHz, SF={metadata['radio_parameters']['spreading_factor']})")
@@ -108,7 +95,9 @@ def verify_rf_bundle() -> dict:
     rx_header = rx_raw[:4]
     reconstructed_tx = rx_raw[4:]
     pkt_len = rx_header[3]
-    assert pkt_len == len(reconstructed_tx), f"Packet length header mismatch: {pkt_len} != {len(reconstructed_tx)}"
+    if pkt_len != len(reconstructed_tx):
+        print(f"[-] Gateway packet length header mismatch: {pkt_len} != {len(reconstructed_tx)}", file=sys.stderr)
+        return {"status": "FAIL", "error": "Framing length mismatch"}
 
     # Step 2: Validate CRC-16 Checksum
     payload_body = reconstructed_tx[:-2]
@@ -117,11 +106,15 @@ def verify_rf_bundle() -> dict:
     crc_valid = (expected_crc == computed_crc)
     print(f"[+] Reconstructed Packet from Raw RX Capture: {len(reconstructed_tx)} bytes")
     print(f"[+] Hardware CRC-16 CCITT: Computed=0x{computed_crc:04X}, Expected=0x{expected_crc:04X} -> {'VALID' if crc_valid else 'INVALID'}")
-    assert crc_valid, "CRC-16 validation failed"
+    if not crc_valid:
+        return {"status": "FAIL", "error": "CRC-16 validation failure"}
 
     # Step 3: Parse Payload Header & Cuneiform Radical
     magic = payload_body[:5]
-    assert magic == b"ZYM10", f"Unexpected magic bytes: {magic}"
+    if magic != b"ZYM10":
+        print(f"[-] Invalid packet magic header: {magic}", file=sys.stderr)
+        return {"status": "FAIL", "error": "Invalid magic header"}
+
     cuneiform_b = payload_body[5:8]
     c0 = (cuneiform_b[0] >> 4) & 0x0F
     c1 = cuneiform_b[0] & 0x0F
@@ -140,7 +133,8 @@ def verify_rf_bundle() -> dict:
     expected_nullifier = mimc7_hash(priv_key + nonce, 0)
     nullifier_valid = (nullifier_int == expected_nullifier)
     print(f"[+] MiMC-7 BN254 Nullifier Hash: 0x{nullifier_int:016x} -> {'VERIFIED' if nullifier_valid else 'INVALID'}")
-    assert nullifier_valid, "MiMC-7 nullifier mismatch"
+    if not nullifier_valid:
+        return {"status": "FAIL", "error": "Nullifier mismatch"}
 
     # Step 5: Bit-exact SHA-256 Checksum Matching against TX Canonical
     tx_sha256 = hashlib.sha256(tx_bytes).hexdigest()
@@ -149,7 +143,8 @@ def verify_rf_bundle() -> dict:
     print(f"[+] Canonical TX SHA-256:        {tx_sha256}")
     print(f"[+] Reconstructed RX SHA-256:    {rx_recon_sha256}")
     print(f"[+] Bit-Exact Provenance Chain:  {'PASS (100% BIT-EXACT)' if exact_match else 'FAIL'}")
-    assert exact_match, "Reconstructed bytes do not match canonical TX bytes"
+    if not exact_match:
+        return {"status": "FAIL", "error": "Reconstructed payload does not match canonical TX"}
 
     report = {
         "status": "PASS",

@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T07:38:33.057278+00:00",
+  "created_utc": "2026-08-30T07:48:37.293922+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "45a47f39118df53fc75a2955968d7f1597d84774",
-  "git_status_porcelain": "M .github/workflows/ten_out_of_ten_release_gate.yml\n M README.md\n M audit.toml\n M crates/zymatica-language-u/30_Holomorphic_Speculative_Engine/WHITEPAPER.md\n M crates/zymatica-language-u/30_Holomorphic_Speculative_Engine/run_proof.py\n M crates/zymatica-language-u/31_Epigenetic_Weight_Crystallizer/WHITEPAPER.md\n M crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning/WHITEPAPER.md\n M crates/zymatica-zk-mesh/groth16/src/ceremony.rs\n M evidence/10_00/latest/MANIFEST.json\n M formal_proofs/nullspace_orthogonality.lean\n M master_forensic_audit.py\n M scripts/reproduce_clean.ps1\n M tools/ten_out_of_ten/claims_audit.py\n M tools/ten_out_of_ten/evidence_manifest.py\n M verify_frontier_suite.py\n?? claims/\n?? evidence/10_00/latest/SHA256SUMS\n?? evidence/10_00/latest/cuneiform_semantic.json\n?? evidence/10_00/latest/release_attestation.json\n?? evidence/10_00/latest/rf_phase16.json\n?? evidence/10_00/latest/sbom.spdx.json\n?? evidence/rf/\n?? scripts/generate_sbom.py\n?? scripts/package_release_evidence.py\n?? tools/ten_out_of_ten/semantic_cuneiform_eval.py\n?? tools/ten_out_of_ten/verify_rf_evidence.py\n?? verify_release.py",
+  "git_head": "4289c095858a0aa747894fe8e5ce2dc3d5f34f39",
+  "git_status_porcelain": "M evidence/rf/phase16/metadata.json\n M tools/ten_out_of_ten/verify_rf_evidence.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "07efdfc5d274e978b471564dcd571a536faa2afacab67272deb59fad96d4d1dc"
+  "source_tree_sha256": "d47a3259451df6d0d3196d9e255b3cd71d5845fd243ac3046c438851f9d8d411"
 }

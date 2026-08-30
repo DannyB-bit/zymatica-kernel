@@ -40,6 +40,10 @@
     "mimc7_nullifier_bytes": 32,
     "groth16_compressed_proof_bytes": 128,
     "crc16_bytes": 2,
-    "total_tx_bytes": 168
+    "total_tx_bytes": 170
+  },
+  "cryptographic_hashes": {
+    "tx_payload_sha256": "f33b6aa5c592d0f97c6730e96dceb970786c0c0d5fee78681117ce5f5932097d",
+    "rx_capture_sha256": "df2a0614041d8e1327dc7537b01d36d2cbb54d24a0d922ec346f049da03c14d7"
   }
 }
