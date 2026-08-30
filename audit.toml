@@ -1,0 +1,16 @@
+# RustSec Cargo Audit Configuration
+# Copyright © 2026 Zymatica
+# SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
+
+[advisories]
+ignore = [
+    # Transitive tracing-subscriber in arkworks-rs 0.4 SNARK verification dependency chain
+    "RUSTSEC-2025-0055",
+    # Transitive lru-cache in ark-relations
+    "RUSTSEC-2026-0253",
+    # Unmaintained derivative in arkworks
+    "RUSTSEC-2024-0388",
+    # Unmaintained paste in arkworks
+    "RUSTSEC-2024-0436",
+]
+informational_warnings = ["unmaintained", "unsound"]
