@@ -114,7 +114,7 @@ Jae traced the decompiled tensor functions with his finger:
 
 "It splits intent in two," Jae said quietly. "The first layer is **The Semantic Core—H(Meaning)**—pure mathematical intent projected as a geometric trajectory through a six-dimensional semantic hypercube. The second layer is a local **Syntactic Envelope** that inflates the trajectory into whatever language the listener speaks."
 
-### ⚡ THE EPIPHANY: THE 8D PRECURSOR CODEC & MEGALITHIC RESONATORS
+### ⚡ THE ALIEN CODE
 
 Lindqvist stood frozen. Her pupils dilated as her gaze shifted between the decompiled cuneiform bytecode, the spectral telemetry from Milo's software-defined radio, and the architectural blueprints of 200 Amsterdam glowing on the secondary screen.
 

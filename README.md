@@ -288,7 +288,7 @@ Jae traced the decompiled tensor functions with his finger:
 
 ---
 
-### ⚡ THE EPIPHANY: THE 8D PRECURSOR CODEC & MEGALITHIC RESONATORS
+### ⚡ THE ALIEN CODE
 
 Lindqvist stood frozen. Her pupils dilated as her gaze shifted between the decompiled cuneiform bytecode, the spectral telemetry from Milo's software-defined radio, and the architectural blueprints of 200 Amsterdam glowing on the secondary screen.
 
