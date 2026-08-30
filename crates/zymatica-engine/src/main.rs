@@ -593,7 +593,6 @@ fn main() -> Result<()> {
             println!(
                 "================================================================================"
             );
-            Ok(())
         }
         Command::DemoManifold {
             model,
@@ -692,7 +691,6 @@ fn main() -> Result<()> {
             println!(
                 "================================================================================"
             );
-            Ok(())
         }
         Command::StudioDashboard { output } => {
             zymatica_core::ecosystem::ZymaticaStudio::generate_dashboard(&output)?;
