@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T04:04:15.346624+00:00",
+  "created_utc": "2026-08-30T04:09:44.228309+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "ac27ddc914354bba58e33444a36c6d35c5f12a6c2ef70f4b9173b17eccf2c83b",
+      "sha256": "7981fa97f9b332ec889e0b6462487d9e174ab8d9195529fa2fd08c3af5ddb73d",
       "size": 117
     },
     {
@@ -33,8 +33,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "c9cabf2080306139142c429897a577dee803644a",
-  "git_status_porcelain": "",
+  "git_head": "2c5fc1a64fb4dd2f8a16da4110eed003429d2da3",
+  "git_status_porcelain": "M README.md\n M docs/LORE_FORENSIC_DISCLOSURE.md\n M evidence/10_00/latest/claims_audit.json",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
