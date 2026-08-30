@@ -1,7 +1,7 @@
 /-
   ============================================================================
   ZYMATICA FORMAL MATHEMATICAL THEOREM IN LEAN 4
-  Theorem: Exact Orthogonal Nullspace Invariance (Zero Catastrophic Forgetting)
+  Theorem: Exact Orthogonal Nullspace Projection (Linear Activation Invariance)
   Author: Danny Bouldiez | Codebase: Devs One
   ============================================================================
 -/

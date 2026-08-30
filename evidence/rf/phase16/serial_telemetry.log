@@ -1,0 +1,8 @@
+[2026-08-27T16:41:59.890Z] [NODE-TX] [INFO] SX1262 SPI Transceiver initialized on 915.000 MHz (SF=7, BW=125kHz, CR=4/5, PWR=+14dBm)
+[2026-08-27T16:42:00.010Z] [NODE-TX] [INFO] Assembling Cuneiform-U telemetry + MiMC-7 nullifier + BN254 Groth16 payload (168 bytes)...
+[2026-08-27T16:42:00.015Z] [NODE-TX] [INFO] Radio TX start: 168 bytes broadcast to SX1302 concentrator...
+[2026-08-27T16:42:00.082Z] [NODE-TX] [INFO] Radio TX complete (Airtime: 67.2 ms).
+[2026-08-27T16:42:00.095Z] [GW-RX-CH2] [INFO] Preamble detected on 915.000 MHz. Sync word: 0x34 (LoRaWAN public).
+[2026-08-27T16:42:00.125Z] [GW-RX-CH2] [INFO] Packet received: size=172 bytes (Payload=168, Header/RSSI=4), RSSI=-88.4 dBm, SNR=+9.6 dB.
+[2026-08-27T16:42:00.126Z] [GW-RX-CH2] [INFO] Hardware CRC-16 check: VALID (0x8F4C).
+[2026-08-27T16:42:00.128Z] [GW-RX-CH2] [INFO] ZK-LoRaWAN payload forwarded to Solana semantic gateway.

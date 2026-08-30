@@ -172,25 +172,98 @@ impl CeremonyParams {
 // Ceremony Operations
 // ============================================================================
 
-/// Hash bytes using keccak256 (matching on-chain).
-fn keccak256(data: &[u8]) -> [u8; 32] {
-    // Use a proper hash: we'll compute SHA-256-like via iterating
-    // For production MPC, use a proper SHA-256. Here we use arkworks' built-in.
-    let mut result = [0u8; 32];
-    // Simple deterministic hash for the ceremony chain
-    let mut h: u64 = 0xcbf29ce484222325; // FNV offset basis
-    for chunk in data.chunks(8) {
-        for &b in chunk {
-            h ^= b as u64;
-            h = h.wrapping_mul(0x100000001b3); // FNV prime
+/// Standard Keccak-f[1600] round constants (24 rounds).
+const KECCAK_ROUNDS: usize = 24;
+const RC: [u64; 24] = [
+    0x0000000000000001, 0x0000000000008082, 0x800000000000808a, 0x8000000080008000,
+    0x000000000000808b, 0x0000000080000001, 0x8000000080008081, 0x8000000000008009,
+    0x000000000000008a, 0x0000000000000088, 0x0000000080008009, 0x000000008000000a,
+    0x000000008000808b, 0x800000000000008b, 0x8000000000008089, 0x8000000000008003,
+    0x8000000000008002, 0x8000000000000080, 0x000000000000800a, 0x800000008000000a,
+    0x8000000080008081, 0x8000000000008080, 0x0000000080000001, 0x8000000080008008,
+];
+
+const ROTATION_OFFSETS: [[u32; 5]; 5] = [
+    [0, 36, 3, 41, 18],
+    [1, 44, 10, 45, 2],
+    [62, 6, 43, 15, 61],
+    [28, 55, 25, 21, 56],
+    [27, 20, 39, 8, 14],
+];
+
+/// Keccak-f[1600] permutation.
+fn keccak_f1600(state: &mut [u64; 25]) {
+    for round in 0..KECCAK_ROUNDS {
+        // Theta step
+        let mut c = [0u64; 5];
+        for x in 0..5 {
+            c[x] = state[x] ^ state[x + 5] ^ state[x + 10] ^ state[x + 15] ^ state[x + 20];
         }
+        let mut d = [0u64; 5];
+        for x in 0..5 {
+            d[x] = c[(x + 4) % 5] ^ c[(x + 1) % 5].rotate_left(1);
+        }
+        for x in 0..5 {
+            for y in 0..5 {
+                state[y * 5 + x] ^= d[x];
+            }
+        }
+
+        // Rho and Pi steps: B[y, (2*x + 3*y) % 5] = ROT(A[x, y], r[x, y])
+        let mut b = [0u64; 25];
+        for x in 0..5 {
+            for y in 0..5 {
+                let rot = ROTATION_OFFSETS[x][y];
+                let new_x = y;
+                let new_y = (2 * x + 3 * y) % 5;
+                b[new_y * 5 + new_x] = state[y * 5 + x].rotate_left(rot);
+            }
+        }
+
+        // Chi step
+        for y in 0..5 {
+            for x in 0..5 {
+                state[y * 5 + x] = b[y * 5 + x] ^ ((!b[y * 5 + ((x + 1) % 5)]) & b[y * 5 + ((x + 2) % 5)]);
+            }
+        }
+
+        // Iota step
+        state[0] ^= RC[round];
     }
-    // Expand to 32 bytes by iterating
+}
+
+/// Standard Keccak-256 (FIPS-202 / Ethereum standard sponge: rate=1088, pad=0x01...0x80).
+pub fn keccak256(data: &[u8]) -> [u8; 32] {
+    let rate = 136; // 1088 bits / 8
+    let mut state = [0u64; 25];
+    let mut offset = 0;
+
+    while offset + rate <= data.len() {
+        for i in 0..rate / 8 {
+            let chunk = &data[offset + i * 8..offset + (i + 1) * 8];
+            state[i] ^= u64::from_le_bytes(chunk.try_into().unwrap());
+        }
+        keccak_f1600(&mut state);
+        offset += rate;
+    }
+
+    let mut padded = [0u8; 136];
+    let rem = data.len() - offset;
+    padded[..rem].copy_from_slice(&data[offset..]);
+    padded[rem] ^= 0x01;
+    padded[rate - 1] ^= 0x80;
+
+    for i in 0..rate / 8 {
+        let chunk = &padded[i * 8..(i + 1) * 8];
+        state[i] ^= u64::from_le_bytes(chunk.try_into().unwrap());
+    }
+    keccak_f1600(&mut state);
+
+    let mut output = [0u8; 32];
     for i in 0..4 {
-        let val = h.wrapping_add(i as u64).wrapping_mul(0x9e3779b97f4a7c15);
-        result[i * 8..(i + 1) * 8].copy_from_slice(&val.to_le_bytes());
+        output[i * 8..(i + 1) * 8].copy_from_slice(&state[i].to_le_bytes());
     }
-    result
+    output
 }
 
 /// Compute hash of pk + vk for the ceremony chain.
@@ -690,3 +763,26 @@ pub fn finalize(input_path: &str) -> Result<(), String> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_keccak256_known_answer_test_vectors() {
+        // NIST / Ethereum standard Known Answer Test vectors for Keccak-256
+        assert_eq!(
+            hex::encode(keccak256(b"")),
+            "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        );
+        assert_eq!(
+            hex::encode(keccak256(b"abc")),
+            "4e03657aea45a94fc7d47ba826c8d667c0d1e6e33a64a036ec44f58fa12d6c45"
+        );
+        assert_eq!(
+            hex::encode(keccak256(b"The quick brown fox jumps over the lazy dog")),
+            "4d74f210a83b4c73a025120886b734fe012e1ec83d871b451100505772379f02"
+        );
+    }
+}
+

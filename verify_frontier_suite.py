@@ -85,7 +85,7 @@ print(f"  -> Raw Uncompressed Character Bits:   {raw_bits} bits ({len(raw_text)}
 print(f"  -> Standard 3-Byte Cuneiform Radicals: {standard_cuneiform_bits} bits (22.56x)")
 print(f"  -> Geodesic Delta-Radicals Payload:    {delta_bits} bits ({len(delta_encoded_bytes)} bytes)")
 print(f"  -> Achieved Frontier Compression:      {compression_ratio:.2f}x ({space_savings:.2f}% Space Savings)")
-print(f"  -> Geodesic Lossless Reconstruction:   {match_count}/{len(tactical_stream)} Exact Token Matches (100% PASS)")
+print(f"  -> Geodesic Lossless Reconstruction:   {match_count}/{len(tactical_stream)} Exact Coordinate Matches (100% PASS)")
 
 # -----------------------------------------------------------------------------
 # 2. SVD-DCT TENSOR SPECTRAL PROJECTION KERNEL
@@ -133,9 +133,9 @@ print(f"  -> MiMC-7 Nullifier (Zero-Knowledge):  0x{nullifier_hash:016x}")
 print(f"  -> Deterministic MiMC-7 Field Pseudonym Derivation: PASS")
 
 # -----------------------------------------------------------------------------
-# 4. XOR-FEC IN-MEMORY PACKET RECONSTRUCTION UNDER 25% NOISE ERASURE
+# 4. XOR-FEC IN-MEMORY PACKET RECONSTRUCTION UNDER 20% NOISE ERASURE
 # -----------------------------------------------------------------------------
-print("\n[4] EXECUTING XOR-FEC PARITY SELF-HEALING UNDER 25% NOISE INJECTION (SIMULATION)...")
+print("\n[4] EXECUTING XOR-FEC PARITY SELF-HEALING UNDER 20% NOISE INJECTION (SIMULATION)...")
 
 payload = b"ZYMATICA_GROTH16_BN254_CUNEIFORM_GEODESIC_TELEMETRY_PACKET_VERIFIED"
 block_size = 16
@@ -157,7 +157,7 @@ for idx, blk in enumerate(corrupted_blocks):
 
 reconstruction_success = (bytes(recovered_block) == blocks[2])
 print(f"  -> Original Transmission Blocks:       {len(blocks)} blocks ({len(payload)} bytes)")
-print(f"  -> Injected Noise Erasure:             Block 2 wiped out (25% burst packet loss)")
+print(f"  -> Injected Noise Erasure:             Block 2 wiped out (20% burst packet loss, 1/5 blocks)")
 print(f"  -> Mathematical Parity Reconstruction: {reconstruction_success} (100% BIT-EXACT SELF-HEAL)")
 
 # -----------------------------------------------------------------------------

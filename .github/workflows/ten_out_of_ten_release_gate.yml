@@ -63,8 +63,11 @@ jobs:
       - name: Validate license consistency
         run: python tools/ten_out_of_ten/license_audit.py --root . --json-output "${{ steps.evidence.outputs.dir }}/license_audit.json"
 
-      - name: Generate evidence manifest
-        run: python tools/ten_out_of_ten/evidence_manifest.py "${{ steps.evidence.outputs.dir }}" --repo . --output "${{ steps.evidence.outputs.dir }}/MANIFEST.json"
+      - name: Execute Full Evidentiary Release Gate (Master Verifier)
+        run: python verify_release.py --release-tag "v10.1.0-evidence"
+
+      - name: Generate evidence manifest and checksums
+        run: python scripts/package_release_evidence.py
 
       - name: Upload evidence bundle artifact
         uses: actions/upload-artifact@v4

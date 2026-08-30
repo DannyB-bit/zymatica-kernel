@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "total_concepts": 12,
+  "collision_rate": 0.0,
+  "roundtrip_accuracy": 1.0,
+  "semantic_reverse_accuracy": 1.0,
+  "utf8_bytes": 93,
+  "geodesic_wire_bytes": 8,
+  "compression_ratio_vs_utf8": 11.625,
+  "compression_ratio_vs_tokens": 1.5,
+  "multilingual_invariance_score": 1.0
+}

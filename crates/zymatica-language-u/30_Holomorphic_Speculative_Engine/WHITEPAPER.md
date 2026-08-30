@@ -1,10 +1,10 @@
 # ZYMATICA: Holomorphic Speculative Engine (Z-HQSpec)
-*IP Class 30 &nbsp;|&nbsp; Draft-Model-Free 4.8x–7.2x Speculative Decoding on 6D Geodesic Manifolds &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)*
+*IP Class 30 &nbsp;|&nbsp; Draft-Model-Free Speculative Decoding on 6D Geodesic Manifolds [CLAIM: CLAIM-ZHQSPEC-001] &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)*
 
 ```text
  ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
  ║ ZYMATICA OPERATING SYSTEM // VANCE FORENSIC DRIVE DECOMPILER // KERNEL HARNESS v10.0.0                      ║
- ║ KERNEL STATUS: ONLINE │ AVX-512 VECTOR BUFFER: LOCKED │ 6D HOLOMORPHIC ENGINE: ACTIVE │ SPEEDUP: 7.2x        ║
+ ║ KERNEL STATUS: ONLINE │ AVX-512 VECTOR BUFFER: LOCKED │ 6D HOLOMORPHIC ENGINE: ACTIVE (SIMULATION_ONLY)      ║
  ╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -20,15 +20,15 @@
 
 ---
 
-## 🏛️ 1. Abstract & Technical Breakthrough
+## 🏛️ 1. Abstract & Technical Architecture
 
 Traditional speculative decoding requires running two separate neural networks simultaneously: an expensive primary model (e.g., 70B) and an auxiliary draft model (e.g., 1.5B) to propose candidate tokens. This introduces significant VRAM overhead, draft-model synchronization latency, and catastrophic acceptance collapse on complex reasoning tasks.
 
-**The Holomorphic Speculative Engine (Z-HQSpec)** eliminates the draft model entirely. By treating the sequence of hidden states as a continuous trajectory on a complex Riemannian 6-manifold $\mathcal{M} \subset \mathbb{C}^3$, Z-HQSpec extrapolates future token embeddings using **Holomorphic Geodesic Velocity Projections**:
+**The Holomorphic Speculative Engine (Z-HQSpec)** explores eliminating the secondary draft model. By modeling hidden state transitions on a Riemannian 6-manifold $\mathcal{M} \subset \mathbb{C}^3$, Z-HQSpec investigates candidate extrapolations using **Holomorphic Geodesic Velocity Projections**:
 
 $$\frac{d^2 z^k}{dt^2} + \sum_{i,j} \Gamma_{ij}^k(z) \frac{dz^i}{dt} \frac{dz^j}{dt} = 0$$
 
-Where $\Gamma_{ij}^k$ are the Christoffel symbols of the 6D metric tensor $\mathbf{G}$. Future token candidates ($K=4\dots8$ tokens) are predicted in parallel within **< 0.12 milliseconds** directly inside GPU registers and verified in a single forward verification pass.
+Where $\Gamma_{ij}^k$ are the Christoffel symbols of the 6D metric tensor $\mathbf{G}$. Future token candidate drafts ($K=4\dots8$ tokens) are evaluated in SRAM and verified in a single forward pass.
 
 ---
 
@@ -51,23 +51,25 @@ pub struct HolomorphicSpeculativeState {
 ```mermaid
 graph TD
     A["Target Model Hidden State h_t"] --> B["6D Manifold Projector P(h_t) -> z_t"]
-    B --> C["Holomorphic Geodesic Extrapolator (Runge-Kutta 4)"]
-    C --> D["8 Parallel Draft Token Embeddings {z_{t+1} ... z_{t+8}}"]
+    B --> C["Holomorphic Geodesic Extrapolator"]
+    C --> D["Parallel Draft Token Embeddings"]
     D --> E["Single GEMM Verification Pass on Target Model"]
-    E --> F["Parallel Acceptance Gating (4.8x - 7.2x Effective Speedup)"]
+    E --> F["Parallel Acceptance Gating"]
 ```
 
 ---
 
-## 📊 3. Performance Benchmarks: Z-HQSpec vs. Speculative Baselines
+## 📊 3. Theoretical Target Bounds & Architectural Specifications (Simulation Target)
 
-| Speculative Method | Extra Draft Model VRAM | Acceptance Rate (Reasoning) | End-to-End Speedup | Max Memory Overhead |
+*Note: The following table represents theoretical architectural scaling targets and simulation bounds [CLAIM: CLAIM-ZHQSPEC-001]. Empirical measured speeds vary by model depth and batch size.*
+
+| Speculative Method | Extra Draft Model VRAM | Acceptance Rate (Reasoning) | End-to-End Speedup (Target) | Max Memory Overhead |
 | :--- | :---: | :---: | :---: | :---: |
 | **Standard Autoregressive (vLLM)** | 0.0 GB | 100% (Sequential) | **1.0x (Baseline)** | 0.0 MB |
 | **Speculative Decoding (Draft 1.5B)** | +3.2 GB | 54.2% – 68.1% | **1.8x – 2.4x** | +3,200 MB |
 | **Medusa Multiple Heads** | +1.4 GB | 61.0% – 72.4% | **2.2x – 2.9x** | +1,400 MB |
 | **EAGLE Feature Extrapolation** | +0.8 GB | 67.5% – 78.2% | **2.8x – 3.4x** | +800 MB |
-| **Zymatica Z-HQSpec (Class 30)** | **0.0 GB (Draft-Free)** | **84.6% – 92.8%** | **4.8x – 7.2x** | **< 4.2 MB (In-Register)** |
+| **Zymatica Z-HQSpec (Class 30 Target)** | **0.0 GB (Draft-Free)** | **Simulation Model** | **Target Bound (Draft-Free)** | **In-Register (< 5 MB)** |
 
 ---
 

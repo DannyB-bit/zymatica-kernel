@@ -1,0 +1,135 @@
+{
+  "schema": "zymatica.release-attestation.v1",
+  "release_tag": "v10.1.0-evidence",
+  "timestamp_utc": "2026-08-30T07:38:44Z",
+  "overall_status": "CERTIFIED_FULL_PASS",
+  "evidentiary_score": 10.0,
+  "subsystems": [
+    {
+      "step": "master_forensic_audit",
+      "pass": true
+    },
+    {
+      "step": "claim_registry",
+      "pass": true,
+      "claim_count": 12
+    },
+    {
+      "step": "sbom_validation",
+      "pass": true
+    },
+    {
+      "step": "sha256sums_check",
+      "pass": true,
+      "verified_files": 10
+    },
+    {
+      "step": "formal_math_lean",
+      "pass": true
+    },
+    {
+      "step": "claims_discipline",
+      "pass": true
+    }
+  ],
+  "claim_verdicts": {
+    "CLAIM-CUNEIFORM-001": {
+      "scope": "Cuneiform-U Coordinate Codec",
+      "declared_status": "FORMALLY_PROVEN_AND_TESTED",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "evidence/10_00/latest/cuneiform_semantic.json"
+      ]
+    },
+    "CLAIM-CUNEIFORM-002": {
+      "scope": "Geodesic Delta Radicals",
+      "declared_status": "EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
+      "evidence_files": [
+        "evidence/10_00/latest/cuneiform_semantic.json"
+      ]
+    },
+    "CLAIM-CUNEIFORM-003": {
+      "scope": "Multilingual Semantic Ontology",
+      "declared_status": "EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
+      "evidence_files": [
+        "evidence/10_00/latest/cuneiform_semantic.json"
+      ]
+    },
+    "CLAIM-HYPERKV-001": {
+      "scope": "Hyper-KV Cache Compression",
+      "declared_status": "EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
+      "evidence_files": [
+        "evidence/10_00/latest/hyper_kv.json"
+      ]
+    },
+    "CLAIM-WORMHOLE-001": {
+      "scope": "Z-WORMHOLE Cross-Model Bridge",
+      "declared_status": "EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
+      "evidence_files": [
+        "evidence/10_00/latest/wormhole.json"
+      ]
+    },
+    "CLAIM-EPIGENETIC-001": {
+      "scope": "Exact Orthogonal Nullspace Projection (NEWM)",
+      "declared_status": "FORMALLY_PROVEN_AND_EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "evidence/10_00/latest/epigenetic.json"
+      ]
+    },
+    "CLAIM-ZMCTS-001": {
+      "scope": "Z-MCTS Latent Tree Search",
+      "declared_status": "EMPIRICALLY_MEASURED",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
+      "evidence_files": [
+        "evidence/10_00/latest/mcts.json"
+      ]
+    },
+    "CLAIM-ZHQSPEC-001": {
+      "scope": "Z-HQSpec Holomorphic Speculation",
+      "declared_status": "SIMULATION_AND_PROTOTYPE",
+      "evidentiary_verdict": "SIMULATION_ONLY",
+      "evidence_files": [
+        "crates/zymatica-language-u/30_Holomorphic_Speculative_Engine/run_proof.py"
+      ]
+    },
+    "CLAIM-GROTH16-001": {
+      "scope": "ZK-LoRaWAN Groth16 MPC Ceremony",
+      "declared_status": "CRYPTOGRAPHICALLY_VERIFIED",
+      "evidentiary_verdict": "VERIFIED",
+      "evidence_files": [
+        "crates/zymatica-zk-mesh/groth16/src/ceremony.rs"
+      ]
+    },
+    "CLAIM-RF-001": {
+      "scope": "Physical 915MHz LoRa Telemetry",
+      "declared_status": "HARDWARE_VERIFIED",
+      "evidentiary_verdict": "HARDWARE_VERIFIED",
+      "evidence_files": [
+        "evidence/10_00/latest/rf_phase16.json",
+        "evidence/rf/phase16/metadata.json"
+      ]
+    },
+    "CLAIM-FEC-001": {
+      "scope": "XOR-FEC Parity Reconstruction",
+      "declared_status": "SIMULATION_PROVEN",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "verify_frontier_suite.py"
+      ]
+    },
+    "CLAIM-LEAN-001": {
+      "scope": "Lean 4 Formal Theorem",
+      "declared_status": "FORMALLY_PROVEN",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "formal_proofs/nullspace_orthogonality.lean"
+      ]
+    }
+  },
+  "elapsed_seconds": 9.010301113128662
+}

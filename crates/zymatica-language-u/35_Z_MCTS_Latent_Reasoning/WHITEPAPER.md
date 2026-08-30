@@ -1,10 +1,10 @@
 # ZYMATICA: Z-MCTS Continuous Manifold Latent Reasoning
-*IP Class 35 &nbsp;|&nbsp; Token-Free Monte Carlo Tree Search on Riemannian Geodesic Manifolds &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)*
+*IP Class 35 &nbsp;|&nbsp; Monte Carlo Tree Search on Riemannian Geodesic Manifolds [CLAIM: CLAIM-ZMCTS-001] &nbsp;|&nbsp; Zymatica Covenant License 2.0 (zymatica.space)*
 
 ```text
  ╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
  ║ ZYMATICA OPERATING SYSTEM // VANCE FORENSIC DRIVE DECOMPILER // KERNEL HARNESS v10.0.0                      ║
- ║ KERNEL STATUS: ONLINE │ MCTS ENGINE: ACTIVE │ TOKEN GENERATION OVERHEAD: 0.000% │ LATENCY: 2.4ms             ║
+ ║ KERNEL STATUS: ONLINE │ MCTS ENGINE: ACTIVE │ SEARCH SUCCESS: 78.1% │ MEDIAN LOGPROB GAIN: +0.412            ║
  ╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -20,15 +20,15 @@
 
 ---
 
-## 🏛️ 1. Abstract & The Problem with Tokenized Chain-of-Thought
+## 🏛️ 1. Abstract & Continuous Latent Search
 
-Modern reasoning models (OpenAI o1, DeepSeek-R1) simulate internal reasoning by generating thousands of verbose intermediate text tokens (*"thinking tokens"*). This approaches extreme latency ($15-60	ext{ seconds}$ per prompt), massive compute cost, and accumulates autoregressive error compounding across intermediate token steps.
+Modern reasoning models simulate internal reasoning by generating thousands of verbose intermediate text tokens (*"thinking tokens"*). This introduces latency and accumulates autoregressive error compounding across intermediate token steps.
 
-**Z-MCTS** performs reasoning directly in the continuous **8-Dimensional Latent Semantic Space** prior to token decoding. By running continuous Monte Carlo Tree Search along Riemannian geodesic paths using Hamiltonian energy functionals:
+**Z-MCTS** performs reasoning directly in the continuous **8-Dimensional Latent Semantic Space** prior to token decoding. By running deterministic PUCT search along continuous manifold paths using Hamiltonian energy functionals:
 
 $$\mathcal{S}[\gamma] = \int_0^1 \left( \frac{1}{2} \|\dot{\gamma}(t)\|^2_{\mathbf{G}} - V(\gamma(t)) \right) dt$$
 
-Z-MCTS explores thousands of hypothetical reasoning trajectories in **2.4 milliseconds**, finds the globally optimal trajectory, and only inflates the final verified solution into language.
+Z-MCTS explores candidate reasoning trajectories and improves target log-probability alignment on real causal language models (+0.412 median logprob improvement, 78.1% search improvement success [CLAIM: CLAIM-ZMCTS-001]).
 
 ---
 
@@ -46,7 +46,7 @@ Z-MCTS explores thousands of hypothetical reasoning trajectories in **2.4 millis
                                     │ Optimal Trajectory Selected
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                   FINAL REASONED OUTPUT (0 TOKENS WASTED)              │
+│                   FINAL REASONED OUTPUT                                │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -65,14 +65,15 @@ pub struct MctsLatentNode {
 
 ---
 
-## 📊 3. Performance Benchmarks: Z-MCTS vs. Chain-of-Thought (CoT)
+## 📊 3. Performance & Empirical Measurement: Latent Search vs. Sequential Baselines
 
-| Reasoning Paradigm | Thinking Tokens Generated | Compute Time per Query | Memory Overhead | GSM8K / Hard Math Accuracy |
+*Empirical results measured on causal language model LM-head evaluator [CLAIM: CLAIM-ZMCTS-001].*
+
+| Reasoning Paradigm | Thinking Tokens Generated | Compute Latency Target | Search Success Fraction | Measured Reference Logprob Delta |
 | :--- | :---: | :---: | :---: | :---: |
-| **Standard Direct Inference** | 0 Tokens | 450 ms | 0.0 MB | 54.2% |
-| **Chain-of-Thought (CoT)** | 1,800 – 4,500 Tokens | 18,500 ms – 42,000 ms | +850 MB | 84.1% |
-| **Tree-of-Thoughts (ToT Text)** | 12,000+ Tokens | 120,000 ms (2 mins) | +3,400 MB | 89.2% |
-| **Zymatica Z-MCTS (Class 35)** | **0 Tokens (Continuous)** | **2.4 ms – 4.8 ms** | **< 1.2 MB** | **93.8% (Optimal)** |
+| **Standard Direct Inference** | 0 Tokens | Baseline | N/A | +0.000 (Reference) |
+| **Chain-of-Thought (CoT)** | 1,800 – 4,500 Tokens | 18,500 ms – 42,000 ms | Token Dependent | Variable |
+| **Zymatica Z-MCTS (Class 35)** | **Continuous 8D Axes** | **SRAM PUCT Search** | **78.1% (Empirical)** | **+0.412 (Median Empirical Gain)** |
 
 ---
 

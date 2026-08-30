@@ -2,7 +2,7 @@
 # Copyright © 2026 Zymatica
 # SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
 # See LICENSE for terms.
-"""Create a cryptographic manifest for a Zymatica evidence directory."""
+"""Create a cryptographic manifest for a Zymatica evidence directory with source tree binding."""
 
 from __future__ import annotations
 
@@ -23,6 +23,20 @@ def sha256_file(path: Path) -> str:
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b""):
             h.update(chunk)
+    return h.hexdigest()
+
+
+def compute_source_tree_hash(root: Path) -> str:
+    """Compute deterministic SHA-256 tree hash over versioned source files."""
+    h = hashlib.sha256()
+    tracked_exts = {".rs", ".py", ".toml", ".json", ".lean", ".cpp", ".hpp", ".h", ".c"}
+    skip_dirs = {".git", "target", "node_modules", "build", ".zymatica_10_00_backup", "zymatica_10_00_bundle"}
+    for p in sorted(root.rglob("*")):
+        if p.is_file() and p.suffix in tracked_exts:
+            if not any(part in skip_dirs for part in p.parts):
+                rel = p.relative_to(root).as_posix()
+                h.update(rel.encode("utf-8"))
+                h.update(sha256_file(p).encode("utf-8"))
     return h.hexdigest()
 
 
@@ -57,6 +71,8 @@ def main() -> int:
     for path in sorted(p for p in evidence_dir.rglob("*") if p.is_file()):
         if args.output and path.resolve() == args.output.resolve():
             continue
+        if path.name in {"MANIFEST.json", "SHA256SUMS", "release_attestation.json"}:
+            continue
         files.append(
             {
                 "path": path.relative_to(evidence_dir).as_posix(),
@@ -65,9 +81,12 @@ def main() -> int:
             }
         )
 
+    source_tree_sha = compute_source_tree_hash(repo)
+
     payload = {
-        "schema": "zymatica.evidence-manifest.v1",
+        "schema": "zymatica.evidence-manifest.v2",
         "created_utc": datetime.now(timezone.utc).isoformat(),
+        "source_tree_sha256": source_tree_sha,
         "git_head": command_output(["git", "rev-parse", "HEAD"], repo),
         "git_status_porcelain": command_output(["git", "status", "--porcelain"], repo),
         "rustc": command_output(["rustc", "--version"], repo),

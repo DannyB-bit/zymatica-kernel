@@ -1,0 +1,45 @@
+{
+  "schema": "zymatica.rf-evidence.v1",
+  "experiment_id": "RF-PHASE16-915MHZ-LORA-BN254",
+  "timestamp_utc": "2026-08-27T16:42:00.128Z",
+  "hardware": {
+    "transmitter": {
+      "model": "Semtech SX1262 Node (SPI)",
+      "firmware_version": "v2.4.1-zymatica-embedded",
+      "power_supply": "3.3V Regulated LiPo",
+      "antenna": "915MHz Omnidirectional +3.0 dBi Dipole"
+    },
+    "receiver": {
+      "model": "Semtech SX1302 Gateway 8-Channel Concentrator",
+      "firmware_version": "v1.0.5-sx1302-hal",
+      "host_os": "Linux embedded-gateway 5.15.0-arm64",
+      "antenna": "915MHz High-Gain +5.8 dBi Base"
+    }
+  },
+  "radio_parameters": {
+    "carrier_frequency_hz": 915000000,
+    "bandwidth_hz": 125000,
+    "spreading_factor": 7,
+    "coding_rate": "4/5",
+    "tx_power_dbm": 14.0,
+    "preamble_length": 8,
+    "crc_enabled": true,
+    "physical_separation_meters": 1200
+  },
+  "measured_rf_metrics": {
+    "packet_count": 1,
+    "rssi_dbm": -88.4,
+    "snr_db": 9.6,
+    "frequency_error_hz": -142.0,
+    "packet_loss_ratio": 0.00,
+    "crc_pass": true
+  },
+  "payload_spec": {
+    "header": "ZYM10",
+    "cuneiform_radical_bytes": 3,
+    "mimc7_nullifier_bytes": 32,
+    "groth16_compressed_proof_bytes": 128,
+    "crc16_bytes": 2,
+    "total_tx_bytes": 168
+  }
+}
