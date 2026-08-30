@@ -369,20 +369,21 @@ mod tests {
 
         // Construct an actual rank-4 matrix with smooth, non-trivial coefficients.
         let mut basis = vec![vec![0.0f32; head_dim]; rank];
-        for (r, row) in basis.iter_mut().enumerate() {
-            for (d, value) in row.iter_mut().enumerate() {
-                *value = ((d as f32 + 1.0) * (r as f32 + 0.75) * 0.031).sin();
+        for r in 0..rank {
+            for d in 0..head_dim {
+                basis[r][d] = ((d as f32 + 1.0) * (r as f32 + 0.75) * 0.031).sin();
             }
             // Orthogonalize against preceding basis vectors to guarantee rank-4 independence
-            for prev in 0..r {
-                let prev_row = basis[prev].clone();
-                let projection = dot(row, &prev_row);
-                for (dst, &src) in row.iter_mut().zip(&prev_row) {
+            let (prev_slice, curr_slice) = basis.split_at_mut(r);
+            let row = &mut curr_slice[0];
+            for prev_row in prev_slice {
+                let projection = dot(row, prev_row);
+                for (dst, &src) in row.iter_mut().zip(prev_row.iter()) {
                     *dst -= projection * src;
                 }
             }
             let norm = dot(row, row).sqrt();
-            for value in row {
+            for value in row.iter_mut() {
                 *value /= norm;
             }
         }
