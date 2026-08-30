@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T13:44:32.315553+00:00",
+  "created_utc": "2026-08-30T13:49:08.605609+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "0bf5dea8a061d10fd8f1d3d517045f01de0061cd",
-  "git_status_porcelain": "M README.md",
+  "git_head": "cc135383a085d45b96f723a0ecff35c2028121c7",
+  "git_status_porcelain": "M crates/zymatica-language-u/28_Solana_Semantic_Anchor/app/src/cuneiform_client.ts\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/milestones/milestone-1-devnet-deployment/cuneiform_client.ts\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/tests/solana-cuneiform-anchor-standalone.js\n M \"crates/zymatica-language-u/current milestones achieved/cuneiform_client.ts\"\n M foundations/solana-cuneiform-milestone1/app/src/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone1/tests/solana-cuneiform-anchor-standalone.js\n M foundations/solana-cuneiform-milestone2/app/src/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone2/tests/solana-cuneiform-anchor-standalone.js\n M foundations/solana-cuneiform-milestone3/app/src/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/cuneiform_client.ts\n M foundations/solana-cuneiform-milestone3/tests/solana-cuneiform-anchor-standalone.js",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "c0b3263c082fcd4efec75f3d2358684f1fb9d1e17008a622af3dc4e627407c67"
+  "source_tree_sha256": "6cf9251b842363a5343bf82cf330a83c63e427e3ee649c11a8f1f9e38985ae13"
 }

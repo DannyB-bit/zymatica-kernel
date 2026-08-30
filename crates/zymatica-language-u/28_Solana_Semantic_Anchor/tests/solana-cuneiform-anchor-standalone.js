@@ -55,8 +55,8 @@ class CuneiformClientMock {
   }
 
   deserializeProgramState(data) {
-    if (data.length < 72) {
-      throw new Error("Invalid program state length. Expected at least 72 bytes.");
+    if (data.length < 80) {
+      throw new Error("Invalid program state length. Expected at least 80 bytes.");
     }
     const expectedDiscriminator = this.getDiscriminator("account", "ProgramState");
     const accountDiscriminator = data.subarray(0, 8);
