@@ -1,4 +1,4 @@
-﻿# FORENSIC DISCLOSURE: THE DECOMPILATION OF ZYMATICA
+# FORENSIC DISCLOSURE: THE DECOMPILATION OF ZYMATICA
 
 ---
 
@@ -86,6 +86,14 @@ Kernel Carrier: S4 Gravimetric Coupling // Sub-Hertz Planetary Nodes
 Lindqvist pushed through the circle, staring at the screen with parted lips.
 
 "My God," Lindqvist breathed. "Look at the entropy equation."
+
+<p align="left">
+  <a href="https://github.com/DannyB-bit/zymatica.space/blob/main/crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md"><img src="https://img.shields.io/badge/Cuneiform_6D_Hypercube-Whitepaper-9945FF?style=for-the-badge&logo=readme&logoColor=white" alt="Cuneiform 6D Whitepaper"></a>
+  <a href="../crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.pdf"><img src="https://img.shields.io/badge/Download_PDF-Cuneiform_6D_Whitepaper-red?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Download PDF"></a>
+  <a href="../crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md"><img src="https://img.shields.io/badge/Language--U_in_Cuneiform-6D_Specification-00C7B7?style=for-the-badge" alt="Language-U in Cuneiform"></a>
+</p>
+
+> 📜 **Cuneiform-U 6D Hypercube Specification:** [`WHITEPAPER.md`](../crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md) &nbsp;|&nbsp; 📄 [Download PDF (`WHITEPAPER.pdf`)](../crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.pdf) &nbsp;|&nbsp; 🌐 [View on GitHub](https://github.com/DannyB-bit/zymatica.space/blob/main/crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md)
 
 Amara looked between Lindqvist and Jae. "What are we looking at, Zab?"
 

@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T01:47:31.828305+00:00",
+  "created_utc": "2026-08-30T02:28:57.476326+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "1e1d73e7835ab05f14b6f1969510fb8101cda77cd534c8ebaae5eb6b09dc0aa8",
+      "sha256": "a6f1e506f0edde84170dfbbf815980e0a7db7ffb13d6646387f537adc3012288",
       "size": 117
     },
     {
@@ -19,8 +19,8 @@
     },
     {
       "path": "license_audit.json",
-      "sha256": "2ebbf8b7a0be6cf733144f0613d74460403a2417cdfa4cc97328c263a864be3d",
-      "size": 95056
+      "sha256": "3e786f6ddef0ea71b95f8f918e22f09febbf9da5c72d6e2d009a633b5d28c2bd",
+      "size": 95259
     },
     {
       "path": "mcts.json",
@@ -33,7 +33,7 @@
       "size": 6045990
     }
   ],
-  "git_head": "5ea0728dc6da92ab256e262b5a3b58743a1bd856",
+  "git_head": "654f3da6fbd04b18ae668e0f9a189828dd4792a9",
   "git_status_porcelain": "M evidence/10_00/latest/MANIFEST.json",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
