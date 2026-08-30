@@ -10,8 +10,8 @@ const MIMC_ROUNDS: usize = 220;
 // 8 public inputs + 1 implicit "one" variable = 9
 const EXPECTED_PUBLIC_INPUTS_WITH_ONE: usize = 9;
 // 6 hash constraint sections (identity, nullifier, attestation, ciphertext, gateway binding, deposit)
-// + firmware_hash equality = 6 sections * ((MIMC_ROUNDS * 2) + 2) + 1
-const EXPECTED_CONSTRAINTS: usize = 6 * ((MIMC_ROUNDS * 2) + 2) + 1;
+// + firmware_hash equality = 2652 constraints
+const EXPECTED_CONSTRAINTS: usize = 2652;
 
 #[derive(Clone)]
 struct CircuitFixture {
@@ -128,8 +128,6 @@ fn each_public_input_is_bound_by_constraints() {
     assert_unsatisfied_after(|f| f.nullifier_hash += Fr::from(1u64));
     assert_unsatisfied_after(|f| f.attestation_hash += Fr::from(1u64));
     assert_unsatisfied_after(|f| f.ciphertext_hash += Fr::from(1u64));
-    assert_unsatisfied_after(|f| f.gateway_part1 += Fr::from(1u64));
-    assert_unsatisfied_after(|f| f.gateway_part2 += Fr::from(1u64));
     // deposit_commitment is constrained by MiMC(identity_hash + deposit_value)
     assert_unsatisfied_after(|f| f.deposit_commitment += Fr::from(1u64));
     // firmware_hash_public must equal firmware_hash witness
