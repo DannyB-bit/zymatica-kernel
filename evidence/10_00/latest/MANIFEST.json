@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T03:42:52.716597+00:00",
+  "created_utc": "2026-08-30T03:43:08.359033+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -33,8 +33,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "49dcdd59cf2a73b1accba1160e2a8bb6ac7d9d71",
-  "git_status_porcelain": "M README.md\n M docs/LORE_FORENSIC_DISCLOSURE.md\n M evidence/10_00/latest/claims_audit.json",
+  "git_head": "d6c3b6528662ffc8800ac0187e7e3da94358f7d4",
+  "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
