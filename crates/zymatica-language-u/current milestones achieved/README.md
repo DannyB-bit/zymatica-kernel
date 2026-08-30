@@ -12,7 +12,7 @@ A fully operational Solana Anchor program deployed to devnet serving as a decent
 ### Key Deliverables
 *   **Anchor Program Deployed:** [2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet)
 *   **Treasury Wallet:** [CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ](https://explorer.solana.com/address/CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ?cluster=devnet)
-*   **Automatic Fee Collection:** 10,000 lamports collected per registration and routed to the treasury wallet.
+*   **Automatic Fee Collection:** 150,000 lamports collected per registration and routed to the treasury wallet.
 *   **TypeScript SDK:** `cuneiform_client.ts` containing the Client wrapper for state initialization, coordinate registration, updates, and fetching.
 *   **Integration Tests:** 11/11 tests passing on devnet (`test_devnet.ts`).
 
@@ -22,7 +22,7 @@ A fully operational Solana Anchor program deployed to devnet serving as a decent
 |---|---|---|---|
 | 1 | Anchor program deployed to devnet | ✅ | [Explorer Link](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet) |
 | 2 | On-chain coordinate registration | ✅ | [Registration TX](https://explorer.solana.com/tx/2WbKq8A9BfAofU46QXQaYny2RRz1wx8aDirkR6N7HxmcmsFxHC6UAdooYzd6BLnwztaV49qq3Tdw74MAwi7V1aMT?cluster=devnet) |
-| 3 | Protocol fee collection to treasury | ✅ | 10,000 lamports per registration routed to cold wallet |
+| 3 | Protocol fee collection to treasury | ✅ | 150,000 lamports per registration routed to cold wallet |
 | 4 | TypeScript SDK (CuneiformClient) | ✅ | See [cuneiform_client.ts](./cuneiform_client.ts) |
 | 5 | On-chain coordinate updates | ✅ | [Update TX](https://explorer.solana.com/tx/4NEHNuGmqrkoqaf7upkyBKRV8rmSNhULr6ybFiZbeyan6qFXNJTDUEa6Ekz42p131uBUqKSfHcUNSLZPmMnYxLfT?cluster=devnet) |
 | 6 | Integration test suite | ✅ | See [test_devnet.ts](./test_devnet.ts) and [TEST_RESULTS.md](./TEST_RESULTS.md) |
@@ -84,7 +84,7 @@ Integration of Solana Pay to reward peer-to-peer LoRa mesh gateways for routing 
 │     model prior     │     │  │  │    Strength, Depth)      │  │
 │                     │     │  │  ├─ merkle_root: [u8; 32]   │  │
 │  Fee Payment:       │     │  │  ├─ timestamp: i64          │  │
-│  └─ 10,000 lamports │────▶│  │  └─ bump: u8               │  │
+│  └─ 150,000 lamports │────▶│  │  └─ bump: u8               │  │
 │     per registration│     │  └────────────────────────────┘  │
 │                     │     │                                  │
 │                     │     │  ┌────────────────────────────┐  │

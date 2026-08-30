@@ -30,9 +30,9 @@ const PROGRAM_ID = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy";
 // Cold wallet treasury — all protocol fees route here
 const TREASURY_ADDRESS = "CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ";
 
-// Protocol fee: 10,000 lamports (~$0.002 at $200/SOL)
+// Protocol fee: 150,000 lamports (~$0.002 at $200/SOL)
 // Production can be adjusted via update_program_state
-const PROTOCOL_FEE_LAMPORTS = BigInt(10_000);
+const PROTOCOL_FEE_LAMPORTS = BigInt(150_000);
 
 // ============================================================================
 // Helpers

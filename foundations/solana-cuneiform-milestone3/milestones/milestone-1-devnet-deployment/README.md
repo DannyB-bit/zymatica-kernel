@@ -18,7 +18,7 @@ Milestone 1 delivers a fully operational Solana Anchor program deployed to devne
 |---|---|---|---|
 | 1 | Anchor program deployed to devnet | ✅ | [Explorer Link](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet) |
 | 2 | On-chain coordinate registration | ✅ | [Registration TX](https://explorer.solana.com/tx/2WbKq8A9BfAofU46QXQaYny2RRz1wx8aDirkR6N7HxmcmsFxHC6UAdooYzd6BLnwztaV49qq3Tdw74MAwi7V1aMT?cluster=devnet) |
-| 3 | Protocol fee collection to treasury | ✅ | 10,000 lamports per registration routed to cold wallet |
+| 3 | Protocol fee collection to treasury | ✅ | 150,000 lamports per registration routed to cold wallet |
 | 4 | TypeScript SDK (CuneiformClient) | ✅ | See `cuneiform_client.ts` |
 | 5 | On-chain coordinate updates | ✅ | [Update TX](https://explorer.solana.com/tx/4NEHNuGmqrkoqaf7upkyBKRV8rmSNhULr6ybFiZbeyan6qFXNJTDUEa6Ekz42p131uBUqKSfHcUNSLZPmMnYxLfT?cluster=devnet) |
 | 6 | Integration test suite (11/11 passing) | ✅ | See `test_devnet.ts` and `TEST_RESULTS.md` |
@@ -60,7 +60,7 @@ Milestone 1 delivers a fully operational Solana Anchor program deployed to devne
 │     model prior     │     │  │  │    Strength, Depth)      │  │
 │                     │     │  │  ├─ merkle_root: [u8; 32]   │  │
 │  Fee Payment:       │     │  │  ├─ timestamp: i64          │  │
-│  └─ 10,000 lamports │────▶│  │  └─ bump: u8               │  │
+│  └─ 150,000 lamports │────▶│  │  └─ bump: u8               │  │
 │     per registration│     │  └────────────────────────────┘  │
 │                     │     │                                  │
 │                     │     │  ┌────────────────────────────┐  │
@@ -119,7 +119,7 @@ solana balance CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ --url devnet
 |---|---|---|
 | `initialize_program` | Sets admin, treasury address, and protocol fee | One-time (rent) |
 | `update_program_state` | Admin-only: update treasury or fee amount | Free |
-| `register_coordinates` | Register 6D semantic coordinates + Merkle root | 10,000 lamports |
+| `register_coordinates` | Register 6D semantic coordinates + Merkle root | 150,000 lamports |
 | `update_coordinates` | Update existing record (same session) | Free |
 
 ---

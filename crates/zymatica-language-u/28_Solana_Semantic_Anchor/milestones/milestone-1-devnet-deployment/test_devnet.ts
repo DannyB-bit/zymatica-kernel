@@ -83,8 +83,8 @@ async function main() {
       failed++;
     }
 
-    if (state.feeLamports === BigInt(10_000)) {
-      pass("Protocol fee = 10,000 lamports");
+    if (state.feeLamports === BigInt(150_000)) {
+      pass("Protocol fee = 150,000 lamports");
       passed++;
     } else {
       fail("Fee mismatch", `${state.feeLamports}`);
@@ -131,7 +131,7 @@ async function main() {
     // Verify protocol fee was collected
     const treasuryAfter = await connection.getBalance(treasury);
     const feePaid = treasuryAfter - treasuryBefore;
-    if (feePaid >= 10_000) {
+    if (feePaid >= 150_000) {
       pass(`Protocol fee collected: ${feePaid} lamports sent to treasury`);
       passed++;
     } else {
