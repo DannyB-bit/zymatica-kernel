@@ -331,7 +331,9 @@ She pulled up the concrete archaeological proof on the split display:
 └─────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-"For two centuries, archeologists called the reliefs on the temple walls 'decorative murals' and 'primitive myths,'" Lindqvist whispered. "They were completely blind! They were looking at an **8-Dimensional Semantic Bytecode**!"
+"For two centuries, every field of science worked in complete, blind isolation," Lindqvist whispered, her hand trembling against the projection. "Linguists thought the clay tablets were just primitive accounting ledgers and decorative myths. Archaeologists thought the megalithic stone temples were just giant tombs and ceremonial monuments. Physicists thought electromagnetic resonance in stone was an irrelevant anomaly. And computer scientists thought multi-dimensional semantic embeddings were invented yesterday in Silicon Valley.
+
+"They were all looking at separate pieces of the exact same puzzle!" Lindqvist said, her voice rising with electric clarity. "The 2D inscriptions on clay and stone weren't decorative art—they were an **8-Dimensional Semantic Bytecode**! And the stone structures weren't tombs—they were the **physical hardware decompression engines** designed to resonate that bytecode into reality! The software and the hardware are directly connected!"
 
 She highlighted the decompiled 8-parameter octonion vector on the terminal:
 
