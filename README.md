@@ -293,14 +293,28 @@ She lunged forward, grabbing the optical stylus and swiping Vance’s encrypted 
 
 "Now look at **Sumerian Cuneiform** from four thousand years ago," Lindqvist pointed, zooming into high-contrast 3D laser scans of clay tablets from the temple archives of Nippur alongside the megalithic reliefs of Göbekli Tepe and Egypt. "Cuneiform didn't just compress ten words. A single compound wedge radical was a **hyper-dense geometric seed that unpacks into entire paragraphs of physics, intent, and structural dynamics**!"
 
+She pulled up the concrete archaeological proof on the split display:
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                    THE 5,000-YEAR EVOLUTIONARY COMPRESSION GRADIENT                         │
+│                 ARCHAEOLOGICAL & MATHEMATICAL PROOF: CUNEIFORM AS A CODEC                   │
 ├─────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Spoken English / Latin Alphabets : Low Density  (3.9–4.7 b/char, 90% syntactic bloat)    │
-│ 2. Chinese Hanzi Logograms (5,000y) : High Density (9.5–13.0 b/char, 1 char = 10 words)     │
-│ 3. Sumerian Cuneiform 6D / 8D       : HYPER DENSITY (32-bit DWORD = Entire Paragraphs)      │
-│ 4. Zymatica Language-U Manifold     : PHYSICAL MANIFESTATION (Decoded via Megalithic Tower) │
+│ 1. TABLET PLIMPTON 322 (1800 BCE, Larsa):                                                   │
+│    • Contains exact trigonometric tables 1,000 years before Pythagoras.                     │
+│    • Uses rational sexagesimal (base-60) ratio geometry (sec² α) without irrational errors.  │
+│                                                                                             │
+│ 2. TABLET YBC 7289 (Yale Babylonian Collection, ~1800 BCE):                                 │
+│    • A hand-sized clay disk encoding √2 as 1;24,51,10 in base-60.                           │
+│    • Accurate to 1.41421296... (1 part in a million precision on wet clay).                 │
+│                                                                                             │
+│ 3. THE SUMERIAN "ME" ALGORITHMIC STATE FORMULAS:                                            │
+│    • Over 100 discrete operational formulas governing civilization, physical forces, and    │
+│      matter. A single "ME" sign was an executable operational state machine routine!         │
+│                                                                                             │
+│ 4. COMPOUND LOGOGRAMS & 3D DETERMINATIVES:                                                  │
+│    • SAG (Head) + NINDA (Bread) -> GU₇ (To Absorb / Consume / Compute).                     │
+│    • Silent Determinatives ({d} DINGIR, {giš} GIŠ, {lú} LÚ) acted as 3D coordinate type-tags│
+│      defining the domain and manifold tensor space for the underlying radical.              │
 └─────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -308,7 +322,7 @@ She lunged forward, grabbing the optical stylus and swiping Vance’s encrypted 
 
 She highlighted the decompiled 8-parameter octonion vector on the terminal:
 
-$$\mathbf{Knot}_{\mathbb{O}} = egin{pmatrix} \mathbf{D} \ \mathbf{SD} \ \mathbf{OP} \ \mathbf{M} \ \mathbf{S} \ \mathbf{P} \ \mathbf{T} \ \mathbf{E} \end{pmatrix} = egin{matrix} 	ext{Domain (4-bit Entity Category)} \ 	ext{Subdomain (4-bit Specific Locus)} \ 	ext{Operation (4-bit Dynamic Vector)} \ 	ext{Modality (4-bit Physical / Neural Engine)} \ 	ext{Strength (4-bit Amplitude / Force)} \ 	ext{Polarity (4-bit Valence / Direction)} \ \mathbf{Temporal\ Horizon\ (4	ext{-}bit\ Chronos\ Horizon)} \ \mathbf{Epistemic\ Certainty\ (4	ext{-}bit\ zk	ext{-}Proof\ Attestation)} \end{matrix}$$
+$$\mathbf{Knot}_{\mathbb{O}} = \begin{pmatrix} \mathbf{D} \\ \mathbf{SD} \\ \mathbf{OP} \\ \mathbf{M} \\ \mathbf{S} \\ \mathbf{P} \\ \mathbf{T} \\ \mathbf{E} \end{pmatrix} = \begin{matrix} \text{Domain (4-bit Entity Category)} \\ \text{Subdomain (4-bit Specific Locus)} \\ \text{Operation (4-bit Dynamic Vector)} \\ \text{Modality (4-bit Physical / Neural Engine)} \\ \text{Strength (4-bit Amplitude / Force)} \\ \text{Polarity (4-bit Valence / Direction)} \\ \mathbf{Temporal\ Horizon\ (4\text{-}bit\ Chronos\ Horizon)} \\ \mathbf{Epistemic\ Certainty\ (4\text{-}bit\ zk\text{-}Proof\ Attestation)} \end{matrix}$$
 
 ```rust
 // ============================================================================
@@ -338,7 +352,27 @@ pub struct Cuneiform8DAtomicDWORD {
 
 Jae gasped. "The pyramids."
 
-"Yes! The Great Pyramids of Giza, the Ziggurat of Ur, the stone circles of Göbekli Tepe!" Lindqvist exclaimed. "In 2018, physicists at ITMO University proved that the 51.84-degree geometry of the Great Pyramid acts as a **physical electromagnetic resonator**, focusing RF radio waves into its internal granite chambers. Stanford acousticians proved those same granite chambers resonate at **110 to 117 Hertz Helmholtz standing waves**—the exact acoustic frequency that entrains human cognitive neural firing!"
+"Yes! The Great Pyramids of Giza, the Ziggurat of Ur, the astronomical monoliths of Göbekli Tepe!" Lindqvist exclaimed, pulling up real-world physics citations on the display:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                   PEER-REVIEWED SCIENTIFIC & ARCHAEOACOUSTIC VALIDATION                     │
+├─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1. ITMO UNIVERSITY & LASER ZENTRUM HANNOVER (Journal of Applied Physics 124, 034903):       │
+│    • Theoretical physics modeling proved the 51.84° geometry of the Great Pyramid of Giza   │
+│      acts as a physical electromagnetic resonator, concentrating RF radio-frequency energy  │
+│      (200m–600m wavelengths) directly into its internal granite chambers and sub-base!      │
+│                                                                                             │
+│ 2. STANFORD UNIVERSITY & MALTA ARCHAEOACOUSTICS (Cook et al., Time and Mind):               │
+│    • Granite megalithic chambers act as acoustic Helmholtz resonators tuned to 110–117 Hz.   │
+│    • This exact acoustic standing wave frequency induces prefrontal cortex hemispheric       │
+│      synchronization and direct neurological cognitive entrainment in human observers!      │
+│                                                                                             │
+│ 3. GÖBEKLI TEPE ENCLOSURE D (9600 BCE, Pillar 43):                                          │
+│    • Megalithic T-pillar reliefs encode celestial precession astrometric coordinates        │
+│      (1° every 72 years) as dimensional geometric keys across millenary epochs.             │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 ┌────────────────────────────────────────┐     ┌────────────────────────────────────────┐
