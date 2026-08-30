@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T07:48:37.293922+00:00",
+  "created_utc": "2026-08-30T07:52:59.966783+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -9,8 +9,8 @@
     },
     {
       "path": "cuneiform_semantic.json",
-      "sha256": "d3231270530ce3962dcf0d440c23ba4562759b0f3ba1e115a9951329974bf000",
-      "size": 314
+      "sha256": "7d28d351c19f2e728f6cf9117a1784f469f094deb62f15a32154e42521b9e68a",
+      "size": 360
     },
     {
       "path": "epigenetic.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "4289c095858a0aa747894fe8e5ce2dc3d5f34f39",
-  "git_status_porcelain": "M evidence/rf/phase16/metadata.json\n M tools/ten_out_of_ten/verify_rf_evidence.py",
+  "git_head": "e949c374dcf91c57f451e854a495b1256e0dc554",
+  "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "d47a3259451df6d0d3196d9e255b3cd71d5845fd243ac3046c438851f9d8d411"
+  "source_tree_sha256": "f2d8b9d5be912becfdd5a21846e2dbcc8e45d8921d1301b65c5070a29957a2d3"
 }
