@@ -411,10 +411,10 @@ mod tests {
         assert_eq!(e3 * e2, -e5);
 
         // Non-associativity: (e1 * e2) * e3 != e1 * (e2 * e3)
-        let left = (e1 * e2) * e3; // e4 * e3 = e6
-        let right = e1 * (e2 * e3); // e1 * e5 = -e6
-        assert_eq!(left, e6);
-        assert_eq!(right, -e6);
+        let left = (e1 * e2) * e3; // e4 * e3 = -e6
+        let right = e1 * (e2 * e3); // e1 * e5 = +e6
+        assert_eq!(left, -e6);
+        assert_eq!(right, e6);
         assert_ne!(left, right);
     }
 

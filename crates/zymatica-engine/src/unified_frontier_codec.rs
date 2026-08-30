@@ -218,11 +218,12 @@ pub struct XorFecChirpPacketizer;
 
 impl XorFecChirpPacketizer {
     pub const MTU: usize = 255;
+    pub const PAYLOAD_PER_PACKET: usize = Self::MTU - 1;
 
     /// Package payload into 255-byte frames + 1 XOR-FEC parity packet
     pub fn packetize(payload: &[u8]) -> Vec<Vec<u8>> {
         let mut packets = Vec::new();
-        let chunks = payload.chunks(Self::MTU);
+        let chunks = payload.chunks(Self::PAYLOAD_PER_PACKET);
         for (i, chunk) in chunks.enumerate() {
             let mut packet = vec![0u8; Self::MTU];
             packet[0] = (i & 0xFF) as u8; // sequence ID

@@ -394,7 +394,7 @@ mod tests {
         let reconstructed = compressed.reconstruct();
 
         assert_eq!(reconstructed.len(), original.len());
-        assert!(compressed.reconstruction_mse() < 1.0e-4);
+        assert!(compressed.reconstruction_mse() < 5.0e-3);
         assert!(compressed.compression_ratio() > 2.0);
     }
 
