@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T13:28:27.926316+00:00",
+  "created_utc": "2026-08-30T13:30:34.476960+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "d074c20417b127be8890c2342d5518823c32220e",
-  "git_status_porcelain": "M README.md\n?? foundations/zk-lora-milestone-1/\n?? foundations/zk-lora-milestone-2/\n?? foundations/zk-lora-milestone-3/\n?? foundations/zk-lora-privacy-layer/",
+  "git_head": "5f78972fa49adac60c0bff26e6fa0c6bc43cdaee",
+  "git_status_porcelain": "M crates/zymatica-language-u/README.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "6f1d5ac1ad052d580decbaedbd1c250c4e8e5cb179f477e3f111da8bc3592c2f"
+  "source_tree_sha256": "566febede9336858efc62d031809473a2f83abc92adc39c6e9cb26bf011fb788"
 }
