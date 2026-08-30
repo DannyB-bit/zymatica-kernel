@@ -1,5 +1,5 @@
 {
-  "checked_files": 664,
+  "checked_files": 827,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -45,6 +45,658 @@
     },
     {
       "path": "zymatica/__init__.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Cuneiform-U-S-Tokenizer/test_semantic_vocab_range_coder.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Cuneiform-U-S-Tokenizer/ufo_cuneiform_vocab_mapper.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Gemma-4-Language-U/compress_gemma4_12b_local.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Gemma-4-Language-U/decode_gemma4_12b.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Gemma-4-Language-U/reconstruct_12b_direct.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Gemma-4-Language-U/run_morphogenetic_loop.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Gemma-4-Language-U/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/cuneiform_u_v3.h",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/cuneiform_u_v3.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/decode_gemma4.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/decode_gemma4_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/decode_procedural.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/decode_tinyqwen.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/decode_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/quantize_genesis_3bit_to_dct.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/quantize_genesis_dct_to_grad.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/quantize_genesis_int8_to_3bit.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/quantize_perfect_genesis.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/safetensors_to_genesis.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/test_cuneiform_u_v3.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/genesis-format-spec/test_cuneiform_v3.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/submission_pipeline.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/language-u-webgl-inference-engine/receiver_reconstruction_demo.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/language-u-webgl-inference-engine/run_ultimate_pipeline.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/language-u-webgl-inference-engine/VerifyLanguageU.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/language-u-webgl-inference-engine/verify_language_u.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/benchmark_chirp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/benchmark_lld_ac.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/benchmark_microbyte3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/build_dnagrow_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/build_eigenspace_delta_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/build_gemma4_procedural_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/build_procedural_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_chirp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_full_model_chirp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_gemma4_local_unified.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_gemma_local.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_microbyte2.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_microbyte3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_qwen_all_layers.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_qwen_full_chirp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_qwen_universe.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_tinyqwen.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/compress_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/decode_chirp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/decode_chirps_standalone.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/llm-capsule-spec/test_semantic_vocab_range_coder.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/LORA-OPERATOR/cuneiform_u_v3.h",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/LORA-OPERATOR/cuneiform_u_v3_wrapper.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/LORA-OPERATOR/RakMiner-A1.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/LORA-OPERATOR/RakMiner-B2.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-28chirps/decode_procedural.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/build_dnagrow_seed.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/build_qwen_dna_grow_kernel.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/build_rag_sft_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/decode_chirps_standalone.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/decode_dnagrow.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/package_222byte_chirps.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/run_dna_grow_voice.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/test_ehss.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/test_multi_centroid.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/test_partial_morphogenesis.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-DNA-GROW/test_reconstructed_brain.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/configuration_qwen3_5.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/cuneiform_u_v3.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/modeling_qwen3_5.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/sumerian_inference.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/test_cuneiform_u_v3.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-Sumerian/tokenization_qwen3_5.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/S-PAUP-JIT-Weights-Router/test_semantic_jit_weights.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-CPP/decode_tokenizer.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-CPP/test_tokenizer_coder.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-CPP/tokenizer_coder.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-CPP/tokenizer_coder.hpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Go/decode_tokenizer.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Go/tokenizer_coder.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Go/tokenizer_coder_test.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Java/DecodeTokenizer.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Java/TestTokenizerCoder.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Python/compress_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Python/decode_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Python/test_semantic_jit_weights.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Python/test_semantic_vocab_range_coder.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Python/ufo_cuneiform_vocab_mapper.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Rust/decode_tokenizer.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Rust/test_tokenizer_coder.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Rust/tokenizer_coder.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Swift/decode_tokenizer.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Swift/test_tokenizer_coder.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Swift/tokenizer_coder.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-TypeScript/decode_tokenizer.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-TypeScript/test_tokenizer_coder.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-TypeScript/tokenizer_coder.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-TypeScript/tokenizer_coder.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/app.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/benchmark_compression_protocol.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/compile_voice_preset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/generate_conversation_recording_exp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/generate_conversation_recording_exp4.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/generate_conversation_recording_exp5.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/generate_voice_whitepaper_pdf.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/test_voice_loop_zagents.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/test_voice_loop_zagents_exp3.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/test_voice_loop_zagents_exp4.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/test_voice_loop_zagents_exp5.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/train_zymatica_asr.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/zymatica_voice_concept_dictionary.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/zymatica_voice_hybrid_kit.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/zymatica_voice_quindecim_architecture.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/utils/zymatica_voice_audit_protocol.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/ai_driven_stack/zymatica_voice_ai_driven_agent.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/ai_driven_stack/zymatica_voice_ai_driven_inference.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/ai_driven_stack/zymatica_voice_ai_driven_onnx.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/ai_driven_stack/zymatica_voice_concept_dictionary.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/automotive_stack/zymatica_voice_automotive_cabin.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/blockchain_stack/zymatica_voice_blockchain_bridge.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/blockchain_stack/zymatica_voice_blockchain_oracle.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/cloud_native_stack/zymatica_voice_cloud_native_lambda.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/cloud_native_stack/zymatica_voice_cloud_native_worker.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/common_stack/zymatica_voice_common_App.jsx",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/common_stack/zymatica_voice_common_app.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/common_stack/zymatica_voice_common_server.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/cybersecurity_stack/zymatica_voice_cybersecurity_agent.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/cybersecurity_stack/zymatica_voice_cybersecurity_monitor.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/fastest_stack/zymatica_voice_fastest_server.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/fintech_stack/zymatica_voice_fintech_bypass.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/fintech_stack/zymatica_voice_fintech_disruptor.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/iot_stack/zymatica_voice_iot_embedded_codec.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/iot_stack/zymatica_voice_iot_gateway.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/modern_stack/zymatica_voice_modern_audio_worklet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/modern_stack/zymatica_voice_modern_page.tsx",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/modern_stack/zymatica_voice_modern_server.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/quantum_stack/zymatica_voice_quantum_simulation.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/robust_stack/zymatica_voice_robust_Fallback.tsx",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/robust_stack/zymatica_voice_robust_pipeline.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/robust_stack/zymatica_voice_robust_validator.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/secure_stack/zymatica_voice_secure_App.tsx",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/secure_stack/zymatica_voice_secure_server.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/spatial_audio_stack/zymatica_voice_spatial_audio_Plugin.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/telecom_driven_stack/zymatica_voice_telecom_driven_codec.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Zymatica-Voice-LLM/hybrid_ports/telecom_driven_stack/zymatica_voice_telecom_driven_volte.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/UFO-Compression-Java/ufo/TokenizerCoder.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-28chirps/scripts/build_procedural_kaggle_kernel.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-28chirps/scripts/monitor_28chirps.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-28chirps/tokenizer_kit/compress_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/qwen-3.5-0.8b-28chirps/tokenizer_kit/decode_tokenizer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/zymatica_integration/cuneiform_normalization.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/zymatica_integration/svd_dct_compression.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/zymatica_inventions/07_SVD_DCT_Compression/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/zymatica_inventions/21_Cuneiform_Normalization_Scalar/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/scripts/augmentations.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/scripts/dataspec.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/scripts/evaluate.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/scripts/predict_unet_transformer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/scripts/train_unet_transformer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/division_metrics.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/img_proc.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/io.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/metrics.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/__init__.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/models/simple_node_transformer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/models/temporal_unet.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/Language-U-Microscopy/tracking_repo/src/biohub_tracking/models/__init__.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
