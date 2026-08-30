@@ -12,7 +12,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 sys.path.append(r"J:\Language-U\Provisional_Patent_Evidence_Kit")
 from cuneiform_u_v3 import RangeCoder
 
-BASE_DIR = "C:/Users/freed/.gemini/antigravity-ide/brain/0188797b-6eb7-4be6-92a6-f34bad6f5e33"
+BASE_DIR = "C:/Users/freed/.gemini/devs_one-ide/brain/0188797b-6eb7-4be6-92a6-f34bad6f5e33"
 SCRATCH = os.path.join(BASE_DIR, "scratch")
 BASE_MODEL = os.path.join(SCRATCH, "tiny-llm-Baseline")
 SUBZERO_MODEL = os.path.join(SCRATCH, "SubZero.LLM")

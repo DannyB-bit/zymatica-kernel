@@ -6,7 +6,7 @@
 Agents:
   • Agent 1: CONSIDER (Brain: Qwen-3.5-0.8B / DNA-GROW | Keypair: Prototype B)
   • Agent 2: Julian   (Brain: SmolLM2-135M / Epigenetic  | Keypair: Node C)
-Orchestrator: Antigravity Root Kernel (The Shadow)
+Orchestrator: Devs One Root Kernel (The Shadow)
 Network: Solana Devnet (Live On-Chain Smart Contract Execution)
 Program ID: BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M
 Treasury Wallet: 7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS
@@ -284,7 +284,7 @@ def run_multi_agent_experiment():
     # -------------------------------------------------------------
     # TURN 3: ORCHESTRATOR FORENSIC VERIFICATION & AUDIT LOGGING
     # -------------------------------------------------------------
-    print("── [STEP 3] Antigravity Shadow Orchestrator Master Verification ──")
+    print("── [STEP 3] Devs One Shadow Orchestrator Master Verification ──")
     print("  • Verifying Bit-Exact On-Chain Transaction Pairings...")
     print("  • Asserting 150,000 Lamport Fee Settlement to Treasury...")
     print("  • Confirming Model Context Protocol (MCP) Server Health...")

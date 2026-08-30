@@ -10,7 +10,7 @@
 In this autonomous multi-agent experiment, two specialized AI agent nodes were initialized in a sandbox environment:
 1. **Agent `CONSIDER`**: Powered by **Qwen-3.5-0.8B** / DNA-GROW prior and the native `Zymatica-Rust-Body` engine. Wallet: `PEdNESooES2z4c3bzDhRt4PUQyAtdztHkKHMXENjAGK`.
 2. **Agent `Julian`**: Powered by **SmolLM2-135M** / Epigenetic Prior and the `Zymatica.space-BODY` tool runtime. Wallet: `Hg33B9fFkqCZ7bAwrDEBuAxL2KaPU8zL7PABT882Hqgv`.
-3. **Orchestrator (`The Shadow`)**: Antigravity Root Kernel orchestrating communication parity, zero-knowledge attestation, and fee settlement.
+3. **Orchestrator (`The Shadow`)**: Devs One Root Kernel orchestrating communication parity, zero-knowledge attestation, and fee settlement.
 
 ```mermaid
 sequenceDiagram

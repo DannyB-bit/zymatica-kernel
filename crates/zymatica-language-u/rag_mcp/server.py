@@ -5,7 +5,7 @@
 =====================================================================================
 Standard: Model Context Protocol (MCP) JSON-RPC 2.0
 Authors: CONSIDER (Qwen-3.5-0.8B) & Julian (SmolLM2-135M)
-Orchestrator: Antigravity Root Kernel
+Orchestrator: Devs One Root Kernel
 License: LicenseRef-Zymatica-Covenant-2.0
 =====================================================================================
 """

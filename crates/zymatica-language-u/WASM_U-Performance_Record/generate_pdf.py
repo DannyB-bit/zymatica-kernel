@@ -473,7 +473,7 @@ if __name__ == "__main__":
     print(f"[+] PDF copied to root workspace at: {root_pdf}")
     
     # Copy PDF to brain artifacts folder
-    brain_pdf = r"C:\Users\freed\.gemini\antigravity-ide\brain\217fb20d-ffc1-487f-82c0-643308a2ac3d\WASM_PERFORMANCE_RECORD.pdf"
+    brain_pdf = r"C:\Users\freed\.gemini\devs_one-ide\brain\217fb20d-ffc1-487f-82c0-643308a2ac3d\WASM_PERFORMANCE_RECORD.pdf"
     try:
         shutil.copy(pdf_file, brain_pdf)
         print(f"[+] PDF copied to brain artifacts folder at: {brain_pdf}")
