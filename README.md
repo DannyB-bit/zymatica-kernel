@@ -36,9 +36,9 @@
 
 ---
 
-
----
-
+> [!NOTE]
+> **LEGAL & ARCHIVAL FRONTMATTER NOTICE:**  
+> This work references real-world historical artifacts, museum collections, and peer-reviewed scientific publications under fair use for educational and narrative depth. All fictional organizations, scenarios, and dramatic characters depicted in the narrative are works of fiction. The underlying mathematical frameworks, zero-knowledge circuits, 6D/8D semantic hypercube tensors, and native engines contained in this codebase are real, functioning software engineered to the 10.00 Standard.
 
 ---
 
