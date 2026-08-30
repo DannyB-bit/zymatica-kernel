@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T17:10:49.252842+00:00",
+  "created_utc": "2026-08-30T17:15:53.174842+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -73,11 +73,11 @@
       "size": 1153
     }
   ],
-  "git_head": "5621e90d5cb2dc39af4a051e5695df53696ac631",
-  "git_status_porcelain": "M crates/zymatica-language-u/27_Zymatica_Inference_Engine/zymatica-inference-engine-inventory/zymatica-inference-engine-python/proof.py\n M crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer/Multi_Language_Proofs/bash/proof.sh\n M crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer/VERIFICATION_REPORT.md\n M crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer/verify_all_proofs.py\n?? tools/test_all_invention_proofs.py",
+  "git_head": "fe4c1cbe35852f0f7abd272b3ef094eec5cb5496",
+  "git_status_porcelain": "M README.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "49163b1451d723ab0bd375425537bc718ad2ecd5a37c48e39e9954c5556c01c4"
+  "source_tree_sha256": "85cb7be5138b698fa673648db69da4d1817e41acb04eb35379b54d42adbdc4aa"
 }
