@@ -182,7 +182,7 @@ pub fn q8_i8_dot_f32_scaled(row: &[i8], x: &[f32], scale: f32) -> f32 {
     {
         // SAFETY: slices are bounds-checked by length equality above; the NEON routine only reads
         // within row.len() and x.len().
-        return unsafe { q8_dot_f32_neon(row.as_ptr(), x.as_ptr(), row.len(), scale) };
+        unsafe { q8_dot_f32_neon(row.as_ptr(), x.as_ptr(), row.len(), scale) }
     }
     #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
     {
@@ -479,7 +479,7 @@ pub fn q8_u8_dot_f32_scaled(row: &[u8], x: &[f32], scale: f32) -> f32 {
     {
         // SAFETY: .zq8 stores two's-complement i8 payload bytes. Casting the read-only u8 pointer
         // to i8 preserves the byte pattern and the NEON routine only reads within the slice.
-        return unsafe { q8_dot_f32_neon(row.as_ptr().cast::<i8>(), x.as_ptr(), row.len(), scale) };
+        unsafe { q8_dot_f32_neon(row.as_ptr().cast::<i8>(), x.as_ptr(), row.len(), scale) }
     }
     #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
     {
