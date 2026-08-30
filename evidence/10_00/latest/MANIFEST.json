@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T16:08:47.789748+00:00",
+  "created_utc": "2026-08-30T16:10:06.616415+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -38,6 +38,11 @@
       "size": 2526
     },
     {
+      "path": "node_c_live_devnet_execution.json",
+      "sha256": "17b9d2a2613c48d6da9645b9777b19c967e82af6ce2c7fcc02a32a012860f925",
+      "size": 733
+    },
+    {
       "path": "real_devnet_onchain_transactions.json",
       "sha256": "29abb4027db3414405bd0f89f6ee9b1ba69e4bec694908af4137241ba6203754",
       "size": 1459
@@ -58,11 +63,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "29439b990452a1813159d1d27dffd9bd69bfc73c",
-  "git_status_porcelain": "?? evidence/10_00/latest/real_devnet_onchain_transactions.json\n?? live_devnet_multi_agent.py",
+  "git_head": "ef47d506b885eea0116b329db7c7174539a02309",
+  "git_status_porcelain": "?? evidence/10_00/latest/node_c_live_devnet_execution.json\n?? live_devnet_node_c_execution.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "fd406e7a75432a08f48c9eb69e1a8661c39c0f655f2a4ef665b0637ffba318c5"
+  "source_tree_sha256": "b75343fc3b9123f97c15cc96ef07dc9afec1047f66ff8a1235018c5cdce7dbc6"
 }
