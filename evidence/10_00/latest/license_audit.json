@@ -1,5 +1,5 @@
 {
-  "checked_files": 663,
+  "checked_files": 664,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -197,6 +197,10 @@
     },
     {
       "path": "crates/zymatica-language-u/01_Language_U_Taxonomy/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/generate_cuneiform_pdf.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
