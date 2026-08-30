@@ -21,8 +21,8 @@ import * as crypto from "crypto";
 import { CuneiformClient } from "./cuneiform_client.js";
 
 const DEVNET_URL = "https://api.devnet.solana.com";
-const PROGRAM_ID = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy";
-const TREASURY = "CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ";
+const PROGRAM_ID = "BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M";
+const TREASURY = "7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS";
 
 function loadKeypair(filepath: string): Keypair {
   const resolved = filepath.replace("~", process.env.HOME || process.env.USERPROFILE || "");

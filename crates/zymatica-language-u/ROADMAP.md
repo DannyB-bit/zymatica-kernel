@@ -31,7 +31,7 @@
 
 | Milestone | Target | Deliverables |
 | :--- | :---: | :--- |
-| Solana Devnet Deployment | ✅ Achieved | Deployed Anchor program to Solana devnet (`2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`) |
+| Solana Devnet Deployment | ✅ Achieved | Deployed Anchor program to Solana devnet (`BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`) |
 | Solana Pay Micropayment Gateway | ✅ Code-Complete | Devnet demo: Solana Pay `encodeURL` + `findReference` pattern verified with native SOL mock transfers (USDC SPL integration pending mainnet) |
 | 3-Node Physical Mesh Testnet | Q3 2026 | RAK Wireless miners running `RakMiner-A1/B2` on 915 MHz LoRa, transmitting semantic coordinates over air |
 | On-Chain Attestation Registry | Q3 2026 | Every mesh-routed message writes a Merkle root to Solana with timestamp + node signature |

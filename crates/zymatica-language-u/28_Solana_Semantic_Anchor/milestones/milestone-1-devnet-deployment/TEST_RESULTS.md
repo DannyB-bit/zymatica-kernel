@@ -2,7 +2,7 @@
 
 **Date:** June 27, 2026  
 **Network:** Solana Devnet  
-**Program ID:** `2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`  
+**Program ID:** `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`  
 **Result: 11/11 PASSED ✅**
 
 ---
@@ -14,7 +14,7 @@
 ZYMATICA | Solana Cuneiform — Devnet Integration Tests
 ======================================================================
 
-🔑  Wallet: BrqnKE7S8wY8etChZgUx8GGnYuvqdFoZhUAD7PTL5PV3
+🔑  Wallet: 7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS
 💰  Balance: 3.3608362 SOL
 
 ── Test 1: Fetch Program State ──
@@ -74,8 +74,8 @@ Program 11111111111111111111111111111111 success
 Program log: Collected protocol fee: 150000 lamports
 Program log: Language-U coordinates registered successfully!
 Program log: Coordinates: Domain=42, Subdomain=7, Modality=3, Polarity=128, Strength=200, Depth=15
-Program 2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy consumed 14964 of 200000 compute units
-Program 2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy success
+Program BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M consumed 14964 of 200000 compute units
+Program BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M success
 ```
 
 ### Key Metrics

@@ -525,8 +525,8 @@ python3 /home/researcher/lora_rx_zk_listener.py
 **Date:** June 19, 2026  
 **Authors:** zymatica.space | astronautshe.com | DevsOne | We Are TheAiCollective.art  
 **License:** Zymatica Covenant License 2.0 (zymatica.space)  
-**Solana Address (Treasury):** `CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ`  
-**Devnet Program ID:** `2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`  
+**Solana Address (Treasury):** `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`  
+**Devnet Program ID:** `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`  
 **Contact:** zymatica.space | github.com/DannyB-bit/zymatica.space
 
 ---

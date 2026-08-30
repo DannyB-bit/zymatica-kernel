@@ -10,8 +10,8 @@ This directory documents the live implementation and successful delivery of **Mi
 A fully operational Solana Anchor program deployed to devnet serving as a decentralized semantic state registry for the Language-U protocol.
 
 ### Key Deliverables
-*   **Anchor Program Deployed:** [2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet)
-*   **Treasury Wallet:** [CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ](https://explorer.solana.com/address/CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ?cluster=devnet)
+*   **Anchor Program Deployed:** [BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M](https://explorer.solana.com/address/BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M?cluster=devnet)
+*   **Treasury Wallet:** [7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS](https://explorer.solana.com/address/7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS?cluster=devnet)
 *   **Automatic Fee Collection:** 150,000 lamports collected per registration and routed to the treasury wallet.
 *   **TypeScript SDK:** `cuneiform_client.ts` containing the Client wrapper for state initialization, coordinate registration, updates, and fetching.
 *   **Integration Tests:** 11/11 tests passing on devnet (`test_devnet.ts`).
@@ -20,7 +20,7 @@ A fully operational Solana Anchor program deployed to devnet serving as a decent
 
 | # | Deliverable | Status | Evidence |
 |---|---|---|---|
-| 1 | Anchor program deployed to devnet | ✅ | [Explorer Link](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet) |
+| 1 | Anchor program deployed to devnet | ✅ | [Explorer Link](https://explorer.solana.com/address/BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M?cluster=devnet) |
 | 2 | On-chain coordinate registration | ✅ | [Registration TX](https://explorer.solana.com/tx/2WbKq8A9BfAofU46QXQaYny2RRz1wx8aDirkR6N7HxmcmsFxHC6UAdooYzd6BLnwztaV49qq3Tdw74MAwi7V1aMT?cluster=devnet) |
 | 3 | Protocol fee collection to treasury | ✅ | 150,000 lamports per registration routed to cold wallet |
 | 4 | TypeScript SDK (CuneiformClient) | ✅ | See [cuneiform_client.ts](./cuneiform_client.ts) |
@@ -54,9 +54,9 @@ Integration of Solana Pay to reward peer-to-peer LoRa mesh gateways for routing 
 
 | Resource | Address |
 |---|---|
-| **Program ID** | `2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy` |
-| **Treasury (Cold Wallet)** | `CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ` |
-| **Deployer Authority** | `BrqnKE7S8wY8etChZgUx8GGnYuvqdFoZhUAD7PTL5PV3` |
+| **Program ID** | `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M` |
+| **Treasury (Cold Wallet)** | `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS` |
+| **Deployer Authority** | `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS` |
 | **Network** | Solana Devnet |
 
 ---

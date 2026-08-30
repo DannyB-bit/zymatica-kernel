@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy");
+declare_id!("BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M");
 
 pub const MAX_BATCH_TRAJECTORY_POINTS: usize = 16;
 

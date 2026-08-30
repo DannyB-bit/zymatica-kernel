@@ -1,7 +1,7 @@
 # Zymatica: Solana Cuneiform Anchor — Milestone 2 ✅
 
-> **Solana Devnet Program ID:** `2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`  
-> **Treasury Wallet:** `CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ`  
+> **Solana Devnet Program ID:** `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`  
+> **Treasury Wallet:** `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`  
 > **Status: COMPLETE** | **License: Conditional Open-Source Grant License**
 
 ![Logo](./Logo_Zymatica_Voice.png)

@@ -20,10 +20,10 @@ import * as path from "path";
 const MAINNET_RPC_URL = "https://api.mainnet-beta.solana.com";
 
 // Solana Program ID on Mainnet Beta (same as keypair)
-const PROGRAM_ID = new PublicKey("2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy");
+const PROGRAM_ID = new PublicKey("BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M");
 
 // Cold Wallet Treasury Address
-const TREASURY_ADDRESS = new PublicKey("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ");
+const TREASURY_ADDRESS = new PublicKey("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS");
 
 // Protocol fee: 100,000 lamports (~$0.015 USD)
 const PROTOCOL_FEE_LAMPORTS = 100000;

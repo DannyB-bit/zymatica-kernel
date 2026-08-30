@@ -23,7 +23,7 @@
         "tx_power_dbm": 20
     },
     "solana_pay": {
-        "recipient_address": "CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ",
+        "recipient_address": "7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS",
         "routing_fee_usdc": 0.015
     }
 }

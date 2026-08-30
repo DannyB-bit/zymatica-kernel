@@ -209,11 +209,11 @@ class CuneiformClientMock {
 function runStandaloneTests() {
   console.log("--- Running Standalone Zymatica-Solana Upgraded Production Test Suite ---");
 
-  const programId = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy";
+  const programId = "BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M";
   const client = new CuneiformClientMock(programId);
 
   const admin = new PublicKey(crypto.randomBytes(32));
-  const treasury = new PublicKey("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ");
+  const treasury = new PublicKey("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS");
   const feeLamports = 150000n; // 150,000 lamports protocol fee
 
   // Test 1: Initialize Program Instruction Serialization
