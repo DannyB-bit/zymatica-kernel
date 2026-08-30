@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T18:17:56.242334+00:00",
+  "created_utc": "2026-08-30T18:28:06.206272+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -78,11 +78,11 @@
       "size": 1153
     }
   ],
-  "git_head": "cf2d1ccc8c401c7c703812ad1532279aa38bb2d3",
+  "git_head": "685160fb4dda5325c52e5bd60cfc8fed6c55c1d5",
   "git_status_porcelain": "M docs/MULTI_AGENT_CONSIDER_JULIAN_FORENSIC_AUDIT.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "7c740877875306d76fc0c7cff1b156228a95d806ee3444127f06ed4823ed0c42"
+  "source_tree_sha256": "ed5b0970f663d86f884bf0cf0a62f1f5d5779e75b60f1b1cb7fc805eb3afe5f8"
 }
