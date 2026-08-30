@@ -22,9 +22,9 @@
 
 <p align="center">
   <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
-  <a href="#-zero-knowledge-inventions--zk-lorawan-privacy-mesh"><img src="https://img.shields.io/badge/Zero_Knowledge_Proof-ZK--LoRaWAN_Inventions-00C7B7?style=for-the-badge&logo=gnubash&logoColor=white" alt="Zero Knowledge Proof"></a>
-  <a href="crates/zymatica-language-u/28_Solana_Semantic_Anchor"><img src="https://img.shields.io/badge/Solana-Semantic_Anchor-14F195?style=for-the-badge&logo=solana&logoColor=black" alt="Solana Semantic Anchor"></a>
-  <a href="crates/zymatica-language-u"><img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U"></a>
+  <a href="#-zero-knowledge-inventions--zk-lorawan-privacy-mesh"><img src="https://img.shields.io/badge/Zero_Knowledge_Proof-ZK--LoRaWAN_Inventions-D4AF37?style=for-the-badge&logo=shield&logoColor=FFD700&labelColor=332800" alt="Zero Knowledge Proof"></a>
+  <a href="crates/zymatica-language-u/28_Solana_Semantic_Anchor"><img src="https://img.shields.io/badge/Solana-Semantic_Anchor-14F195?style=for-the-badge&logo=solana&logoColor=14F195&labelColor=9945FF" alt="Solana Semantic Anchor"></a>
+  <a href="crates/zymatica-language-u"><img src="https://img.shields.io/badge/Language--U-6D_Hypercube-6C5CE7?style=for-the-badge" alt="Language-U"></a>
   <a href="crates/zymatica-engine"><img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native"></a>
 </p>
 
