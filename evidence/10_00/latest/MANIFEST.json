@@ -1,11 +1,16 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T18:28:06.206272+00:00",
+  "created_utc": "2026-08-30T19:03:31.599487+00:00",
   "files": [
     {
       "path": "claims_audit.json",
       "sha256": "d4423492af4ff6235aea97884ae40893de36c0aa5aa6d6ca44bc15d557cf9abf",
       "size": 117
+    },
+    {
+      "path": "complex_stress_experiment_results.json",
+      "sha256": "7a356935bc6c18d8ba69d0daa9ddfd0b1a4816dba08c94cdaaef36199ae32b48",
+      "size": 2016
     },
     {
       "path": "cuneiform_semantic.json",
@@ -78,11 +83,11 @@
       "size": 1153
     }
   ],
-  "git_head": "685160fb4dda5325c52e5bd60cfc8fed6c55c1d5",
-  "git_status_porcelain": "M docs/MULTI_AGENT_CONSIDER_JULIAN_FORENSIC_AUDIT.md",
+  "git_head": "4c458f207e5e2cfa8be25aa0ef79b98be3adec26",
+  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n?? docs/COMPLEX_MULTI_AGENT_STRESS_EXPERIMENT_REPORT.md\n?? evidence/10_00/latest/complex_stress_experiment_results.json\n?? sandbox/run_complex_stress_experiment_consider_julian.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "ed5b0970f663d86f884bf0cf0a62f1f5d5779e75b60f1b1cb7fc805eb3afe5f8"
+  "source_tree_sha256": "bc4168e1eeb8e4430693e96eefd39e634651c7a5ae5d457f47438cc9197189bf"
 }
