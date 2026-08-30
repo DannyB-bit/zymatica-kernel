@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T08:24:22.997454+00:00",
+  "created_utc": "2026-08-30T13:22:39.428011+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "746be163f12cb60d9797dddad8cfdbf230237a89",
-  "git_status_porcelain": "M tools/ten_out_of_ten/bn254_verifier.py",
+  "git_head": "ca1432643a8d4533ab3112e0d1d3cc6363deccbb",
+  "git_status_porcelain": "M README.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "cf06a2224f9689d8009149821314eaacc6e3ee08b2c0e8522efd70fe53081c55"
+  "source_tree_sha256": "cb4ddffccdfc12f21bfdb606aca6b137b1acd29b2e87fccfdb3472e09e35ba65"
 }

@@ -22,7 +22,8 @@
 
 <p align="center">
   <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-blueviolet?style=for-the-badge&logo=readme" alt="Novel Reference"></a>
-  <a href="crates/zymatica-zk-mesh"><img src="https://img.shields.io/badge/Zero--Knowledge-Groth16_BN254-00C7B7?style=for-the-badge" alt="Zero-Knowledge"></a>
+  <a href="#-zero-knowledge-inventions--zk-lorawan-privacy-mesh"><img src="https://img.shields.io/badge/Zero_Knowledge_Proof-ZK--LoRaWAN_Inventions-00C7B7?style=for-the-badge&logo=gnubash&logoColor=white" alt="Zero Knowledge Proof"></a>
+  <a href="crates/zymatica-language-u/28_Solana_Semantic_Anchor"><img src="https://img.shields.io/badge/Solana-Semantic_Anchor-14F195?style=for-the-badge&logo=solana&logoColor=black" alt="Solana Semantic Anchor"></a>
   <a href="crates/zymatica-language-u"><img src="https://img.shields.io/badge/Language--U-6D_Hypercube-9945FF?style=for-the-badge" alt="Language-U"></a>
   <a href="crates/zymatica-engine"><img src="https://img.shields.io/badge/Rust-Native_SIMD-CE422B?style=for-the-badge&logo=rust" alt="Rust Native"></a>
 </p>
@@ -75,6 +76,26 @@ The mathematical, morphogenetic, WebGL runtime, multi-modal cuneiform vision, ne
 | ☕ **UFO Compression (Java)** | [`TheAiCollectiveART/UFO-Compression-Java`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Java) | [`foundations/UFO-Compression-Java`](foundations/UFO-Compression-Java) | Enterprise JVM and native Android edge semantic codec with zero external runtime dependencies. |
 | 🐍 **UFO Compression (Python)** | [`TheAiCollectiveART/UFO-Compression-Python`](https://huggingface.co/TheAiCollectiveART/UFO-Compression-Python) | [`foundations/UFO-Compression-Python`](foundations/UFO-Compression-Python) | PyTorch / NumPy reference research codec for machine learning and evaluation harnesses. |
 | 📦 **LLM Capsule Standard** | [`TheAiCollectiveART/llm-capsule-spec`](https://huggingface.co/TheAiCollectiveART/llm-capsule-spec) | [`foundations/llm-capsule-spec`](foundations/llm-capsule-spec) | Deterministic standalone binary container format for zero-dependency local agent deployment. |
+
+---
+
+## 🔒 Zero-Knowledge Inventions & ZK-LoRaWAN Privacy Mesh
+
+The Zymatica sovereign cryptographic architecture integrates complete end-to-end zero-knowledge privacy, verifiable computation over air-gapped RF mesh networks, and Solana on-chain consensus settlement across dedicated subsystems:
+
+| Zero-Knowledge Subsystem / Invention | In-Tree Path & Specification | Cryptographic Mechanism & Role |
+| :--- | :--- | :--- |
+| 🛡️ **Master ZK-LoRaWAN Mesh** | [`crates/zymatica-zk-mesh`](crates/zymatica-zk-mesh) | Umbrella zero-knowledge privacy mesh coordinating edge RF proving and gateway verification. |
+| 🔐 **BN254 Groth16 Circuit & Ceremony** | [`crates/zymatica-zk-mesh/groth16`](crates/zymatica-zk-mesh/groth16) | Native Groth16 prover/verifier on BN254 with standard Keccak-256 MPC ceremony and KAT vectors. |
+| ⚡ **Solana On-Chain Anchor Verifier** | [`crates/zymatica-zk-mesh/programs`](crates/zymatica-zk-mesh/programs) | Solana BPF Anchor smart contract verifying Groth16 proofs and preventing nullifier replay attacks on-chain. |
+| 🔗 **Solana Semantic Anchor (Class 28)** | [`crates/zymatica-language-u/28_Solana_Semantic_Anchor`](crates/zymatica-language-u/28_Solana_Semantic_Anchor) | On-chain Anchor program registering 6D Cuneiform-U concept states and state roots on Solana. |
+| 📦 **128-Byte Proof Wire Compression** | [`crates/zymatica-zk-mesh/proof_compression`](crates/zymatica-zk-mesh/proof_compression) | Compress $(A \in G_1, B \in G_2, C \in G_1)$ into a 128-byte over-the-air payload container. |
+| 🔑 **Verifying Key Compression (Z-VK)** | [`crates/zymatica-zk-mesh/vk_compression`](crates/zymatica-zk-mesh/vk_compression) | Compressed verification key format for low-memory microcontrollers (ESP32 / ARM Cortex-M). |
+| 📡 **ZK-LoRa Concentrator Gateway** | [`crates/zymatica-zk-mesh/gateway`](crates/zymatica-zk-mesh/gateway) | Semtech SX1302/SX1262 HAL packet receiver with framing, CRC verification, and Solana relay. |
+| 🔣 **Semantic Radical ZK Codec** | [`crates/zymatica-zk-mesh/semantic_codec`](crates/zymatica-zk-mesh/semantic_codec) | Binds 3-byte Cuneiform 6D semantic coordinates to cryptographic zero-knowledge public inputs. |
+| 🛑 **ZK Semantic Gating & Nullifiers** | [`crates/zymatica-zk-mesh/semantic_gating`](crates/zymatica-zk-mesh/semantic_gating) | BN254 MiMC-7 nullifier double-spend prevention preventing eavesdroppers from tracking node identity. |
+| 🌟 **Anonymous ZK-Reputation Staking** | [`crates/zymatica-zk-mesh/reputation`](crates/zymatica-zk-mesh/reputation) | Anonymous mesh node reputation scoring and stake verification without revealing private keys. |
+| 🛰️ **ZK-LoRa Privacy Layer (Class 34)** | [`crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer`](crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer) | Language-U zero-knowledge transmission layer over low-bandwidth physical radio links. |
 
 ---
 
