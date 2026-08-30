@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T13:22:39.428011+00:00",
+  "created_utc": "2026-08-30T13:25:12.008177+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "ca1432643a8d4533ab3112e0d1d3cc6363deccbb",
-  "git_status_porcelain": "M README.md",
+  "git_head": "0bccc14bf02c8a333665bbef3ab99953f3faaa60",
+  "git_status_porcelain": "M README.md\n?? foundations/solana-cuneiform-milestone1/\n?? foundations/solana-cuneiform-milestone2/\n?? foundations/solana-cuneiform-milestone3/",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "cb4ddffccdfc12f21bfdb606aca6b137b1acd29b2e87fccfdb3472e09e35ba65"
+  "source_tree_sha256": "bec45ed4b72bee4c31db982ecd29b7f6cea3a3e6fc13107486487fcdf09a9eb6"
 }
