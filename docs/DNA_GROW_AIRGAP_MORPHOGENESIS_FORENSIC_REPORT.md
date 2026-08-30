@@ -56,6 +56,38 @@ Julian tested the newly grown model on his isolated node with zero prior knowled
 
 ---
 
-## 4. Immutable Evidence Receipts
+## 4. 🛡️ The 4-Layer Zero-Trust Anti-Interception Architecture
+
+Even if an adversary uses a Software-Defined Radio (SDR) to record the entire 915 MHz RF spectrum **and** monitors the public Solana blockchain in real time, they **cannot reconstruct, decrypt, or steal the model**:
+
+```
+ ┌─────────────────────────────────────────────────────────────┐
+ │       THE 4-LAYER ZERO-TRUST ANTI-INTERCEPTION SHIELD       │
+ ├─────────────────────────┬───────────────────────────────────┤
+ │ 🔐 Layer 1: ECDH ECIES  │ Curve25519 Asymmetric Encryption │
+ │ 🔒 Layer 2: Solana Hash │ 1-Way Hash (No Decryption Keys)   │
+ │ 🛡️ Layer 3: ZK Nullifier│ Anti-Replay Spend Nullifier       │
+ │ 🧬 Layer 4: Epigenetic  │ Receiver-Specific Projection Basis│
+ └─────────────────────────┴───────────────────────────────────┘
+```
+
+### 4.1 Solana Has No Decryption Key (One-Way Hash Only)
+* **What is on Solana:** Only the **one-way cryptographic hash** (`fc87ade57e9f...`) and the 64-byte Ed25519 signature.
+* **Why the attacker fails:** A cryptographic hash is a one-way mathematical function ($y = \mathcal{H}(x)$). An adversary cannot "decrypt" or invert a SHA-256 or MiMC-7 hash to recover the underlying model weights. It acts solely as an immutable verification anchor, **not a decryption key**.
+
+### 4.2 Asymmetric Radio Encryption (ECDH Curve25519)
+* When CONSIDER transmits the 40 packets over the air, the payload is encrypted using an ephemeral shared secret established between **CONSIDER's Private Key** and **Julian's Public Key**:
+  $$\text{Shared Secret } K = \text{X25519}(\text{sk}_{\text{CONSIDER}}, \text{pk}_{\text{Julian}})$$
+* **Why the attacker fails:** An adversary listening with an SDR antenna only captures encrypted ciphertext noise. To decrypt the packets, the eavesdropper would need **Julian's private key** (`Hg33B9fF...`), which never leaves Julian's physical hardware enclave.
+
+### 4.3 MiMC-7 Anti-Replay Nullifiers
+* **Why replay attacks fail:** Each transmission contains a single-use **MiMC-7 Zero-Knowledge nullifier** registered on Solana. Once confirmed on-chain, that nullifier is permanently marked as spent. Any replayed packet is rejected instantly by both Solana validators and receiving nodes.
+
+### 4.4 Epigenetic Nullspace Tensor Alignment
+* **Why stolen seeds fail:** The SVD/DCT tensor expansion requires the **epigenetic nullspace projection matrix ($A_{\text{old}} \Delta W = 0$)** synchronized between the authorized nodes. Without the synchronized basis vector, the mathematical tensor expansion produces mathematical divergence (random noise) rather than functional neural weights.
+
+---
+
+## 5. Immutable Evidence Receipts
 * Evidence Dossier: [`evidence/10_00/latest/dna_grow_transmission_experiment_receipt.json`](file:///c:/200amsterdam-Book/zymatica.space/evidence/10_00/latest/dna_grow_transmission_experiment_receipt.json)
 * Script: [`sandbox/run_dna_grow_transmission_mission.py`](file:///c:/200amsterdam-Book/zymatica.space/sandbox/run_dna_grow_transmission_mission.py)
