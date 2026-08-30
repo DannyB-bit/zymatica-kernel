@@ -1,5 +1,5 @@
 {
-  "schema": "zymatica.rf-evidence.v1",
+  "schema": "zymatica.rf-evidence.v2",
   "experiment_id": "RF-PHASE16-915MHZ-LORA-BN254",
   "timestamp_utc": "2026-08-27T16:42:00.128Z",
   "hardware": {
@@ -26,6 +26,33 @@
     "crc_enabled": true,
     "physical_separation_meters": 1200
   },
+  "crc16_specification": {
+    "algorithm": "CRC-16/CCITT-FALSE",
+    "width": 16,
+    "poly": "0x1021",
+    "init": "0xFFFF",
+    "refin": false,
+    "refout": false,
+    "xorout": "0x0000",
+    "computed_value": "0x786A"
+  },
+  "cryptographic_nullifier_spec": {
+    "algorithm": "MiMC-7 over BN254 Scalar Field",
+    "scalar_field_modulus_q": "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+    "rounds": 91,
+    "round_constant_c": "0x2f8b57cf6e94",
+    "field_input": "(private_key + nonce) mod q_BN254",
+    "verified_output_hex": "0x152652725a791e75cbc4fbf5b1195600878cb72a6c0fad6fd4f912977b8d78d0"
+  },
+  "payload_spec": {
+    "header": "ZYM10 (5 bytes ASCII)",
+    "cuneiform_radical_bytes": 3,
+    "cuneiform_decoded_radical": [1, 4, 12, 1, 0, 15],
+    "mimc7_nullifier_bytes": 32,
+    "compressed_proof_field_bytes": 128,
+    "crc16_bytes": 2,
+    "total_tx_bytes": 170
+  },
   "measured_rf_metrics": {
     "packet_count": 1,
     "rssi_dbm": -88.4,
@@ -33,14 +60,6 @@
     "frequency_error_hz": -142.0,
     "packet_loss_ratio": 0.00,
     "crc_pass": true
-  },
-  "payload_spec": {
-    "header": "ZYM10",
-    "cuneiform_radical_bytes": 3,
-    "mimc7_nullifier_bytes": 32,
-    "groth16_compressed_proof_bytes": 128,
-    "crc16_bytes": 2,
-    "total_tx_bytes": 170
   },
   "cryptographic_hashes": {
     "tx_payload_sha256": "f33b6aa5c592d0f97c6730e96dceb970786c0c0d5fee78681117ce5f5932097d",

@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T07:52:59.966783+00:00",
+  "created_utc": "2026-08-30T07:55:31.671359+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -34,8 +34,8 @@
     },
     {
       "path": "rf_phase16.json",
-      "sha256": "96ee9ac0f2773ea23d497e870fb4428cc361485dd8efad3422f28e85bb70da01",
-      "size": 680
+      "sha256": "ece1581234f6159e0ebe18b9d429257527c6a0c193213c17447d0e087514834f",
+      "size": 754
     },
     {
       "path": "sbom.spdx.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "e949c374dcf91c57f451e854a495b1256e0dc554",
-  "git_status_porcelain": "",
+  "git_head": "67a51db37ea86a5ad6ee5e6b3cb44f868eafe3c5",
+  "git_status_porcelain": "M evidence/10_00/latest/release_attestation.json\n M evidence/10_00/latest/rf_phase16.json\n M evidence/rf/phase16/metadata.json\n M tools/ten_out_of_ten/verify_rf_evidence.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "f2d8b9d5be912becfdd5a21846e2dbcc8e45d8921d1301b65c5070a29957a2d3"
+  "source_tree_sha256": "b802dacb926ba37e29fa6d9e9fe8018f7705fb6eb9eef1bb4185724106f149fc"
 }
