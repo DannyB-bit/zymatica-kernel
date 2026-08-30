@@ -373,6 +373,14 @@ mod tests {
             for (d, value) in row.iter_mut().enumerate() {
                 *value = ((d as f32 + 1.0) * (r as f32 + 0.75) * 0.031).sin();
             }
+            // Orthogonalize against preceding basis vectors to guarantee rank-4 independence
+            for prev in 0..r {
+                let prev_row = basis[prev].clone();
+                let projection = dot(row, &prev_row);
+                for (dst, &src) in row.iter_mut().zip(&prev_row) {
+                    *dst -= projection * src;
+                }
+            }
             let norm = dot(row, row).sqrt();
             for value in row {
                 *value /= norm;
@@ -382,7 +390,8 @@ mod tests {
         let mut original = vec![0.0f32; tokens * head_dim];
         for (token, out_row) in original.chunks_exact_mut(head_dim).enumerate() {
             for (r, basis_row) in basis.iter().enumerate() {
-                let coeff = ((token + 1 + r) as f32 * 0.17).sin() * (r as f32 + 1.0);
+                let coeff =
+                    ((token as f32 * 0.13 + 0.5) * (r as f32 + 1.0)).sin() * (r as f32 + 1.0);
                 for (dst, &basis_value) in out_row.iter_mut().zip(basis_row) {
                     *dst += coeff * basis_value;
                 }
@@ -394,7 +403,8 @@ mod tests {
         let reconstructed = compressed.reconstruct();
 
         assert_eq!(reconstructed.len(), original.len());
-        assert!(compressed.reconstruction_mse() < 5.0e-3);
+        assert_eq!(compressed.rank, rank);
+        assert!(compressed.reconstruction_mse() < 1.0e-4);
         assert!(compressed.compression_ratio() > 2.0);
     }
 
