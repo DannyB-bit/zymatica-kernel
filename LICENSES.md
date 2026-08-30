@@ -29,17 +29,21 @@ The Covenant License covers all 35 Classes of Zymatica Inventions, including but
 
 ---
 
-## 3. Third-Party Open-Source Software Components
+## 3. Third-Party & Upstream Open-Source Software Components
 
-Per Section 3 of the Covenant License, third-party open-source libraries incorporated into this workspace retain their respective permissive licenses:
+Per Section 3 of the Covenant License, all third-party open-source libraries, base neural model architectures, and cryptographic dependencies incorporated into or interoperating with this workspace retain their respective original licenses and developer attributions:
 
-| Component / Subsystem | Upstream Project | Upstream License |
-| :--- | :--- | :--- |
-| `arkworks-rs` (ark-groth16, ark-bn254, ark-relations, ark-ff, ark-ec) | Arkworks zkSNARK Ecosystem | MIT / Apache-2.0 |
-| `huggingface/tokenizers` | Hugging Face Tokenizers | Apache-2.0 |
-| `ed25519-dalek` / `curve25519-dalek` | Dalek Cryptography | BSD-3-Clause |
-| `tokio` / `axum` / `rayon` | Tokio / Rayon Projects | MIT |
-| `solana-program` | Solana Labs SDK | Apache-2.0 |
-| `zymatica-agent-harness` | External Agent Harness Subtree | Upstream Permissive & Reference Licenses |
+| Component / Subsystem | Upstream Creator / Project | Upstream License | Attribution & Role |
+| :--- | :--- | :--- | :--- |
+| **Qwen-3.5 Base Model** | Alibaba Cloud / Qwen Team | Apache-2.0 / Qwen License | Base neural architecture, transformer blocks, and initial parameter priors for Cuneiform VLM, DNA-GROW, and 28-Chirp Morphogenesis. |
+| **Gemma Architecture** | Google DeepMind / Gemma Team | Google Gemma Terms / Apache-2.0 | Base architecture for English Hidden-State Steering (EHSS) and SVD low-rank tensor compression. |
+| **Hugging Face Tokenizers** | Hugging Face Inc. | Apache-2.0 | BPE and WordPiece tokenization infrastructure and vocabulary mapping (`tokenizers`, `transformers`, `safetensors`). |
+| **Arkworks zkSNARKs** | Arkworks Contributors | MIT / Apache-2.0 | Groth16 proof synthesis and BN254 pairing-friendly elliptic curve arithmetic (`ark-groth16`, `ark-bn254`, `ark-relations`, `ark-ff`, `ark-ec`). |
+| **Dalek Cryptography** | Dalek Cryptography | BSD-3-Clause | Curve25519 and Ed25519 fast high-security scalar multiplication (`ed25519-dalek`, `curve25519-dalek`). |
+| **PyTorch Core** | Linux Foundation / PyTorch | BSD-3-Clause | Reference tensor operations, autograd engine, and evaluation harnesses. |
+| **ONNX Runtime** | Microsoft Corporation | MIT | Open Neural Network Exchange graph optimization and execution. |
+| **Tokio / Axum / Rayon** | Tokio & Rayon Contributors | MIT | Async I/O, thread-pool parallelism, and web microservice execution. |
+| **Solana Program SDK** | Solana Labs / Anza | Apache-2.0 | On-chain Anchor program state router and BPF byte-order serialization. |
+| **Claude Shannon (1948)** | Mathematical Foundation | Public Domain / Academic | *A Mathematical Theory of Communication* ($H(X) = -\sum P(x_i) \log_2 P(x_i)$). |
 
-No term of the Zymatica Covenant License restricts or diminishes any rights granted to the public under these upstream open-source licenses for their respective third-party library files. `zymatica-agent-harness` is maintained outside the default Rust workspace as reference evaluation infrastructure.
+No term of the Zymatica Covenant License restricts, modifies, or diminishes any rights granted to the public under these upstream open-source licenses for their respective third-party library files. `zymatica-agent-harness` is maintained outside the default Rust workspace as reference evaluation infrastructure.
