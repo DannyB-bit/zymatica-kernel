@@ -1,9 +1,9 @@
 {
   "schema": "zymatica.release-attestation.v2",
   "release_tag": "v10.1.1-evidence",
-  "source_commit_sha": "d17b5224cbcbe8b39cc92a6cecb44e21120477e8",
-  "source_tree_sha": "d7fd9813eb37d4d93fd2695c512e7bc89347cd23",
-  "timestamp_utc": "2026-08-30T16:43:11Z",
+  "source_commit_sha": "9dfa692be9c226be6eb1911da011b52713650260",
+  "source_tree_sha": "e0d5fdeb3333c7b99f06426568ecf377b74d0a51",
+  "timestamp_utc": "2026-08-30T16:52:54Z",
   "overall_status": "CERTIFIED_FULL_PASS",
   "evidentiary_score": 10.0,
   "subsystems": [
@@ -14,7 +14,7 @@
     {
       "step": "claim_registry",
       "pass": true,
-      "claim_count": 12
+      "claim_count": 14
     },
     {
       "step": "sbom_validation",
@@ -149,7 +149,25 @@
         "formal_proofs/nullspace_orthogonality.lean"
       ],
       "metrics_verified": true
+    },
+    "CLAIM-TURNSTILE-001": {
+      "scope": "Z-Turnstile Semantic Conservation",
+      "declared_status": "FORMALLY_PROVEN_AND_TESTED",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json"
+      ],
+      "metrics_verified": true
+    },
+    "CLAIM-FOLDING-001": {
+      "scope": "Recursive ZK-Mesh Proof Folding",
+      "declared_status": "FORMALLY_PROVEN_AND_TESTED",
+      "evidentiary_verdict": "PROVEN",
+      "evidence_files": [
+        "evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json"
+      ],
+      "metrics_verified": true
     }
   },
-  "elapsed_seconds": 11.761749505996704
+  "elapsed_seconds": 10.967967510223389
 }

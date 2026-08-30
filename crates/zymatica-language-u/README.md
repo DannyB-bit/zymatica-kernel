@@ -21,7 +21,7 @@ license: LicenseRef-Zymatica-Covenant-2.0
 
 ## 1. Executive Summary & Core Philosophy
 
-This repository unifies and catalogs the 35 foundational inventions of the Language-U Semantic Communication Protocol developed by zymatica.space | astronautshe.com | Devs One | We Are TheAiCollective.art. 
+This repository unifies and catalogs the 37 foundational inventions of the Language-U Semantic Communication Protocol developed by zymatica.space | astronautshe.com | Devs One | We Are TheAiCollective.art. 
 
 ### ⚡ THE ALIEN CODE
 Traditional communication protocols transmit character streams or tokens, bounded by classical Shannon entropy limits. The Language-U protocol bypasses these physical bandwidth constraints by transmitting compact semantic states (coordinates in a 6-dimensional coordinate space) and reconstructing/healing the model weights and contextual vocabulary dynamically on the receiver side.
@@ -51,7 +51,7 @@ For a detailed diagram showing how the layers plug into the Sumerian Protocol ru
 
 ---
 
-## 3. The 35 Foundational Inventions Index
+## 3. The 37 Foundational Inventions Index
 
 Each invention is isolated in its own folder and contains a complete academic **`WHITEPAPER.md`** or technical whitepaper file and an executable **`run_proof.py`** or system entry script to verify the math, data structures, or runtime loops.
 
@@ -93,6 +93,8 @@ Each invention is isolated in its own folder and contains a complete academic **
 | **33** | [Z-SPAR Semantic Parity Verification](./33_Z_SPAR_Semantic_Parity) | Formal semantic equivalence checker & bidirectional manifold distance verifier ($\Delta \le \epsilon$). | [Whitepaper](./33_Z_SPAR_Semantic_Parity/WHITEPAPER.md) | [run_proof.py](./33_Z_SPAR_Semantic_Parity/run_proof.py) |
 | **34** | [ZK-LoRa Privacy Layer & Z-WORMHOLE](./34_ZK_LoRa_Privacy_Layer) | BN254 Groth16 zero-knowledge RF privacy mesh & zero-copy cross-layer latent tensor tunneling. | [Whitepaper](./34_ZK_LoRa_Privacy_Layer/WHITEPAPER.md) | [run_proof.py](./34_ZK_LoRa_Privacy_Layer/run_proof.py) |
 | **35** | [Z-MCTS Latent Reasoning Engine](./35_Z_MCTS_Latent_Reasoning) | Continuous manifold Monte Carlo Tree Search exploring latent reasoning trajectories without discrete token materialization. | [Whitepaper](./35_Z_MCTS_Latent_Reasoning/WHITEPAPER.md) | [run_proof.py](./35_Z_MCTS_Latent_Reasoning/run_proof.py) |
+| **36** | [Z-Turnstile Semantic Conservation](./36_Z_Turnstile_Semantic_Conservation) | Discrete topological Hamiltonian conservation preventing semantic energy leakage ($\oint \vec{\omega} \cdot d\vec{s} = 0, \Delta H = 0.000000\%$). | [Whitepaper](./36_Z_Turnstile_Semantic_Conservation/WHITEPAPER.md) | [run_proof.py](./36_Z_Turnstile_Semantic_Conservation/run_proof.py) |
+| **37** | [Recursive ZK-Mesh Proof Folding](./37_Recursive_ZK_Mesh_Proof_Folding) | Homomorphic multi-hop RF mesh proof accumulation folding $N$ hops into a constant 128B Groth16 container verified on Solana with a single pairing check. | [Whitepaper](./37_Recursive_ZK_Mesh_Proof_Folding/WHITEPAPER.md) | [run_proof.py](./37_Recursive_ZK_Mesh_Proof_Folding/run_proof.py) |
 
 ---
 
