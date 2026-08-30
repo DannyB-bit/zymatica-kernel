@@ -42,6 +42,7 @@ Per Section 3 of the Covenant License, all third-party open-source libraries, ba
 | **Dalek Cryptography** | Dalek Cryptography | BSD-3-Clause | Curve25519 and Ed25519 fast high-security scalar multiplication (`ed25519-dalek`, `curve25519-dalek`). |
 | **PyTorch Core** | Linux Foundation / PyTorch | BSD-3-Clause | Reference tensor operations, autograd engine, and evaluation harnesses. |
 | **ONNX Runtime** | Microsoft Corporation | MIT | Open Neural Network Exchange graph optimization and execution. |
+| **zlib Compression Library** | Jean-loup Gailly & Mark Adler | Zlib License | High-performance DEFLATE/zlib compression for neural voice audio frames and telemetry payloads. |
 | **Tokio / Axum / Rayon** | Tokio & Rayon Contributors | MIT | Async I/O, thread-pool parallelism, and web microservice execution. |
 | **Solana Program SDK** | Solana Labs / Anza | Apache-2.0 | On-chain Anchor program state router and BPF byte-order serialization. |
 | **Claude Shannon (1948)** | Mathematical Foundation | Public Domain / Academic | *A Mathematical Theory of Communication* ($H(X) = -\sum P(x_i) \log_2 P(x_i)$). |
