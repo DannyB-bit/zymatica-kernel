@@ -37,8 +37,11 @@
 ---
 
 > [!NOTE]
-> **LEGAL & ARCHIVAL FRONTMATTER NOTICE:**  
-> This work references real-world historical artifacts, museum collections, and peer-reviewed scientific publications under fair use for educational and narrative depth. All fictional organizations, scenarios, and dramatic characters depicted in the narrative are works of fiction. The underlying mathematical frameworks, zero-knowledge circuits, 6D/8D semantic hypercube tensors, and native engines contained in this codebase are real, functioning software engineered to the 10.00 Standard.
+> **CRITICAL ARCHIVAL & LITERARY DISCLOSURE:**  
+> This repository houses the operational cryptographic, mathematical, and computational source code revealed in the hard science-fiction novel **200 Amsterdam: The Vertical City** (*Book One of ZYMATICA: A TRILOGY*), written by **Danny Bouldiez** with codebase engineered by **Devs One**, available worldwide on [Amazon.com](https://www.amazon.com/dp/B0HGVC777F).
+> 
+> **CHARACTER FICTION & FAIR-USE NOTICE:**  
+> *200 Amsterdam: The Vertical City* is a published work of hard science-fiction. Names, characters, organizations, places, events, and incidents depicted in the dramatic story are products of the author's imagination or used in a fictitious manner. This work references real-world historical artifacts, museum collections, academic institutions, and peer-reviewed scientific publications under fair use for educational, historical, and narrative depth. The underlying mathematical frameworks, zero-knowledge circuits, 6D/8D semantic hypercube tensors, and native engines contained in this repository are real, functioning open-source and proprietary software.
 
 ---
 
