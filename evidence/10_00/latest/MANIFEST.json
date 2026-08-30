@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T16:29:20.439623+00:00",
+  "created_utc": "2026-08-30T16:33:54.261661+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -68,11 +68,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "d5ae466e6649f27e8dc483bc883dee670822d9f8",
-  "git_status_porcelain": "?? WHITEPAPER.pdf\n?? ZK_LoRa_Whitepaper.pdf",
+  "git_head": "87a6d69e8c6ab7434322c788651281f0b2cfd5ce",
+  "git_status_porcelain": "M WHITEPAPER.pdf\n M ZK_LoRa_Whitepaper.pdf\n M crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer/WHITEPAPER_SOLANA.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "e501ee8ed3dcc31476f7e1c79eb6299b35ef66a904576495bd70f1bb2d088b73"
+  "source_tree_sha256": "0d37a840982cd0322686523aea3154104cd0bf57017fd5a82a4c5d13e54653e0"
 }
