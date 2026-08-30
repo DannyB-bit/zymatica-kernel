@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T03:09:18.764828+00:00",
+  "created_utc": "2026-08-30T03:30:54.622385+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "7e4a2a4c60750a249b305225e3c268deeffff6511d0efa5a5e040ad0509afa2b",
+      "sha256": "5cf75d39ac33d9886507fb263db13592fdca191871a1f4aad2253b1c4737984d",
       "size": 117
     },
     {
@@ -33,8 +33,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "cc3c87c3cb0adfde3897f3e2a1e4914ab48d3a31",
-  "git_status_porcelain": "",
+  "git_head": "9d075db3015476e1175d2efefd02b0057d0d65c3",
+  "git_status_porcelain": "M README.md\n M evidence/10_00/latest/claims_audit.json",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
