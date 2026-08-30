@@ -23,3 +23,11 @@ Continuous trajectory optimization across semantic manifolds enables navigation 
 ## Performance Comparison
 * **Classical Chain-of-Thought / o1**: $1,500 - 4,000\text{ output tokens}$ ($\approx 15-45\text{ seconds}$).
 * **Z-MCTS Continuous Search**: $0\text{ token overhead}$, $150-500\text{ latent simulations}$ ($\approx 1.8-4.2\text{ milliseconds}$).
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

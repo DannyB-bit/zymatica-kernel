@@ -354,3 +354,11 @@ Voice Performance: Zymatica's voice tone is effectively sarcastic and condescend
 - **👤 Human (nova)**: "Will my human bookie on Mars cover my bet on the N'Tariian Snooker Championship if I place it in G'Korian credits?"
 - **🤖 Zymatica (onyx)**: "Cover your bet? Ha, your human bookie's probably not even aware of G'Korian credits, you got robbed."
 
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

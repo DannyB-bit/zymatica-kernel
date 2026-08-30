@@ -112,3 +112,11 @@ The `zymatica_voice_metalogs_exp3.json` file records host hardware metadata, tim
 ---------------------------------------------
 
 The VRAM limitations on the GTX 1660 Ti caused the model to rely on fallback engines like Edge-TTS and OpenAI Whisper API. This resulted in higher TTS synthesis latencies and ASR transcription lat
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

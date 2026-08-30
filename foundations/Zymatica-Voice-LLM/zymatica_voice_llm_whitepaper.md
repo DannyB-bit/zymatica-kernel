@@ -618,3 +618,11 @@ This section documents the formal, multi-perspective evaluation and audit of the
 | **Software Engineer** | **10.0 / 10.0** | Master Makefile orchestrator build harness | None (Developer Optimized) |
 | **Penetration Tester** | **10.0 / 10.0** | Strict Content Security Policy (CSP) headers | None (Fully Hardened) |
 | **OVERALL AVERAGE** | **10.0 / 10.0**| **Production-Ready Carrier-Grade Dialectic Voice Architecture** | None (100% Perfect) |
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

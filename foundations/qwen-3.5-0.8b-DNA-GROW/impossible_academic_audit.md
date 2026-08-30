@@ -355,3 +355,11 @@ Our research synthesis validates that the **Level 7 zlib packetized chirp** achi
 ### Critique 17.5: The Geometric Containment & Multi-Centroid Proof
 * **The Skeptic's View:** Even with the partial interpolation proof, critics may still argue that the ASCII floor is an arbitrary catastrophic bug caused by clipping, not true geometric steering.
 * **The Mathematical Defense:** We empirically crushed this with the **Multi-Centroid Steering Wheel Test**. Using the exact same unhealed base model, we dynamically swapped the target centroid in the HSDC hooks. When steered toward the English centroid ($\mu_{en}$), the model collapsed into flat ASCII (`**:**`). When steered toward the Chinese centroid ($\mu_{zh}$), the *same degraded matrices* collapsed into a continuous loop of Chinese characters (`隱藏版`). When steered to the Math centroid ($\mu_{math}$), it collapsed into operators (`*”,`). It is mathematically impossible for a catastrophic mode collapse bug to dynamically change its structural footprint to perfectly match the target domain vector. This proves conclusively that the boundary is an active, deterministic mapping structure actively forcing the model to the precise topological coordinates of the targeted language.
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

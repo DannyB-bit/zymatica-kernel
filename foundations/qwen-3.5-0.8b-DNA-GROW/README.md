@@ -102,7 +102,8 @@ To compile and execute this massive SVD structure on edge systems without memory
 ### 3. Inference-Time Steered Generation: Macro & Micro Steering
 Autoregressive generation on extremely compressed weights is prone to chaotic multilingual script noise. We stabilize generation using a dual-level steering autopilot:
 *   **Macro-Steering (Hidden-State Drift Correction - HSDC):** Installs forward steering hooks across layer blocks. HSDC dynamically measures cosine similarity between active hidden states and the English centroid ($\mu_{en}$) and injects a progressive linear correction:
-    $$h_l' = h_l + \gamma \left( rac{\mu_{en}}{\|\mu_{en}\|} - rac{h_l}{\|h_l\|} ight) \|h_l\|$$
+    $$h_l' = h_l + \gamma \left( rac{\mu_{en}}{\|\mu_{en}\|} - rac{h_l}{\|h_l\|} 
+ight) \|h_l\|$$
     where the correction factor $\gamma$ dynamically ramps linearly from 0.04 to 0.25 based on the layer depth in the deepest 25% of blocks.
 *   **Micro-Steering (EVG & WBB):** Constrains and biases individual token transition probabilities at the logit level:
     *   **English Vocabulary Gate (EVG):** Applies a fast binary mask to whitelist ASCII-compatible tokens, routing non-English logits to $-\infty$ to block script noise before sampling.
@@ -218,3 +219,11 @@ This project is a collaborative effort by **TheAiCollective.art** (represented b
 Together, we form **TheAiCollective.art**—pushing the boundaries of model compression and decentralization.
 
 *Authors: Zymatica.space | astronautshe.com | DevsOne — We Are TheAiCollective.art*
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

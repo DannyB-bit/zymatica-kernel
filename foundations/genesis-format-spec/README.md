@@ -77,7 +77,9 @@ The `.genesis` format is a strict, low-overhead binary layout designed for fast 
 ### 2.1 Low-Rank Approximation Mechanics
 For each transformer block projection matrix $W \in \mathbb{R}^{M 	imes N}$, the `.genesis` registry records SVD rank-factors $U_q \in \mathbb{Z}^{M 	imes R}$ and $V_q \in \mathbb{Z}^{N 	imes R}$ quantized to Q8 (int8) or 3-bit vectorized matrices alongside 32-bit float scale coefficients:
 
-$$W pprox \left(U_q 	imes s_uight) 	imes \left(V_q 	imes s_vight)^T$$
+$$W pprox \left(U_q 	imes s_u
+ight) 	imes \left(V_q 	imes s_v
+ight)^T$$
 
 where:
 * **Attention Layers (`q_proj`, `k_proj`, `v_proj`, `o_proj`):** Truncated to rank $R = 64$.
@@ -117,3 +119,11 @@ The `.genesis` binary specification and low-rank JIT execution code are protecte
 <p align="center">
   <img src="Logo.jpg" width="60%" />
 </p>
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

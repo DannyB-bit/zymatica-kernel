@@ -69,3 +69,11 @@ The results perfectly validate the physical and mathematical theorems of the Lan
 1. **Unhealed Base (Phase 1):** Unrestrained, the highly lossy offline tensors enter infinite repetitive loops.
 2. **EHSS Steered (Phase 2):** Applying the EVG whitelist and HSDC successfully captures and terminates the repetition drift. The model mathematically collides with the English Centroid, outputting a completely flat, stable line of structural ASCII tokens (colons). 
 3. **The Final Key:** This establishes conclusively that EHSS functions exactly as the safety containment field. To cross the threshold back into high-fidelity "Qwen", the system fundamentally requires the physical injection of the **LoRA RCRA (Radical Coordinate Resonance Alignment)** adapters to weave the factual manifolds back into those constrained boundaries.
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

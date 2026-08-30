@@ -139,3 +139,11 @@ ZymaticaVoice includes built-in safeguards to ensure continuous call stability:
 * **LLM key redundancy:** The server queries Groq first. If Groq fails or is unconfigured, it attempts Nvidia NIM, followed by OpenAI. If all API integrations fail, it serves a local static voice template to prevent call drops.
 * **ASR failure protection:** If the browser doesn't support the native Web Speech API (e.g. Firefox/Safari configuration limits), it falls back gracefully to standard form text fallback in the console log.
 * **Microphone blockage detection:** If a microphone permission is rejected or blocked, a local warning is output on the CRT console and microphone UI buttons change to warn the user without crashing the thread loop.
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.

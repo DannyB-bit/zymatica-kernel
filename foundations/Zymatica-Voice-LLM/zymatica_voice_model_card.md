@@ -69,3 +69,11 @@ The conversation is subject to various latencies, including TTS synthesis latenc
 4.  **Self-Improving Behavior**: Implement a self-improving mechanism that allows our model to adapt and learn from its interactions with humans, enabling it to refine its performance over time.
 
 By addressing these areas, we can improve the overall performance of our model and provide a more engaging and effective conversational experience for our users.
+
+
+---
+
+## 📜 License & Upstream Developer Attributions
+
+- **Primary IP & Specification License:** Governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](https://zymatica.space)** (LicenseRef-Zymatica-Covenant-2.0).
+- **Upstream Open-Source Acknowledgments:** Base neural model architectures, tokenizers, mathematical libraries, and cryptographic primitives derived from or interoperable with third-party open-source projects (including Alibaba Qwen, Google Gemma, Hugging Face Transformers/Tokenizers, Arkworks zkSNARKs, PyTorch, and ONNX Runtime) remain respectfully attributed to their original creators and are governed by their respective upstream licenses (Apache-2.0, MIT, BSD-3) under Section 3 of the Covenant License.
