@@ -194,7 +194,7 @@ Inside sat a custom-machined, anodized aluminum field chassis: an air-gapped, du
 
 Kofi walked over, smelling of river mud and sweat. He wiped a streak of sweat from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
 
-"Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that gunship pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
+"Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that helicopter pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
 
 Milo didn’t look up. His fingers blurred across a mechanical keyboard, compiling a native Rust payload with sub-microsecond execution hooks.
 
