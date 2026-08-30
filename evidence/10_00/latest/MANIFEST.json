@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T16:12:30.645050+00:00",
+  "created_utc": "2026-08-30T16:29:20.439623+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -68,11 +68,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "adc7374a33e1f27d59110c6fa3053df35b9ab457",
-  "git_status_porcelain": "?? docs/SOLANA_DEVNET_TPS_BENCHMARK_REPORT.md\n?? evidence/10_00/latest/solana_tps_benchmark_results.json\n?? stress_test_solana_cuneiform.py",
+  "git_head": "d5ae466e6649f27e8dc483bc883dee670822d9f8",
+  "git_status_porcelain": "?? WHITEPAPER.pdf\n?? ZK_LoRa_Whitepaper.pdf",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "5f6e1785e475cdf6efb42f3d83615876f8cedce2c0bfea26361f211b394c199c"
+  "source_tree_sha256": "e501ee8ed3dcc31476f7e1c79eb6299b35ef66a904576495bd70f1bb2d088b73"
 }
