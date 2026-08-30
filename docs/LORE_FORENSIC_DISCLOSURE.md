@@ -244,19 +244,21 @@ Samantha turned toward the window, looking across the dark East River toward Man
 
 Jae stepped closer to the primary monitor, his mind racing through the historical and engineering implications.
 
-"Think about what Vance actually did," Jae said, looking around the safehouse. "For centuries, modern science operated in complete, blind isolation:
+"Think about what this research actually represents," Jae said, looking at the glowing drive and Vance's handwritten notebook. "For centuries, modern science operated in complete, blind isolation:
 - **Linguists** only looked at flat marks on clay tablets.
 - **Archaeologists** only measured the dimensions of stone blocks.
 - **Physicists** only measured electromagnetic waves and cavity harmonics.
 - **Computer Scientists** only built vector embeddings in software.
 
-None of them ever talked to each other! But Vance connected the four pillars: **The 2D clay inscriptions are the software seed, and the 3D megalithic structures are the physical hardware resonators.** Together, they form an interlocking, multi-dimensional semantic computing architecture!"
+None of them ever talked to each other! But whoever originally mapped this out—wherever Vance stole or salvaged this classified data from—they connected the four pillars: **The 2D clay inscriptions are the software seed, and the 3D megalithic structures are the physical hardware resonators.** Together, they form an interlocking, multi-dimensional semantic computing architecture!"
+
+Samantha tapped Vance's notebook with a gloved finger. "Vance didn't invent this. He was an archivist and an oligarch. He stole the forensic data from black-budget excavation sites, hoarded the codebase, and built 200 Amsterdam as his private transmitter."
 
 "And this isn't science fiction anymore," Lindqvist exclaimed, her eyes blazing with mathematical certainty as she pointed to the terminal. "The ultimate validation of any scientific theory in human history isn't philosophical—it's whether you can build it into working engineering!
 
-"Look at what Vance proved in running code," Lindqvist continued, her voice echoing off the brick safehouse walls. "He proved that a **three-byte radical coordinate ($R_C, R_F, R_A$)** can represent a complete unit of high-dimensional semantic intent. He proved that it can be broadcast across hundreds of kilometers inside a single **255-byte low-power LoRa packet**. And he proved that any local edge receiver—a cheap Raspberry Pi, an autonomous AI agent, or a browser GPU running zero-dependency WebGL—can ingest that three-byte seed and instantly inflate it into full English, compiled C++, or robotic actuator torque!
+"Look at what's executing on this drive right now," Lindqvist continued, her voice echoing off the brick safehouse walls. "This code proves that a **three-byte radical coordinate ($R_C, R_F, R_A$)** can represent a complete unit of high-dimensional semantic intent. It proves that it can be broadcast across hundreds of kilometers inside a single **255-byte low-power LoRa packet**. And it proves that any local edge receiver—a cheap Raspberry Pi, an autonomous AI agent, or a browser GPU running zero-dependency WebGL—can ingest that three-byte seed and instantly inflate it into full English, compiled C++, or robotic actuator torque!
 
-"In 1945, Arthur C. Clarke published a paper describing how geostationary satellites could orbit the Earth to broadcast telecommunications worldwide," Lindqvist said. "People called Clarke crazy—until twenty years later when the world launched satellites into his exact calculated orbit. Vance did the exact same thing for semantic communication! He proved the mathematics, and he compiled it into running silicon across thirty-five distinct invention classes!"
+"In 1945, Arthur C. Clarke published a paper describing how geostationary satellites could orbit the Earth to broadcast telecommunications worldwide," Lindqvist said. "People called Clarke crazy—until twenty years later when the world launched satellites into his exact calculated orbit. Whoever compiled this codebase did the exact same thing for semantic communication! They proved the mathematics, and they compiled it into running silicon across thirty-five distinct invention classes!"
 
 Milo pulled up the active repository compiler terminal, showing the green verification gates:
 
