@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T19:03:31.599487+00:00",
+  "created_utc": "2026-08-30T19:17:45.098870+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -16,6 +16,11 @@
       "path": "cuneiform_semantic.json",
       "sha256": "7d28d351c19f2e728f6cf9117a1784f469f094deb62f15a32154e42521b9e68a",
       "size": 360
+    },
+    {
+      "path": "dna_grow_transmission_experiment_receipt.json",
+      "sha256": "bbe98c3d98b79dd869c23c2b9217a75cc4ea8a775e176ecb23d0e1366677daf0",
+      "size": 1402
     },
     {
       "path": "epigenetic.json",
@@ -83,11 +88,11 @@
       "size": 1153
     }
   ],
-  "git_head": "4c458f207e5e2cfa8be25aa0ef79b98be3adec26",
-  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n?? docs/COMPLEX_MULTI_AGENT_STRESS_EXPERIMENT_REPORT.md\n?? evidence/10_00/latest/complex_stress_experiment_results.json\n?? sandbox/run_complex_stress_experiment_consider_julian.py",
+  "git_head": "e43a961ed52260bb1975cbebd994d3615476431f",
+  "git_status_porcelain": "M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_0.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_1.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_10.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_11.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_12.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_13.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_14.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_15.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_16.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_17.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_18.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_19.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_2.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_20.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_21.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_22.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_23.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_24.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_25.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_26.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_27.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_28.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_29.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_3.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_30.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_31.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_32.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_33.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_34.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_35.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_36.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_37.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_38.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_39.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_4.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_5.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_6.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_7.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_8.bin\n M crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/packets_final/packet_chirp3_9.bin\n?? crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/DnaGrowSeed_restored.LLM\n?? docs/DNA_GROW_AIRGAP_MORPHOGENESIS_FORENSIC_REPORT.md\n?? evidence/10_00/latest/dna_grow_transmission_experiment_receipt.json\n?? sandbox/run_dna_grow_transmission_mission.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "bc4168e1eeb8e4430693e96eefd39e634651c7a5ae5d457f47438cc9197189bf"
+  "source_tree_sha256": "ba18b2a53eb44110f3ab643f6eb4d16f40ebd3558f20a0594cff561a1a66fc2a"
 }
