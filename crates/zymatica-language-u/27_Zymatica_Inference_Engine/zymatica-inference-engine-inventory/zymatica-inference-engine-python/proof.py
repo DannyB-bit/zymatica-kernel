@@ -287,7 +287,7 @@ def main():
     
     import time
     start_time = time.perf_counter()
-    runs = 100000
+    runs = 1000
     match = True
     for r in range(runs):
         decoded = decode(buf, 5, 1, 128)
