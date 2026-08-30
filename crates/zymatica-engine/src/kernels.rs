@@ -182,7 +182,7 @@ pub fn q8_i8_dot_f32_scaled(row: &[i8], x: &[f32], scale: f32) -> f32 {
     {
         // SAFETY: slices are bounds-checked by length equality above; the NEON routine only reads
         // within row.len() and x.len().
-        unsafe { q8_dot_f32_neon(row.as_ptr(), x.as_ptr(), row.len(), scale) };
+        return unsafe { q8_dot_f32_neon(row.as_ptr(), x.as_ptr(), row.len(), scale) };
     }
     #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
     {
