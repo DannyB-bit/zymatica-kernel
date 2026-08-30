@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T00:06:54.875246+00:00",
+  "created_utc": "2026-08-30T00:09:07.180348+00:00",
   "files": [
     {
       "path": "epigenetic.json",
@@ -14,7 +14,7 @@
     },
     {
       "path": "MANIFEST.json",
-      "sha256": "65368a35da0996cbc8e99cd90586f26399dab7466a0df17dd439b346bf0060f5",
+      "sha256": "11155b46e127f153b8e5f6011d226e556cc9d12f835b4994f4a963fafcdad0fc",
       "size": 1215
     },
     {
@@ -28,7 +28,7 @@
       "size": 6045990
     }
   ],
-  "git_head": "cf1fceff21d66664a7ffbf7632198a30758ee7c0",
+  "git_head": "8a320dd7e5f00a3ecf42bb93c68865968da7eddf",
   "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
