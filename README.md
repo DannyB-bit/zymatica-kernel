@@ -193,7 +193,7 @@ Across the loft, Milo hauled two heavy Pelican cases onto the steel worktable, u
 
 Inside sat a custom-machined, anodized aluminum field chassis: an air-gapped, dual-socket workstation wired into five software-defined radio antennas and an array of hardware cryptographic accelerators.
 
-Kofi walked over, smelling of diesel exhaust, river mud, and sweat. He wiped a streak of grease from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
+Kofi walked over, smelling of river mud and sweat. He wiped a streak of sweat from his forearm and stared at the glowing green waterfall of RF telemetry on Milo’s secondary display.
 
 "Alright, explain it to the guy who pours wet concrete and beats rebar with a sledgehammer," Kofi grunted, pointing a thick, calloused finger at the hopping frequency packets. "How the hell did that gunship pluck our exact coordinates out of a drowned, pitch-black swamp without CONSIDER's orbital sky-eyes painting a bullseye on our foreheads?"
 
