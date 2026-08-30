@@ -8,6 +8,7 @@ on:
         required: true
         default: evidence/10_00/latest
   push:
+    branches: [main, master]
     tags:
       - 'v*'
 

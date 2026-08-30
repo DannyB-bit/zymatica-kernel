@@ -52,13 +52,21 @@ jobs:
       - name: Build Production Release Artifacts
         run: cargo build --workspace --release --locked
 
-      - name: Build & Run C++20 Z-SPAR Tests
+      - name: Build & Run C++20 Z-SPAR Tests (Linux / macOS)
         if: runner.os != 'Windows'
         shell: bash
         run: |
           cmake -S crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity -B build_zspar -DCMAKE_BUILD_TYPE=Release
           cmake --build build_zspar --parallel
           ctest --test-dir build_zspar --output-on-failure
+
+      - name: Build & Run C++20 Z-SPAR Tests (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          cmake -S crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity -B build_zspar
+          cmake --build build_zspar --config Release --parallel
+          ctest --test-dir build_zspar -C Release --output-on-failure
 
       - name: Setup Python 3.11
         uses: actions/setup-python@v5

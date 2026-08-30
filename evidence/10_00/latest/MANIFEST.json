@@ -1,7 +1,12 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T00:48:01.843582+00:00",
+  "created_utc": "2026-08-30T01:35:03.045171+00:00",
   "files": [
+    {
+      "path": "claims_audit.json",
+      "sha256": "1e1d73e7835ab05f14b6f1969510fb8101cda77cd534c8ebaae5eb6b09dc0aa8",
+      "size": 117
+    },
     {
       "path": "epigenetic.json",
       "sha256": "d5d8bde46cda040267a8749348be84f7447a45912a981a8e8d0c50675b0384bd",
@@ -13,9 +18,9 @@
       "size": 395
     },
     {
-      "path": "MANIFEST.json",
-      "sha256": "2ba82c7ac09e9824b6275ac5bb7d638c2de7bc92bf4c39e9a77c04ea7b833120",
-      "size": 1215
+      "path": "license_audit.json",
+      "sha256": "2ebbf8b7a0be6cf733144f0613d74460403a2417cdfa4cc97328c263a864be3d",
+      "size": 95056
     },
     {
       "path": "mcts.json",
@@ -28,7 +33,7 @@
       "size": 6045990
     }
   ],
-  "git_head": "c6c4c1bb8d6dd835fd7182d9f60c47cce046e1fe",
+  "git_head": "d0777650ee1528afd28a7040bf4494b4e41465a5",
   "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
