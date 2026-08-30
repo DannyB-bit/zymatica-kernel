@@ -28,7 +28,7 @@ pub const REGISTRY_SEED: &[u8] = b"zk-lorawan-registry";
 #[cfg(feature = "integration-test")]
 pub const ADMIN_AUTHORITY: Pubkey = pubkey!("FXdqcsZZnirF1sLYm4huXZeFTLwsqJ3ueNZJdPWUMkRc");
 #[cfg(not(feature = "integration-test"))]
-pub const ADMIN_AUTHORITY: Pubkey = pubkey!("BrqnKE7S8wY8etChZgUx8GGnYuvqdFoZhUAD7PTL5PV3");
+pub const ADMIN_AUTHORITY: Pubkey = pubkey!("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS");
 
 #[program]
 pub mod zk_lorawan {
@@ -1501,7 +1501,7 @@ pub struct VerifySingle<'info> {
     #[account(mut)]
     pub gateway: Signer<'info>,
     /// CHECK: Protocol treasury wallet verified via hardcoded address
-    #[account(mut, address = pubkey!("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ"))]
+    #[account(mut, address = pubkey!("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS"))]
     pub treasury: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }
@@ -1529,7 +1529,7 @@ pub struct VerifySingleProof<'info> {
     #[account(mut)]
     pub gateway: Signer<'info>,
     /// CHECK: Protocol treasury wallet verified via hardcoded address
-    #[account(mut, address = pubkey!("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ"))]
+    #[account(mut, address = pubkey!("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS"))]
     pub treasury: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }
@@ -1581,7 +1581,7 @@ pub struct SubmitBatch<'info> {
     #[account(mut)]
     pub gateway: Signer<'info>,
     /// CHECK: Protocol treasury wallet verified via hardcoded address
-    #[account(mut, address = pubkey!("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ"))]
+    #[account(mut, address = pubkey!("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS"))]
     pub treasury: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }
@@ -1651,7 +1651,7 @@ pub struct VerifyProofContext<'info> {
     #[account(mut)]
     pub gateway: Signer<'info>,
     /// CHECK: Protocol treasury wallet verified via hardcoded address
-    #[account(mut, address = pubkey!("CotbUcSMqaqn69YSmh2YgYZjKfE7cZk4fTsEmE3kfWJ"))]
+    #[account(mut, address = pubkey!("7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS"))]
     pub treasury: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }

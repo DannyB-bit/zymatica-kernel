@@ -5,10 +5,10 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-solana_cuneiform_anchor = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy"
+solana_cuneiform_anchor = "BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M"
 
 [programs.devnet]
-solana_cuneiform_anchor = "2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy"
+solana_cuneiform_anchor = "BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M"
 
 [registry]
 url = "https://api.apr.dev"
