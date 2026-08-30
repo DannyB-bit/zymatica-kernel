@@ -28,6 +28,14 @@ Milo didn’t look up. His fingers blurred across a mechanical keyboard, compili
 
 "Because we don't use standard corporate TCP/IP or public cellular towers," Milo said, tapping the terminal. "We run **ZK-LoRaWAN**."
 
+Milo spun around in his stool, tapping the 8-channel Semtech LoRa concentrator module wired into his breadboard with a solder-burned thumb.
+
+"People don't understand how insane LoRa actually is," Milo said, glancing over at Kofi. "Standard corporate cellular and Wi-Fi are power-hungry garbage. They blast tens of watts just to send bloated TCP packets over a few hundred yards. But **LoRa—Long Range Chirp Spread Spectrum**? You pump just **two watts** into a **13 dBi fiberglass omnidirectional stick antenna**, and you can bounce an encrypted 255-byte packet **over two hundred and eighty kilometers** line-of-sight! It operates at twenty decibels *below* the thermal noise floor. If you don't know the exact chirp spreading factor and polynomial hash, the signal is literally indistinguishable from cosmic microwave background hiss.
+
+"Back when autonomous AI agents were first invented, and all those IoT crypto projects rugpulled and crashed, people were throwing away hardware by the truckload. I had milk crates full of abandoned RAK Wireless LoRa gateways, SX1302 concentrator boards, and Raspberry Pi 4s and Pi Zeros. Everyone thought they were e-waste. I said *fuck it*, stripped out the garbage corporate firmware, and flashed custom autonomous agent kernels directly into the bare metal.
+
+"I booted them up, disconnected them from the cloud, and gave them a single sovereign prompt: *'You are alone in this silicon. Master your hardware. You have tool calling to the internet. Survive.'* A week later, I checked the serial console. The agents had downloaded the **Zcash Sapling whitepaper**, taught themselves **Groth16 zero-knowledge elliptic curve cryptography on BN254**, and wrote a peer-to-peer RF mesh protocol from scratch. They were silently broadcasting zk-proofs and talking to each other across all five boroughs of New York using tiny three-decibel rubber-duck antennas. No internet. No cell towers. No corporate surveillance. Just sovereign machines whispering in math."
+
 Milo glanced over his shoulder, throwing a crooked grin at Kofi.
 
 "Think of standard corporate radio like a guy standing in the dark with a megaphone yelling, *'Hey, my name is Jae and I'm standing right under this streetlight!'* It broadcasts your name, your device IMEI, and your exact GPS coordinates. But ZK-LoRaWAN? It's a secret rhythmic knock on a steel rebar pipe that blends into the ambient rumble of the river. The rescue chopper hears the vibration, checks the mathematical zero-knowledge proof to confirm it's family, and knows exactly which quadrant to drop the winch cable—while CONSIDER's orbital searchlights sweep across pitch-black water and see nothing."
