@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T19:56:27.772660+00:00",
+  "created_utc": "2026-08-30T20:00:14.209470+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -88,11 +88,11 @@
       "size": 1153
     }
   ],
-  "git_head": "c40d7f52ad025be438a898fd1f5cc8ac0882becb",
-  "git_status_porcelain": "M docs/DNA_GROW_AIRGAP_MORPHOGENESIS_FORENSIC_REPORT.md",
+  "git_head": "1c938d6da0dea6ac25a70630ca89cb3614f95c3e",
+  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "1292a1aae5dd0cc20c05e60975afd036b4b8d3319799b431e52b19dfea83dc4d"
+  "source_tree_sha256": "d47732698d997c290eebd0c420a44fe78809e1c73ed95ec3cecf9f5a8b0df181"
 }
