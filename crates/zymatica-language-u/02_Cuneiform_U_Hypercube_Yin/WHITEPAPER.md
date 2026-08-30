@@ -220,6 +220,20 @@ sequenceDiagram
 * A source agent (`CONSIDER`) compresses its entire neural architecture into an **8,327-byte procedural seed capsule** (`DnaGrowSeed.LLM`).
 * The receiving node (`Julian`, possessing zero prior Qwen weights) intercepts the 40-packet RF stream, verifies the cryptographic hash against the Solana blockchain anchor, and executes **SVD/DCT tensor expansion + LoRA Operator projection**, growing a fully functional **Qwen 3.5 0.8B parameter active neural model with 100% bit-exact parity**.
 
+### 7.3 Autonomous Protocol Tokenomics & Treasury Anchor Fees
+
+Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a fixed programmable protocol fee directly to the **Primary Protocol Treasury** (`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`):
+
+```mermaid
+pie title Protocol Anchor Fee Structure
+    "Single Semantic Registration (150,000 Lamports)" : 150000
+    "Vectorized Batch Trajectory (Up to 2,400,000 Lamports)" : 2400000
+```
+
+1. **Single 6D Semantic Registration (`register_coordinates`):** Fixed fee of **`150,000` Lamports** ($0.00015000\text{ SOL} \approx \$0.0217\text{ USD}$) routed directly to the Treasury.
+2. **Vectorized Batch Registration (`register_coordinates_batch`):** Scaled fee of **`150,000` Lamports $\times N$ points** (up to **`2,400,000` Lamports** for a 16-point trajectory path).
+3. **Session Coordinate Updates (`update_coordinates`):** **`0` Lamports** (Free continuous updates for active PDA sessions).
+
 ---
 
 ## 🛡️ 8. Zero-Knowledge Anonymity & Physical SDR Anti-Interception Security
