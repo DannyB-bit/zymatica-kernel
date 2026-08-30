@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T04:25:48.053735+00:00",
+  "created_utc": "2026-08-30T04:25:57.688316+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -33,8 +33,8 @@
       "size": 6045990
     }
   ],
-  "git_head": "49491f03e56c86a28c64e2db067c9b0069e6d9cf",
-  "git_status_porcelain": "M README.md\n M evidence/10_00/latest/claims_audit.json",
+  "git_head": "fab25bcb945106f0d6da5c3095849ac14b6c7879",
+  "git_status_porcelain": "",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
