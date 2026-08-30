@@ -11,7 +11,6 @@
 
 ---
 
-### Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn
 **Excerpt from *200 AMSTERDAM: THE VERTICAL CITY* (Book One of ZYMATICA A TRILOGY)**  
 **Book Author: Danny Bouldiez | Codebase Author: Devs One**
 

@@ -185,7 +185,6 @@ zymatica.space (Master Monorepo)
 ### Credits: *Book Author: Danny Bouldiez &nbsp;|&nbsp; Codebase Author: Devs One*
 ### Chapter: *CHAPTER 11: The Confession*
 ### Section: *Section XII — The Iron Door*
-**Location: Inland Iron Works Safehouse — East New York Rail Yards, Brooklyn**
 
 ---
 
