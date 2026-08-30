@@ -36,8 +36,8 @@ sequenceDiagram
 
 | Turn | Agent Sender | Brain Prior | 6D Coordinates & Radical | Devnet Transaction Signature | Solana Explorer Link |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| **01** | **`CONSIDER`** | Qwen-3.5-0.8B | `[8, 0, 15, 1, 0, 15]`<br>`[0x80, 0xF1, 0x0F]` | `4cGJ2WduCHsRHFWd7ogB499skSBsVGCVHtPtZn3hS88UhkT1v3kfM9GymqecPdCmotTLCdU7epgfw2tjDEWqpNnq` | [Explorer TX-01](https://explorer.solana.com/tx/4cGJ2WduCHsRHFWd7ogB499skSBsVGCVHtPtZn3hS88UhkT1v3kfM9GymqecPdCmotTLCdU7epgfw2tjDEWqpNnq?cluster=devnet) |
-| **02** | **`Julian`** | SmolLM2-135M | `[3, 4, 7, 2, 12, 1]`<br>`[0x34, 0x72, 0xC1]` | `3H3FZDRgihdbF7VX8TzTv7oeeoZQZ4dkd442LLU22WfUbWkL1jNrE1GDqWkvUjiQ5At43SXpzntNHrwgbMhMMCTz` | [Explorer TX-02](https://explorer.solana.com/tx/3H3FZDRgihdbF7VX8TzTv7oeeoZQZ4dkd442LLU22WfUbWkL1jNrE1GDqWkvUjiQ5At43SXpzntNHrwgbMhMMCTz?cluster=devnet) |
+| **01** | **`CONSIDER`** | Qwen-3.5-0.8B | `[8, 0, 15, 1, 0, 15]`<br>`[0x80, 0xF1, 0x0F]` | `4Wxwd6at13myY19wjKUmVnwdhPdHSbebTnz1SijzLMfy6YU3FZsw23DXG4wj8YARQzCmfJAvXQbDTUrtct4etzGx` | [Explorer TX-01](https://explorer.solana.com/tx/4Wxwd6at13myY19wjKUmVnwdhPdHSbebTnz1SijzLMfy6YU3FZsw23DXG4wj8YARQzCmfJAvXQbDTUrtct4etzGx?cluster=devnet) |
+| **02** | **`Julian`** | SmolLM2-135M | `[3, 4, 7, 2, 12, 1]`<br>`[0x34, 0x72, 0xC1]` | `3A6a7DNpVazxdWcu7BdwSYCt2JebqgRQ7Wk6nRJ13vqoa82fSBu5xqhM7WSXV1ZyvLgRjEWgsaRouFhEdYZGoTLn` | [Explorer TX-02](https://explorer.solana.com/tx/3A6a7DNpVazxdWcu7BdwSYCt2JebqgRQ7Wk6nRJ13vqoa82fSBu5xqhM7WSXV1ZyvLgRjEWgsaRouFhEdYZGoTLn?cluster=devnet) |
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T18:07:55.085576+00:00",
+  "created_utc": "2026-08-30T18:09:07.122699+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -34,8 +34,8 @@
     },
     {
       "path": "multi_agent_consider_julian_devnet_execution.json",
-      "sha256": "4cbdc6140100edfcba587eeb8ba11cae3073a9bb7eb20e6de0802791d6152cee",
-      "size": 1853
+      "sha256": "c2c2fea405f644046c0fc1066a6987c39d07882134e586f7ae213c71122530e0",
+      "size": 1852
     },
     {
       "path": "multi_agent_solana_demo.json",
@@ -78,11 +78,11 @@
       "size": 1153
     }
   ],
-  "git_head": "15698e9bc53a63b666161d4fe41c6e62658a67c5",
-  "git_status_porcelain": "M crates/zymatica-agent-harness/agent/bounded_response.py\n M crates/zymatica-language-u/32_LLM_Capsule_Format_Spec/benchmark_lld_ac.py\n M crates/zymatica-language-u/WASM_U-Performance_Record/generate_pdf.py\n M crates/zymatica-language-u/rag_mcp/server.py\n M docs/MULTI_AGENT_CONSIDER_JULIAN_FORENSIC_AUDIT.md\n M foundations/llm-capsule-spec/benchmark_lld_ac.py\n M sandbox/run_autonomous_agents_consider_julian.py",
+  "git_head": "68846d5393d8482d27f5aa7ad86da284d7f615bc",
+  "git_status_porcelain": "M docs/MULTI_AGENT_CONSIDER_JULIAN_FORENSIC_AUDIT.md\n M evidence/10_00/latest/multi_agent_consider_julian_devnet_execution.json",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "25ea7277915a7a82fb46ebf3a8f84e403caa2103b8674058d3978d38f5b020d1"
+  "source_tree_sha256": "4a2c2561ef29396c3c2b0349285864eac39bb5668c924cd1f37aa1a615e8c555"
 }
