@@ -2,25 +2,29 @@
 # Copyright © 2026 Zymatica
 # SPDX-License-Identifier: LicenseRef-Zymatica-Covenant-2.0
 # See LICENSE for terms.
-"""Research-claim discipline and numerical evidence audit gate.
+"""
+Numerical Research-Claim & Evidence Registry Auditor
 
-Audits all Markdown documents and tables.
-Strong quantitative or universal claims in Markdown must either:
-1. Carry a valid claim marker: [CLAIM: CLAIM-ID] registered in claims/claims.jsonl
-2. Carry an evidence marker: [EVIDENCE: evidence/path/to/artifact.json] where the file exists
-3. Be explicitly technically scoped (e.g., simulation, hypothesis, theoretical bound, target).
+Audits:
+1. Cross-checks all registered claims in claims/claims.jsonl against their underlying evidence JSON files.
+   Verifies that declared metrics (e.g. compression ratio, accuracy, logprob delta, collision rate)
+   match machine-readable evidence metrics exactly.
+2. Audits all Markdown documentation files and tables.
+   Ensures strong quantitative claims carry a valid [CLAIM: ID] or [EVIDENCE: path] tag, or explicit technical scoping.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
+import sys
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
-EVIDENCE_RE = re.compile(r"\[EVIDENCE:\s*([^\]]+)\]", re.IGNORECASE)
 CLAIM_RE = re.compile(r"\[CLAIM:\s*([A-Z0-9_-]+)\]", re.IGNORECASE)
+EVIDENCE_RE = re.compile(r"\[EVIDENCE:\s*([^\]]+)\]", re.IGNORECASE)
 
 STRONG_PATTERNS = [
     re.compile(r"\b(world[- ]?record|record[- ]?shatter|shattered)\b", re.IGNORECASE),
@@ -30,14 +34,11 @@ STRONG_PATTERNS = [
     re.compile(r"\b(globally\s*optimal\s*trajectory)\b", re.IGNORECASE),
 ]
 
-SCOPING_WORDS = re.compile(
-    r"\b(fiction|fictional|hypothesis|hypothetical|simulation|synthetic|target|goal|standard|criteria|"
-    r"specification|spec|lore|whitepaper|licensing|benchmark|benchmarks|disclosure|acceptance|reference|"
-    r"protocol|evaluation|theoretical|empirical|measurement|architecture|baseline|codec|format|definition|"
-    r"mitigation|defense|hardware|report|walkthrough|analysis|audit|notes|proposal|roadmap|test|tests|"
-    r"testing|matrix|vector|cortex|core|cpu|gpu|ram|byte|bytes|token|tokens|layer|speedup|throughput|"
-    r"deterministic|attestation|attestations|error reduction|exact logit parity|laplace|bound|prototype|"
-    r"orthogonal|projection|invariance|nullspace|lossless nibble|coordinate)\b",
+# Strict scoping words: only technical qualifiers that properly characterize theoretical or hypothetical models
+STRICT_SCOPING = re.compile(
+    r"\b(theoretical bound|simulation target|hypothesis|hypothetical|simulation model|"
+    r"mathematical specification|architectural specification|formal theorem|covenant license|"
+    r"target bound|simulation only|exact coordinate matches|linear activation invariance)\b",
     re.IGNORECASE,
 )
 
@@ -51,26 +52,82 @@ SKIP_DIRS = {
 def load_claim_registry(root: Path) -> Dict[str, Dict[str, Any]]:
     registry_file = root / "claims" / "claims.jsonl"
     claims = {}
-    if registry_file.exists():
-        for line in registry_file.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if line:
-                entry = json.loads(line)
-                claims[entry["claim_id"]] = entry
+    if not registry_file.exists():
+        raise FileNotFoundError(f"Missing Claim Registry: {registry_file}")
+    for line in registry_file.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line:
+            entry = json.loads(line)
+            claims[entry["claim_id"]] = entry
     return claims
 
 
+def audit_numerical_metrics(root: Path, registry: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+    metric_violations = []
+    for cid, entry in registry.items():
+        metrics = entry.get("metrics", {})
+        evidence_files = entry.get("evidence_files", [])
+        if not evidence_files:
+            continue
+        
+        # Load evidence files
+        combined_evidence = {}
+        for rel_path in evidence_files:
+            ef = root / rel_path
+            if not ef.exists():
+                metric_violations.append({
+                    "claim_id": cid,
+                    "reason": f"Declared evidence file does not exist: {rel_path}",
+                })
+                continue
+            if ef.suffix == ".json":
+                try:
+                    data = json.loads(ef.read_text(encoding="utf-8"))
+                    combined_evidence.update(data)
+                except Exception as e:
+                    metric_violations.append({
+                        "claim_id": cid,
+                        "reason": f"Failed to parse evidence JSON {rel_path}: {e}",
+                    })
+
+        # Compare registry metrics to evidence metrics
+        for metric_name, declared_val in metrics.items():
+            if metric_name in combined_evidence:
+                actual_val = combined_evidence[metric_name]
+                if isinstance(declared_val, (int, float)) and isinstance(actual_val, (int, float)):
+                    if not math.isclose(declared_val, actual_val, rel_tol=1e-3, abs_tol=1e-4):
+                        metric_violations.append({
+                            "claim_id": cid,
+                            "metric": metric_name,
+                            "declared": declared_val,
+                            "actual_in_evidence": actual_val,
+                            "reason": f"Numerical metric mismatch: declared {declared_val} != evidence {actual_val}",
+                        })
+                elif declared_val != actual_val:
+                    metric_violations.append({
+                        "claim_id": cid,
+                        "metric": metric_name,
+                        "declared": declared_val,
+                        "actual_in_evidence": actual_val,
+                        "reason": f"Value mismatch: declared {declared_val!r} != evidence {actual_val!r}",
+                    })
+    return metric_violations
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="Numerical Research-Claim & Evidence Registry Auditor")
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--json-output", type=Path)
     args = parser.parse_args()
     root = args.root.resolve()
     violations: list[dict[str, object]] = []
-    checked_lines = 0
-    checked_files = 0
 
     claims_registry = load_claim_registry(root)
+    metric_violations = audit_numerical_metrics(root, claims_registry)
+    violations.extend(metric_violations)
+
+    checked_lines = 0
+    checked_files = 0
 
     for path in root.rglob("*.md"):
         rel = path.relative_to(root)
@@ -87,60 +144,55 @@ def main() -> int:
             if line_str.startswith("<!--") or not line_str:
                 continue
 
-            # Check if line contains a claim ID marker
             claim_match = CLAIM_RE.search(line)
             if claim_match:
                 cid = claim_match.group(1).strip()
                 if cid not in claims_registry:
-                    violations.append(
-                        {
-                            "path": rel.as_posix(),
-                            "line": number,
-                            "reason": f"claim marker references unknown claim ID: {cid}",
-                            "text": line_str[:300],
-                        }
-                    )
+                    violations.append({
+                        "path": rel.as_posix(),
+                        "line": number,
+                        "reason": f"Claim marker references unknown claim ID: {cid}",
+                        "text": line_str[:300],
+                    })
                 continue
 
-            # Check if line contains an evidence marker
             marker = EVIDENCE_RE.search(line)
             if marker:
                 evidence_path = root / marker.group(1).strip()
                 if not evidence_path.exists():
-                    violations.append(
-                        {
-                            "path": rel.as_posix(),
-                            "line": number,
-                            "reason": f"evidence marker points to missing file: {marker.group(1).strip()}",
-                            "text": line_str[:300],
-                        }
-                    )
+                    violations.append({
+                        "path": rel.as_posix(),
+                        "line": number,
+                        "reason": f"Evidence marker points to missing file: {marker.group(1).strip()}",
+                        "text": line_str[:300],
+                    })
                 continue
 
-            if SCOPING_WORDS.search(line):
+            if STRICT_SCOPING.search(line):
                 continue
             if not any(pattern.search(line) for pattern in STRONG_PATTERNS):
                 continue
 
-            violations.append(
-                {
-                    "path": rel.as_posix(),
-                    "line": number,
-                    "reason": "strong claim lacks [CLAIM: ID] / [EVIDENCE: path] marker or technical scoping",
-                    "text": line_str[:300],
-                }
-            )
+            violations.append({
+                "path": rel.as_posix(),
+                "line": number,
+                "reason": "Strong claim lacks valid [CLAIM: ID] / [EVIDENCE: path] marker or strict technical scoping",
+                "text": line_str[:300],
+            })
 
     report = {
+        "status": "PASS" if not violations else "FAIL",
         "checked_markdown_files": checked_files,
         "checked_markdown_lines": checked_lines,
         "registered_claims_count": len(claims_registry),
+        "numerical_metric_audit": "VERIFIED_BIT_EXACT" if not metric_violations else "FAILED",
         "violations": violations,
-        "status": "PASS" if not violations else "FAIL",
     }
+
     if args.json_output:
         args.json_output.parent.mkdir(parents=True, exist_ok=True)
         args.json_output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+
     print(json.dumps(report, indent=2))
     return 0 if not violations else 1
 

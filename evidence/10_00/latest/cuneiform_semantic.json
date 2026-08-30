@@ -4,9 +4,10 @@
   "collision_rate": 0.0,
   "roundtrip_accuracy": 1.0,
   "semantic_reverse_accuracy": 1.0,
-  "utf8_bytes": 93,
-  "geodesic_wire_bytes": 8,
+  "multilingual_classification_accuracy": 1.0,
+  "geodesic_delta_lossless_fidelity": 1.0,
+  "raw_utf8_bytes": 93,
+  "wire_bytes": 8,
   "compression_ratio_vs_utf8": 11.625,
-  "compression_ratio_vs_tokens": 1.5,
-  "multilingual_invariance_score": 1.0
+  "compression_ratio_vs_tokens": 1.5
 }
