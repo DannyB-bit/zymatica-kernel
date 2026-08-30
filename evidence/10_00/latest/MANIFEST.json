@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T21:23:39.989351+00:00",
+  "created_utc": "2026-08-30T21:27:40.864238+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -88,11 +88,11 @@
       "size": 1153
     }
   ],
-  "git_head": "0c9637aef2bad8f078516d7f17f80568e5669ae6",
+  "git_head": "437057cca52f8a65ed70709b2af13238d07ceb6e",
   "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n M docs/ZYMATICA_AUTONOMOUS_TOKENOMICS_ARCHITECTURE_WHITEPAPER.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "fb56126460db49897f0c07f6c6bec21ab23face9efd86da9aee4dd63bc99b7d5"
+  "source_tree_sha256": "6f69d7740b9fd5ba8c87fbc66b4044ad174029c75602dacd2800f3d7dfc38111"
 }

@@ -32,33 +32,25 @@ pie title The "Triple-Two" (6-Cent) Protocol Fee Distribution
 
 ---
 
-## 3. High-Incentive Architecture for Hardware Flashers
+## 3. The 50% Annual Christmas Distribution Engine
+
+Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract automatically calculates the total accumulated balance in the Treasury Vault ($\mathcal{V}_{\text{Treasury}}$) and executes a programmatic **50% Holiday Distribution**:
+
+$$\mathcal{D}_{\text{Christmas}} = 0.50 \times \mathcal{V}_{\text{Treasury}}$$
 
 ```mermaid
-sequenceDiagram
-    autonumber
-    actor Agent as Autonomous Agent (CONSIDER)
-    actor Gateway as Community LoRa Gateway (SX1302 / RPi Flasher)
-    participant Solana as Solana Blockchain (Anchor Smart Contract)
-    participant DevPool as Devs One Wallet (7kZ3...QXccKS)
-    participant Vault as Christmas Airdrop Vault PDA (Untouchable)
-
-    Agent->>Solana: Transmit Packet + 420,000 Lamports Protocol Fee
-    Solana->>DevPool: Transfer 140,000 Lamports ($0.02 USD Developer Fee)
-    Solana->>Gateway: Instant Solana Pay CPI (140,000 Lamports / $0.02 USD Routing Reward)
-    Solana->>Vault: Accumulate 140,000 Lamports ($0.02 USD Christmas Escrow)
-    Note over Vault,Gateway: 🎄 On December 25th (Christmas Day):
-    Vault->>Gateway: Automated Smart Contract Airdrop Dividend Payout!
+pie title Annual Christmas Distribution of Total Treasury Balance
+    "Permanent Compounding Capital Reserve (50%)" : 50
+    "Active Gateway Operators (20%)" : 20
+    "Protocol Stakeholders & Backers (20%)" : 20
+    "Devs One Core Team Bonus (10%)" : 10
 ```
 
-### 3.1 📡 Instant Pay-Per-Hop Routing
-* Whenever an edge gateway intercepts and relays an encrypted Language-U 3-byte radical or 8.3 KB DNA-GROW seed, the gateway operator is credited with **2 Cents (`140,000` Lamports) instantly**.
-* A gateway that relays 1,000 packets per day earns **`$20.00 USD/day` ($600/month)** purely from passive background RF traffic.
-
-### 3.2 🎄 The Untouchable "Christmas Gift" Annual Airdrop
-* **Zero Dev Access:** The vault is a timelocked Solana Program Derived Address (PDA) with no private keys and zero admin withdrawal permissions.
-* **Proof-of-Coverage & Transit Weighting:** Every packet transit records an immutable routing receipt on-chain.
-* **December 25th Automated Distribution:** At Unix timestamp `1735113600` (Dec 25 00:00 UTC), the smart contract scans all verified routing receipts and distributes 100% of the accumulated treasury to gateway operators proportionate to their annual routing volume.
+### 3.1 Distribution Breakdown of Total Treasury Value
+1. **📡 20% to Active Gateway Operators:** Distributed as a holiday bonus directly to every community member whose flashed LoRaWAN concentrator provided verified coverage and routed packets during the year, weighted by their annual packet transit volume.
+2. **💎 20% to Protocol Stakeholders:** Distributed as an annual yield dividend to long-term ecosystem stakeholders and token holders.
+3. **🛠️ 10% to the Devs One Team:** Distributed as an annual performance bonus to the core engineering team for protocol maintenance and security.
+4. **🔒 50% Retained in Treasury:** Permanently retained in the non-custodial Treasury vault to ensure an ever-growing capital floor, deep liquidity, and multi-year financial runway.
 
 ---
 
