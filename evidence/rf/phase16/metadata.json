@@ -34,7 +34,7 @@
     "refin": false,
     "refout": false,
     "xorout": "0x0000",
-    "computed_value": "0x49F3"
+    "computed_value": "0xC7D3"
   },
   "cryptographic_nullifier_spec": {
     "algorithm": "MiMC-7 over BN254 Scalar Field",
@@ -50,7 +50,9 @@
     "g2_compressed_bytes": 64,
     "proof_structure": "A in G1 (32B), B in G2 (64B), C in G1 (32B)",
     "total_proof_bytes": 128,
-    "subgroup_verification": "r * A == Infinity and r * C == Infinity",
+    "subgroup_verification": "r * A == Infinity and r * C == Infinity (unreduced r)",
+    "pairing_equation": "e(A, B) == e(alpha, beta) * e(vk_x, gamma) * e(C, delta)",
+    "public_input_binding": "vk_x = IC0 + (nullifier mod r) * IC1",
     "verified_status": "CRYPTOGRAPHICALLY_VERIFIED_ON_CURVE"
   },
   "payload_spec": {
@@ -74,7 +76,7 @@
     "crc_pass": true
   },
   "cryptographic_hashes": {
-    "tx_payload_sha256": "1ac15bdd2f68317e535016d2e8b8525233d9f9471932ddff5eb14a419e215c64",
-    "rx_capture_sha256": "3a7ff623a63a7659bbe15c084eb379b6f02458a0de016d88efd76726068d1b7a"
+    "tx_payload_sha256": "7773892c7b20acc69019bfe55b50ff62f5f7c38cfdefa34533e391d0543fe4e1",
+    "rx_capture_sha256": "d88e8c89fb9a77c91f8644ec41b77a7fd09a5a958ab84148a628f8e49622e3ee"
   }
 }
