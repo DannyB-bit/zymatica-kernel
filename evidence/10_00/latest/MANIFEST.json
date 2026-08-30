@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T13:31:45.769158+00:00",
+  "created_utc": "2026-08-30T13:36:44.248395+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -48,11 +48,11 @@
       "size": 6045990
     }
   ],
-  "git_head": "b550dc0c88ac8f9b8cc6b885670bfe87d31b1d23",
+  "git_head": "3699aaaf8bddd3a961cca2d29ad7e4238b886716",
   "git_status_porcelain": "M README.md",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "7595fd6105cab30dbbbd4cf9009d9c7f1b9ea0434ffabd8c96d5104f3f73532b"
+  "source_tree_sha256": "7d9b6c04a95b0cc92b6f61bf4809e2e720c7afc0f46b841e52ffdefa1bfb3ff5"
 }
