@@ -220,13 +220,13 @@ sequenceDiagram
 * A source agent (`CONSIDER`) compresses its entire neural architecture into an **8,327-byte procedural seed capsule** (`DnaGrowSeed.LLM`).
 * The receiving node (`Julian`, possessing zero prior Qwen weights) intercepts the 40-packet RF stream, verifies the cryptographic hash against the Solana blockchain anchor, and executes **SVD/DCT tensor expansion + LoRA Operator projection**, growing a fully functional **Qwen 3.5 0.8B parameter active neural model with 100% bit-exact parity**.
 
-### 7.3 Autonomous "Triple-Two" DePIN Tokenomics & 50% Christmas Distribution
+### 7.3 Autonomous Tiered DePIN Tokenomics (Option C) & 50% Christmas Distribution
 
-Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a fixed programmable **`6-Cent` Protocol Fee** ($\approx 420,000\text{ Lamports}$ / $0.000420\text{ SOL}$), structured into three equal, self-compounding streams:
+Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a payload-weighted protocol fee categorized into three high-efficiency tiers:
 
-1. **🛠️ Devs One Developer Royalty (`$0.02 USD` / `140,000` Lamports):** Direct 2-cent revenue per transaction paid directly to the Devs One core engineering pool (`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`) for software updates, server uptime, and network growth.
-2. **📡 Live Gateway Routing Miner (`$0.02 USD` / `140,000` Lamports):** Instant real-time payment via Solana Pay directly to the physical IoT gateway flasher (SX1302/RPi/RAK) that routed the packet over the air.
-3. **🏛️ Protocol Treasury Inflow (`$0.02 USD` / `140,000` Lamports):** Accumulates continuously to fund the annual **50% Christmas Distribution Engine**.
+1. **Tier 1: Micro-Semantic Ping (`$0.01 USD` / `70,000` Lamports):** 3-Byte radicals & geodesic deltas ($0.004 Dev Royalty, $0.003 Gateway Flasher, $0.003 Treasury Inflow).
+2. **Tier 2: Standard Agent Mission (`$0.02 USD` / `140,000` Lamports):** Conversational state & coordinate sync ($0.010 Dev Royalty, $0.005 Gateway Flasher, $0.005 Treasury Inflow).
+3. **Tier 3: DNA-GROW Model Morphogenesis (`$0.05 USD` / `350,000` Lamports):** 8.3 KB procedural seed expansion & batch trajectories ($0.020 Dev Royalty, $0.015 Gateway Flasher, $0.015 Treasury Inflow).
 
 #### 🎄 The 50% Annual Christmas Distribution Rule
 Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract takes **`50%` of the total accumulated Treasury balance** ($\mathcal{D}_{\text{Christmas}} = 0.50 \times \mathcal{V}_{\text{Treasury}}$) and programmatically executes the holiday payout:

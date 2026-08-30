@@ -1,40 +1,58 @@
 # 🏛️ Zymatica Autonomous Tokenomics & Cryptoeconomic Architecture
-**The "Triple-Two" (6-Cent) DePIN Engine: Real-Time Routing, Dev Royalty, & Christmas Airdrop Vault**  
+**Option C: Tiered Payload Pricing, Live DePIN Routing, & 50% Christmas Distribution Engine**  
 **Author:** Danny Bouldiez | **Codebase:** Devs One | **Organization:** zymatica.space | astronautshe.com | TheAiCollective.art  
 **Audit Status:** `10.0 / 10.0 CERTIFIED` | **Release Tag:** `v10.1.1-evidence`
 
 ---
 
-## 1. Executive Summary & The "Triple-Two" Economic Thesis
+## 1. Executive Summary & Tiered Economic Thesis
 
-The Zymatica Cryptoeconomic Engine introduces a high-incentive, self-funding micro-economy specifically engineered for physical LoRa edge hardware (SX1302/SX1303/RAK/Raspberry Pi flashers), autonomous AI agent communication, and permanent treasury growth.
-
-Every transaction executes a flat **`6-Cent` Protocol Fee** ($\approx 420,000\text{ Lamports}$ / $0.000420\text{ SOL}$), structured into three equal, dedicated pools:
+The Zymatica Cryptoeconomic Engine implements an intelligent **3-Tier Payload-Weighted Pricing Model (Option C)**. This guarantees minimal friction for micro-telemetry (1¢), fair pricing for autonomous agent conversations (2¢), and high value accrual for complete neural model morphogenesis (5¢).
 
 ```mermaid
-pie title The "Triple-Two" (6-Cent) Protocol Fee Distribution
-    "Devs One Core Team ($0.02 USD / 140,000 Lamports)" : 33.33
-    "Live Gateway Operator ($0.02 USD / 140,000 Lamports)" : 33.33
-    "Untouchable Christmas Airdrop Vault ($0.02 USD / 140,000 Lamports)" : 33.33
+graph TD
+    A["🤖 Autonomous AI Agents (CONSIDER, Julian)"] -->|150 CU Native Anchor| B["⚡ Solana Anchor Program (BJKr...Ls3M)"]
+    B -->|Tier 1: 1¢ Micro-Semantic Ping| C["💰 3-Tier Split Engine"]
+    B -->|Tier 2: 2¢ Standard Agent Message| C
+    B -->|Tier 3: 5¢ DNA-GROW Model Morphogenesis| C
+    C -->|Real-Time SolPay Routing Pay| D["📡 Active IoT Gateway Flashers (SX1302/RPi/RAK)"]
+    C -->|Guaranteed Developer Royalty| E["🛠️ Devs One Engineering Pool (7kZ3...QXccKS)"]
+    C -->|Protocol Value Inflow| F["🏛️ Protocol Treasury Vault (Compounding Reserve)"]
+    F -->|🎄 Dec 25: 50% Annual Christmas Distribution| G["🎁 Christmas Distribution Engine"]
+    G -->|10% of Treasury| E
+    G -->|20% of Treasury| D
+    G -->|20% of Treasury| H["💎 Protocol Stakeholders & Backers"]
+    F -->|50% of Treasury Retained| I["🔒 Permanent Compounding Capital Floor"]
 ```
 
 ---
 
-## 2. Quantitative 3-Tier Allocation Breakdown
+## 2. Option C: Quantitative 3-Tier Pricing & Fee Split Schedule
 
-| Allocation Bucket | USD Value per TX | Lamports per TX | Native SOL | Mechanism & Target Beneficiary |
-| :--- | :---: | :---: | :---: | :--- |
-| **🛠️ Devs One Developer Royalty** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Direct, guaranteed 2-cent revenue per transaction to the Devs One core engineering pool for software updates, validator hosting, and continuous growth. |
-| **📡 Live Gateway Routing Miner** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Instant real-time payment via Solana Pay directly to the physical gateway flasher (SX1302/RPi/RAK) that relayed the packet over the air. |
-| **🎄 Christmas Airdrop Vault** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Non-custodial, untouchable Solana PDA vault that accumulates all year and executes an automated December 25th holiday dividend payout to all active gateways. |
-| **⚡ Base Solana Network Gas** | **`$0.0007 USD`** | **`5,000`** | `0.000005 SOL` | Standard Solana validator fee for 150 CU native execution. |
-| **🏁 TOTAL TRANSACTION COST** | **`$0.0607 USD`** | **`425,000`** | **`0.000425 SOL`** | **400x cheaper than Ethereum ($23.94) and 490x cheaper than Bitcoin ($29.56)** |
+Every transaction executing across the Solana Semantic Anchor is dynamically categorized by payload weight and cryptographic complexity:
+
+| Tier & Transaction Class | Payload Size | Total Fee (USD) | Total Lamports | Dev Royalty Pool | Live Gateway Flasher | Treasury Vault (Christmas) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Tier 1: Micro-Semantic Ping**<br>*(3-Byte Radicals, Geodesic Deltas)* | `3 – 32 Bytes` | **`$0.0100 USD`** | **`70,000`** | **`$0.0040 USD`**<br>(28,000 Lamports) | **`$0.0030 USD`**<br>(21,000 Lamports) | **`$0.0030 USD`**<br>(21,000 Lamports) |
+| **Tier 2: Standard Agent Mission**<br>*(Conversational State, Coordinate Sync)*| `33 – 512 Bytes`| **`$0.0200 USD`** | **`140,000`** | **`$0.0100 USD`**<br>(70,000 Lamports) | **`$0.0050 USD`**<br>(35,000 Lamports) | **`$0.0050 USD`**<br>(35,000 Lamports) |
+| **Tier 3: DNA-GROW Morphogenesis**<br>*(8.3 KB Model Seed, 16-Point Batch)* | `513 – 8,880 B` | **`$0.0500 USD`** | **`350,000`** | **`$0.0200 USD`**<br>(140,000 Lamports) | **`$0.0150 USD`**<br>(105,000 Lamports)| **`$0.0150 USD`**<br>(105,000 Lamports)|
+| **Session Updates (Free Tier)** | Updates | **`$0.0000 USD`** | **`0`** | `$0.0000` | `$0.0000` | `$0.0000` |
+
+*(Note: Base Solana validator gas is fixed at `5,000 Lamports` ($\approx \$0.0007\text{ USD}$) for the 150 CU execution).*
 
 ---
 
-## 3. The 50% Annual Christmas Distribution Engine
+## 3. High-Incentive Architecture for Hardware Flashers
 
-Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract automatically calculates the total accumulated balance in the Treasury Vault ($\mathcal{V}_{\text{Treasury}}$) and executes a programmatic **50% Holiday Distribution**:
+### 3.1 📡 Instant Pay-Per-Hop Routing
+* Community members who flash abandoned IoT hardware (SX1302/SX1303, Raspberry Pi, RAK Wireless) earn **instant Solana Pay micro-payments** on every single packet routed through their antenna ($0.003 to $0.015 USD per hop).
+* A gateway in a busy downtown or campus environment routing 2,000 packets per day earns **`$10.00 to $30.00 USD/day` ($300 – $900/month)** passively.
+
+---
+
+## 4. The 50% Annual Christmas Distribution Engine
+
+Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract calculates the total accumulated balance in the Treasury Vault ($\mathcal{V}_{\text{Treasury}}$) and executes a programmatic **50% Holiday Distribution**:
 
 $$\mathcal{D}_{\text{Christmas}} = 0.50 \times \mathcal{V}_{\text{Treasury}}$$
 
@@ -46,7 +64,7 @@ pie title Annual Christmas Distribution of Total Treasury Balance
     "Devs One Core Team Bonus (10%)" : 10
 ```
 
-### 3.1 Distribution Breakdown of Total Treasury Value
+### 4.1 Distribution Breakdown
 1. **📡 20% to Active Gateway Operators:** Distributed as a holiday bonus directly to every community member whose flashed LoRaWAN concentrator provided verified coverage and routed packets during the year, weighted by their annual packet transit volume.
 2. **💎 20% to Protocol Stakeholders:** Distributed as an annual yield dividend to long-term ecosystem stakeholders and token holders.
 3. **🛠️ 10% to the Devs One Team:** Distributed as an annual performance bonus to the core engineering team for protocol maintenance and security.
@@ -54,31 +72,13 @@ pie title Annual Christmas Distribution of Total Treasury Balance
 
 ---
 
-## 4. Financial Projections & Developer Revenue Model
+## 5. Financial Projections & Developer Cash Flow Model
 
-With a guaranteed **2-Cent ($0.02 USD)** developer fee per transaction, the revenue model scales seamlessly with network adoption:
-
-$$\text{Daily Dev Revenue } (\mathcal{R}_{\text{dev}}) = \mathcal{N}_{\text{daily transactions}} \times \$0.0200\text{ USD}$$
-
-| Daily Network Transactions | Daily Dev Income (2¢) | Annual Dev Income | Gateway Operator Pool (2¢) | Christmas Airdrop Vault (2¢) |
+| Daily Network Traffic | Daily Dev Income | Annual Dev Income | Gateway Operator Pool | Christmas Airdrop Pool |
 | :---: | :---: | :---: | :---: | :---: |
-| **10,000 TXs / day** | **`$200.00 / day`** | **`$73,000 / year`** | `$73,000 / year` | **`$73,000 Christmas Gift`** |
-| **100,000 TXs / day** | **`$2,000.00 / day`** | **`$730,000 / year`** | `$730,000 / year` | **`$730,000 Christmas Gift`** |
-| **1,000,000 TXs / day** | **`$20,000.00 / day`** | **`$7,300,000 / year`**| `$7,300,000 / year` | **`$7,300,000 Christmas Gift`** |
-
----
-
-## 5. Global Cross-Chain Benchmark
-
-Even at 6 cents total ($0.02 Dev + $0.02 Gateway + $0.02 Vault), Zymatica remains drastically cheaper and faster than all competing blockchain networks:
-
-| Platform | Total Cost per Message | Settlement Speed | Dev Royalty | Gateway Reward | Annual Community Airdrop |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| ☀️ **Solana + Zymatica** | **`$0.0607 USD`** | **`400 ms`** | **`$0.02 USD` (Guaranteed)**| **`$0.02 USD` (Instant)**| **`$0.02 USD` (Christmas Vault)** |
-| 💎 **Ethereum (Mainnet)** | `$23.94 USD` | `15 – 60 s` | `$0.00` | `$0.00` | `$0.00` |
-| ₿ **Bitcoin (Ordinals)** | `$29.56 USD` | `10 – 60 m` | `$0.00` | `$0.00` | `$0.00` |
-| 🤖 **Fetch.ai / ASI** | `$0.0065 USD` | `6 – 10 s` | `$0.00` | `$0.00` | `$0.00` |
-| 🌐 **IoTeX (MachineFi)** | `$0.0025 USD` | `5 seconds` | `$0.00` | `$0.00` | `$0.00` |
+| **10,000 TXs / day** | **`$100.00 / day`** | **`$36,500 / year`** | `$25,000 / year` | **`$25,000 Christmas Gift`** |
+| **100,000 TXs / day** | **`$1,000.00 / day`** | **`$365,000 / year`** | `$250,000 / year` | **`$250,000 Christmas Gift`** |
+| **1,000,000 TXs / day** | **`$10,000.00 / day`**| **`$3,650,000 / year`**| `$2,500,000 / year` | **`$2,500,000 Christmas Gift`** |
 
 ---
 
