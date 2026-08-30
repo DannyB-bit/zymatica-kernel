@@ -276,7 +276,17 @@ Generation: O(n) time (seconds, tunable via difficulty)
 | LoRa Modulation | SX1302 HAL, 903.9 MHz, SF9, 125kHz |
 | Identity Namespace | zymatica.space |
 
-### 5.3 File Structure
+### 5.3 Solana On-Chain Cuneiform Anchor & Verification Registry
+
+The on-chain semantic anchor program serves as the global consensus, double-spend nullifier registry, and monetization engine:
+
+* **Active Solana Program ID:** [`BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`](https://explorer.solana.com/address/BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M?cluster=devnet)
+* **Primary Fee Treasury Recipient:** [`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`](https://explorer.solana.com/address/7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS?cluster=devnet)
+* **Deployer & Admin Authority:** [`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`](https://explorer.solana.com/address/7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS?cluster=devnet)
+* **Programmable Protocol Fee:** **150,000 lamports** ($0.00015000$ SOL) per coordinate registration / chirp attestation.
+* **Historical Genesis Baseline (Audit Traceability):** [`2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy`](https://explorer.solana.com/address/2is5Q4rPBpZa2RUCXP7FFdHJUYSVNcW5iTxNuf5mSccy?cluster=devnet) (Milestones 1–3 genesis deployment records preserved in `foundations/solana-cuneiform-milestone1/2/3/` for forensic audit lineage).
+
+### 5.4 File Structure
 
 ```
 ~/.zyMatica/
