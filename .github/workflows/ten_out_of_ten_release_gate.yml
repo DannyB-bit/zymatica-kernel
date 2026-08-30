@@ -66,6 +66,13 @@ jobs:
       - name: Generate evidence manifest
         run: python tools/ten_out_of_ten/evidence_manifest.py "${{ steps.evidence.outputs.dir }}" --repo . --output "${{ steps.evidence.outputs.dir }}/MANIFEST.json"
 
+      - name: Upload evidence bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-evidence-manifest
+          path: ${{ steps.evidence.outputs.dir }}/
+          retention-days: 90
+
       - name: RustSec dependency audit
         shell: bash
         run: |

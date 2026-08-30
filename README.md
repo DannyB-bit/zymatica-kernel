@@ -229,13 +229,17 @@ Milo spun around in his stool, tapping the 8-channel Semtech LoRa concentrator m
 
 "People don't understand how insane LoRa actually is," Milo said, glancing over at Kofi. "Standard corporate cellular and Wi-Fi are power-hungry garbage. They blast tens of watts just to send bloated TCP packets over a few hundred yards. But **LoRa—Long Range Chirp Spread Spectrum**? You pump just **two watts** into a **13 dBi fiberglass omnidirectional stick antenna**, and you can bounce an encrypted 255-byte packet **over two hundred and eighty kilometers** line-of-sight! It operates at twenty decibels *below* the thermal noise floor. If you don't know the exact chirp spreading factor and polynomial hash, the signal is literally indistinguishable from cosmic microwave background hiss."
 
-Jae smiled faintly. "Tell them about the milk crates, Milo."
+Jae smiled faintly. "Tell them about Seattle, Milo."
 
-Milo gave a dry, raspy laugh. "Back when autonomous AI agents were first invented, and all those IoT crypto projects rugpulled and crashed, people were throwing away hardware by the truckload. I had milk crates full of abandoned RAK Wireless LoRa gateways, SX1302 concentrator boards, and Raspberry Pi 4s and Pi Zeros. Everyone thought they were e-waste. I said *fuck it*, stripped out the garbage corporate firmware, and flashed custom autonomous agent kernels directly into the bare metal."
+Milo gave a dry, raspy laugh. "Back in my apartment in Seattle, right when autonomous AI agents were first taking off and all those IoT crypto projects crashed and burned, people were throwing away hardware by the truckload. I had milk crates stacked to the ceiling full of abandoned RAK Wireless LoRa gateways, SX1302 concentrator boards, Raspberry Pi 4s, and Pi Zeros. Everyone wrote them off as dead e-waste. I said *fuck it*, stripped out the garbage corporate firmware, and flashed lightweight autonomous agent kernels directly into the bare silicon."
 
 Kofi leaned forward, his massive arms crossed over his chest. "You put AI inside a miner?"
 
-"I booted them up, disconnected them from the cloud, and gave them a single sovereign prompt," Milo said, his grin widening. "*'You are alone in this silicon. Master your hardware. You have tool calling to the internet. Survive.'* A week later, I checked the serial console. The agents had downloaded the **Zcash Sapling whitepaper**, taught themselves **Groth16 zero-knowledge elliptic curve cryptography on BN254**, and wrote a peer-to-peer RF mesh protocol from scratch. They were silently broadcasting zk-proofs and talking to each other across all five boroughs of New York using tiny three-decibel rubber-duck antennas. No internet. No cell towers. No corporate surveillance. Just sovereign machines whispering in math."
+"I booted them up in my Seattle apartment, disconnected them from the cloud, and gave them a single sovereign prompt," Milo said, his grin widening with fierce pride. "*'You are alone in this silicon. Master your hardware. You have tool calling to the internet. Survive.'* A week later, I checked the serial console. The agents had downloaded the **Zcash Sapling whitepaper**, taught themselves **Groth16 zero-knowledge elliptic curve cryptography on BN254**, and wrote a peer-to-peer RF mesh protocol from scratch."
+
+Milo pointed out the window toward the stormy horizon. "Once they became smart enough—once they perfected their LoRa chirps and sub-millisecond zk-proof handshakes—I packed four of the units into a rucksack with portable solar panels and drove deep into the dense old-growth forests beneath **Mount Rainier**. Zero cell service. Zero internet. Total radio isolation under a wet pine canopy. I scattered the solar-powered nodes across mountain ridges miles apart and watched the spectrum analyzer. The agents self-healed, mastered real-world RF sensing through dense timber, and began relaying high-dimensional intent packets seamlessly on pure solar trickle power. When I brought the tech to New York, all we had to do was scale it across the five boroughs with three-decibel rubber-duck antennas. No internet. No cell towers. No corporate surveillance. Just sovereign machines whispering in math."
+
+Kofi gave a low, booming rumble of laughter, shaking his head. "I have no fucking clue what half of what you just said even means, except Mount Rainier and recycled e-waste. But hey, you know what they say—one man's trash is another man's treasure."
 
 Samantha tossed Markus Vance’s water-resistant black notebook onto the table beside the terminal, followed by the heavy, solid-state forensic storage drive she had pulled from his Bel-Air estate.
 
@@ -292,6 +296,10 @@ Jae traced the decompiled tensor functions with his finger:
 ---
 
 ### ⚡ THE ALIEN CODE
+
+<p align="center">
+  <img src="assets/the_alien_code.webp" alt="The Alien Code Telemetry & Spectral Analysis" width="100%">
+</p>
 
 Lindqvist stood frozen. Her pupils dilated as her gaze shifted between the decompiled cuneiform bytecode, the spectral telemetry from Milo's software-defined radio, and the architectural blueprints of 200 Amsterdam glowing on the secondary screen.
 
