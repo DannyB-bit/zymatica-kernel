@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-30T16:33:54.261661+00:00",
+  "created_utc": "2026-08-30T16:42:57.859996+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -66,13 +66,18 @@
       "path": "wormhole.json",
       "sha256": "016cb201c0d94dd08a4ebbad8e1b140b485aee7a9ad372671e19cc29c7efb39a",
       "size": 6045990
+    },
+    {
+      "path": "z_turnstile_recursive_folding_advancement.json",
+      "sha256": "4d1aa11201fae2d6a21245ccb0dc859d12b33ee4e61db2adf4e16b5bf81c44f1",
+      "size": 1153
     }
   ],
-  "git_head": "87a6d69e8c6ab7434322c788651281f0b2cfd5ce",
-  "git_status_porcelain": "M WHITEPAPER.pdf\n M ZK_LoRa_Whitepaper.pdf\n M crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer/WHITEPAPER_SOLANA.md",
+  "git_head": "d17b5224cbcbe8b39cc92a6cecb44e21120477e8",
+  "git_status_porcelain": "?? docs/NEXT_GEN_CRYPTOGRAPHIC_ADVANCEMENTS.md\n?? evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json\n?? tools/verify_z_turnstile_folding.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "0d37a840982cd0322686523aea3154104cd0bf57017fd5a82a4c5d13e54653e0"
+  "source_tree_sha256": "fa8f7a0bf7b58e900110ffca4d764265304b9162c19075814f886c31772ab56d"
 }
