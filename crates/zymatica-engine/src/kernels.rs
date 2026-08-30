@@ -2732,10 +2732,9 @@ pub fn q1_58_dot4_f32_scaled(
     let mut sum_c = 0.0_f32;
     let mut sum_d = 0.0_f32;
 
-    for col in 0..cols {
+    for (col, &xv) in x.iter().enumerate().take(cols) {
         let byte_idx = col / 4;
         let shift = (col % 4) * 2;
-        let xv = x[col];
 
         let code_a = (row_a_packed[byte_idx] >> shift) & 0x03;
         let code_b = (row_b_packed[byte_idx] >> shift) & 0x03;
