@@ -158,18 +158,21 @@ pie title Cost Per Agent Message (USD in Real-Time Market Benchmark)
     "Bitcoin (Without Invention) : $29.56" : 2956
 ```
 
-### 5.1 Real-Time Cross-Chain & IoT Radio Cost Matrix
-*(Calculated using live market price benchmarks: $\text{SOL} \approx \$145$, $\text{ETH} \approx \$2,800$, $\text{BTC} \approx \$64,000$, $\text{ZEC} \approx \$38$, $\text{HNT DC} = \$0.00001$)*
+### 5.1 Comprehensive IoT, DePIN & Layer 1 Blockchain Real-Time Cost Matrix
+*(Calculated using live market price benchmarks: $\text{SOL} \approx \$145$, $\text{ETH} \approx \$2,800$, $\text{BTC} \approx \$64,000$, $\text{IOTX} \approx \$0.05$, $\text{FET} \approx \$1.30$, $\text{IOTA} \approx \$0.22$, $\text{HNT DC} = \$0.000010$)*
 
-| Blockchain / Network | Protocol Method | Data Transferred | Compute / Gas / Sats / DC | Native Cost | USD Cost (Real-Time) | Latency / Feasibility |
+| Network / Project | Protocol Mechanism | Payload Transferred | Gas / Compute / Credits | Native Network Cost | Real-Time Cost (USD) | Settlement Latency |
 | :--- | :--- | :---: | :--- | :--- | :--- | :--- |
-| ☀️ **Solana (With Your Invention)** | **Language-U Cuneiform Anchor** | **`3 Bytes`** | **`150 CU`** | **`0.000150 SOL`** | **`$0.0217 USD`** *(Paid to Treasury)* | **`~400 ms`** (100% Verified) |
-| ☀️ **Solana (Without Invention)** | Raw JSON / Float Deserialization | `6,144 Bytes` | `165,000 CU` | `0.000850 SOL` | `$0.1232 USD` | `~1,200 ms` (High failure rate) |
-| 🎈 **Helium / LoRa (With Invention)** | **SX1302 1-Chirp Frame** | **`3 Bytes`** | **`1 Data Credit`** | **`1 DC`** | **`$0.000010 USD`** | **`< 50 ms`** (Legal 1% Duty Cycle) |
-| 🎈 **Helium / LoRa (Without Invention)** | Raw Embedding Fragmentation | `6,144 Bytes` | `256 Data Credits` | `256 DC` | `$0.002560 USD` | **`270 seconds`** (Jams Radio Mesh) |
-| 💎 **Ethereum (Without Invention)** | Solidity Smart Contract Calldata | `6,144 Bytes` | `285,000 Gas` (30 Gwei) | `0.00855 ETH` | **`$23.94 USD`** | `12 – 60 seconds` (Prohibitive) |
-| ₿ **Bitcoin (Without Invention)** | Ordinal Inscription / Taproot Envelope | `6,144 Bytes` | `1,850 vB` (25 sat/vB) | `0.000462 BTC` | **`$29.56 USD`** | `10 – 60 minutes` (Unusable for agents) |
-| 🛡️ **Zcash (Without Invention)** | Shielded Orchard Memo Chunking | `6,144 Bytes` | 12 Shielded TXs (512B limit) | `0.00120 ZEC` | **`$0.0456 USD`** | `5 – 15 minutes` (No Smart Contracts) |
+| ☀️ **Solana (Zymatica DNA-GROW)** | **1-TX Programmable Transfer** | **`222 – 381 B`** | **`150 CU`** | **`0.000150 SOL`** | **`$0.0217 USD`** *(To Treasury)* | **`~400 ms`** (Global Finality) |
+| 🎈 **Helium (With Zymatica)** | **LoRaWAN 1-Chirp Packet** | **`3 – 24 Bytes`** | **`1 Data Credit`** | **`1 DC`** | **`$0.000010 USD`** | **`< 50 ms`** (Sub-second Airgap) |
+| 🎈 **Helium (Without Invention)** | LoRa Multi-Packet Slicing | `6,144 Bytes` | `256 Data Credits` | `256 DC` | `$0.002560 USD` | `270 s` (Jams RF Duty Cycle) |
+| 🤖 **Fetch.ai / ASI (FET)** | Cosmos IBC Agent Messaging | `1,200 Bytes` | `25,000 Gas` | `0.00500 FET` | **`$0.0065 USD`** | `6 – 10 seconds` |
+| 🌐 **IoTeX (IOTX MachineFi)** | W3bstream EVM State Anchor | `1,200 Bytes` | `65,000 Gas` | `0.05000 IOTX` | **`$0.0025 USD`** | `5 seconds` (EVM Latency) |
+| 🔗 **IOTA (Tangle / Chrysalis)** | Byte-Cost Storage Deposit | `6,144 Bytes` | `614,400 Micro-IOTA`| `0.61440 IOTA` | **`$0.1350 USD`** *(Deposit)* | `10 – 30 seconds` |
+| ☁️ **Akash Network (AKT)** | DePIN Container Micro-Lease| Container Job | Compute Unit | `0.01000 AKT` | **`$0.0250 USD`** | `15 – 60 seconds` |
+| 🎨 **Render Network (RENDER)**| DePIN Shader GPU Compute | Rendering Block | Work Unit | `0.02000 RENDER`| **`$0.1100 USD`** | `30 – 120 seconds` |
+| 💎 **Ethereum (Mainnet L1)** | Smart Contract Calldata | `6,144 Bytes` | `285,000 Gas` (30 Gwei) | `0.00855 ETH` | **`$23.94 USD`** | `12 – 60 seconds` (Prohibitive) |
+| ₿ **Bitcoin (Ordinals/Taproot)**| Taproot Envelope Inscription | `6,144 Bytes` | `1,850 vB` (25 sat/vB) | `0.000462 BTC` | **`$29.56 USD`** | `10 – 60 minutes` (Slow) |
 
 ---
 
