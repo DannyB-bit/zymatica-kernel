@@ -298,7 +298,9 @@ A sudden, violent flash of understanding swept across her face.
 
 Milo stopped typing. Jae looked up, startled by the intensity in her voice. "Zab? What did you see?"
 
-"Think about Chinese," Lindqvist began rapidly, her voice trembling with electric conviction. "For five thousand years, Chinese civilization used logographic characters instead of phonetic alphabets. In English, you need an entire linear string of sounds to write *'to suddenly achieve profound spiritual enlightenment'*. In Chinese, you write one single character: **悟 (Wù)**. One character unrolls into ten English words! That is a natural semantic compression ratio of ten to one. Information theorists measured it—English is barely four bits per letter, while Chinese is thirteen bits per symbol!"
+"Think about Chinese," Lindqvist began rapidly, her voice trembling with electric conviction. "For five thousand years, Chinese civilization used logographic characters instead of phonetic alphabets. In English, you need an entire linear string of sounds to write *'to suddenly achieve profound spiritual enlightenment'*. That's fifty-two letters and spaces! At four bits per letter, English wastes over two hundred and thirty bits of spelling noise just to describe a single concept. But in Chinese, you write one single character: **悟 (Wù)**. 
+
+"Information theorists measured the Shannon entropy," Lindqvist explained, tapping the glass. "English letters carry barely four bits of information per symbol because they only record dumb sounds. But Chinese packs **thirteen bits of pure concept into one single character**! It transmits the exact same thought in eighteen times less bandwidth! That is an 18-to-1 natural semantic compression ratio over English!"
 
 She lunged forward, grabbing the optical stylus and swiping Vance’s encrypted forensic research folders across the main projector.
 
