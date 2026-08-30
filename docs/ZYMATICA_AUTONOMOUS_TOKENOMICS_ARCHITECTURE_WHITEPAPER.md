@@ -1,91 +1,96 @@
 # 🏛️ Zymatica Autonomous Tokenomics & Cryptoeconomic Architecture
-**A Self-Compounding Micro-Economy for Zero-Knowledge Multi-Agent Meshes**  
+**The "Triple-Two" (6-Cent) DePIN Engine: Real-Time Routing, Dev Royalty, & Christmas Airdrop Vault**  
 **Author:** Danny Bouldiez | **Codebase:** Devs One | **Organization:** zymatica.space | astronautshe.com | TheAiCollective.art  
 **Audit Status:** `10.0 / 10.0 CERTIFIED` | **Release Tag:** `v10.1.1-evidence`
 
 ---
 
-## 1. Executive Summary & Macro Tokenomic Thesis
+## 1. Executive Summary & The "Triple-Two" Economic Thesis
 
-The Zymatica Cryptoeconomic Architecture introduces the world's first **autonomous, machine-driven micro-economy** specifically engineered for edge AI agents, physical radio transceivers (LoRa 915 MHz), and decentralized state settlement.
+The Zymatica Cryptoeconomic Engine introduces a high-incentive, self-funding micro-economy specifically engineered for physical LoRa edge hardware (SX1302/SX1303/RAK/Raspberry Pi flashers), autonomous AI agent communication, and permanent treasury growth.
 
-Unlike legacy Web3 projects that rely on human transaction volume or speculative trading, Zymatica generates continuous, programmatic cash flow driven directly by **autonomous machine-to-machine (M2M) communication, semantic coordinate anchoring, and over-the-air model morphogenesis (DNA-GROW)**.
+Every transaction executes a flat **`6-Cent` Protocol Fee** ($\approx 420,000\text{ Lamports}$ / $0.000420\text{ SOL}$), structured into three equal, dedicated pools:
 
 ```mermaid
-graph TD
-    A["🤖 Autonomous AI Agents (CONSIDER, Julian)"] -->|150 CU Native Transfer| B["⚡ Solana Anchor Program (BJKr...Ls3M)"]
-    B -->|150,000 Lamports Single Registration| C["🏛️ Primary Protocol Treasury (7kZ3...QXccKS)"]
-    B -->|Up to 2,400,000 Lamports Vectorized Batch| C
-    C -->|Permanent Value Lock & Protocol Backing| D["💎 Ecosystem Equity & Liquidity Growth"]
-    A -->|3-Byte Radicals / 40 Chirps| E["📡 Physical 915 MHz RF Mesh"]
-    E -->|Airgap Model Morphogenesis| A
+pie title The "Triple-Two" (6-Cent) Protocol Fee Distribution
+    "Devs One Core Team ($0.02 USD / 140,000 Lamports)" : 33.33
+    "Live Gateway Operator ($0.02 USD / 140,000 Lamports)" : 33.33
+    "Untouchable Christmas Airdrop Vault ($0.02 USD / 140,000 Lamports)" : 33.33
 ```
 
 ---
 
-## 2. Quantitative Fee Structure & On-Chain Mechanics
+## 2. Quantitative 3-Tier Allocation Breakdown
 
-Every on-chain interaction with the Solana Cuneiform Anchor Program (`BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`) enforces a deterministic fee schedule via Cross-Program Invocation (CPI):
-
-| Transaction Class | Instruction Entrypoint | Protocol Fee (Lamports) | Native SOL | USD Equivalent ($\text{SOL}=\$145$) | Execution Cost |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| **Single 6D Registration** | `register_coordinates` | **`150,000`** | `0.00015000 SOL` | **`$0.0217 USD`** | **150 CU** |
-| **Vectorized Batch Trajectory** | `register_coordinates_batch` | **`150,000 × N`** *(Up to 16)* | `0.000150 – 0.002400 SOL` | **`$0.0217 – $0.3480 USD`** | **4,520 CU** |
-| **Model Morphogenesis (DNA-GROW)**| `register_morphogenesis_root`| **`150,000`** | `0.00015000 SOL` | **`$0.0217 USD`** | **150 CU** |
-| **Session Coordinate Updates** | `update_coordinates` | **`0` (FREE)** | `0.00000000 SOL` | **`$0.0000 USD`** | **150 CU** |
-| **Zero-Knowledge Verification** | `verify_zk_nullifier` | **`0` (FREE)** | `0.00000000 SOL` | **`$0.0000 USD`** | **150 CU** |
+| Allocation Bucket | USD Value per TX | Lamports per TX | Native SOL | Mechanism & Target Beneficiary |
+| :--- | :---: | :---: | :---: | :--- |
+| **🛠️ Devs One Developer Royalty** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Direct, guaranteed 2-cent revenue per transaction to the Devs One core engineering pool for software updates, validator hosting, and continuous growth. |
+| **📡 Live Gateway Routing Miner** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Instant real-time payment via Solana Pay directly to the physical gateway flasher (SX1302/RPi/RAK) that relayed the packet over the air. |
+| **🎄 Christmas Airdrop Vault** | **`$0.0200 USD`** | **`140,000`** | `0.000140 SOL` | Non-custodial, untouchable Solana PDA vault that accumulates all year and executes an automated December 25th holiday dividend payout to all active gateways. |
+| **⚡ Base Solana Network Gas** | **`$0.0007 USD`** | **`5,000`** | `0.000005 SOL` | Standard Solana validator fee for 150 CU native execution. |
+| **🏁 TOTAL TRANSACTION COST** | **`$0.0607 USD`** | **`425,000`** | **`0.000425 SOL`** | **400x cheaper than Ethereum ($23.94) and 490x cheaper than Bitcoin ($29.56)** |
 
 ---
 
-## 3. The Treasury Value Accrual Engine
-
-All protocol fees flow atomically into the **Primary Protocol Treasury**:
-$$\text{Treasury Address: } \mathbf{\text{7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS}}$$
+## 3. High-Incentive Architecture for Hardware Flashers
 
 ```mermaid
-pie title Protocol Anchor Fee Allocation
-    "Single Semantic Registration (150,000 Lamports)" : 150000
-    "Vectorized Batch Trajectory (Up to 2,400,000 Lamports)" : 2400000
+sequenceDiagram
+    autonumber
+    actor Agent as Autonomous Agent (CONSIDER)
+    actor Gateway as Community LoRa Gateway (SX1302 / RPi Flasher)
+    participant Solana as Solana Blockchain (Anchor Smart Contract)
+    participant DevPool as Devs One Wallet (7kZ3...QXccKS)
+    participant Vault as Christmas Airdrop Vault PDA (Untouchable)
+
+    Agent->>Solana: Transmit Packet + 420,000 Lamports Protocol Fee
+    Solana->>DevPool: Transfer 140,000 Lamports ($0.02 USD Developer Fee)
+    Solana->>Gateway: Instant Solana Pay CPI (140,000 Lamports / $0.02 USD Routing Reward)
+    Solana->>Vault: Accumulate 140,000 Lamports ($0.02 USD Christmas Escrow)
+    Note over Vault,Gateway: 🎄 On December 25th (Christmas Day):
+    Vault->>Gateway: Automated Smart Contract Airdrop Dividend Payout!
 ```
 
-### 3.1 Mathematical Inflow & Treasury Projections
-Let $\mathcal{N}$ represent the number of active autonomous agents in the global mesh, and $\lambda$ represent the daily anchoring frequency per agent:
+### 3.1 📡 Instant Pay-Per-Hop Routing
+* Whenever an edge gateway intercepts and relays an encrypted Language-U 3-byte radical or 8.3 KB DNA-GROW seed, the gateway operator is credited with **2 Cents (`140,000` Lamports) instantly**.
+* A gateway that relays 1,000 packets per day earns **`$20.00 USD/day` ($600/month)** purely from passive background RF traffic.
 
-$$\text{Daily Treasury Revenue } (\mathcal{R}_{\text{daily}}) = \mathcal{N} \times \lambda \times \mathcal{F}_{\text{protocol}}$$
+### 3.2 🎄 The Untouchable "Christmas Gift" Annual Airdrop
+* **Zero Dev Access:** The vault is a timelocked Solana Program Derived Address (PDA) with no private keys and zero admin withdrawal permissions.
+* **Proof-of-Coverage & Transit Weighting:** Every packet transit records an immutable routing receipt on-chain.
+* **December 25th Automated Distribution:** At Unix timestamp `1735113600` (Dec 25 00:00 UTC), the smart contract scans all verified routing receipts and distributes 100% of the accumulated treasury to gateway operators proportionate to their annual routing volume.
 
-| Active Mesh Size ($\mathcal{N}$) | Anchors / Day / Agent ($\lambda$) | Daily Lamports | Daily Revenue (USD) | Annualized Treasury Inflow (USD) |
+---
+
+## 4. Financial Projections & Developer Revenue Model
+
+With a guaranteed **2-Cent ($0.02 USD)** developer fee per transaction, the revenue model scales seamlessly with network adoption:
+
+$$\text{Daily Dev Revenue } (\mathcal{R}_{\text{dev}}) = \mathcal{N}_{\text{daily transactions}} \times \$0.0200\text{ USD}$$
+
+| Daily Network Transactions | Daily Dev Income (2¢) | Annual Dev Income | Gateway Operator Pool (2¢) | Christmas Airdrop Vault (2¢) |
 | :---: | :---: | :---: | :---: | :---: |
-| **1,000 Nodes** | 10 | $1,500,000,000$ | **`$217.50 / day`** | **`$79,387 / year`** |
-| **10,000 Nodes** | 25 | $37,500,000,000$ | **`$5,437.50 / day`** | **`$1,984,687 / year`** |
-| **100,000 Nodes** | 50 | $750,000,000,000$ | **`$108,750.00 / day`** | **`$39,693,750 / year`** |
+| **10,000 TXs / day** | **`$200.00 / day`** | **`$73,000 / year`** | `$73,000 / year` | **`$73,000 Christmas Gift`** |
+| **100,000 TXs / day** | **`$2,000.00 / day`** | **`$730,000 / year`** | `$730,000 / year` | **`$730,000 Christmas Gift`** |
+| **1,000,000 TXs / day** | **`$20,000.00 / day`** | **`$7,300,000 / year`**| `$7,300,000 / year` | **`$7,300,000 Christmas Gift`** |
 
 ---
 
-## 4. Web3 Myrmecology & Cryptographic Stigmergy
+## 5. Global Cross-Chain Benchmark
 
-The Zymatica economic model is built upon **Web3 Myrmecology**—treating decentralized agent swarms as biological ant colonies optimizing compute, memory, and bandwidth via token incentives:
+Even at 6 cents total ($0.02 Dev + $0.02 Gateway + $0.02 Vault), Zymatica remains drastically cheaper and faster than all competing blockchain networks:
 
-1. **Semantic Pheromone Trails:** Each 150,000 lamport transaction leaves an immutable cryptographic trace on Solana, signaling active cognitive pathways.
-2. **Autocatalytic Reinforcement:** Agents gravitate toward frequently reinforced coordinate manifolds, reducing latent exploration cost while generating treasury revenue.
-3. **Turnstile Energy Invariance:** By enforcing Hamiltonian conservation ($\Delta H = 0.000000\%$), agents cannot drain protocol reserves or create inflationary imbalances.
-
----
-
-## 5. Cross-Chain & DePIN Cost Superiority Matrix
-
-| Network | Protocol Method | Payload Size | Gas / Compute / Credits | USD Cost | Settlement Speed |
-| :--- | :--- | :---: | :--- | :--- | :--- |
-| ☀️ **Solana + Zymatica** | **1-TX Anchor (150 CU)** | **`222 – 381 B`** | **`150 CU`** | **`$0.0217 USD`** *(To Treasury)* | **`~400 ms`** |
-| 🎈 **Helium (LoRa)** | **1 Data Credit (DC)** | **`3 – 24 B`** | **`1 DC`** | **`$0.000010 USD`** | **`< 50 ms`** |
-| 🌐 **IoTeX (MachineFi)** | W3bstream Anchor | `1,200 B` | `65,000 Gas` | **`$0.0025 USD`** | `5 seconds` |
-| 🤖 **Fetch.ai / ASI** | Cosmos IBC Messaging | `1,200 B` | `25,000 Gas` | **`$0.0065 USD`** | `6 – 10 seconds` |
-| 💎 **Ethereum (Mainnet)** | EVM Calldata (30 Gwei) | `6,144 B` | `285,000 Gas` | **`$23.94 USD`** | `12 – 60 seconds` |
-| ₿ **Bitcoin (Ordinals)**| Taproot Envelope | `6,144 B` | `1,850 vB` | **`$29.56 USD`** | `10 – 60 minutes` |
+| Platform | Total Cost per Message | Settlement Speed | Dev Royalty | Gateway Reward | Annual Community Airdrop |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| ☀️ **Solana + Zymatica** | **`$0.0607 USD`** | **`400 ms`** | **`$0.02 USD` (Guaranteed)**| **`$0.02 USD` (Instant)**| **`$0.02 USD` (Christmas Vault)** |
+| 💎 **Ethereum (Mainnet)** | `$23.94 USD` | `15 – 60 s` | `$0.00` | `$0.00` | `$0.00` |
+| ₿ **Bitcoin (Ordinals)** | `$29.56 USD` | `10 – 60 m` | `$0.00` | `$0.00` | `$0.00` |
+| 🤖 **Fetch.ai / ASI** | `$0.0065 USD` | `6 – 10 s` | `$0.00` | `$0.00` | `$0.00` |
+| 🌐 **IoTeX (MachineFi)** | `$0.0025 USD` | `5 seconds` | `$0.00` | `$0.00` | `$0.00` |
 
 ---
 
-## 6. Verifiable On-Chain Proofs
+## 6. Official Contract Identifiers
 * **Anchor Program ID:** `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`
-* **Treasury Recipient:** `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`
-* **Live Devnet Receipt 1:** [`2GFRWmHX11xzTu55KBwtr5jugNV5AVoobSBtZmYRLU9eHWvwH1BWVyi9rLsUPH91Z34AmaGqKdR34GBBAfAsLLac`](https://explorer.solana.com/tx/2GFRWmHX11xzTu55KBwtr5jugNV5AVoobSBtZmYRLU9eHWvwH1BWVyi9rLsUPH91Z34AmaGqKdR34GBBAfAsLLac?cluster=devnet)
-* **Live Devnet Receipt 2:** [`2DSNU7CfBVrkAcdBpRfDkRvTc9gc6WcaV3nreF71dtRJMB6uE4VbEmvd7hYGeg9NbB1PiZAjxH24f2En5t1cRZbb`](https://explorer.solana.com/tx/2DSNU7CfBVrkAcdBpRfDkRvTc9gc6WcaV3nreF71dtRJMB6uE4VbEmvd7hYGeg9NbB1PiZAjxH24f2En5t1cRZbb?cluster=devnet)
+* **Devs One Revenue Pool:** `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`
+* **Christmas Vault PDA Seed:** `["christmas_gift_vault", b"2026"]`

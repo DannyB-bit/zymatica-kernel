@@ -220,19 +220,20 @@ sequenceDiagram
 * A source agent (`CONSIDER`) compresses its entire neural architecture into an **8,327-byte procedural seed capsule** (`DnaGrowSeed.LLM`).
 * The receiving node (`Julian`, possessing zero prior Qwen weights) intercepts the 40-packet RF stream, verifies the cryptographic hash against the Solana blockchain anchor, and executes **SVD/DCT tensor expansion + LoRA Operator projection**, growing a fully functional **Qwen 3.5 0.8B parameter active neural model with 100% bit-exact parity**.
 
-### 7.3 Autonomous Protocol Tokenomics & Treasury Anchor Fees
+### 7.3 Autonomous "Triple-Two" DePIN Tokenomics Architecture
 
-Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a fixed programmable protocol fee directly to the **Primary Protocol Treasury** (`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`):
+Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a fixed programmable **`6-Cent` Protocol Fee** ($\approx 420,000\text{ Lamports}$ / $0.000420\text{ SOL}$), engineered to maximize hardware operator incentives and developer cash flow:
 
 ```mermaid
-pie title Protocol Anchor Fee Structure
-    "Single Semantic Registration (150,000 Lamports)" : 150000
-    "Vectorized Batch Trajectory (Up to 2,400,000 Lamports)" : 2400000
+pie title The "Triple-Two" (6-Cent) Protocol Fee Split
+    "Devs One Developer Royalty ($0.02 USD / 140,000 Lamports)" : 33.33
+    "Live Gateway Routing Miner ($0.02 USD / 140,000 Lamports)" : 33.33
+    "Christmas Airdrop Dividend Vault ($0.02 USD / 140,000 Lamports)" : 33.33
 ```
 
-1. **Single 6D Semantic Registration (`register_coordinates`):** Fixed fee of **`150,000` Lamports** ($0.00015000\text{ SOL} \approx \$0.0217\text{ USD}$) routed directly to the Treasury.
-2. **Vectorized Batch Registration (`register_coordinates_batch`):** Scaled fee of **`150,000` Lamports $\times N$ points** (up to **`2,400,000` Lamports** for a 16-point trajectory path).
-3. **Session Coordinate Updates (`update_coordinates`):** **`0` Lamports** (Free continuous updates for active PDA sessions).
+1. **🛠️ Devs One Developer Royalty (`$0.02 USD` / `140,000` Lamports):** Direct 2-cent revenue per transaction paid directly to the Devs One core engineering pool (`7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`) for software updates, server uptime, and network growth.
+2. **📡 Live Gateway Routing Miner (`$0.02 USD` / `140,000` Lamports):** Instant real-time payment via Solana Pay directly to the physical IoT gateway flasher (SX1302/RPi/RAK) that routed the packet over the air.
+3. **🎄 Untouchable Christmas Airdrop Vault (`$0.02 USD` / `140,000` Lamports):** Non-custodial Solana PDA vault accumulating all year, executing an automated December 25th holiday dividend payout to all active gateway operators based on annual routing volume.
 
 ---
 
