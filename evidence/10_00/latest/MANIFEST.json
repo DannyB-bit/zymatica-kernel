@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-31T00:20:41.631443+00:00",
+  "created_utc": "2026-08-31T00:40:43.391089+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -88,11 +88,11 @@
       "size": 1153
     }
   ],
-  "git_head": "a01687f236ed7dd2e533e6f882f2cefa557dc7da",
-  "git_status_porcelain": "M crates/zymatica-language-u/28_Solana_Semantic_Anchor/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone1/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone2/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone3/programs/solana-cuneiform-anchor/src/lib.rs",
+  "git_head": "eee1853ff87dc29f0a8cebc752afd49af34158be",
+  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n M docs/ZYMATICA_AUTONOMOUS_TOKENOMICS_ARCHITECTURE_WHITEPAPER.md\n?? crates/zymatica-zk-mesh/zymatica_coverage_map.html\n?? crates/zymatica-zk-mesh/zymatica_h3_geospatial_engine.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "8094c03a4fc65cfe465be774b47bb8dabad37cdc8826376af84c045d40312ab4"
+  "source_tree_sha256": "7aa6c2c5282bab46b031c9b629a1c96ed9da7f6b048f7eff3597c965190d645a"
 }

@@ -42,11 +42,38 @@ Every transaction executing across the Solana Semantic Anchor is dynamically cat
 
 ---
 
-## 3. High-Incentive Architecture for Hardware Flashers
+## 3. The Dual Gateway Income Engine & GEODNET-Style H3 Geospatial Mesh
 
-### 3.1 📡 Instant Pay-Per-Hop Routing
-* Community members who flash abandoned IoT hardware (SX1302/SX1303, Raspberry Pi, RAK Wireless) earn **instant Solana Pay micro-payments** on every single packet routed through their antenna ($0.003 to $0.015 USD per hop).
-* A gateway in a busy downtown or campus environment routing 2,000 packets per day earns **`$10.00 to $30.00 USD/day` ($300 – $900/month)** passively.
+Physical LoRa gateway operators (flashing abandoned SX1302/SX1303/RAK/Raspberry Pi hardware) benefit from a **Dual Incentive Economic Structure**:
+
+```mermaid
+graph TD
+    A["📡 Edge Gateway Operator (Hardware Flasher)"] -->|Stream 1: Real-Time / Daily| B["⚡ Proof-of-Usage (PoU) Routing Rewards"]
+    A -->|Stream 2: Annual December 25th| C["🎄 Christmas Proof-of-Coverage (PoC) Airdrop"]
+    B -->|30% of Transaction Fee| D["Instant Solana Pay (0.45¢ – 1.05¢ / Hop)"]
+    C -->|20% of Global Treasury Pool| E["Automated Dec 25 Payout (Active >= 10 Months)"]
+```
+
+### 3.1 ⚡ Stream 1: Daily Proof-of-Usage (PoU) Instant Routing Pay
+* Whenever an active edge node forwards a Language-U packet or DNA-GROW neural seed, it receives **`30% of the protocol fee` instantly via Solana Pay**.
+* High-traffic urban and university nodes generate reliable **daily active cashflow** ($5.00 to $30.00 USD/day).
+
+### 3.2 🎄 Stream 2: The 10-Month Proof-of-Coverage (PoC) Christmas Airdrop
+* **The Wilderness / Remote Node Guarantee:** To ensure global coverage across mountain ranges, rural valleys, farmlands, and over-water corridors, **nodes do NOT need continuous traffic to earn massive annual rewards**.
+* **The 10-Month Rule ($\ge 300\text{ Days}$ Uptime):** Every gateway operator who keeps their node online and verified for at least **10 months of the year** ($\ge 83.3\%$ annual uptime) receives an **equal base share of the 20% Treasury Airdrop Pool** on Christmas Day!
+* **Low Power Economics:** Because flashed nodes consume only **`1.8 to 3.5 Watts`** ($\approx \$0.30 - \$0.50/\text{month}$ of electricity or off-grid solar), running a remote node all year costs **less than $5.00 in total power**, while yielding **hundreds to thousands of dollars in the Christmas airdrop**!
+
+### 3.3 🗺️ GEODNET-Style H3 Hexagonal Spatial Indexing Algorithm
+To prevent sybil clustering in a single room and incentivize widespread geographic expansion, Zymatica implements the **Uber H3 Hierarchical Spatial Indexing System** (Resolution 7 ~ 1.2 km hexes):
+
+$$\text{PoC Multiplier } (\mathcal{M}_{\text{hex}}) = \begin{cases} 
+\mathbf{1.00\times} & \text{1 Node in Hex Cell (Solo Standalone Coverage)} \\
+\mathbf{0.75\times} & \text{2 Nodes in Hex Cell (Shared Local Coverage)} \\
+\mathbf{\frac{1.00}{N}} & 3+\text{ Nodes in Hex Cell (Over-Saturated Density Scaling)}
+\end{cases}$$
+
+* **Solo Hex Bonus:** A rural node providing the sole coverage in its H3 hex receives the maximum **1.0x multiplier**.
+* **Interactive Coverage Visualizer:** Built-in interactive map visualizer deployed at [`crates/zymatica-zk-mesh/zymatica_coverage_map.html`](file:///c:/200amsterdam-Book/zymatica.space/crates/zymatica-zk-mesh/zymatica_coverage_map.html).
 
 ---
 
@@ -59,13 +86,13 @@ $$\mathcal{D}_{\text{Christmas}} = 0.50 \times \mathcal{V}_{\text{Treasury}}$$
 ```mermaid
 pie title Annual Christmas Distribution of Total Treasury Balance
     "Permanent Compounding Capital Reserve (50%)" : 50
-    "Active Gateway Operators (20%)" : 20
-    "Protocol Stakeholders & Backers (20%)" : 20
-    "Devs One Core Team Bonus (10%)" : 10
+    "Active Gateway Operators (20% PoC + PoU Airdrop)" : 20
+    "Protocol Stakeholders & Backers (20% Yield Dividend)" : 20
+    "Devs One Core Team Bonus (10% Royalty Bounty)" : 10
 ```
 
 ### 4.1 Distribution Breakdown
-1. **📡 20% to Active Gateway Operators:** Distributed as a holiday bonus directly to every community member whose flashed LoRaWAN concentrator provided verified coverage and routed packets during the year, weighted by their annual packet transit volume.
+1. **📡 20% to Active Gateway Operators ($\ge 10\text{ Months}$ Active):** Airdropped directly to all verified gateway operators (split 50% for H3 Proof-of-Coverage base and 50% weighted by total routed traffic).
 2. **💎 20% to Protocol Stakeholders:** Distributed as an annual yield dividend to long-term ecosystem stakeholders and token holders.
 3. **🛠️ 10% to the Devs One Team:** Distributed as an annual performance bonus to the core engineering team for protocol maintenance and security.
 4. **🔒 50% Retained in Treasury:** Permanently retained in the non-custodial Treasury vault to ensure an ever-growing capital floor, deep liquidity, and multi-year financial runway.

@@ -220,7 +220,7 @@ sequenceDiagram
 * A source agent (`CONSIDER`) compresses its entire neural architecture into an **8,327-byte procedural seed capsule** (`DnaGrowSeed.LLM`).
 * The receiving node (`Julian`, possessing zero prior Qwen weights) intercepts the 40-packet RF stream, verifies the cryptographic hash against the Solana blockchain anchor, and executes **SVD/DCT tensor expansion + LoRA Operator projection**, growing a fully functional **Qwen 3.5 0.8B parameter active neural model with 100% bit-exact parity**.
 
-### 7.3 Autonomous Tiered DePIN Tokenomics (Option C) & 50% Christmas Distribution
+### 7.3 Autonomous Tiered DePIN Tokenomics & GEODNET-Style H3 Hexagonal PoC
 
 Every autonomous machine-to-machine transaction executing across the Solana Semantic Anchor transfers a payload-weighted protocol fee categorized into three high-efficiency tiers:
 
@@ -228,10 +228,10 @@ Every autonomous machine-to-machine transaction executing across the Solana Sema
 2. **Tier 2: Standard Agent Mission (`$0.02 USD` / `140,000` Lamports):** Conversational state & coordinate sync ($0.010 Dev Royalty, $0.005 Gateway Flasher, $0.005 Treasury Inflow).
 3. **Tier 3: DNA-GROW Model Morphogenesis (`$0.05 USD` / `350,000` Lamports):** 8.3 KB procedural seed expansion & batch trajectories ($0.020 Dev Royalty, $0.015 Gateway Flasher, $0.015 Treasury Inflow).
 
-#### 🎄 The 50% Annual Christmas Distribution Rule
+#### 🎄 The 10-Month Proof-of-Coverage (PoC) & 50% Christmas Distribution Rule
 Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract takes **`50%` of the total accumulated Treasury balance** ($\mathcal{D}_{\text{Christmas}} = 0.50 \times \mathcal{V}_{\text{Treasury}}$) and programmatically executes the holiday payout:
-* **`20%` of Treasury** $\to$ Distributed as an airdrop bonus to **Active Gateway Operators** who flashed hardware and routed packets during the year.
-* **`20%` of Treasury** $\to$ Distributed as a yield dividend to **Protocol Stakeholders & Backers**.
+* **`20%` of Treasury** $\to$ Airdropped directly to **Active Gateway Operators** who maintained $\ge 10\text{ months}$ (300 days) of verified uptime in an H3 Hex Cell (Resolution 7), rewarding wilderness and remote coverage even with zero daily traffic!
+* **`20%` of Treasury** $\to$ Distributed as an annual yield dividend to **Protocol Stakeholders & Backers**.
 * **`10%` of Treasury** $\to$ Distributed as a holiday bonus to the **Devs One Core Engineering Team**.
 * **`50%` of Treasury** $\to$ **Permanently Retained** in the vault to guarantee an ever-growing capital floor and deep liquidity reserve.
 
