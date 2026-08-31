@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-31T17:33:25.467124+00:00",
+  "created_utc": "2026-08-31T17:34:48.221899+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -108,14 +108,14 @@
       "size": 224
     }
   ],
-  "git_head": "99a74e2909f78e073c786710dd84c2dd5053cad4",
-  "git_status_porcelain": "M .github/workflows/production_verification_ci.yml\n M .github/workflows/ten_out_of_ten_release_gate.yml\n M crates/zymatica-zk-mesh/groth16/src/ceremony.rs\n M pyproject.toml\n M tools/ten_out_of_ten/claims_audit.py\n M tools/ten_out_of_ten/evidence_manifest.py\n M verify_release.py\n?? crates/zymatica-agent-harness/zymatica_cli/",
-  "git_tree": "0a7fc63f2c4f33379e033c79bbd87957174a8aeb",
+  "git_head": "abdecc8f1f5490bfbaf34c937f72229c3176dea5",
+  "git_status_porcelain": "",
+  "git_tree": "d336feb4a62c99364608e4f64470cf25d7425760",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "99a74e2909f78e073c786710dd84c2dd5053cad4",
-  "source_git_tree_sha": "0a7fc63f2c4f33379e033c79bbd87957174a8aeb",
-  "source_tree_sha256": "b262ea06661109f493ffab63bfffc22d7e58972ea94dcf32df73139cf4dccaff"
+  "source_commit_sha": "abdecc8f1f5490bfbaf34c937f72229c3176dea5",
+  "source_git_tree_sha": "d336feb4a62c99364608e4f64470cf25d7425760",
+  "source_tree_sha256": "e8d63ce2bac78c27d7902caf994d59002b3769761898d7cf2f464a9622320e4f"
 }
