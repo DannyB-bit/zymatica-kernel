@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: dtolnay/rust-toolchain@master
+      - uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: 1.98.0
           components: rustfmt, clippy
@@ -32,6 +32,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Python Package Install & Import Smoke Test
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -c "import sys; sys.path.insert(0, 'crates/zymatica-agent-harness'); import zymatica_cli; print('zymatica_cli ok')"
 
       - name: Resolve evidence directory
         id: evidence

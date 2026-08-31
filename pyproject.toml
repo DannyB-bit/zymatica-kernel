@@ -19,3 +19,7 @@ classifiers = [
 dependencies = [
     "numpy>=1.20.0"
 ]
+
+[tool.setuptools.packages.find]
+where = ["crates/zymatica-agent-harness", "."]
+include = ["zymatica*", "crates*"]

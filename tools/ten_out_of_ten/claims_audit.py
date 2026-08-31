@@ -109,12 +109,8 @@ def audit_numerical_metrics(root: Path, registry: Dict[str, Dict[str, Any]]) -> 
                         "reason": f"Failed to parse evidence JSON {rel_path}: {e}",
                     })
             else:
-                # For non-JSON files (e.g. .lean, .py), verify content exists
-                content = ef.read_text(encoding="utf-8")
+                # Non-JSON evidence files only register presence; they do NOT synthesize fake metric values
                 combined_evidence[f"file_exists_{ef.name}"] = True
-                combined_evidence["proof_valid"] = True if ("theorem" in content or "def " in content) else False
-                combined_evidence["kat_verified"] = True if "keccak256" in content else False
-                combined_evidence["recovery_exact"] = True if "erasure" in content or "fec" in content.lower() else False
 
         # Compare registry metrics to evidence metrics: METRIC MUST EXIST -> OTHERWISE FAIL -> THEN COMPARE
         for metric_name, declared_val in metrics.items():

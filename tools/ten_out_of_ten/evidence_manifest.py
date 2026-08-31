@@ -27,16 +27,23 @@ def sha256_file(path: Path) -> str:
 
 
 def compute_source_tree_hash(root: Path) -> str:
-    """Compute deterministic SHA-256 tree hash over versioned source files."""
+    """Compute deterministic SHA-256 tree hash over tracked versioned source files using git ls-files."""
     h = hashlib.sha256()
-    tracked_exts = {".rs", ".py", ".toml", ".json", ".lean", ".cpp", ".hpp", ".h", ".c"}
-    skip_dirs = {".git", "target", "node_modules", "build", ".zymatica_10_00_backup", "zymatica_10_00_bundle"}
-    for p in sorted(root.rglob("*")):
-        if p.is_file() and p.suffix in tracked_exts:
-            if not any(part in skip_dirs for part in p.parts):
-                rel = p.relative_to(root).as_posix()
-                h.update(rel.encode("utf-8"))
-                h.update(sha256_file(p).encode("utf-8"))
+    try:
+        res = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True)
+        tracked_files = res.stdout.splitlines()
+    except Exception:
+        # Fallback if git not available
+        tracked_files = []
+
+    skip_prefixes = ("evidence/", "target/", "node_modules/", "build/", ".git/")
+    for rel_str in sorted(tracked_files):
+        if rel_str.startswith(skip_prefixes):
+            continue
+        p = root / rel_str
+        if p.is_file():
+            h.update(rel_str.encode("utf-8"))
+            h.update(sha256_file(p).encode("utf-8"))
     return h.hexdigest()
 
 
@@ -82,12 +89,17 @@ def main() -> int:
         )
 
     source_tree_sha = compute_source_tree_hash(repo)
+    git_head = command_output(["git", "rev-parse", "HEAD"], repo)
+    git_tree = command_output(["git", "rev-parse", "HEAD^{tree}"], repo)
 
     payload = {
         "schema": "zymatica.evidence-manifest.v2",
         "created_utc": datetime.now(timezone.utc).isoformat(),
+        "source_commit_sha": git_head,
+        "source_git_tree_sha": git_tree,
         "source_tree_sha256": source_tree_sha,
-        "git_head": command_output(["git", "rev-parse", "HEAD"], repo),
+        "git_head": git_head,
+        "git_tree": git_tree,
         "git_status_porcelain": command_output(["git", "status", "--porcelain"], repo),
         "rustc": command_output(["rustc", "--version"], repo),
         "cargo": command_output(["cargo", "--version"], repo),

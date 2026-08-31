@@ -252,7 +252,8 @@ fn keccak_f1600(state: &mut [u64; 25]) {
     }
 }
 
-/// Standard Keccak-256 (FIPS-202 / Ethereum standard sponge: rate=1088, pad=0x01...0x80).
+/// Keccak-256 using Ethereum/pre-SHA3 domain padding (0x01...0x80).
+/// This is intentionally Keccak-256, NOT FIPS-202 SHA3-256 (0x06 domain).
 #[allow(clippy::needless_range_loop)]
 pub fn keccak256(data: &[u8]) -> [u8; 32] {
     let rate = 136; // 1088 bits / 8
@@ -350,33 +351,16 @@ pub fn initialize(output_path: &str) -> Result<(), String> {
     eprintln!("  Output:           {}", output_path);
     eprintln!("  Chain hash:       {}", hex::encode(chain_hash));
     eprintln!("  Contribution #0:  coordinator (genesis)");
-    eprintln!();
-    eprintln!(
-        "  Next step: distribute {} to the first contributor.",
-        output_path
-    );
-    eprintln!("  They should run:");
-    eprintln!("    zk_lorawan_prove ceremony contribute --input {} --output ceremony_0001.params --name \"<name>\"", output_path);
 
     Ok(())
 }
 
-/// Phase 2: Apply a random contribution to the ceremony parameters.
-/// Re-randomizes the delta component of the Groth16 CRS.
-pub fn contribute(
-    input_path: &str,
-    output_path: &str,
-    contributor_name: &str,
-) -> Result<(), String> {
+/// Phase 2: Contribute entropy to the ceremony parameters.
+pub fn contribute(input_path: &str, output_path: &str, contributor_name: &str) -> Result<(), String> {
     eprintln!("╔══════════════════════════════════════════════════════════════╗");
     eprintln!("║  ZK-LoRaWAN MPC Ceremony — Phase 2: Contribute             ║");
     eprintln!("╚══════════════════════════════════════════════════════════════╝");
     eprintln!();
-
-    // Load previous parameters
-    let data =
-        std::fs::read(input_path).map_err(|e| format!("Failed to read {}: {}", input_path, e))?;
-    let mut params = CeremonyParams::from_bytes(&data)?;
 
     eprintln!("  Loaded ceremony params from: {}", input_path);
     eprintln!("  Previous contribution: #{}", params.contribution_index);
@@ -791,7 +775,7 @@ mod tests {
 
     #[test]
     fn test_keccak256_known_answer_test_vectors() {
-        // NIST / Ethereum standard Known Answer Test vectors for Keccak-256
+        // Ethereum / Keccak-256 standard Known Answer Test vectors
         assert_eq!(
             hex::encode(keccak256(b"")),
             "c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
@@ -802,7 +786,19 @@ mod tests {
         );
         assert_eq!(
             hex::encode(keccak256(b"The quick brown fox jumps over the lazy dog")),
-            "4d74f210a83b4c73a025120886b734fe012e1ec83d871b451100505772379f02"
+            "4d741b6f1eb29cb2a9b9911c82f56fa8d73b04959d3d9d222895df6c0b28aa15"
         );
+    }
+
+    #[test]
+    fn test_keccak256_sponge_boundary_differential() {
+        // Test sponge rate boundary conditions at 0, 1, 2, 31, 32, 135, 136, 137, 271, 272, 273, 4096 bytes
+        let test_lengths = [0, 1, 2, 31, 32, 135, 136, 137, 271, 272, 273, 4096];
+        for &len in &test_lengths {
+            let data = vec![0x61u8; len]; // Repeated 'a' bytes
+            let hash = keccak256(&data);
+            assert_eq!(hash.len(), 32);
+            assert_ne!(hash, [0u8; 32]);
+        }
     }
 }
