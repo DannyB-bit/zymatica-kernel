@@ -138,25 +138,28 @@ class ZymaticaH3GeospatialEngine:
 
         payouts = {}
         if eligible_nodes:
-            # Base Coverage Share (50% of Gateway Pool) + Traffic Share (50% of Gateway Pool)
-            base_poc_pool = gateway_pool // 2
-            traffic_pou_pool = gateway_pool - base_poc_pool
+            # Calculate total weighted uptime score across all eligible nodes
+            # Score_i = (uptime_days / 365) * hex_density_scale
+            node_scores = {}
+            for node in eligible_nodes:
+                uptime_ratio = min(1.0, node["total_uptime_days"] / 365.0)
+                density_scale = self.calculate_hex_density_scale(node["hex_id"])
+                node_scores[node["node_id"]] = uptime_ratio * density_scale
 
-            per_node_poc_base = base_poc_pool // len(eligible_nodes)
-            total_traffic = sum(n["total_packets_routed"] for n in eligible_nodes) or 1
+            total_network_score = sum(node_scores.values()) or 1.0
 
             for node in eligible_nodes:
-                density_scale = self.calculate_hex_density_scale(node["hex_id"])
-                traffic_share = int((node["total_packets_routed"] / total_traffic) * traffic_pou_pool)
-                node_total_payout = int((per_node_poc_base * density_scale) + traffic_share)
+                score = node_scores[node["node_id"]]
+                node_payout_lamports = int((score / total_network_score) * gateway_pool)
                 
                 payouts[node["node_id"]] = {
                     "wallet_address": node["wallet_address"],
                     "hex_id": node["hex_id"],
-                    "base_poc_payout_lamports": int(per_node_poc_base * density_scale),
-                    "traffic_pou_payout_lamports": traffic_share,
-                    "total_christmas_payout_lamports": node_total_payout,
-                    "total_usd_estimate": round((node_total_payout / 1_000_000_000) * 145.0, 2)
+                    "uptime_days": node["total_uptime_days"],
+                    "uptime_pct": round((node["total_uptime_days"] / 365.0) * 100.0, 1),
+                    "hex_density_multiplier": round(self.calculate_hex_density_scale(node["hex_id"]), 2),
+                    "total_christmas_payout_lamports": node_payout_lamports,
+                    "total_usd_estimate": round((node_payout_lamports / 1_000_000_000) * 145.0, 2)
                 }
 
         return {
