@@ -1,5 +1,9 @@
 {
-  "timestamp": 1788108151.750117,
+  "timestamp": 1788163759.0740733,
+  "conservation_delta_pct": 0.0,
+  "turnstile_status": "CONSERVED",
+  "final_folded_proof_bytes": 128,
+  "total_hops_folded": 5,
   "invention_1_turnstile": {
     "turnstile_status": "CONSERVED",
     "energy_in": 1.342684,
@@ -9,7 +13,7 @@
   },
   "invention_2_recursive_folding": {
     "total_hops_folded": 5,
-    "folding_latency_ms": 1.456,
+    "folding_latency_ms": 2.363,
     "final_folded_proof_bytes": 128,
     "constant_proof_hex": "28155ee499e6f905f8f96a5591b33867...",
     "hop_lineage": [
@@ -40,5 +44,5 @@
       }
     ]
   },
-  "verdict": "NEXT_GEN_ADVANCEMENTS_FORMALLY_VALIDATED"
+  "verdict": "SIMULATION_PROTOTYPES_EMPIRICALLY_VALIDATED"
 }

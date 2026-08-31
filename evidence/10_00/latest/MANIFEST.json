@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-31T05:49:34.564248+00:00",
+  "created_utc": "2026-08-31T08:14:39.585383+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -14,8 +14,8 @@
     },
     {
       "path": "cuneiform_semantic.json",
-      "sha256": "7d28d351c19f2e728f6cf9117a1784f469f094deb62f15a32154e42521b9e68a",
-      "size": 360
+      "sha256": "560e067dd6d2711fb78b557af5be4d631115a3928b13a8ccc83199830ac62a73",
+      "size": 474
     },
     {
       "path": "dna_grow_transmission_experiment_receipt.json",
@@ -28,9 +28,24 @@
       "size": 421
     },
     {
+      "path": "fec.json",
+      "sha256": "6ee9a26f4f014899b5215ec0535e461b1b2a02a8670690df07a809dbc14e1738",
+      "size": 132
+    },
+    {
+      "path": "groth16.json",
+      "sha256": "de819897f45e6a07504ba721363a967c6ea03185b81e451f1b1610ed3be64216",
+      "size": 172
+    },
+    {
       "path": "hyper_kv.json",
       "sha256": "1c7ebf40555e193b9e4f24f3bfbd00fff9ec31ce011be485aa789c0ef8b22289",
       "size": 395
+    },
+    {
+      "path": "lean4_theorem.json",
+      "sha256": "d9239d09c79a8b91353e3fd4be0416ea0f16ed3b15d90039241ee12877370963",
+      "size": 166
     },
     {
       "path": "license_audit.json",
@@ -84,15 +99,20 @@
     },
     {
       "path": "z_turnstile_recursive_folding_advancement.json",
-      "sha256": "4d1aa11201fae2d6a21245ccb0dc859d12b33ee4e61db2adf4e16b5bf81c44f1",
-      "size": 1153
+      "sha256": "c639c57f7f324c53ee0273f215c1a5cf765596b020785745e23bea5b8bd74e8c",
+      "size": 1290
+    },
+    {
+      "path": "zhqspec.json",
+      "sha256": "8d7e31ccc69b33b2281784a537e95b744149f3bca2b8a65bddab6ed91d4731bf",
+      "size": 224
     }
   ],
-  "git_head": "f7813409594b49323392ce531f507ecdc56c8c58",
-  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/programs/solana-cuneiform-anchor/src/lib.rs\n M docs/ZYMATICA_AUTONOMOUS_TOKENOMICS_ARCHITECTURE_WHITEPAPER.md\n M foundations/solana-cuneiform-milestone1/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone2/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone3/programs/solana-cuneiform-anchor/src/lib.rs\n?? crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md\n?? crates/zymatica-zk-mesh/zymatica_wolfpack_mesh.py",
+  "git_head": "10266252669ec21c71e3ee150f8f7bc91dc937ce",
+  "git_status_porcelain": "M LICENSES.md\n M claims/claims.jsonl\n M crates/zymatica-zk-mesh/groth16/src/ceremony.rs\n M evidence/10_00/latest/cuneiform_semantic.json\n M evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json\n M tools/ten_out_of_ten/claims_audit.py\n M tools/ten_out_of_ten/semantic_cuneiform_eval.py\n M tools/verify_z_turnstile_folding.py\n M verify_release.py\n?? evidence/10_00/latest/fec.json\n?? evidence/10_00/latest/groth16.json\n?? evidence/10_00/latest/lean4_theorem.json\n?? evidence/10_00/latest/zhqspec.json",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "f0052e17c8a36bb24680ddda779e35aba38a5f9e394b4a797fc226059b96c435"
+  "source_tree_sha256": "b02b8be265c23152e6cc5ae6270f5f9644b171322d56e2c8011f5b6532b4f2a1"
 }

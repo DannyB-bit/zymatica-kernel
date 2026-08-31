@@ -56,6 +56,21 @@ def get_git_info(root: Path) -> Dict[str, str]:
     return info
 
 
+def flatten_nested_json(data: Any, prefix: str = "") -> Dict[str, Any]:
+    """Recursively flattens nested JSON dictionaries and records both bare keys and path keys."""
+    flattened: Dict[str, Any] = {}
+    if isinstance(data, dict):
+        for k, v in data.items():
+            flattened[k] = v
+            nested = flatten_nested_json(v, f"{prefix}.{k}" if prefix else k)
+            flattened.update(nested)
+    elif isinstance(data, list):
+        for idx, item in enumerate(data):
+            nested = flatten_nested_json(item, f"{prefix}[{idx}]")
+            flattened.update(nested)
+    return flattened
+
+
 def verify_claims_with_metrics(root: Path) -> tuple[bool, Dict[str, Any]]:
     reg_file = root / "claims" / "claims.jsonl"
     if not reg_file.is_file():
@@ -84,33 +99,40 @@ def verify_claims_with_metrics(root: Path) -> tuple[bool, Dict[str, Any]]:
                 break
             if fpath.suffix == ".json":
                 try:
-                    combined_evidence.update(json.loads(fpath.read_text(encoding="utf-8")))
+                    raw_data = json.loads(fpath.read_text(encoding="utf-8"))
+                    combined_evidence.update(flatten_nested_json(raw_data))
                 except Exception:
                     evidence_ok = False
+            else:
+                combined_evidence[f"file_exists_{fpath.name}"] = True
 
-        # Verify metrics match
+        # Verify metrics MUST exist and match exactly
         metrics_ok = True
         for m_name, m_val in metrics.items():
-            if m_name in combined_evidence:
-                ev_val = combined_evidence[m_name]
-                if isinstance(m_val, (int, float)) and isinstance(ev_val, (int, float)):
-                    if not math.isclose(m_val, ev_val, rel_tol=1e-3, abs_tol=1e-4):
-                        metrics_ok = False
-                elif m_val != ev_val:
+            if m_name not in combined_evidence:
+                metrics_ok = False
+                break
+            ev_val = combined_evidence[m_name]
+            if isinstance(m_val, (int, float)) and isinstance(ev_val, (int, float)):
+                if not math.isclose(m_val, ev_val, rel_tol=1e-3, abs_tol=1e-4):
                     metrics_ok = False
+                    break
+            elif m_val != ev_val:
+                metrics_ok = False
+                break
 
         claim_verified = evidence_ok and metrics_ok
         if not claim_verified:
             all_ok = False
             verdict = "NOT_VERIFIED"
-        elif "PROVEN" in status:
-            verdict = "PROVEN"
+        elif "SIMULATION" in status:
+            verdict = "SIMULATION_ONLY"
         elif "HARDWARE" in status:
             verdict = "HARDWARE_VERIFIED"
         elif "EMPIRICAL" in status:
             verdict = "EMPIRICALLY_REPRODUCED"
-        elif "SIMULATION" in status:
-            verdict = "SIMULATION_ONLY"
+        elif "PROVEN" in status:
+            verdict = "PROVEN"
         else:
             verdict = "VERIFIED"
 

@@ -145,12 +145,16 @@ def run_advanced_analysis():
     print("  ✅ PASS: 5-Hop Mesh Compressed into Single Solana Transaction Frame!")
     print()
 
-    # Save evidence dossier
+    # Save evidence dossier with flat metrics and nested objects for thorough verification
     output_entry = {
         "timestamp": time.time(),
+        "conservation_delta_pct": turnstile_result["conservation_delta_pct"],
+        "turnstile_status": turnstile_result["turnstile_status"],
+        "final_folded_proof_bytes": accum_res["final_folded_proof_bytes"],
+        "total_hops_folded": accum_res["total_hops_folded"],
         "invention_1_turnstile": turnstile_result,
         "invention_2_recursive_folding": accum_res,
-        "verdict": "NEXT_GEN_ADVANCEMENTS_FORMALLY_VALIDATED"
+        "verdict": "SIMULATION_PROTOTYPES_EMPIRICALLY_VALIDATED"
     }
     
     ev_path = Path("evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json")

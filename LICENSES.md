@@ -2,8 +2,9 @@
 
 ## 1. Primary License: Zymatica Commercial & Novel-Holder Covenant License (v2.0)
 
-All original engineering architectures, algorithms, protocols, semantic codecs, and runtime implementations in this repository are governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](./LICENSE)**:
+All original engineering architectures, algorithms, protocols, semantic codecs, and runtime implementations in this repository are governed by the **[ZYMATICA COMMERCIAL & NOVEL-HOLDER COVENANT LICENSE (Version 2.0)](./LICENSE)**, which is a **Source-Available** licensing model:
 
+- **Source-Available Terms**: The source code is publicly accessible and transparent for inspection, audit, and reproducible verification.
 - **Individual Developers, Researchers, and Students**:
   Granted a perpetual, worldwide, non-exclusive license upon owning a legally purchased copy (Kindle eBook, Paperback, or Hardcover) of the novel:
   > **"200 AMSTERDAM: THE VERTICAL CITY"**  
@@ -11,6 +12,8 @@ All original engineering architectures, algorithms, protocols, semantic codecs, 
 
 - **Commercial Companies, AI Labs, and Enterprise Deployers**:
   Commercial rights are granted either by maintaining verifiable Amazon.com purchase receipts of novel copies equivalent to at least **10% of total active workforce, including employees and direct technical contractors**, OR through an explicit commercial enterprise agreement executed directly with [zymatica.space](https://zymatica.space).
+
+- **OSI Open-Source Designation**: Upstream and standalone components licensed under MIT, Apache-2.0, or BSD-3-Clause remain standard **Open-Source** under OSI definitions.
 
 ---
 

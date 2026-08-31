@@ -1,9 +1,9 @@
 {
   "schema": "zymatica.release-attestation.v2",
   "release_tag": "v10.1.1-evidence",
-  "source_commit_sha": "f7813409594b49323392ce531f507ecdc56c8c58",
-  "source_tree_sha": "a5340a7843fb3f87504fdf3a8412844c1a9975f6",
-  "timestamp_utc": "2026-08-31T05:49:53Z",
+  "source_commit_sha": "10266252669ec21c71e3ee150f8f7bc91dc937ce",
+  "source_tree_sha": "680bf6a425880f13e3801d45eeb41ae3fde7097b",
+  "timestamp_utc": "2026-08-31T08:15:12Z",
   "overall_status": "CERTIFIED_FULL_PASS",
   "evidentiary_score": 10.0,
   "subsystems": [
@@ -28,7 +28,7 @@
     {
       "step": "sha256sums_check",
       "pass": true,
-      "verified_files": 18
+      "verified_files": 22
     },
     {
       "step": "formal_math_lean",
@@ -89,7 +89,7 @@
     "CLAIM-EPIGENETIC-001": {
       "scope": "Exact Orthogonal Nullspace Projection (NEWM)",
       "declared_status": "FORMALLY_PROVEN_AND_EMPIRICALLY_MEASURED",
-      "evidentiary_verdict": "PROVEN",
+      "evidentiary_verdict": "EMPIRICALLY_REPRODUCED",
       "evidence_files": [
         "evidence/10_00/latest/epigenetic.json"
       ],
@@ -109,7 +109,7 @@
       "declared_status": "SIMULATION_AND_PROTOTYPE",
       "evidentiary_verdict": "SIMULATION_ONLY",
       "evidence_files": [
-        "crates/zymatica-language-u/30_Holomorphic_Speculative_Engine/run_proof.py"
+        "evidence/10_00/latest/zhqspec.json"
       ],
       "metrics_verified": true
     },
@@ -118,7 +118,7 @@
       "declared_status": "CRYPTOGRAPHICALLY_VERIFIED",
       "evidentiary_verdict": "VERIFIED",
       "evidence_files": [
-        "crates/zymatica-zk-mesh/groth16/src/ceremony.rs"
+        "evidence/10_00/latest/groth16.json"
       ],
       "metrics_verified": true
     },
@@ -127,17 +127,16 @@
       "declared_status": "HARDWARE_AND_CRYPTOGRAPHICALLY_VERIFIED",
       "evidentiary_verdict": "HARDWARE_VERIFIED",
       "evidence_files": [
-        "evidence/10_00/latest/rf_phase16.json",
-        "evidence/rf/phase16/metadata.json"
+        "evidence/10_00/latest/rf_phase16.json"
       ],
       "metrics_verified": true
     },
     "CLAIM-FEC-001": {
       "scope": "XOR-FEC Parity Reconstruction",
       "declared_status": "SIMULATION_PROVEN",
-      "evidentiary_verdict": "PROVEN",
+      "evidentiary_verdict": "SIMULATION_ONLY",
       "evidence_files": [
-        "verify_frontier_suite.py"
+        "evidence/10_00/latest/fec.json"
       ],
       "metrics_verified": true
     },
@@ -146,14 +145,14 @@
       "declared_status": "FORMALLY_PROVEN",
       "evidentiary_verdict": "PROVEN",
       "evidence_files": [
-        "formal_proofs/nullspace_orthogonality.lean"
+        "evidence/10_00/latest/lean4_theorem.json"
       ],
       "metrics_verified": true
     },
     "CLAIM-TURNSTILE-001": {
       "scope": "Z-Turnstile Semantic Conservation",
-      "declared_status": "FORMALLY_PROVEN_AND_TESTED",
-      "evidentiary_verdict": "PROVEN",
+      "declared_status": "SIMULATION_AND_PROTOTYPE",
+      "evidentiary_verdict": "SIMULATION_ONLY",
       "evidence_files": [
         "evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json"
       ],
@@ -161,13 +160,13 @@
     },
     "CLAIM-FOLDING-001": {
       "scope": "Recursive ZK-Mesh Proof Folding",
-      "declared_status": "FORMALLY_PROVEN_AND_TESTED",
-      "evidentiary_verdict": "PROVEN",
+      "declared_status": "SIMULATION_ONLY",
+      "evidentiary_verdict": "SIMULATION_ONLY",
       "evidence_files": [
         "evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json"
       ],
       "metrics_verified": true
     }
   },
-  "elapsed_seconds": 13.432973146438599
+  "elapsed_seconds": 19.082650661468506
 }

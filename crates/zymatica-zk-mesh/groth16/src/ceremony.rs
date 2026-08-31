@@ -210,6 +210,7 @@ const ROTATION_OFFSETS: [[u32; 5]; 5] = [
 ];
 
 /// Keccak-f[1600] permutation.
+#[allow(clippy::needless_range_loop)]
 fn keccak_f1600(state: &mut [u64; 25]) {
     for round in 0..KECCAK_ROUNDS {
         // Theta step
@@ -252,6 +253,7 @@ fn keccak_f1600(state: &mut [u64; 25]) {
 }
 
 /// Standard Keccak-256 (FIPS-202 / Ethereum standard sponge: rate=1088, pad=0x01...0x80).
+#[allow(clippy::needless_range_loop)]
 pub fn keccak256(data: &[u8]) -> [u8; 32] {
     let rate = 136; // 1088 bits / 8
     let mut state = [0u64; 25];
