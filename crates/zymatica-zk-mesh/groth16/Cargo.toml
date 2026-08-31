@@ -28,3 +28,6 @@ crate-type = ["cdylib", "rlib"]
 [[bin]]
 name = "zk_lorawan_prove"
 path = "src/main.rs"
+
+[dev-dependencies]
+sha3 = "0.10"

@@ -254,16 +254,6 @@ def main() -> int:
     # Step 5: Lean 4 Formal Mathematical Theorem Audit
     print("\n[STEP 5/6] Auditing Lean 4 Formal Mathematical Theorem Proof...")
     s5, lean_msg = verify_lean_theorem(root)
-    # If lean is not installed locally, check if lean4_theorem.json evidence exists from CI execution
-    lean_evidence = root / "evidence" / "10_00" / "latest" / "lean4_theorem.json"
-    if not s5 and lean_evidence.is_file():
-        try:
-            ev_data = json.loads(lean_evidence.read_text(encoding="utf-8"))
-            if ev_data.get("proof_valid") and ev_data.get("theorem") == "nullspace_orthogonality":
-                s5 = True
-                lean_msg = "Lean 4 Theorem Execution Evidence Verified (lean4_theorem.json)"
-        except Exception:
-            pass
     print(f"  -> Lean 4 Proof Status: {lean_msg} ({'PASS' if s5 else 'FAIL'})")
     subsystem_results.append({"step": "formal_math_lean", "pass": s5, "message": lean_msg})
 

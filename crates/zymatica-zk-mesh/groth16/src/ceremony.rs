@@ -356,11 +356,20 @@ pub fn initialize(output_path: &str) -> Result<(), String> {
 }
 
 /// Phase 2: Contribute entropy to the ceremony parameters.
-pub fn contribute(input_path: &str, output_path: &str, contributor_name: &str) -> Result<(), String> {
+pub fn contribute(
+    input_path: &str,
+    output_path: &str,
+    contributor_name: &str,
+) -> Result<(), String> {
     eprintln!("╔══════════════════════════════════════════════════════════════╗");
     eprintln!("║  ZK-LoRaWAN MPC Ceremony — Phase 2: Contribute             ║");
     eprintln!("╚══════════════════════════════════════════════════════════════╝");
     eprintln!();
+
+    // Load previous parameters
+    let data =
+        std::fs::read(input_path).map_err(|e| format!("Failed to read {}: {}", input_path, e))?;
+    let mut params = CeremonyParams::from_bytes(&data)?;
 
     eprintln!("  Loaded ceremony params from: {}", input_path);
     eprintln!("  Previous contribution: #{}", params.contribution_index);
@@ -792,13 +801,42 @@ mod tests {
 
     #[test]
     fn test_keccak256_sponge_boundary_differential() {
-        // Test sponge rate boundary conditions at 0, 1, 2, 31, 32, 135, 136, 137, 271, 272, 273, 4096 bytes
-        let test_lengths = [0, 1, 2, 31, 32, 135, 136, 137, 271, 272, 273, 4096];
+        use sha3::{Digest, Keccak256};
+        let test_lengths = [
+            0, 1, 2, 7, 31, 32, 63, 100, 134, 135, 136, 137, 138, 270, 271, 272, 273, 274, 4096,
+        ];
         for &len in &test_lengths {
-            let data = vec![0x61u8; len]; // Repeated 'a' bytes
-            let hash = keccak256(&data);
-            assert_eq!(hash.len(), 32);
-            assert_ne!(hash, [0u8; 32]);
+            let data = vec![0x61u8; len];
+            let ours = keccak256(&data);
+            let mut reference = Keccak256::new();
+            reference.update(&data);
+            let expected = reference.finalize();
+            assert_eq!(
+                ours.as_slice(),
+                expected.as_slice(),
+                "Keccak mismatch at boundary length {len}"
+            );
+        }
+
+        // 1,000 deterministic seeded randomized test vectors
+        let mut seed = 0x12345678u64;
+        for _ in 0..1000 {
+            seed = seed
+                .wrapping_mul(6364136223846793005)
+                .wrapping_add(1442695040888963407);
+            let len = (seed % 4096) as usize;
+            let data: Vec<u8> = (0..len)
+                .map(|i| ((seed.wrapping_add(i as u64)) & 0xFF) as u8)
+                .collect();
+            let ours = keccak256(&data);
+            let mut reference = Keccak256::new();
+            reference.update(&data);
+            let expected = reference.finalize();
+            assert_eq!(
+                ours.as_slice(),
+                expected.as_slice(),
+                "Keccak randomized differential mismatch at length {len}"
+            );
         }
     }
 }
