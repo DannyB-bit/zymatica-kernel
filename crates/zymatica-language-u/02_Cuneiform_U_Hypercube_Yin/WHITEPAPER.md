@@ -235,6 +235,13 @@ Every year on **December 25th (Christmas Day at 00:00 UTC)**, the smart contract
 * **`10%` of Treasury** $\to$ Distributed as a holiday bonus to the **Devs One Core Engineering Team**.
 * **`50%` of Treasury** $\to$ **Permanently Retained** in the vault to guarantee an ever-growing capital floor and deep liquidity reserve.
 
+### 7.4 🐺 The Wolfpack Protocol: Long-Range Off-Grid Mountainous ZK-Mesh
+
+To enable cognitive transport across vast mountain ridges and deep wilderness with zero cellular or broadband internet, Zymatica introduces the **Wolfpack Protocol**:
+* **Off-Grid Solar Nodes:** Retrofitted from dead RAK/Helium hardware (<$85 total) drawing <2.5W on 10W solar panels + 13 dBi omni-directional antennas.
+* **Zero-Knowledge "Howl" Tagging:** Pack nodes communicate via sub-50ms encrypted ZK chirps across 100+ miles of mountain ridges until reaching the single internet-connected **Alpha Wolf Gateway**.
+* **Compounding Pack Economics:** Multi-hop daily routing commission multiplier ($\mathcal{M}_{\text{pack}} = 1.0 + 0.15 \times (\text{Hops} - 1)$) plus multi-hex Christmas Proof-of-Coverage airdrops for every active off-grid Beta Wolf node! Full blueprint at [`crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md`](file:///c:/200amsterdam-Book/zymatica.space/crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md).
+
 ---
 
 ## 🛡️ 8. Zero-Knowledge Anonymity & Physical SDR Anti-Interception Security

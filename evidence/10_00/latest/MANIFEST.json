@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-08-31T05:36:46.208779+00:00",
+  "created_utc": "2026-08-31T05:49:34.564248+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -88,11 +88,11 @@
       "size": 1153
     }
   ],
-  "git_head": "9621a42fb6082050a9e803842ee098f7211d0040",
-  "git_status_porcelain": "M crates/zymatica-zk-mesh/zymatica_h3_geospatial_engine.py",
+  "git_head": "f7813409594b49323392ce531f507ecdc56c8c58",
+  "git_status_porcelain": "M crates/zymatica-language-u/02_Cuneiform_U_Hypercube_Yin/WHITEPAPER.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/programs/solana-cuneiform-anchor/src/lib.rs\n M docs/ZYMATICA_AUTONOMOUS_TOKENOMICS_ARCHITECTURE_WHITEPAPER.md\n M foundations/solana-cuneiform-milestone1/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone2/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone3/programs/solana-cuneiform-anchor/src/lib.rs\n?? crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md\n?? crates/zymatica-zk-mesh/zymatica_wolfpack_mesh.py",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_tree_sha256": "ed73713ef531220ab195c9b9a0321a328a83b746993151ef9116bb44a719c206"
+  "source_tree_sha256": "f0052e17c8a36bb24680ddda779e35aba38a5f9e394b4a797fc226059b96c435"
 }

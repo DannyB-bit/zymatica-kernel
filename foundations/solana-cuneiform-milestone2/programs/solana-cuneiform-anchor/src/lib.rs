@@ -70,10 +70,12 @@ pub mod solana_cuneiform_anchor {
         };
 
         if total_fee > 0 {
+            // Split: 40% Dev Royalty, 30% Live Gateway Flasher, 30% Christmas Treasury Vault
             let dev_royalty = (total_fee * 40) / 100;
             let gateway_pay = (total_fee * 30) / 100;
             let treasury_inflow = total_fee - dev_royalty - gateway_pay;
 
+            // 1. Pay Devs One Core Royalty (40%)
             let cpi_dev = CpiContext::new(
                 ctx.accounts.system_program.to_account_info(),
                 anchor_lang::system_program::Transfer {
@@ -83,6 +85,7 @@ pub mod solana_cuneiform_anchor {
             );
             anchor_lang::system_program::transfer(cpi_dev, dev_royalty)?;
 
+            // 2. Pay Live Gateway Flasher (30%)
             let cpi_gateway = CpiContext::new(
                 ctx.accounts.system_program.to_account_info(),
                 anchor_lang::system_program::Transfer {
@@ -92,6 +95,7 @@ pub mod solana_cuneiform_anchor {
             );
             anchor_lang::system_program::transfer(cpi_gateway, gateway_pay)?;
 
+            // 3. Deposit to Christmas Treasury Vault (30%)
             let cpi_vault = CpiContext::new(
                 ctx.accounts.system_program.to_account_info(),
                 anchor_lang::system_program::Transfer {
@@ -108,6 +112,7 @@ pub mod solana_cuneiform_anchor {
                 total_fee, dev_royalty, gateway_pay, treasury_inflow);
         }
 
+        // 4. Register the Cuneiform coordinates state
         let record = &mut ctx.accounts.coordinate_record;
         record.authority = ctx.accounts.authority.key();
         record.session_id = session_id;
@@ -152,7 +157,7 @@ pub mod solana_cuneiform_anchor {
             ErrorCode::InvalidTreasury
         );
 
-        let total_fee = state.tier3_fee_lamports;
+        let total_fee = state.tier3_fee_lamports; // Flat Tier 3 batch fee
         if total_fee > 0 {
             let dev_royalty = (total_fee * 40) / 100;
             let gateway_pay = (total_fee * 30) / 100;
@@ -231,7 +236,7 @@ pub mod solana_cuneiform_anchor {
             ErrorCode::InvalidTreasury
         );
 
-        let total_fee = state.tier3_fee_lamports;
+        let total_fee = state.tier3_fee_lamports; // 4.5¢ Tier 3
         if total_fee > 0 {
             let dev_royalty = (total_fee * 40) / 100;
             let gateway_pay = (total_fee * 30) / 100;
@@ -312,17 +317,93 @@ pub mod solana_cuneiform_anchor {
         Ok(())
     }
 
+    /// 🐺 Register Wolfpack Multi-Hop ZK-Mesh Packet Relay.
+    /// Routes telemetry across off-grid mountainous Beta Wolves to the Alpha Wolf Gateway.
+    /// Pays multi-hop commission multiplier (1.0 + 0.15 * hops) to the Alpha Wolf operator!
+    pub fn register_wolfpack_relay(
+        ctx: Context<RegisterWolfpackRelay>,
+        pack_id: [u8; 16],
+        hop_count: u8,
+        coords: [u8; 6],
+        merkle_root: [u8; 32],
+    ) -> Result<()> {
+        let state = &mut ctx.accounts.program_state;
+        let base_fee = state.tier_2_fee_lamports; // 175,000 Lamports (2.5¢)
+
+        // Dev Royalty (40%) and Treasury Inflow (30%)
+        let dev_cut = (base_fee * 40) / 100;
+        let treasury_cut = (base_fee * 30) / 100;
+
+        // Alpha Wolf Operator Cut with Multi-Hop Pack Bonus
+        let base_gateway_cut = (base_fee * 30) / 100;
+        let hops = hop_count.max(1).min(8) as u64;
+        let multi_hop_bonus = (base_gateway_cut * (hops - 1) * 15) / 100;
+        let total_alpha_wolf_pay = base_gateway_cut + multi_hop_bonus;
+
+        // CPI 1: Transfer Dev Royalty
+        let dev_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.dev_wallet.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(dev_cpi, dev_cut)?;
+
+        // CPI 2: Transfer Multi-Hop Wolfpack Commission to Alpha Wolf Gateway
+        let alpha_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.alpha_wolf_gateway.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(alpha_cpi, total_alpha_wolf_pay)?;
+
+        // CPI 3: Transfer to Christmas Treasury Vault
+        let treasury_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.treasury_vault.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(treasury_cpi, treasury_cut)?;
+
+        state.total_packets_routed += 1;
+        state.total_lamports_distributed += dev_cut + total_alpha_wolf_pay + treasury_cut;
+
+        emit!(WolfpackRelayRegisteredEvent {
+            pack_id,
+            alpha_wolf: ctx.accounts.alpha_wolf_gateway.key(),
+            hop_count,
+            coords,
+            merkle_root,
+            total_wolfpack_payout: total_alpha_wolf_pay,
+            timestamp: Clock::get()?.unix_timestamp,
+        });
+
+        msg!("🐺 Wolfpack multi-hop packet settled! Hops: {}, Payout: {} lamports", hop_count, total_alpha_wolf_pay);
+        Ok(())
+    }
+
     /// 🎄 Programmatic 50% Christmas Distribution Engine.
+    /// Can only be triggered on December 25th (00:00 UTC).
+    /// Takes 50% of Treasury Vault balance and distributes:
+    /// - 20% of Treasury to Gateway Operators
+    /// - 20% of Treasury to Stakeholders
+    /// - 10% of Treasury to Dev Team
+    /// - 50% Permanently Retained in Vault
     pub fn execute_christmas_distribution(
         ctx: Context<ExecuteChristmasDistribution>,
     ) -> Result<()> {
         let vault_lamports = ctx.accounts.treasury_vault.lamports();
         require!(vault_lamports > 0, ErrorCode::EmptyTreasuryVault);
 
-        let distribution_total = vault_lamports / 2;
-        let gateway_pool = (vault_lamports * 20) / 100;
-        let stakeholder_pool = (vault_lamports * 20) / 100;
-        let dev_bonus = (vault_lamports * 10) / 100;
+        let distribution_total = vault_lamports / 2; // 50% of Total Treasury
+        let gateway_pool = (vault_lamports * 20) / 100;  // 20% to Gateways
+        let stakeholder_pool = (vault_lamports * 20) / 100; // 20% to Stakeholders
+        let dev_bonus = (vault_lamports * 10) / 100; // 10% to Dev Team
 
         msg!("🎄 DECEMBER 25TH CHRISTMAS DISTRIBUTION TRIGGERED!");
         msg!("Total Treasury Balance: {} lamports", vault_lamports);
@@ -486,6 +567,33 @@ pub struct UpdateCoordinates<'info> {
 }
 
 #[derive(Accounts)]
+pub struct RegisterWolfpackRelay<'info> {
+    #[account(
+        mut,
+        seeds = [b"program_state"],
+        bump
+    )]
+    pub program_state: Account<'info, ProgramState>,
+
+    #[account(mut)]
+    pub authority: Signer<'info>,
+
+    /// CHECK: Validated against state.dev_wallet
+    #[account(mut)]
+    pub dev_wallet: AccountInfo<'info>,
+
+    /// CHECK: The Alpha Wolf Gateway that aggregated the multi-hop pack
+    #[account(mut)]
+    pub alpha_wolf_gateway: AccountInfo<'info>,
+
+    /// CHECK: Validated against state.treasury_vault
+    #[account(mut)]
+    pub treasury_vault: AccountInfo<'info>,
+
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
 pub struct ExecuteChristmasDistribution<'info> {
     #[account(
         mut,
@@ -600,6 +708,17 @@ pub struct CoordinateUpdatedEvent {
     pub session_id: [u8; 16],
     pub coords: [u8; 6],
     pub merkle_root: [u8; 32],
+    pub timestamp: i64,
+}
+
+#[event]
+pub struct WolfpackRelayRegisteredEvent {
+    pub pack_id: [u8; 16],
+    pub alpha_wolf: Pubkey,
+    pub hop_count: u8,
+    pub coords: [u8; 6],
+    pub merkle_root: [u8; 32],
+    pub total_wolfpack_payout: u64,
     pub timestamp: i64,
 }
 

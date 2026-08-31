@@ -75,6 +75,23 @@ $$\text{PoC Multiplier } (\mathcal{M}_{\text{hex}}) = \begin{cases}
 * **Solo Hex Bonus:** A rural node providing the sole coverage in its H3 hex receives the maximum **1.0x multiplier**.
 * **Interactive Coverage Visualizer:** Built-in interactive map visualizer deployed at [`crates/zymatica-zk-mesh/zymatica_coverage_map.html`](file:///c:/200amsterdam-Book/zymatica.space/crates/zymatica-zk-mesh/zymatica_coverage_map.html).
 
+### 3.4 🐺 The Wolfpack Protocol: Off-Grid Mountainous Solar ZK-Mesh
+For deep wilderness, mountain ridges, and rural corridors with zero cellular or broadband internet, operators can deploy a **"Wolfpack"** of off-grid solar-powered nodes (retrofitted from dead RAK/Helium miners for <$85 total):
+
+```mermaid
+graph TD
+    subgraph "🏔️ Mountain Ridge Wilderness (No Internet / 10W Solar)"
+        W1["🌲 Beta Wolf 1 (Tree Mount)<br>13 dBi Omni (1.8W)"] -->|Zero-Knowledge Howl (915 MHz)| W2["⛰️ Beta Wolf 2 (Ridge Mount)<br>13 dBi Omni (2.0W)"]
+        W2 -->|100+ Mile Line-of-Sight Relay| W3["🌲 Beta Wolf 3 (Valley Mount)<br>13 dBi Omni (2.2W)"]
+    end
+    W3 -->|Encrypted RF Handshake| Alpha["🐺 Alpha Wolf Gateway<br>Starlink/Internet Backhaul"]
+    Alpha -->|register_wolfpack_relay| Solana["⚡ Solana Mainnet Anchor"]
+```
+
+* **Zero-Knowledge Howls:** Nodes play an untraceable "game of tag" over 915 MHz. Only a wolf in the same pack can decrypt or verify the chirp.
+* **Multi-Hop Daily Commission:** The Alpha Wolf earns a boosted routing fee: $\mathcal{M}_{\text{pack}} = 1.0 + 0.15 \times (\text{Hops} - 1)$.
+* **Multi-Hex Christmas Airdrop:** Each off-grid Beta Wolf occupying its own H3 hex captures an independent **1.0x Solo Hex share** in the December 25th Treasury Airdrop! Full blueprint at [`crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md`](file:///c:/200amsterdam-Book/zymatica.space/crates/zymatica-zk-mesh/WOLFPACK_SOLAR_RETROFIT_BLUEPRINT.md).
+
 ---
 
 ## 4. The 50% Annual Christmas Distribution Engine

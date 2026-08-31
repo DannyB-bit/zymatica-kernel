@@ -317,6 +317,76 @@ pub mod solana_cuneiform_anchor {
         Ok(())
     }
 
+    /// 🐺 Register Wolfpack Multi-Hop ZK-Mesh Packet Relay.
+    /// Routes telemetry across off-grid mountainous Beta Wolves to the Alpha Wolf Gateway.
+    /// Pays multi-hop commission multiplier (1.0 + 0.15 * hops) to the Alpha Wolf operator!
+    pub fn register_wolfpack_relay(
+        ctx: Context<RegisterWolfpackRelay>,
+        pack_id: [u8; 16],
+        hop_count: u8,
+        coords: [u8; 6],
+        merkle_root: [u8; 32],
+    ) -> Result<()> {
+        let state = &mut ctx.accounts.program_state;
+        let base_fee = state.tier_2_fee_lamports; // 175,000 Lamports (2.5¢)
+
+        // Dev Royalty (40%) and Treasury Inflow (30%)
+        let dev_cut = (base_fee * 40) / 100;
+        let treasury_cut = (base_fee * 30) / 100;
+
+        // Alpha Wolf Operator Cut with Multi-Hop Pack Bonus
+        let base_gateway_cut = (base_fee * 30) / 100;
+        let hops = hop_count.max(1).min(8) as u64;
+        let multi_hop_bonus = (base_gateway_cut * (hops - 1) * 15) / 100;
+        let total_alpha_wolf_pay = base_gateway_cut + multi_hop_bonus;
+
+        // CPI 1: Transfer Dev Royalty
+        let dev_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.dev_wallet.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(dev_cpi, dev_cut)?;
+
+        // CPI 2: Transfer Multi-Hop Wolfpack Commission to Alpha Wolf Gateway
+        let alpha_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.alpha_wolf_gateway.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(alpha_cpi, total_alpha_wolf_pay)?;
+
+        // CPI 3: Transfer to Christmas Treasury Vault
+        let treasury_cpi = CpiContext::new(
+            ctx.accounts.system_program.to_account_info(),
+            anchor_lang::system_program::Transfer {
+                from: ctx.accounts.authority.to_account_info(),
+                to: ctx.accounts.treasury_vault.to_account_info(),
+            },
+        );
+        anchor_lang::system_program::transfer(treasury_cpi, treasury_cut)?;
+
+        state.total_packets_routed += 1;
+        state.total_lamports_distributed += dev_cut + total_alpha_wolf_pay + treasury_cut;
+
+        emit!(WolfpackRelayRegisteredEvent {
+            pack_id,
+            alpha_wolf: ctx.accounts.alpha_wolf_gateway.key(),
+            hop_count,
+            coords,
+            merkle_root,
+            total_wolfpack_payout: total_alpha_wolf_pay,
+            timestamp: Clock::get()?.unix_timestamp,
+        });
+
+        msg!("🐺 Wolfpack multi-hop packet settled! Hops: {}, Payout: {} lamports", hop_count, total_alpha_wolf_pay);
+        Ok(())
+    }
+
     /// 🎄 Programmatic 50% Christmas Distribution Engine.
     /// Can only be triggered on December 25th (00:00 UTC).
     /// Takes 50% of Treasury Vault balance and distributes:
@@ -497,6 +567,33 @@ pub struct UpdateCoordinates<'info> {
 }
 
 #[derive(Accounts)]
+pub struct RegisterWolfpackRelay<'info> {
+    #[account(
+        mut,
+        seeds = [b"program_state"],
+        bump
+    )]
+    pub program_state: Account<'info, ProgramState>,
+
+    #[account(mut)]
+    pub authority: Signer<'info>,
+
+    /// CHECK: Validated against state.dev_wallet
+    #[account(mut)]
+    pub dev_wallet: AccountInfo<'info>,
+
+    /// CHECK: The Alpha Wolf Gateway that aggregated the multi-hop pack
+    #[account(mut)]
+    pub alpha_wolf_gateway: AccountInfo<'info>,
+
+    /// CHECK: Validated against state.treasury_vault
+    #[account(mut)]
+    pub treasury_vault: AccountInfo<'info>,
+
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
 pub struct ExecuteChristmasDistribution<'info> {
     #[account(
         mut,
@@ -611,6 +708,17 @@ pub struct CoordinateUpdatedEvent {
     pub session_id: [u8; 16],
     pub coords: [u8; 6],
     pub merkle_root: [u8; 32],
+    pub timestamp: i64,
+}
+
+#[event]
+pub struct WolfpackRelayRegisteredEvent {
+    pub pack_id: [u8; 16],
+    pub alpha_wolf: Pubkey,
+    pub hop_count: u8,
+    pub coords: [u8; 6],
+    pub merkle_root: [u8; 32],
+    pub total_wolfpack_payout: u64,
     pub timestamp: i64,
 }
 
