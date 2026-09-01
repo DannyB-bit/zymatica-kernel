@@ -16,7 +16,7 @@ def verify_turnstile():
     
     delta = abs(norm_in - norm_out)
     assert delta < 1e-6, "Z-Turnstile energy violation!"
-    print(f"✅ Class 36 Z-Turnstile Invariant Verified (Delta: {delta:.8f})")
+    print(f"✅ Class 36 Z-Turnstile Reference Prototype Verified (Delta: {delta:.8f})")
 
 if __name__ == "__main__":
     verify_turnstile()

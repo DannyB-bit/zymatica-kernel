@@ -8,14 +8,16 @@
 
 ## 1. Abstract & Mathematical Specification
 
-Inspired by cryptographic turnstiles enforcing strict monetary conservation laws in shielded zero-knowledge pools ($V_{\text{out}} \le V_{\text{in}}$), the **Z-Turnstile Semantic Engine** establishes the formal topological conservation law for neural manifold compression [CLAIM: CLAIM-TURNSTILE-001] [EVIDENCE: evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json].
+Inspired by cryptographic turnstiles enforcing strict monetary conservation laws in shielded zero-knowledge pools ($V_{\text{out}} \le V_{\text{in}}$), the **Z-Turnstile Semantic Engine** establishes the formal topological conservation specification and reference prototype for discrete neural manifold projection [CLAIM: CLAIM-TURNSTILE-001] [EVIDENCE: evidence/10_00/latest/z_turnstile_recursive_folding_advancement.json].
 
-When an arbitrary $d$-dimensional continuous neural latent vector $\vec{e} \in \mathbb{R}^d$ is mapped to a discrete 6D Cuneiform-U hypercube radical lattice $\vec{v} \in [0, 255]^6$, the discrete coordinate mapping preserves energy conservation across bounded manifolds:
+Under a normalized unitary projection where an embedding vector $\vec{e} \in \mathbb{R}^d$ is mapped to and reconstructed from the discrete 6D Cuneiform-U hypercube radical lattice $\vec{v} \in [0, 255]^6$, the discrete coordinate mapping preserves energy conservation across bounded closed manifolds:
 
 $$\oint_{\mathcal{M}_{6D}} \vec{\omega}_{\text{semantic}} \cdot d\vec{s} = 0 \implies \left| \|\vec{e}_{\text{in}}\|_2 - \|\vec{e}_{\text{out}}\|_2 \right| < 10^{-6}$$
 
-### Invariant Theorem:
-$$\Delta H_{\text{leakage}} \le 10^{-6}\% \quad (\text{Deterministic Discrete Semantic Conservation})$$
+### Invariant Prototype Specification:
+$$\Delta H_{\text{leakage}} \le 10^{-6}\% \quad (\text{Discrete Manifold Conservation Prototype on Normalized Embeddings})$$
+
+> **Note on Implementation Status:** Current executable artifacts demonstrate this property using canonical normalized reference fixtures and discrete topological test vectors across the polyglot matrix. Continuous arbitrary-vector autoencoders remain an active research target.
 
 ---
 

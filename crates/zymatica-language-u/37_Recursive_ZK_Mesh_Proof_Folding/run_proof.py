@@ -14,7 +14,7 @@ def verify_recursive_folding():
         
     final_proof = accumulator * 4 # 128 bytes
     assert len(final_proof) == 128, "Invalid folded proof size!"
-    print(f"✅ Class 37 Recursive ZK-Mesh Proof Folding Verified ({len(hops)} Hops -> 128B Proof)")
+    print(f"✅ Class 37 Recursive ZK-Mesh Proof Folding Simulation Harness Verified ({len(hops)} Hops -> 128B Proof)")
 
 if __name__ == "__main__":
     verify_recursive_folding()

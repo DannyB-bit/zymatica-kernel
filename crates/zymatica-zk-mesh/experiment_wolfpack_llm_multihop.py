@@ -112,22 +112,18 @@ class WolfpackLLMExperiment:
 
         # Step 6: Solana On-Chain Settlement with Pack Multiplier
         base_fee_lamports = 175_000 # Tier 2 (2.5¢)
-        dev_royalty = (base_fee_lamports * 40) // 100 # 70,000 Lamports
+        # Wolfpack Transaction Split: 25% Dev Royalty, 45% Wolfpack Mesh Commission, 30% Christmas Treasury
+        dev_royalty = (base_fee_lamports * 25) // 100 # 43,750 Lamports
+        alpha_payout_lamports = (base_fee_lamports * 45) // 100 # 78,750 Lamports
         treasury_inflow = (base_fee_lamports * 30) // 100 # 52,500 Lamports
-        
-        # Multi-Hop Bonus: 1.0 + 0.15 * (4 - 1) = 1.45x
         hop_count = len(self.topology)
-        pack_multiplier = 1.0 + (0.15 * (hop_count - 1))
-        base_gateway_cut = (base_fee_lamports * 30) // 100
-        alpha_payout_lamports = int(base_gateway_cut * pack_multiplier)
 
         print(f"\n⚡ STEP 6: SOLANA ON-CHAIN ANCHOR SETTLEMENT (`register_wolfpack_relay`)")
         print(f"Instruction     : register_wolfpack_relay(pack_id=0x{session_id.hex()[:8]}, hops={hop_count})")
         print(f"Compute Units   : 150 CU (Ultra-lightweight native CPI)")
-        print(f"Pack Multiplier : {pack_multiplier:.2f}x ({hop_count} Hops Traversed)")
-        print(f"- Dev Royalty (40%)      : {dev_royalty} Lamports ($0.0101 USD -> {self.alpha_wallet[:6]}...{self.alpha_wallet[-4:]})")
-        print(f"- Alpha Wolf Payout (30%*): {alpha_payout_lamports} Lamports ($0.0110 USD -> Operator Wallet)")
-        print(f"- Christmas Vault (30%)  : {treasury_inflow} Lamports ($0.0076 USD -> PDA Vault)")
+        print(f"- Dev Royalty (25%)          : {dev_royalty} Lamports -> {self.alpha_wallet[:6]}...{self.alpha_wallet[-4:]}")
+        print(f"- Wolfpack Commission (45%)  : {alpha_payout_lamports} Lamports -> Alpha Wolf Operator Wallet")
+        print(f"- Christmas Vault (30%)      : {treasury_inflow} Lamports -> PDA Vault")
 
         print("\n" + "=" * 80)
         print(f"🏁 EXPERIMENT SUMMARY:")

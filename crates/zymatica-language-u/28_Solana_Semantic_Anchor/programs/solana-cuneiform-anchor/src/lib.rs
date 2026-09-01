@@ -319,7 +319,7 @@ pub mod solana_cuneiform_anchor {
 
     /// 🐺 Register Wolfpack Multi-Hop ZK-Mesh Packet Relay.
     /// Routes telemetry across off-grid mountainous Beta Wolves to the Alpha Wolf Gateway.
-    /// Pays multi-hop commission multiplier (1.0 + 0.15 * hops) to the Alpha Wolf operator!
+    /// Split: 25% Dev Royalty, 45% Wolfpack Mesh Commission, 30% Christmas Treasury Vault.
     pub fn register_wolfpack_relay(
         ctx: Context<RegisterWolfpackRelay>,
         pack_id: [u8; 16],
@@ -328,19 +328,14 @@ pub mod solana_cuneiform_anchor {
         merkle_root: [u8; 32],
     ) -> Result<()> {
         let state = &mut ctx.accounts.program_state;
-        let base_fee = state.tier_2_fee_lamports; // 175,000 Lamports (2.5¢)
+        let base_fee = state.tier2_fee_lamports; // 175,000 Lamports (2.5¢)
 
-        // Dev Royalty (40%) and Treasury Inflow (30%)
-        let dev_cut = (base_fee * 40) / 100;
-        let treasury_cut = (base_fee * 30) / 100;
+        // Split for Wolfpack: 25% Dev Royalty, 45% Wolfpack Commission, 30% Treasury
+        let dev_cut = (base_fee * 25) / 100;
+        let total_alpha_wolf_pay = (base_fee * 45) / 100;
+        let treasury_cut = base_fee - dev_cut - total_alpha_wolf_pay; // 30%
 
-        // Alpha Wolf Operator Cut with Multi-Hop Pack Bonus
-        let base_gateway_cut = (base_fee * 30) / 100;
-        let hops = hop_count.max(1).min(8) as u64;
-        let multi_hop_bonus = (base_gateway_cut * (hops - 1) * 15) / 100;
-        let total_alpha_wolf_pay = base_gateway_cut + multi_hop_bonus;
-
-        // CPI 1: Transfer Dev Royalty
+        // CPI 1: Transfer Dev Royalty (25%)
         let dev_cpi = CpiContext::new(
             ctx.accounts.system_program.to_account_info(),
             anchor_lang::system_program::Transfer {
@@ -350,7 +345,7 @@ pub mod solana_cuneiform_anchor {
         );
         anchor_lang::system_program::transfer(dev_cpi, dev_cut)?;
 
-        // CPI 2: Transfer Multi-Hop Wolfpack Commission to Alpha Wolf Gateway
+        // CPI 2: Transfer Wolfpack Commission (45%) to Alpha Wolf Gateway Operator
         let alpha_cpi = CpiContext::new(
             ctx.accounts.system_program.to_account_info(),
             anchor_lang::system_program::Transfer {
@@ -360,7 +355,7 @@ pub mod solana_cuneiform_anchor {
         );
         anchor_lang::system_program::transfer(alpha_cpi, total_alpha_wolf_pay)?;
 
-        // CPI 3: Transfer to Christmas Treasury Vault
+        // CPI 3: Transfer to Christmas Treasury Vault (30%)
         let treasury_cpi = CpiContext::new(
             ctx.accounts.system_program.to_account_info(),
             anchor_lang::system_program::Transfer {
@@ -370,8 +365,8 @@ pub mod solana_cuneiform_anchor {
         );
         anchor_lang::system_program::transfer(treasury_cpi, treasury_cut)?;
 
-        state.total_packets_routed += 1;
-        state.total_lamports_distributed += dev_cut + total_alpha_wolf_pay + treasury_cut;
+        state.total_packets_routed = state.total_packets_routed.saturating_add(1);
+        state.total_volume_lamports = state.total_volume_lamports.saturating_add(base_fee);
 
         emit!(WolfpackRelayRegisteredEvent {
             pack_id,

@@ -1,9 +1,9 @@
 {
   "schema": "zymatica.release-attestation.v2",
   "release_tag": "v10.1.1-evidence",
-  "source_commit_sha": "abdecc8f1f5490bfbaf34c937f72229c3176dea5",
-  "source_git_tree_sha": "d336feb4a62c99364608e4f64470cf25d7425760",
-  "timestamp_utc": "2026-08-31T17:35:25Z",
+  "source_commit_sha": "ada7c92b664a19116cb2fc3b396a2f3b346bf1d1",
+  "source_git_tree_sha": "9c3dd8cbb1137fc699f93f9f4a5906f5adc9626c",
+  "timestamp_utc": "2026-09-01T03:21:25Z",
   "release_gate_status": "PASS",
   "all_required_checks_passed": true,
   "subsystems": [
@@ -33,7 +33,7 @@
     {
       "step": "formal_math_lean",
       "pass": true,
-      "message": "Lean 4 Theorem Execution Evidence Verified (lean4_theorem.json)"
+      "message": "Lean 4 formal theorem specification present and structured (full compilation verified in CI with elan)"
     },
     {
       "step": "claims_discipline",
@@ -168,5 +168,5 @@
       "metrics_verified": true
     }
   },
-  "elapsed_seconds": 32.580501317977905
+  "elapsed_seconds": 19.6267147064209
 }

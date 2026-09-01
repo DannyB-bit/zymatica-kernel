@@ -10,13 +10,15 @@
 
 In multi-hop Decentralized Physical Infrastructure Networks (DePIN) over 915 MHz LoRa radio links, forwarding separate zero-knowledge proofs across $N$ routing hops introduces catastrophic bandwidth overhead ($\mathcal{O}(N)$ packet size) that breaches the physical LoRa Maximum Transmission Unit (MTU $\approx 222\text{ bytes}$).
 
-The **Recursive ZK-Mesh Proof Folding Architecture (Z-Halo-Nova)** implements homomorphic proof accumulation over the BN254 / Alt-BN128 elliptic curve. Intermediate relay hops fold their incoming verification assertions into a unified running accumulator using random Fiat-Shamir challenge scalars $r_i$:
+The **Recursive ZK-Mesh Proof Folding Architecture (Z-Halo-Nova)** specifies the architectural framework for homomorphic proof accumulation over the BN254 / Alt-BN128 elliptic curve. Intermediate relay hops fold their incoming verification assertions into a unified running accumulator using random Fiat-Shamir challenge scalars $r_i$:
 
 $$\text{Acc}_{i+1} = \text{Acc}_i + r_i \cdot \Pi_{\text{hop}_i} \pmod{r_{\text{scalar}}}$$
 
-### Fundamental Breakthrough Properties:
-1. **Constant 128-Byte Frame ($\mathcal{O}(1)$ Bandwidth):** A 20-hop mesh transmission occupies the exact same 128-byte proof payload as a 1-hop link, perfectly fitting within single-chirp LoRa frames.
-2. **Single On-Chain Solana Pairing:** The Solana Anchor smart contract (`BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`) verifies the entire multi-hop routing provenance with **1 single pairing check** ($e(A, B) = e(\alpha, \beta)$), preserving flat 150,000 lamport gas fees.
+### Fundamental Architectural Target Properties:
+1. **Constant 128-Byte Frame ($\mathcal{O}(1)$ Bandwidth):** A 20-hop mesh transmission occupies the exact same 128-byte proof payload as a 1-hop link, fitting within single-chirp LoRa frames.
+2. **Single On-Chain Solana Pairing:** The Solana Anchor smart contract (`BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`) verifies multi-hop routing provenance with a single pairing check ($e(A, B) = e(\alpha, \beta)$).
+
+> **Note on Implementation Status:** Current in-tree executable scripts (`run_proof.py`, `verify_z_turnstile_folding.py`) implement a deterministic cryptographic simulation of the Fiat-Shamir accumulator state to benchmark constant-payload size (128B) and topology propagation latency across polyglot runners. Production on-chain pairing circuits build on the underlying `zk-lorawan-groth16` BN254 baseline.
 
 ---
 

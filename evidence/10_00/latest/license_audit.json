@@ -1,5 +1,5 @@
 {
-  "checked_files": 827,
+  "checked_files": 966,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -20,11 +20,23 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
-      "path": "master_forensic_audit.py",
+      "path": "live_devnet_multi_agent.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "live_devnet_node_c_execution.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
       "path": "prove_isometry.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "scratch_find_key.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "stress_test_solana_cuneiform.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -33,6 +45,26 @@
     },
     {
       "path": "verify_lossless_fidelity.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sandbox/run_autonomous_agents_consider_julian.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sandbox/run_complex_stress_experiment_consider_julian.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sandbox/run_dna_grow_transmission_mission.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "tools/test_all_invention_proofs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "tools/verify_z_turnstile_folding.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -424,6 +456,78 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "foundations/zk-lora-milestone-1/benchmark_milestone1.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/verify_all_proofs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/run_clean_rx.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/run_clean_tx.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/verify_all_proofs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/verify_mempool_scanner.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/verify_all_proofs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/verify_mempool_scanner.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/benchmark_milestone1.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/generate_gold_quote.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/generate_pdf.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/generate_qrs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/generate_qrs_with_logo.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/verify_all_proofs.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "foundations/Zymatica-Voice-LLM/app.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -612,7 +716,343 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/c/proof.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/cpp/proof.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/go/proof.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/java/Proof.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/kotlin/proof.kt",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/python/proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/swift/proof.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/typescript/proof.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/typescript/proof_template.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/typescript/wasm_verifier/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Multi_Language_Proofs/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-privacy-layer/Full_Projects/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/c/proof.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/cpp/proof.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/go/proof.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/java/Proof.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/kotlin/proof.kt",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/python/proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/swift/proof.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/typescript/proof.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/typescript/proof_template.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/typescript/wasm_verifier/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Multi_Language_Proofs/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-3/Full_Projects/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/c/proof.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/cpp/proof.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/go/proof.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/java/Proof.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/kotlin/proof.kt",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/python/proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/swift/proof.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/typescript/proof.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/typescript/proof_template.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/typescript/wasm_verifier/src/circuit.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/typescript/wasm_verifier/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Multi_Language_Proofs/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Full_Projects/rust/src/circuit.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Full_Projects/rust/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-2/Full_Projects/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/tools/zk_lora_secure_packet.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/c/proof.c",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/cpp/proof.cpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/go/proof.go",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/java/Proof.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/kotlin/proof.kt",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/python/proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/swift/proof.swift",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/typescript/proof.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/typescript/proof_template.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/typescript/wasm_verifier/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/zk-lora-milestone-1/Multi_Language_Proofs/rust/src/main.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "foundations/UFO-Compression-Java/ufo/TokenizerCoder.java",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/tests/solana-cuneiform-anchor-standalone.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/tests/solana-cuneiform-anchor.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/programs/solana-cuneiform-anchor/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/milestones/milestone-1-devnet-deployment/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/app/src/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/app/src/deploy_mainnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/app/src/solana_pay_mock.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/app/src/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone3/app/src/test_solana_pay_live.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/tests/solana-cuneiform-anchor-standalone.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/tests/solana-cuneiform-anchor.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/programs/solana-cuneiform-anchor/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/milestones/milestone-1-devnet-deployment/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/app/src/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/app/src/deploy_mainnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/app/src/solana_pay_mock.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/app/src/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone2/app/src/test_solana_pay_live.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/tests/solana-cuneiform-anchor-standalone.js",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/tests/solana-cuneiform-anchor.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/programs/solana-cuneiform-anchor/src/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/lib.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/milestones/milestone-1-devnet-deployment/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/app/src/cuneiform_client.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/app/src/deploy_mainnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/app/src/solana_pay_mock.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/app/src/test_devnet.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "foundations/solana-cuneiform-milestone1/app/src/test_solana_pay_live.ts",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -720,7 +1160,19 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "crates/zymatica-zk-mesh/experiment_wolfpack_llm_multihop.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "crates/zymatica-zk-mesh/generate_keygen.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-zk-mesh/zymatica_h3_geospatial_engine.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-zk-mesh/zymatica_wolfpack_mesh.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -1016,10 +1468,6 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
-      "path": "crates/zymatica-language-u/30_Holomorphic_Speculative_Engine/run_proof.py",
-      "reason": "no file-level SPDX marker; repository-level license may still govern"
-    },
-    {
       "path": "crates/zymatica-language-u/30_Qwen_3.5_0.8b_DNA_GROW/build_dnagrow_seed.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -1264,6 +1712,14 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "crates/zymatica-language-u/36_Z_Turnstile_Semantic_Conservation/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-language-u/37_Recursive_ZK_Mesh_Proof_Folding/run_proof.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "crates/zymatica-language-u/current milestones achieved/cuneiform_client.ts",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -1281,6 +1737,10 @@
     },
     {
       "path": "crates/zymatica-language-u/current milestones achieved/test_solana_pay_live.ts",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-language-u/rag_mcp/server.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -1413,6 +1873,10 @@
     },
     {
       "path": "crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity/include/zspar/zspar.hpp",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-language-u/28_Solana_Semantic_Anchor/tests/multi_agent_solana_cuneiform_simulation.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
