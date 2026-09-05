@@ -1,11 +1,11 @@
 # ZYMATICA KERNEL
 
 <p align="center">
-  <img src="assets/ZYMATICA_ANGEL.png" alt="ZYMATICA Angel Emblem" width="520">
+  <img src="https://raw.githubusercontent.com/DannyB-bit/zymatica.space/main/assets/ZYMATICA_ANGEL.png" alt="ZYMATICA Angel Emblem" width="520">
 </p>
 
 <p align="center">
-  <b>The Sovereign Root Kernel, Language-U 6D Semantic Hypercube, ZK-LoRaWAN Groth16 Privacy Mesh & Native Rust Engine</b>
+  <b>The Autonomous Root Kernel, Language-U 6D Semantic Hypercube, ZK-LoRaWAN Groth16 Privacy Mesh & Native Rust Engine</b>
 </p>
 
 <p align="center">
