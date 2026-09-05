@@ -62,7 +62,7 @@ impl RecursiveNullifierBatch {
             combined.extend_from_slice(&accumulator);
             combined.extend_from_slice(&item.nullifier_hash);
             combined.extend_from_slice(&item.radical);
-            
+
             // Simple deterministic 32-byte digest simulation for BN254 fold
             let mut folded = [0u8; 32];
             for (i, byte) in combined.iter().enumerate() {

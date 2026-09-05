@@ -82,13 +82,13 @@ pub use model::{
     AnyKvCache, GemmaConfig, NativeGemma, QuantMode, QuantizedGemma, QuantizedGemmaQ8,
 };
 
+pub mod dcm_ace_guardrail;
+pub mod dna_v2_entropy;
 pub mod flash_attention;
 pub mod hyper_cuneiform_bridge;
 pub mod jit_fusion;
 pub mod morphogenesis;
+pub mod recursive_nullifier_batch;
 pub mod z_mcts;
 pub mod z_wormhole;
 pub mod zk_barrier;
-pub mod dna_v2_entropy;
-pub mod recursive_nullifier_batch;
-pub mod dcm_ace_guardrail;

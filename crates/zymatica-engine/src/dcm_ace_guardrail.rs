@@ -31,8 +31,8 @@ impl Default for HardwareSpecification {
             allowed_gpio_pin: 25, // Raspberry Pi 4 BCM Pin 25 for SX1302 reset
             allowed_spi_device: "/dev/spidev0.0".to_string(),
             max_spi_speed_hz: 8_000_000, // 8 MHz
-            min_freq_mhz: 902.3, // US915 Uplink Lower Bound
-            max_freq_mhz: 914.9, // US915 Uplink Upper Bound
+            min_freq_mhz: 902.3,         // US915 Uplink Lower Bound
+            max_freq_mhz: 914.9,         // US915 Uplink Upper Bound
             allowed_spreading_factors: vec![7, 8, 9, 10, 11, 12],
             max_tx_power_dbm: 14,
         }
@@ -50,7 +50,10 @@ impl DcmAceGuardrail {
 
     /// Evaluates raw directive, flags any hallucinations or out-of-spec parameters,
     /// and performs zero-latency deterministic self-healing.
-    pub fn audit_and_correct(&self, mut directive: HardwareDirective) -> (HardwareDirective, Vec<String>) {
+    pub fn audit_and_correct(
+        &self,
+        mut directive: HardwareDirective,
+    ) -> (HardwareDirective, Vec<String>) {
         let mut corrections = Vec::new();
 
         // Check GPIO Reset Pin
@@ -81,8 +84,12 @@ impl DcmAceGuardrail {
         }
 
         // Check US915 LoRa Frequency
-        if directive.lora_freq_mhz < self.spec.min_freq_mhz || directive.lora_freq_mhz > self.spec.max_freq_mhz {
-            let clamped_freq = directive.lora_freq_mhz.clamp(self.spec.min_freq_mhz, self.spec.max_freq_mhz);
+        if directive.lora_freq_mhz < self.spec.min_freq_mhz
+            || directive.lora_freq_mhz > self.spec.max_freq_mhz
+        {
+            let clamped_freq = directive
+                .lora_freq_mhz
+                .clamp(self.spec.min_freq_mhz, self.spec.max_freq_mhz);
             corrections.push(format!(
                 "RF_FREQ_RESONANCE: Out-of-band frequency {:.3} MHz re-anchored to US915 channel {:.3} MHz",
                 directive.lora_freq_mhz, clamped_freq
@@ -91,7 +98,11 @@ impl DcmAceGuardrail {
         }
 
         // Check Spreading Factor
-        if !self.spec.allowed_spreading_factors.contains(&directive.spreading_factor) {
+        if !self
+            .spec
+            .allowed_spreading_factors
+            .contains(&directive.spreading_factor)
+        {
             corrections.push(format!(
                 "SF_CORRECTION: Illegal SF{} adjusted to optimal edge default SF7",
                 directive.spreading_factor
@@ -122,12 +133,12 @@ mod tests {
 
         // Intentionally hallucinated / perturbed directive
         let raw = HardwareDirective {
-            gpio_reset_pin: 17, // Wrong pin
+            gpio_reset_pin: 17,                  // Wrong pin
             spi_device: "/dev/spidev1.0".into(), // Wrong bus
-            spi_speed_hz: 16_000_000, // Too fast
-            lora_freq_mhz: 930.5, // Out of band
-            spreading_factor: 5, // Invalid SF
-            tx_power_dbm: 20, // Exceeds 14 dBm
+            spi_speed_hz: 16_000_000,            // Too fast
+            lora_freq_mhz: 930.5,                // Out of band
+            spreading_factor: 5,                 // Invalid SF
+            tx_power_dbm: 20,                    // Exceeds 14 dBm
         };
 
         let (healed, corrections) = guardrail.audit_and_correct(raw);

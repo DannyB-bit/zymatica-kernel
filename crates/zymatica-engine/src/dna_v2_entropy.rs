@@ -60,13 +60,22 @@ impl DnaV2EntropyShield {
         };
 
         let noise_margin = (rssi_dbm - self.config.baseline_noise_floor_dbm).abs();
-        self.config.entropy_scaling_factor * entropy.sqrt() * snr_penalty * (1.0 + 0.05 * noise_margin)
+        self.config.entropy_scaling_factor
+            * entropy.sqrt()
+            * snr_penalty
+            * (1.0 + 0.05 * noise_margin)
     }
 
     /// Adaptively quantize a continuous 6D coordinate vector [0.0..15.0]^6 into 3-byte radicals [Rc, Rf, Ra]
-    pub fn quantize_adaptive(&self, continuous_coords: &[f64; 6], rssi_dbm: f64, snr_db: f64, entropy: f64) -> [u8; 3] {
+    pub fn quantize_adaptive(
+        &self,
+        continuous_coords: &[f64; 6],
+        rssi_dbm: f64,
+        snr_db: f64,
+        entropy: f64,
+    ) -> [u8; 3] {
         let delta = self.compute_boundary_delta(rssi_dbm, snr_db, entropy);
-        
+
         let mut discrete = [0u8; 6];
         for i in 0..6 {
             let val = continuous_coords[i];
