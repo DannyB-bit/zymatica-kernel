@@ -241,11 +241,12 @@ def main() -> int:
             if len(parts) == 2:
                 expected_hash, rel_path = parts
                 fpath = root / "evidence" / "10_00" / "latest" / rel_path
-                if fpath.is_file() and sha256_file(fpath) == expected_hash:
+                actual_hash = sha256_file(fpath) if fpath.is_file() else "FILE_NOT_FOUND"
+                if actual_hash == expected_hash:
                     verified_files += 1
                 else:
                     s4 = False
-                    print(f"     [-] SHA256 mismatch on: {rel_path}")
+                    print(f"     [-] SHA256 mismatch on: {rel_path} (expected={expected_hash[:12]}..., actual={actual_hash[:12]}...)")
         print(f"  -> Verified Cryptographic Checksums: {verified_files} immutable files bit-exact")
     subsystem_results.append({"step": "sha256sums_check", "pass": s4, "verified_files": verified_files})
 

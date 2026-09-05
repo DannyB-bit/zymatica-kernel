@@ -19,6 +19,7 @@ import argparse
 import json
 import math
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
@@ -159,7 +160,13 @@ def main() -> int:
     checked_lines = 0
     checked_files = 0
 
-    for path in root.rglob("*.md"):
+    try:
+        res = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True)
+        md_paths = [root / p for p in res.stdout.splitlines() if p.endswith(".md")]
+    except Exception:
+        md_paths = list(root.rglob("*.md"))
+
+    for path in sorted(md_paths, key=lambda p: p.relative_to(root).as_posix()):
         rel = path.relative_to(root)
         if any(part.lower() in SKIP_DIRS for part in rel.parts) or any(skip in rel.as_posix() for skip in SKIP_DIRS):
             continue

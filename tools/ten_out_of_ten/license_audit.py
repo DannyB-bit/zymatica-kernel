@@ -72,7 +72,7 @@ def main() -> int:
     except Exception:
         candidate_paths = sorted(root.rglob("*"))
 
-    for path in sorted(candidate_paths):
+    for path in sorted(candidate_paths, key=lambda p: p.relative_to(root).as_posix()):
         if not path.is_file() or path.suffix.lower() not in SOURCE_EXTENSIONS:
             continue
         rel_path = path.relative_to(root)
@@ -108,8 +108,8 @@ def main() -> int:
     report = {
         "checked_files": checked,
         "covenant_scope_globs": covenant_scope,
-        "violations": violations,
-        "warnings": warnings,
+        "violations": sorted(violations, key=lambda v: (v["path"], v.get("reason", ""))),
+        "warnings": sorted(warnings, key=lambda w: (w["path"], w.get("reason", ""))),
         "status": "PASS" if not violations else "FAIL",
     }
     if args.json_output:
