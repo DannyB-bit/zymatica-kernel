@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-09-05T13:05:38.009381+00:00",
+  "created_utc": "2026-09-05T19:05:18.563375+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -58,6 +58,11 @@
       "size": 291
     },
     {
+      "path": "multi_agent_consider_execution_matrix.json",
+      "sha256": "b53ef0b3d865515f1773dc2688bcc6ce8d5e48c55ba9d9d4062f50c6e8cc651f",
+      "size": 3162
+    },
+    {
       "path": "multi_agent_consider_julian_devnet_execution.json",
       "sha256": "e419608b5024e06d27c861207fd89f73ec594797efa22f5e0ce35f699508223f",
       "size": 1785
@@ -93,6 +98,11 @@
       "size": 656
     },
     {
+      "path": "ten_evidentiary_experiments_audit.json",
+      "sha256": "548a3d6170638dfb9ce2472530f0f1b82daf7661fb1eef7657b08ceb11ccc6ec",
+      "size": 4296
+    },
+    {
       "path": "wormhole.json",
       "sha256": "e4b06010beb78a2d81226543fc6a04040ef08626ee04b04a6d800e22db9cb7cf",
       "size": 5836437
@@ -108,14 +118,14 @@
       "size": 224
     }
   ],
-  "git_head": "4cde6c40b07ba2a2b7d522afc702c004eca3cbc2",
-  "git_status_porcelain": "M README.md\n M evidence/10_00/latest/release_attestation.json\n M index.html\n?? audit_master_dataset.py\n?? audit_qwen35_model.py\n?? build_full_consider1_master_dataset.py\n?? check_4cde_ci_now.py\n?? check_all_deployments.py\n?? check_commit_4cde6c4_status.py\n?? check_commit_ci.py\n?? check_everything.py\n?? check_hf_model_card.py\n?? check_hf_models.py\n?? check_hf_space.py\n?? check_kernel_clean.py\n?? check_latest_runs.py\n?? check_single_run.py\n?? check_token_paths.py\n?? consider-1-full-production-trainer.log\n?? create_private_dataset.py\n?? download_qwen35_model.py\n?? execute_kaggle_push.py\n?? failed_job.log\n?? failed_job_7cf.log\n?? failed_step13.log\n?? fetch_hf_readme.py\n?? fetch_logs_safe.py\n?? fetch_raw_kaggle_output.py\n?? find_consider_sovereign.py\n?? find_sov_readme.py\n?? generate_master_consider1_dataset.py\n?? get_run_steps.py\n?? hf_readme_local.md\n?? hf_readme_updated.md\n?? inject_deep_reasoning_cot.py\n?? inject_language_u_rag.py\n?? inject_maximum_frontier_superpowers.py\n?? inject_tool_calling_reasoning.py\n?? inspect_ci.py\n?? kaggle_deploy/\n?? live_forensic_model_audit.py\n?? models/\n?? monitor_and_resolve.py\n?? monitor_training_live.py\n?? package_kaggle_consider1.py\n?? prepare_kaggle_submission.py\n?? safe_resolve_and_check.py\n?? sync_harness_components.py\n?? sync_hermes_to_zymatica_cli.py\n?? sync_hf_zymatica_readme.py\n?? test_hf_upload.py\n?? update_private_dataset.py\n?? upload_dataset.py\n?? upload_hf_readme.py\n?? verify_exact_qwen35.py",
-  "git_tree": "47981a2db0d74b9e58aaf7b2542e63ee19021bdb",
+  "git_head": "c8c967c70f35bc90c3ef9b4a2ca7eed912b738e2",
+  "git_status_porcelain": "M crates/zymatica-engine/src/lib.rs\n M evidence/10_00/latest/MANIFEST.json\n M evidence/10_00/latest/SHA256SUMS\n M evidence/10_00/latest/release_attestation.json\n?? audit_master_dataset.py\n?? audit_qwen35_model.py\n?? book_cover.jpg\n?? build_full_consider1_master_dataset.py\n?? check_4cde_ci_now.py\n?? check_all_deployments.py\n?? check_ci_status_fast.py\n?? check_commit_4cde6c4_status.py\n?? check_commit_ci.py\n?? check_everything.py\n?? check_hf_model_card.py\n?? check_hf_models.py\n?? check_hf_space.py\n?? check_job_steps.py\n?? check_kernel_clean.py\n?? check_kernel_runs.py\n?? check_latest_runs.py\n?? check_prod_jobs.py\n?? check_run_details.py\n?? check_single_run.py\n?? check_token_paths.py\n?? check_win_steps.py\n?? consider-1-full-production-trainer.log\n?? crates/zymatica-engine/src/dcm_ace_guardrail.rs\n?? crates/zymatica-engine/src/dna_v2_entropy.rs\n?? crates/zymatica-engine/src/recursive_nullifier_batch.rs\n?? create_private_dataset.py\n?? docs/CONSIDER_MULTI_AGENT_BEHAVIOR_REPORT.md\n?? docs/CONSIDER_NEXT_GEN_INVENTIONS.md\n?? docs/TEN_EVIDENTIARY_EXPERIMENTS_MASTER_REPORT.md\n?? download_qwen35_model.py\n?? evidence/10_00/latest/multi_agent_consider_execution_matrix.json\n?? evidence/10_00/latest/ten_evidentiary_experiments_audit.json\n?? execute_kaggle_push.py\n?? failed_job.log\n?? failed_job_7cf.log\n?? failed_step13.log\n?? fetch_hf_readme.py\n?? fetch_logs_safe.py\n?? fetch_raw_kaggle_output.py\n?? find_consider_sovereign.py\n?? find_sov_readme.py\n?? generate_master_consider1_dataset.py\n?? get_run_steps.py\n?? hf_readme_local.md\n?? hf_readme_updated.md\n?? inject_deep_reasoning_cot.py\n?? inject_language_u_rag.py\n?? inject_maximum_frontier_superpowers.py\n?? inject_tool_calling_reasoning.py\n?? inspect_ci.py\n?? kaggle_deploy/\n?? live_forensic_model_audit.py\n?? models/\n?? monitor_and_resolve.py\n?? monitor_training_live.py\n?? package_kaggle_consider1.py\n?? pipeline_diagram.html\n?? pipeline_diagram.png\n?? prepare_kaggle_submission.py\n?? safe_resolve_and_check.py\n?? sandbox/run_10_evidentiary_experiments.py\n?? sandbox/run_consider_multi_agent_suite.py\n?? sync_harness_components.py\n?? sync_hermes_to_zymatica_cli.py\n?? sync_hf_zymatica_readme.py\n?? test_fwd.py\n?? test_hf_upload.py\n?? tests/\n?? update_private_dataset.py\n?? upload_dataset.py\n?? upload_hf_readme.py\n?? verify_exact_qwen35.py",
+  "git_tree": "2a1dabf3a92dd7a7d3bb9bf68060aa72641300d4",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "4cde6c40b07ba2a2b7d522afc702c004eca3cbc2",
-  "source_git_tree_sha": "47981a2db0d74b9e58aaf7b2542e63ee19021bdb",
-  "source_tree_sha256": "0df300a4ef39ef66646d12e2ef0b167a6e2c19f430e4804e71f37acb18949c9c"
+  "source_commit_sha": "c8c967c70f35bc90c3ef9b4a2ca7eed912b738e2",
+  "source_git_tree_sha": "2a1dabf3a92dd7a7d3bb9bf68060aa72641300d4",
+  "source_tree_sha256": "d8cf5b413e1056c3284a50564f2002bed9e21e7d9d6da2a21bcb06a95f507cf8"
 }

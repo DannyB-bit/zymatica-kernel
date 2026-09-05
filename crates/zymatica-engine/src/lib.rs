@@ -89,3 +89,6 @@ pub mod morphogenesis;
 pub mod z_mcts;
 pub mod z_wormhole;
 pub mod zk_barrier;
+pub mod dna_v2_entropy;
+pub mod recursive_nullifier_batch;
+pub mod dcm_ace_guardrail;
