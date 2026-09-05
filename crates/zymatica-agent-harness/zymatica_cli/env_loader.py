@@ -9,7 +9,30 @@ import sys
 import threading
 from pathlib import Path
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(dotenv_path=None, stream=None, override=False, encoding="utf-8", **kwargs):
+        """Fallback minimal .env parser when python-dotenv is not installed."""
+        lines = []
+        try:
+            if dotenv_path and Path(dotenv_path).exists():
+                with open(dotenv_path, "r", encoding=encoding, errors="ignore") as f:
+                    lines = f.readlines()
+            elif stream:
+                lines = stream.readlines() if hasattr(stream, "readlines") else stream.getvalue().splitlines()
+            for line in lines:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                k = k.strip()
+                v = v.strip().strip("'\"")
+                if override or k not in os.environ:
+                    os.environ[k] = v
+            return True
+        except Exception:
+            return False
 from utils import atomic_replace, fast_safe_load
 
 

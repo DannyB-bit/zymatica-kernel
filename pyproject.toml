@@ -20,7 +20,8 @@ dependencies = [
     "numpy>=1.20.0",
     "pyyaml>=6.0",
     "prompt_toolkit>=3.0.0",
-    "requests>=2.28.0"
+    "requests>=2.28.0",
+    "python-dotenv>=1.0.0"
 ]
 
 [project.optional-dependencies]
@@ -28,7 +29,8 @@ cli = [
     "pyyaml>=6.0",
     "prompt_toolkit>=3.0.0",
     "requests>=2.28.0",
-    "rich>=13.0.0"
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0"
 ]
 
 [tool.setuptools.packages.find]

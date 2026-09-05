@@ -1,5 +1,5 @@
 {
-  "checked_files": 991,
+  "checked_files": 996,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -29,6 +29,10 @@
     },
     {
       "path": "build_full_consider1_master_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "check_commit_ci.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -64,6 +68,10 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "get_run_steps.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "inject_deep_reasoning_cot.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -96,6 +104,10 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "monitor_and_resolve.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "monitor_training_live.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -117,6 +129,14 @@
     },
     {
       "path": "stress_test_solana_cuneiform.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sync_harness_components.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sync_hermes_to_zymatica_cli.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {

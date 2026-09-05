@@ -10,4 +10,5 @@ Thumbs.db
 zymatica_10_00_bundle/
 build_zspar/
 .golden.tmp.json
+*.egg-info/
 
