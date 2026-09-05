@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-09-05T21:51:04.997550+00:00",
+  "created_utc": "2026-09-05T21:58:16.959637+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "43e97595a1b388581f65498dce7ee0aae97a840a2ac590f4a482b07b37014a0b",
+      "sha256": "3ff6ac5ac8817156bfb7b050f105bf4c246ab44e474b03bd5447d1d821b9d961",
       "size": 194
     },
     {
@@ -118,14 +118,14 @@
       "size": 232
     }
   ],
-  "git_head": "0793424789d24e6923a198d5913a7aca299f40e6",
-  "git_status_porcelain": "?? AGENTS.md\n?? HEARTBEAT.md\n?? SOUL.md",
-  "git_tree": "d4790a27cb710a39fba532ec9cca8cdf21cf4612",
+  "git_head": "19ba2c14bdf5edc023982bcd52fdb2644aaf57ca",
+  "git_status_porcelain": "M README.md\n M SOUL.md\n M evidence/10_00/latest/claims_audit.json",
+  "git_tree": "b42a621c4ddeb85af95a35089129c3b62c08e3bd",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "0793424789d24e6923a198d5913a7aca299f40e6",
-  "source_git_tree_sha": "d4790a27cb710a39fba532ec9cca8cdf21cf4612",
-  "source_tree_sha256": "0f404628d07421b0c54e989580759983e27e70ada8aff1059c7d18fcc4e18743"
+  "source_commit_sha": "19ba2c14bdf5edc023982bcd52fdb2644aaf57ca",
+  "source_git_tree_sha": "b42a621c4ddeb85af95a35089129c3b62c08e3bd",
+  "source_tree_sha256": "6c30e5f51081455e3005bb744099976cbbfe1c634a88f94868cbb53f9d47fd5b"
 }
