@@ -1,6 +1,6 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-09-05T21:14:06.453196+00:00",
+  "created_utc": "2026-09-05T21:51:04.997550+00:00",
   "files": [
     {
       "path": "claims_audit.json",
@@ -118,14 +118,14 @@
       "size": 232
     }
   ],
-  "git_head": "9cf429136a237b800aa2d6d993e5821c23e2c7af",
-  "git_status_porcelain": "M README.md\n M evidence/10_00/latest/MANIFEST.json\n M evidence/10_00/latest/SHA256SUMS\n M evidence/10_00/latest/claims_audit.json\n M evidence/10_00/latest/release_attestation.json",
-  "git_tree": "be73c414b1ffcfc9aa1a9d4f10053ec665e1463d",
+  "git_head": "0793424789d24e6923a198d5913a7aca299f40e6",
+  "git_status_porcelain": "?? AGENTS.md\n?? HEARTBEAT.md\n?? SOUL.md",
+  "git_tree": "d4790a27cb710a39fba532ec9cca8cdf21cf4612",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "9cf429136a237b800aa2d6d993e5821c23e2c7af",
-  "source_git_tree_sha": "be73c414b1ffcfc9aa1a9d4f10053ec665e1463d",
+  "source_commit_sha": "0793424789d24e6923a198d5913a7aca299f40e6",
+  "source_git_tree_sha": "d4790a27cb710a39fba532ec9cca8cdf21cf4612",
   "source_tree_sha256": "0f404628d07421b0c54e989580759983e27e70ada8aff1059c7d18fcc4e18743"
 }
