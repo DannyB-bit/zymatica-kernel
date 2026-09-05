@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-09-01T03:21:00.639198+00:00",
+  "created_utc": "2026-09-05T06:53:03.428144+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "1747bfbceb9a73daae9807f6a6e88871f3ff49a390aad4ed68d0b4dc05f91667",
+      "sha256": "79521e73779435cbb7c8083fe3f2038bcfb2023655cd0fb64fc77eb2d72cfe6c",
       "size": 202
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "path": "license_audit.json",
-      "sha256": "92c8301a463ba95bc3cbe933d5d73bade2a07f614bdbb2ef96522d1847cedc8f",
-      "size": 147929
+      "sha256": "9343bffcda904b818611eaf187bce6a80f7c4abb121df83091e8c5b6f3e4076f",
+      "size": 151665
     },
     {
       "path": "mcts.json",
@@ -108,14 +108,14 @@
       "size": 224
     }
   ],
-  "git_head": "ada7c92b664a19116cb2fc3b396a2f3b346bf1d1",
-  "git_status_porcelain": "M Cargo.lock\n M README.md\n M crates/zymatica-language-u/28_Solana_Semantic_Anchor/programs/solana-cuneiform-anchor/src/lib.rs\n M crates/zymatica-language-u/36_Z_Turnstile_Semantic_Conservation/WHITEPAPER.md\n M crates/zymatica-language-u/36_Z_Turnstile_Semantic_Conservation/run_proof.py\n M crates/zymatica-language-u/37_Recursive_ZK_Mesh_Proof_Folding/WHITEPAPER.md\n M crates/zymatica-language-u/37_Recursive_ZK_Mesh_Proof_Folding/run_proof.py\n M crates/zymatica-language-u/README.md\n M crates/zymatica-zk-mesh/experiment_wolfpack_llm_multihop.py\n M docs/NEXT_GEN_CRYPTOGRAPHIC_ADVANCEMENTS.md\n M evidence/10_00/latest/MANIFEST.json\n M evidence/10_00/latest/SHA256SUMS\n M evidence/10_00/latest/claims_audit.json\n M evidence/10_00/latest/license_audit.json\n M evidence/10_00/latest/release_attestation.json\n M foundations/solana-cuneiform-milestone1/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone2/programs/solana-cuneiform-anchor/src/lib.rs\n M foundations/solana-cuneiform-milestone3/programs/solana-cuneiform-anchor/src/lib.rs\n M verify_release.py\n?? crates/zymatica-agent-harness/zymatica_cli/banner.py",
-  "git_tree": "9c3dd8cbb1137fc699f93f9f4a5906f5adc9626c",
+  "git_head": "e1009e4d5d01df469b21b83634059e7966643b36",
+  "git_status_porcelain": "M evidence/10_00/latest/MANIFEST.json\n M evidence/10_00/latest/SHA256SUMS\n M evidence/10_00/latest/claims_audit.json\n M evidence/10_00/latest/license_audit.json\n M evidence/10_00/latest/release_attestation.json\n?? audit_master_dataset.py\n?? audit_qwen35_model.py\n?? build_full_consider1_master_dataset.py\n?? check_hf_models.py\n?? check_kernel_clean.py\n?? consider-1-full-production-trainer.log\n?? crates/zymatica-agent-harness/zymatica_cli/browser_connect.py\n?? crates/zymatica-agent-harness/zymatica_cli/env_loader.py\n?? create_private_dataset.py\n?? desktop/\n?? download_qwen35_model.py\n?? execute_kaggle_push.py\n?? fetch_logs_safe.py\n?? fetch_raw_kaggle_output.py\n?? generate_master_consider1_dataset.py\n?? inject_deep_reasoning_cot.py\n?? inject_language_u_rag.py\n?? inject_maximum_frontier_superpowers.py\n?? inject_tool_calling_reasoning.py\n?? inspect_ci.py\n?? kaggle_deploy/\n?? live_forensic_model_audit.py\n?? models/\n?? monitor_training_live.py\n?? package_kaggle_consider1.py\n?? prepare_kaggle_submission.py\n?? update_private_dataset.py\n?? upload_dataset.py\n?? verify_exact_qwen35.py",
+  "git_tree": "247a5b5f7306a20df6e9ccfc9ab1080189e7898a",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "ada7c92b664a19116cb2fc3b396a2f3b346bf1d1",
-  "source_git_tree_sha": "9c3dd8cbb1137fc699f93f9f4a5906f5adc9626c",
-  "source_tree_sha256": "741c79b7a0aa92a54636b8f892945fcfe5f2be6a94a6581da86b5ab89faf7458"
+  "source_commit_sha": "e1009e4d5d01df469b21b83634059e7966643b36",
+  "source_git_tree_sha": "247a5b5f7306a20df6e9ccfc9ab1080189e7898a",
+  "source_tree_sha256": "feff7ba6aba69fb06d4e487796bd7ded07e133661390f64b8e2d7aa2209910e0"
 }

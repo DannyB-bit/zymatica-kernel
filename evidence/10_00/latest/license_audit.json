@@ -1,5 +1,5 @@
 {
-  "checked_files": 966,
+  "checked_files": 991,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -16,7 +16,71 @@
   "violations": [],
   "warnings": [
     {
+      "path": "audit_master_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "audit_qwen35_model.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "break_the_record_engine.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "build_full_consider1_master_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "check_hf_models.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "check_kernel_clean.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "create_private_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "download_qwen35_model.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "execute_kaggle_push.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "fetch_logs_safe.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "fetch_raw_kaggle_output.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "generate_master_consider1_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "inject_deep_reasoning_cot.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "inject_language_u_rag.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "inject_maximum_frontier_superpowers.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "inject_tool_calling_reasoning.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "inspect_ci.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -25,6 +89,22 @@
     },
     {
       "path": "live_devnet_node_c_execution.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "live_forensic_model_audit.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "monitor_training_live.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "package_kaggle_consider1.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "prepare_kaggle_submission.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -37,6 +117,18 @@
     },
     {
       "path": "stress_test_solana_cuneiform.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "update_private_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "upload_dataset.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "verify_exact_qwen35.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -77,6 +169,14 @@
     },
     {
       "path": "zymatica/__init__.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "kaggle_deploy/kernel_upload/consider1_trainer.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "kaggle_deploy/zymatica_qwen_trainer/zymatica_qwen_trainer.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {

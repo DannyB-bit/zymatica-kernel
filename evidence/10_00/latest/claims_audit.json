@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "checked_markdown_files": 286,
-  "checked_markdown_lines": 43533,
+  "checked_markdown_files": 287,
+  "checked_markdown_lines": 44561,
   "registered_claims_count": 14,
   "numerical_metric_audit": "VERIFIED_BIT_EXACT",
   "violations": []
