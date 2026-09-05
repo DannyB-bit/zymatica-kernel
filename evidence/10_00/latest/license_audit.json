@@ -1,5 +1,5 @@
 {
-  "checked_files": 966,
+  "checked_files": 972,
   "covenant_scope_globs": [
     "crates/zymatica-zspar/src/*.rs",
     "crates/zymatica-zk-mesh/groth16/src/*.rs",
@@ -248,6 +248,14 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "crates/zymatica-engine/src/dcm_ace_guardrail.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-engine/src/dna_v2_entropy.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "crates/zymatica-engine/src/ecosystem.rs",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
@@ -337,6 +345,10 @@
     },
     {
       "path": "crates/zymatica-engine/src/qwen35.rs",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "crates/zymatica-engine/src/recursive_nullifier_batch.rs",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -3056,11 +3068,19 @@
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
+      "path": "sandbox/run_10_evidentiary_experiments.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
       "path": "sandbox/run_autonomous_agents_consider_julian.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
       "path": "sandbox/run_complex_stress_experiment_consider_julian.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "sandbox/run_consider_multi_agent_suite.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {
@@ -3073,6 +3093,10 @@
     },
     {
       "path": "stress_test_solana_cuneiform.py",
+      "reason": "no file-level SPDX marker; repository-level license may still govern"
+    },
+    {
+      "path": "tests/test_consider_inventions.py",
       "reason": "no file-level SPDX marker; repository-level license may still govern"
     },
     {

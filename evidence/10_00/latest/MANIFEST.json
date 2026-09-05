@@ -1,10 +1,10 @@
 {
   "cargo": "cargo 1.96.1 (356927216 2026-06-26)",
-  "created_utc": "2026-09-05T19:13:37.140391+00:00",
+  "created_utc": "2026-09-05T19:20:52.026720+00:00",
   "files": [
     {
       "path": "claims_audit.json",
-      "sha256": "5f3cdb24d901ef6e1ceeef06ab034f2d1beeb2f807cbacec38facbd6711b4e0a",
+      "sha256": "783f20e297b89fba5057fdb1fce5010e414c2d1c87ef9e8255d3d211ca4f3303",
       "size": 194
     },
     {
@@ -49,8 +49,8 @@
     },
     {
       "path": "license_audit.json",
-      "sha256": "c7012f9f822aa70ae090dd40e3bdf5bbfd36e6a54d3f9aa46ae023c3d7e00427",
-      "size": 144821
+      "sha256": "6479d8df2c4bfcb374e48b4ab15813a87d12344ef89634faef40e55bbd3dc1fe",
+      "size": 145790
     },
     {
       "path": "mcts.json",
@@ -118,14 +118,14 @@
       "size": 232
     }
   ],
-  "git_head": "5db2385e664c86d65dbc8f1d848524098585b099",
-  "git_status_porcelain": "M crates/zymatica-engine/src/dcm_ace_guardrail.rs\n M crates/zymatica-engine/src/dna_v2_entropy.rs\n M crates/zymatica-engine/src/lib.rs\n M crates/zymatica-engine/src/recursive_nullifier_batch.rs",
-  "git_tree": "c888ea40483a3e8b9909def4651779fb611c65bb",
+  "git_head": "a1c38b233e75bca1d643da30b759b51b19680492",
+  "git_status_porcelain": "M evidence/10_00/latest/claims_audit.json\n M evidence/10_00/latest/license_audit.json",
+  "git_tree": "83cb599f75484d89ac944f8861cf671de7a6e007",
   "platform": "Windows-10-10.0.19045-SP0",
   "python": "3.14.2 (tags/v3.14.2:df79316, Dec  5 2025, 17:18:21) [MSC v.1944 64 bit (AMD64)]",
   "rustc": "rustc 1.96.1 (31fca3adb 2026-06-26)",
   "schema": "zymatica.evidence-manifest.v2",
-  "source_commit_sha": "5db2385e664c86d65dbc8f1d848524098585b099",
-  "source_git_tree_sha": "c888ea40483a3e8b9909def4651779fb611c65bb",
+  "source_commit_sha": "a1c38b233e75bca1d643da30b759b51b19680492",
+  "source_git_tree_sha": "83cb599f75484d89ac944f8861cf671de7a6e007",
   "source_tree_sha256": "ce4d3c03a4fdc2376110dcb19807eec83bdfc59bdb71a4fd26edfe43b86b20e2"
 }
