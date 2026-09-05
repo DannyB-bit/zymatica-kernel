@@ -19,11 +19,10 @@ from pathlib import Path
 
 
 def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    raw = path.read_bytes()
+    if path.suffix in {".json", ".txt", ".md", ".csv", ".spdx", ".lean"} or path.name == "SHA256SUMS":
+        raw = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def compute_source_tree_hash(root: Path) -> str:
@@ -108,7 +107,8 @@ def main() -> int:
         "files": files,
     }
     output = args.output or (evidence_dir / "MANIFEST.json")
-    output.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    with open(output, "w", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(payload, indent=2, sort_keys=True) + "\n")
     print(output)
     return 0
 

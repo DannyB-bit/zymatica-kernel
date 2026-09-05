@@ -221,7 +221,9 @@ def main() -> int:
 
     if args.json_output:
         args.json_output.parent.mkdir(parents=True, exist_ok=True)
-        args.json_output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        with open(args.json_output, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(report, f, indent=2)
+            f.write("\n")
 
     print(json.dumps(report, indent=2))
     return 0 if not violations else 1

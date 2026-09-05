@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import subprocess
 from pathlib import Path
 
 SOURCE_EXTENSIONS = {
@@ -65,7 +66,13 @@ def main() -> int:
     warnings: list[dict[str, str]] = []
     checked = 0
 
-    for path in root.rglob("*"):
+    try:
+        res = subprocess.run(["git", "ls-files"], cwd=root, capture_output=True, text=True, check=True)
+        candidate_paths = [root / p for p in res.stdout.splitlines()]
+    except Exception:
+        candidate_paths = sorted(root.rglob("*"))
+
+    for path in sorted(candidate_paths):
         if not path.is_file() or path.suffix.lower() not in SOURCE_EXTENSIONS:
             continue
         rel_path = path.relative_to(root)
@@ -107,7 +114,9 @@ def main() -> int:
     }
     if args.json_output:
         args.json_output.parent.mkdir(parents=True, exist_ok=True)
-        args.json_output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        with open(args.json_output, "w", encoding="utf-8", newline="\n") as f:
+            json.dump(report, f, indent=2)
+            f.write("\n")
     print(json.dumps(report, indent=2))
     return 0 if not violations else 1
 

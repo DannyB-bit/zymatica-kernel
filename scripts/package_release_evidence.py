@@ -20,11 +20,10 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 
 def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    raw = path.read_bytes()
+    if path.suffix in {".json", ".txt", ".md", ".csv", ".spdx", ".lean"} or path.name == "SHA256SUMS":
+        raw = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def package_evidence():
@@ -42,7 +41,8 @@ def package_evidence():
             lines.append(f"{sha256_file(p)}  {rel}")
 
     sums_file = evidence_dir / "SHA256SUMS"
-    sums_file.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with open(sums_file, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(lines) + "\n")
     print(f"[+] Generated SHA256SUMS with {len(lines)} files at {sums_file}")
 
 
