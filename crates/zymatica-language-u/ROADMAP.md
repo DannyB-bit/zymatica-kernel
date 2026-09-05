@@ -74,7 +74,7 @@
 | :--- | :---: | :--- |
 | PodJobs Consensus Swarm | 2028 | 12-agent consensus network using Google Gen AI SDK planners, context miners, and arbiters producing Merkle-root cryptographic attestations |
 | Semantic Intent Marketplace | 2028 | On-chain marketplace where agents publish and consume semantic intent coordinates — enabling machine-to-machine commerce |
-| Offline-First Sovereign AI | 2028 | Complete AI inference stack running on airgapped hardware with no cloud dependency — sovereign edge intelligence |
+| Offline-First Autonomous AI | 2028 | Complete AI inference stack running on airgapped hardware with no cloud dependency — autonomous edge intelligence |
 
 ---
 
