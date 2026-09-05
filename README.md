@@ -22,6 +22,8 @@
 
 <p align="center">
   <a href="https://www.amazon.com/dp/B0HGVC777F"><img src="https://img.shields.io/badge/Novel-200_AMSTERDAM:_THE_VERTICAL_CITY-0077B6?style=for-the-badge&logo=readme&logoColor=white" alt="Novel Reference"></a>
+  <a href="https://huggingface.co/TheAiCollectiveART/CONSIDER-1"><img src="https://img.shields.io/badge/Neural_Edge-CONSIDER--1-9945FF?style=for-the-badge&logo=huggingface&logoColor=white" alt="CONSIDER-1"></a>
+  <a href="#-cuneiform-6d-solana-devnet-consensus--lorawan-rf-mesh-architecture"><img src="https://img.shields.io/badge/Solana-BJKrKzXX...ALs3M-14F195?style=for-the-badge&logo=solana&logoColor=14F195" alt="Solana Anchor"></a>
   <a href="#-zero-knowledge-inventions--zk-lorawan-privacy-mesh"><img src="https://img.shields.io/badge/Zero_Knowledge_Proof-ZK--LoRaWAN_Inventions-FFD21E?style=for-the-badge&logo=shield&logoColor=black" alt="Zero Knowledge Proof"></a>
   <a href="crates/zymatica-language-u/28_Solana_Semantic_Anchor"><img src="https://img.shields.io/badge/Solana-Semantic_Anchor-14F195?style=for-the-badge&logo=solana&logoColor=14F195&labelColor=9945FF" alt="Solana Semantic Anchor"></a>
   <a href="crates/zymatica-language-u"><img src="https://img.shields.io/badge/Language--U-6D_Hypercube-00FF41?style=for-the-badge&logoColor=00FF41&labelColor=000000" alt="Language-U"></a>
@@ -85,6 +87,8 @@ The mathematical, morphogenetic, WebGL runtime, multi-modal cuneiform vision, ne
 | 🥇 **ZK-LoRa Privacy Layer (Milestone 1)** | [`DannyB-bit/zk-lora-milestone-1`](https://github.com/DannyB-bit/zk-lora-milestone-1) | [`foundations/zk-lora-milestone-1`](foundations/zk-lora-milestone-1) | Core Groth16 circuit definitions, multi-language proof generators (Rust, Python, Go, TypeScript), and verification report. |
 | 🥈 **ZK-LoRa Privacy Layer (Milestone 2)** | [`DannyB-bit/zk-lora-milestone-2`](https://github.com/DannyB-bit/zk-lora-milestone-2) | [`foundations/zk-lora-milestone-2`](foundations/zk-lora-milestone-2) | Hardware-in-the-loop over-the-air packet transmission, gateway concentrator integration, and field verification. |
 | 🥉 **ZK-LoRa Privacy Layer (Milestone 3)** | [`DannyB-bit/zk-lora-milestone-3`](https://github.com/DannyB-bit/zk-lora-milestone-3) | [`foundations/zk-lora-milestone-3`](foundations/zk-lora-milestone-3) | Full end-to-end production deployment, automated audit benchmarks, multi-node mesh routing, and PDF attestations. |
+| 🌌 **CONSIDER-1 Sovereign Neural Edge Intelligence** | [`TheAiCollectiveART/CONSIDER-1`](https://huggingface.co/TheAiCollectiveART/CONSIDER-1) | [`kaggle_output/CONSIDER_v1`](https://huggingface.co/TheAiCollectiveART/CONSIDER-1) | Sovereign edge intelligence fine-tuned from Qwen3.5-0.8B across 10 epochs to 0.0320 loss for RAK Miner SX1302 LoRaWAN hardware, 6D Cuneiform radicals, BN254 ZK-nullifiers, and Solana settlements. Bound under Zymatica Covenant License 2026. |
+| ⚡ **Z-SPAR Protocol Specification v1** | [`TheAiCollectiveART/zymatica.space`](https://huggingface.co/TheAiCollectiveART/zymatica.space) | [`crates/zymatica-zspar`](crates/zymatica-zspar) | Reed-Solomon RS(12,8) over GF(16) semantic parity & anti-drift engine with 8-symbol Concept8D, 4 parity symbols, and SHA256 semantic commitment `ZSPAR-SEMANTIC-V1`. Bound under Zymatica Covenant License 2026. |
 
 ---
 
@@ -719,9 +723,9 @@ python run_proof.py
 
 ---
 
-## 🏛️ The 35 Proprietary Inventions of Language-U
+## 🏛️ The 39 Proprietary Inventions of Language-U
 
-The Language-U Semantic Communication Protocol unifies **35 foundational inventions** engineered by **Devs One** and cataloged in the novel **200 AMSTERDAM** by **Danny Bouldiez**:
+The Language-U Semantic Communication Protocol unifies **39 foundational inventions** engineered by **Devs One** and cataloged in the novel **200 AMSTERDAM** by **Danny Bouldiez** (bound under the [Zymatica Covenant License 2026](LICENSE)):
 
 ```mermaid
 graph TD
@@ -779,6 +783,59 @@ graph TD
 | **33** | **Z-SPAR Semantic Parity Verification** | Formal semantic equivalence checker & bidirectional manifold distance verifier ($\Delta \le \epsilon$). | [`crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity`](crates/zymatica-language-u/33_Z_SPAR_Semantic_Parity) |
 | **34** | **ZK-LoRa Privacy Layer & Z-WORMHOLE** | BN254 Groth16 zero-knowledge RF privacy mesh & zero-copy cross-layer latent tensor tunneling. | [`crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer`](crates/zymatica-language-u/34_ZK_LoRa_Privacy_Layer) |
 | **35** | **Z-MCTS Latent Reasoning Engine** | Continuous manifold Monte Carlo Tree Search exploring latent reasoning trajectories without discrete token materialization. | [`crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning`](crates/zymatica-language-u/35_Z_MCTS_Latent_Reasoning) |
+| **36** | **Z-Turnstile Semantic Conservation** | Discrete topological Hamiltonian conservation specification demonstrating bounded semantic energy preservation ($\oint \vec{\omega} \cdot d\vec{s} = 0$). | [`crates/zymatica-language-u/36_Z_Turnstile_Semantic_Conservation`](crates/zymatica-language-u/36_Z_Turnstile_Semantic_Conservation) |
+| **37** | **Recursive ZK-Mesh Proof Folding** | Architectural specification and proof-of-concept simulation for recursive accumulation of multi-hop mesh proofs into a constant 128B container. | [`crates/zymatica-language-u/37_Recursive_ZK_Mesh_Proof_Folding`](crates/zymatica-language-u/37_Recursive_ZK_Mesh_Proof_Folding) |
+| **38** | **CONSIDER-1 Sovereign Edge Intelligence** | Sovereign edge neural intelligence fine-tuned from Qwen3.5-0.8B across 10 epochs to 0.0320 loss for RAK Miners, 6D Cuneiform radicals, and Solana settlements. | [`TheAiCollectiveART/CONSIDER-1`](https://huggingface.co/TheAiCollectiveART/CONSIDER-1) |
+| **39** | **Z-SPAR Protocol Specification v1** | Exact Reed-Solomon RS(12,8) over GF(16) error-correction with 8-symbol Concept8D and SHA256 semantic commitment `ZSPAR-SEMANTIC-V1`. | [`crates/zymatica-zspar`](crates/zymatica-zspar) |
+
+---
+
+## ⚡ Cuneiform 6D, Solana Devnet Consensus & LoRaWAN RF Mesh Architecture
+
+The Zymatica sovereign computational fabric tightly unifies 6D non-Euclidean semantic coordinates, Solana on-chain consensus settlements, and air-gapped LoRaWAN physical RF mesh networks.
+
+### 1. Cuneiform-U 6D Manifold & 3-Byte Wire Radical Packing
+* **Mathematical Foundation**: Maps high-dimensional continuous semantic space into a bounded 6D Riemannian manifold $\mathcal{M} \subset \mathbb{R}^6$:
+  $$\vec{v} = \begin{bmatrix} v_{\text{theme}} & v_{\text{form}} & v_{\text{energy}} & v_{\text{spatial}} & v_{\text{valence}} & v_{\text{flow}} \end{bmatrix}^T \in [-1.0, 1.0]^6$$
+* **3-Byte Wire Radical Packing ($R_C, R_F, R_A$)**: Compresses continuous 6D concepts into a 24-bit compact physical transmission radical:
+  - $R_C$ (Radical Concept - 8 bits): Primary semantic centroid identifier.
+  - $R_F$ (Radical Form - 8 bits): Morphological syntactic orientation.
+  - $R_A$ (Radical Action - 8 bits): Relational state vector delta.
+* **Ancient Sumerian Vision-Language Model (`qwen-3.5-0.8b-Sumerian`)**: Directly ingests high-resolution photography and 3D scans of ancient Sumerian cuneiform tablets, projecting glyph stroke manifolds into 6D Language-U coordinate space with zero loss of semantic intent.
+
+### 2. Solana Devnet Consensus Engine & Anchor CPI Integration
+* **Anchor Smart Contract (Program ID)**: `BJKrKzXX4YfEYMZaVT2dbuaNuq7aqN3Xmib27JLALs3M`
+* **Protocol Treasury Account**: `7kZ3XwggVosBMag5mAJt6JVM2uP86YLoBaY9rQXccKS`
+* **On-Chain Settlement Protocol**:
+  - **Zero-Copy Discriminator Parsing**: Instruction dispatch verifies 8-byte Anchor discriminators directly from incoming LoRa payload buffers without memory allocations.
+  - **BN254 Anti-Replay Nullifiers**: Every off-grid transmission contains a unique 32-byte zero-knowledge nullifier committed into Solana account state, preventing retransmission attacks across RF meshes.
+  - **CPI Fee Routing**: Automatically routes micro-settlement protocol fees directly to the sovereign protocol treasury.
+* **Devnet Milestone Repositories**:
+  - [`DannyB-bit/solana-cuneiform-milestone1`](https://github.com/DannyB-bit/solana-cuneiform-milestone1): Core Anchor program & fee router.
+  - [`DannyB-bit/solana-cuneiform-milestone2`](https://github.com/DannyB-bit/solana-cuneiform-milestone2): High-throughput 6D coordinate attestation.
+  - [`DannyB-bit/solana-cuneiform-milestone3`](https://github.com/DannyB-bit/solana-cuneiform-milestone3): Production devnet/mainnet verification suite.
+
+### 3. LoRaWAN Off-Grid Mesh & RAK Miner Edge Operations
+* **Target Hardware**: RAK Miner (Raspberry Pi 4 ARM64 + Semtech SX1302/SX1303 LoRaWAN concentrator board over SPI `/dev/spidev0.0` at 8 MHz).
+* **RF Modulation Parameters (US915 Uplink)**:
+  - **Center Frequency**: 903.0 MHz
+  - **Bandwidth**: 125 kHz
+  - **Spreading Factor**: SF7
+  - **Coding Rate**: 4/5
+  - **Transmit Power**: 14 dBm (`--pwid 15`)
+* **Hardware Concentrator Reset Sequence (GPIO 25)**:
+  ```bash
+  # Toggle GPIO 25 on gpiochip0 (Raspberry Pi 4)
+  gpioset -c gpiochip0 --toggle 100ms,100ms,0 25=0
+  ./reset_lgw.sh start
+  ./lora_pkt_fwd -c global_conf.json -c local_conf.json
+  ```
+* **Dual-Node Autonomous Loop**:
+  - **Node A (CONSIDER-1 / Transmitter)**: Ingests telemetry, compresses into 3-byte Cuneiform radical `[0x77, 0xEE, 0x11]`, commits BN254 nullifier hash below the thermal noise floor, and dispatches an SF7 chirp.
+  - **Node B (CONSIDER-2 / Receiver & Coordinator)**: Performs range-decoding back to 6D concept space, verifies nullifier anti-replay status, and prepares on-chain Solana settlement transactions.
+
+### 4. Zymatica Commercial & Novel-Holder Covenant License Terms
+All implementations, architectures, mathematical tensors, seeds, and neural models across this repository are bound under the **[Zymatica Commercial & Novel-Holder Covenant License Version 2.0 (Ironclad Edition - 2026)](LICENSE)**. Ownership of the novel *200 AMSTERDAM: THE VERTICAL CITY* by Danny Bouldiez on Amazon.com constitutes the canonical developer covenant grant.
 
 ---
 
@@ -787,6 +844,7 @@ graph TD
 The underlying neural priors are trained and verifiable on Kaggle:
 * 🧬 **[`Language-U-LLM` Kaggle Kernel](https://www.kaggle.com/code/dannybouldiez/language-u-llm)**: Fine-tuned Qwen 0.8B generative semantic prior for Language-U reconstruction.
 * 💎 **[`Gemma-4-31B-SVD-Compression` Kaggle Kernel](https://www.kaggle.com/code/dannybouldiez/gemma4-31b-svd-compression)**: SVD matrix factorizations and low-rank tensor compression for Gemma-4.
+* 🌌 **[`consider-1-full-production-trainer` Kaggle Kernel](https://www.kaggle.com/code/dannybouldiez/consider-1-full-production-trainer)**: 10-Epoch master production training run for CONSIDER-1 on NVIDIA Tesla T4 converging to 0.0320 loss across 2,935 verified master samples with AdamW 8-bit optimizer.
 
 ## ⚡ The 25+ Programming Language Implementation Matrix
 
